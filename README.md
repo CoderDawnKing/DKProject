@@ -11,6 +11,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+项目 | 地址 | 版本 | 日期 | 作者
+:-: | :-: | :-: | :-: | :-:
+DKProject | https://github.com/CoderDawnKing/DKProject.git | 0.1.0 | 2020.7.4 | DawnKing
+
 ## Installation
 
 DKProject is available through [CocoaPods](https://cocoapods.org). To install
