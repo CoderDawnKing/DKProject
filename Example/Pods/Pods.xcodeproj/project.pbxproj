@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04AFEDD7B28A39D80F0720452AB4F6C6 /* UIFont+DKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0226BC3C8D4A04BDC58B89C459D0360E /* UIFont+DKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0B34E98BE458216F506D143ACA7F423D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		100A921D80DB4F420563AD3547CB6730 /* Pods-DKProject_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AD0C2A39995F9FBEC0D08C4CBB9265 /* Pods-DKProject_Tests-dummy.m */; };
 		1297842E37C4051A55060572F2ED5BB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		45DFCAFD30E1923C40E66CF19AF14D10 /* DKProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE2F0A918C1DD83D2CA20542C57BB080 /* DKProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4973DEAB0AF8ECC325BB989970B9E773 /* Pods-DKProject_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5023683C1360073DCAFCD0646899F66E /* Pods-DKProject_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AE527FAEE8A83872F299262FE28691D1 /* DKProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECCE6C403693653CFEDA395BC25DFD9 /* DKProject-dummy.m */; };
-		AFF6DC06AD3DD8BB660A786C189CF05A /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = B10F965072E1FA2B34C35C876A8CB58B /* ReplaceMe.m */; };
-		C741CF25B3D015CE904A43B633D5456D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		78C84427450BDCFFB49E86CC7E6080ED /* DKProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B05C679AC54EDC272024B9D6DAE556 /* DKProject-dummy.m */; };
+		881F142FB4E2CD52EC90CB92827C474A /* UIFont+DKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F16056E241DC3312857310D166F070 /* UIFont+DKCategory.m */; };
+		8CA3887B0D48A96144C75E6442723A88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		DD2FB32234845290F061DCA2D79D1D96 /* Pods-DKProject_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAC59C84AC22FF4B20239BC4A8D9D4E /* Pods-DKProject_Example-dummy.m */; };
-		EEB2F6EF2D1D10354177C22315C9F30F /* DKProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 026C037298739FA4B11BF367BC7207E6 /* DKProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F196E9D36E321DA6F70604A916502841 /* Pods-DKProject_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9640035CBCCC70DDAA4174DA2C0C9C7C /* Pods-DKProject_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -37,36 +38,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		026C037298739FA4B11BF367BC7207E6 /* DKProject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DKProject-umbrella.h"; sourceTree = "<group>"; };
+		0226BC3C8D4A04BDC58B89C459D0360E /* UIFont+DKCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+DKCategory.h"; path = "DKProject/Classes/DKCategory/UIFont+DKCategory.h"; sourceTree = "<group>"; };
 		05F2A82ADD7E13BD44483C3A634BB515 /* Pods-DKProject_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DKProject_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		072BF96C75871053F2F5AB6CAA9D576D /* DKProject.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = DKProject.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		0A3408958851C4168E9B1DDFBCA83C73 /* Pods-DKProject_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DKProject_Tests.modulemap"; sourceTree = "<group>"; };
-		267C84DD295EDE946382E3DE8BB4BA15 /* DKProject.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DKProject.modulemap; sourceTree = "<group>"; };
-		2A3107D3B713F7C0DA275D045DF4D8F7 /* DKProject-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DKProject-prefix.pch"; sourceTree = "<group>"; };
 		2C2BBCB108526AA3301095102959C02B /* Pods_DKProject_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DKProject_Example.framework; path = "Pods-DKProject_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4ECCE6C403693653CFEDA395BC25DFD9 /* DKProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DKProject-dummy.m"; sourceTree = "<group>"; };
+		3C735A0F6DD2F87FBD47EF9FA405392F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		4663F5332E84BC57BCF2478DBC2CAF28 /* DKProject.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = DKProject.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5023683C1360073DCAFCD0646899F66E /* Pods-DKProject_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DKProject_Example-umbrella.h"; sourceTree = "<group>"; };
 		51C48CBD24C4FDCDDD2AE4EA50B9078A /* Pods_DKProject_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DKProject_Tests.framework; path = "Pods-DKProject_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D76D87653C2DC56114E160912D090FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		5F4208F2A2633CBEEE7B486E9BFCF6EF /* DKProject-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DKProject-prefix.pch"; sourceTree = "<group>"; };
 		6511FD1704644E827CF2A74AE5E672A9 /* Pods-DKProject_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DKProject_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		6E57DC315C143E12A70EFCEA2FED589C /* DKProject-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DKProject-Info.plist"; sourceTree = "<group>"; };
 		6EE4BF079878A50A12186AE2EEA8F0DC /* Pods-DKProject_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DKProject_Example.release.xcconfig"; sourceTree = "<group>"; };
 		960843DCD910F88CC42FD16C683A8458 /* Pods-DKProject_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DKProject_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9640035CBCCC70DDAA4174DA2C0C9C7C /* Pods-DKProject_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DKProject_Tests-umbrella.h"; sourceTree = "<group>"; };
 		978A112C658363990C19FCD1868F18C3 /* Pods-DKProject_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DKProject_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		988D1A74AF24EB22177DDFEEC38F3772 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A5F16056E241DC3312857310D166F070 /* UIFont+DKCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIFont+DKCategory.m"; path = "DKProject/Classes/DKCategory/UIFont+DKCategory.m"; sourceTree = "<group>"; };
 		A786F38F1DBD4247F4D1D256356EC023 /* Pods-DKProject_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DKProject_Example-Info.plist"; sourceTree = "<group>"; };
 		AB9A1DFAD044CA5B7E3085C3CDDBA8C2 /* Pods-DKProject_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DKProject_Example-frameworks.sh"; sourceTree = "<group>"; };
 		AE8A773B568406498B3A73CF4D57F1E9 /* Pods-DKProject_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DKProject_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B03D996563CF4F3A6B73DFF88181802E /* Pods-DKProject_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DKProject_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B10F965072E1FA2B34C35C876A8CB58B /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ReplaceMe.m; path = DKProject/Classes/ReplaceMe.m; sourceTree = "<group>"; };
 		C2E73340B13071C0E525D851340ADECB /* Pods-DKProject_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DKProject_Tests-Info.plist"; sourceTree = "<group>"; };
-		CBD42D9F401E47D0546D09BED47A8FDF /* DKProject.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DKProject.xcconfig; sourceTree = "<group>"; };
+		C3B539A66D61DF7B0D69B0917CB80E55 /* DKProject-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DKProject-Info.plist"; sourceTree = "<group>"; };
+		C7B05C679AC54EDC272024B9D6DAE556 /* DKProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DKProject-dummy.m"; sourceTree = "<group>"; };
+		C9756222A07B44646C77FCC75A5C1723 /* DKProject.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DKProject.modulemap; sourceTree = "<group>"; };
 		CCAC59C84AC22FF4B20239BC4A8D9D4E /* Pods-DKProject_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DKProject_Example-dummy.m"; sourceTree = "<group>"; };
 		D97F12D55CC939A470978679C7258672 /* DKProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DKProject.framework; path = DKProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DB0096FF7CB4E394EA2A348F84CFE9 /* Pods-DKProject_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DKProject_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		DC9A52E1EAD58A31CB177F9D589A0773 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		DB761A654B9086EF741B5C5389F1CB5A /* DKProject.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DKProject.xcconfig; sourceTree = "<group>"; };
+		DE2F0A918C1DD83D2CA20542C57BB080 /* DKProject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DKProject-umbrella.h"; sourceTree = "<group>"; };
 		E0AD0C2A39995F9FBEC0D08C4CBB9265 /* Pods-DKProject_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DKProject_Tests-dummy.m"; sourceTree = "<group>"; };
 		F1002009567D5954B11161118E6F5A1A /* Pods-DKProject_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DKProject_Example.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,27 +90,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6513FAE9E89D607B64BBE738FF32A31F /* Frameworks */ = {
+		6C81FE31B45956BD7AC3EBB6E6470FB9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C741CF25B3D015CE904A43B633D5456D /* Foundation.framework in Frameworks */,
+				8CA3887B0D48A96144C75E6442723A88 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		24B81E1612570CDA4A64A937DCD742E5 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				072BF96C75871053F2F5AB6CAA9D576D /* DKProject.podspec */,
-				DC9A52E1EAD58A31CB177F9D589A0773 /* LICENSE */,
-				5D76D87653C2DC56114E160912D090FF /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 		594C8B09A0761B1A4D7F04C3B2A6B747 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +108,40 @@
 				B0E51F6207AE2E4FD805DC6B8203453C /* Pods-DKProject_Tests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		6045B0AE64F4219297EAF5FFF397BFED /* DKProject */ = {
+			isa = PBXGroup;
+			children = (
+				7250A928CE5E9CD4140E25683B8E6F64 /* DKCategory */,
+				FA646C8307A14EC9EB6CC6CDD642AA6E /* Pod */,
+				64BAD6A91A638052959EAA0C9BAD53CC /* Support Files */,
+			);
+			name = DKProject;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		64BAD6A91A638052959EAA0C9BAD53CC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9756222A07B44646C77FCC75A5C1723 /* DKProject.modulemap */,
+				DB761A654B9086EF741B5C5389F1CB5A /* DKProject.xcconfig */,
+				C7B05C679AC54EDC272024B9D6DAE556 /* DKProject-dummy.m */,
+				C3B539A66D61DF7B0D69B0917CB80E55 /* DKProject-Info.plist */,
+				5F4208F2A2633CBEEE7B486E9BFCF6EF /* DKProject-prefix.pch */,
+				DE2F0A918C1DD83D2CA20542C57BB080 /* DKProject-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/DKProject";
+			sourceTree = "<group>";
+		};
+		7250A928CE5E9CD4140E25683B8E6F64 /* DKCategory */ = {
+			isa = PBXGroup;
+			children = (
+				0226BC3C8D4A04BDC58B89C459D0360E /* UIFont+DKCategory.h */,
+				A5F16056E241DC3312857310D166F070 /* UIFont+DKCategory.m */,
+			);
+			name = DKCategory;
 			sourceTree = "<group>";
 		};
 		76E0B7071A3BC29946CABD374A0C3C8A /* Products */ = {
@@ -131,7 +157,7 @@
 		B0DF84CD229F8B63128B20F14ED53A7A /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F3899E8E8977BE4CB1799896112D4BBE /* DKProject */,
+				6045B0AE64F4219297EAF5FFF397BFED /* DKProject */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -196,29 +222,14 @@
 			path = "Target Support Files/Pods-DKProject_Example";
 			sourceTree = "<group>";
 		};
-		F3899E8E8977BE4CB1799896112D4BBE /* DKProject */ = {
+		FA646C8307A14EC9EB6CC6CDD642AA6E /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				B10F965072E1FA2B34C35C876A8CB58B /* ReplaceMe.m */,
-				24B81E1612570CDA4A64A937DCD742E5 /* Pod */,
-				FD07CB35CF0B9A41F6663ED84369EE86 /* Support Files */,
+				4663F5332E84BC57BCF2478DBC2CAF28 /* DKProject.podspec */,
+				988D1A74AF24EB22177DDFEEC38F3772 /* LICENSE */,
+				3C735A0F6DD2F87FBD47EF9FA405392F /* README.md */,
 			);
-			name = DKProject;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		FD07CB35CF0B9A41F6663ED84369EE86 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				267C84DD295EDE946382E3DE8BB4BA15 /* DKProject.modulemap */,
-				CBD42D9F401E47D0546D09BED47A8FDF /* DKProject.xcconfig */,
-				4ECCE6C403693653CFEDA395BC25DFD9 /* DKProject-dummy.m */,
-				6E57DC315C143E12A70EFCEA2FED589C /* DKProject-Info.plist */,
-				2A3107D3B713F7C0DA275D045DF4D8F7 /* DKProject-prefix.pch */,
-				026C037298739FA4B11BF367BC7207E6 /* DKProject-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/DKProject";
+			name = Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,11 +251,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F518B899A34FA4842126137908B62344 /* Headers */ = {
+		99FA5AFC4508091A998862C44BB6C4BB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEB2F6EF2D1D10354177C22315C9F30F /* DKProject-umbrella.h in Headers */,
+				45DFCAFD30E1923C40E66CF19AF14D10 /* DKProject-umbrella.h in Headers */,
+				04AFEDD7B28A39D80F0720452AB4F6C6 /* UIFont+DKCategory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,12 +284,12 @@
 		};
 		842510B5A5BCC4E9CE187A04412BFF9F /* DKProject */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0CB4CD377717ABC62F408E571BA38647 /* Build configuration list for PBXNativeTarget "DKProject" */;
+			buildConfigurationList = C6508EF5EB8ADFE6404EBD9E490E62A9 /* Build configuration list for PBXNativeTarget "DKProject" */;
 			buildPhases = (
-				F518B899A34FA4842126137908B62344 /* Headers */,
-				7C9CDFB2270AA2599DDFC5B9C4CACD71 /* Sources */,
-				6513FAE9E89D607B64BBE738FF32A31F /* Frameworks */,
-				FFF60E6A66471EA0FBE2ADF9E5CF5C1C /* Resources */,
+				99FA5AFC4508091A998862C44BB6C4BB /* Headers */,
+				DDD0FC09FEF86C2C9E5EAF7A4347AE16 /* Sources */,
+				6C81FE31B45956BD7AC3EBB6E6470FB9 /* Frameworks */,
+				744E514FBC122063CB1E31DA32D8F595 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -343,14 +355,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7999056084A7F117BA1A42753023A492 /* Resources */ = {
+		744E514FBC122063CB1E31DA32D8F595 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FFF60E6A66471EA0FBE2ADF9E5CF5C1C /* Resources */ = {
+		7999056084A7F117BA1A42753023A492 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,12 +388,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C9CDFB2270AA2599DDFC5B9C4CACD71 /* Sources */ = {
+		DDD0FC09FEF86C2C9E5EAF7A4347AE16 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE527FAEE8A83872F299262FE28691D1 /* DKProject-dummy.m in Sources */,
-				AFF6DC06AD3DD8BB660A786C189CF05A /* ReplaceMe.m in Sources */,
+				78C84427450BDCFFB49E86CC7E6080ED /* DKProject-dummy.m in Sources */,
+				881F142FB4E2CD52EC90CB92827C474A /* UIFont+DKCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,69 +415,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		11C51B2F401543612A00977810C39A69 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBD42D9F401E47D0546D09BED47A8FDF /* DKProject.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DKProject/DKProject-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DKProject/DKProject-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DKProject/DKProject.modulemap";
-				PRODUCT_MODULE_NAME = DKProject;
-				PRODUCT_NAME = DKProject;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3599FF2D48F1BF078BCF7A95434D15E9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBD42D9F401E47D0546D09BED47A8FDF /* DKProject.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DKProject/DKProject-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DKProject/DKProject-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DKProject/DKProject.modulemap";
-				PRODUCT_MODULE_NAME = DKProject;
-				PRODUCT_NAME = DKProject;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -623,6 +572,38 @@
 			};
 			name = Debug;
 		};
+		A55DB4CA020873AA45C6F8ADCB627905 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB761A654B9086EF741B5C5389F1CB5A /* DKProject.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DKProject/DKProject-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DKProject/DKProject-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DKProject/DKProject.modulemap";
+				PRODUCT_MODULE_NAME = DKProject;
+				PRODUCT_NAME = DKProject;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		CCA7818373D55B0055E0771F26341D9D /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EE4BF079878A50A12186AE2EEA8F0DC /* Pods-DKProject_Example.release.xcconfig */;
@@ -656,6 +637,37 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		DE170844F065EF553154A515D4D23B39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB761A654B9086EF741B5C5389F1CB5A /* DKProject.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DKProject/DKProject-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DKProject/DKProject-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DKProject/DKProject.modulemap";
+				PRODUCT_MODULE_NAME = DKProject;
+				PRODUCT_NAME = DKProject;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		EA83FB6B515C488413721EE6D5E9168D /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -727,15 +739,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0CB4CD377717ABC62F408E571BA38647 /* Build configuration list for PBXNativeTarget "DKProject" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				11C51B2F401543612A00977810C39A69 /* Debug */,
-				3599FF2D48F1BF078BCF7A95434D15E9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -750,6 +753,15 @@
 			buildConfigurations = (
 				F72D89E6186F4241085064A68128E6F2 /* Debug */,
 				EA83FB6B515C488413721EE6D5E9168D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6508EF5EB8ADFE6404EBD9E490E62A9 /* Build configuration list for PBXNativeTarget "DKProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE170844F065EF553154A515D4D23B39 /* Debug */,
+				A55DB4CA020873AA45C6F8ADCB627905 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

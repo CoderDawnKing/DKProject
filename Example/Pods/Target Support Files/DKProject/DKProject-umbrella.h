@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "UIFont+DKCategory.h"
 
 FOUNDATION_EXPORT double DKProjectVersionNumber;
 FOUNDATION_EXPORT const unsigned char DKProjectVersionString[];

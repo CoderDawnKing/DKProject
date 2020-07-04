@@ -1,22 +1,27 @@
 {
   "name": "DKProject",
   "version": "0.1.0",
-  "summary": "A short description of DKProject.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/wangshaoyu/DKProject",
+  "summary": "一个小框架",
+  "description": "一个小框架,包含基类、分类、自定义控件、工具类等等。",
+  "homepage": "https://github.com/CoderDawnKing/DKProject",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "wangshaoyu": "wangshaoyu@wisezone.org"
+    "DawnKing": "369248214@qq.com"
   },
   "source": {
-    "git": "https://github.com/wangshaoyu/DKProject.git",
+    "git": "https://github.com/CoderDawnKing/DKProject.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "DKProject/Classes/**/*"
+  "subspecs": [
+    {
+      "name": "DKCategory",
+      "source_files": "DKProject/Classes/DKCategory/**/*"
+    }
+  ]
 }

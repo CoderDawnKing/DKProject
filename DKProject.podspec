@@ -21,16 +21,19 @@ Pod::Spec.new do |s|
                           一个小框架,包含基类、分类、自定义控件、工具类等等。
                        DESC
 
-  s.homepage         = 'https://github.com/wangshaoyu/DKProject'
+  s.homepage         = 'https://github.com/CoderDawnKing/DKProject'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'wangshaoyu' => 'wangshaoyu@wisezone.org' }
-  s.source           = { :git => 'https://github.com/wangshaoyu/DKProject.git', :tag => s.version.to_s }
+  s.author           = { 'DawnKing' => '369248214@qq.com' }
+  s.source           = { :git => 'https://github.com/CoderDawnKing/DKProject.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'DKProject/Classes/**/*'
+#  s.source_files = 'DKProject/Classes/**/*'
+  s.subspec 'DKCategory' do |dkCategory|
+      dkCategory.source_files = 'DKProject/Classes/DKCategory/**/*'
+  end
   
   # s.resource_bundles = {
   #   'DKProject' => ['DKProject/Assets/*.png']

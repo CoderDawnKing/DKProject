@@ -1,5 +1,7 @@
 PODS:
-  - DKProject (0.1.0)
+  - DKProject (0.1.0):
+    - DKProject/DKCategory (= 0.1.0)
+  - DKProject/DKCategory (0.1.0)
 
 DEPENDENCIES:
   - DKProject (from `../`)
@@ -9,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DKProject: 83c27058f2f7b275b7c325331f8ac80ed21adb17
+  DKProject: 7366395fa88d38874ab431f6da6c9dd4ee94a3fd
 
 PODFILE CHECKSUM: 7971990d43a15df354fe6211637f6bc951259766
 

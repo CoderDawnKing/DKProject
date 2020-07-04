@@ -22,7 +22,7 @@ pod 'DKProject'
 
 ## Author
 
-wangshaoyu, wangshaoyu@wisezone.org
+DawnKing, 369248214@qq.com
 
 ## License
 
