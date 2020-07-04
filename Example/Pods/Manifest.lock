@@ -1,18 +1,51 @@
 PODS:
   - DKProject (0.1.0):
+    - DKProject/DKBase (= 0.1.0)
     - DKProject/DKCategory (= 0.1.0)
+    - DKProject/DKConfigure (= 0.1.0)
+    - DKProject/DKCustom (= 0.1.0)
+    - DKProject/KDTool (= 0.1.0)
+  - DKProject/DKBase (0.1.0):
+    - DKProject/DKCategory
+    - DKProject/DKConfigure
+    - MJExtension
+    - ReactiveObjC
   - DKProject/DKCategory (0.1.0)
+  - DKProject/DKConfigure (0.1.0):
+    - HexColors (= 4.0.0)
+  - DKProject/DKCustom (0.1.0):
+    - DKProject/DKCategory
+    - DKProject/DKConfigure
+  - DKProject/KDTool (0.1.0):
+    - DKProject/DKCategory
+    - DKProject/DKConfigure
+    - DKProject/KDTool/DKNaviFixSpace (= 0.1.0)
+  - DKProject/KDTool/DKNaviFixSpace (0.1.0):
+    - DKProject/DKCategory
+    - DKProject/DKConfigure
+  - HexColors (4.0.0)
+  - MJExtension (3.2.2)
+  - ReactiveObjC (3.1.1)
 
 DEPENDENCIES:
-  - DKProject
+  - DKProject (from `../`)
 
 SPEC REPOS:
   trunk:
-    - DKProject
+    - HexColors
+    - MJExtension
+    - ReactiveObjC
+
+EXTERNAL SOURCES:
+  DKProject:
+    :path: "../"
 
 SPEC CHECKSUMS:
-  DKProject: 7366395fa88d38874ab431f6da6c9dd4ee94a3fd
+  DKProject: 0656c236afed7eaa6643738fb084c4f103ef8f3e
+  HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
+  MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
 
-PODFILE CHECKSUM: 208683cb1590b872da0abf952ab3d309bdb0a306
+PODFILE CHECKSUM: 9d35f6d54a17cdf4b97e3e029624ba0685711a32
 
 COCOAPODS: 1.9.3

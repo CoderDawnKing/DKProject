@@ -29,17 +29,54 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+  s.requires_arc = true
 
-#  s.source_files = 'DKProject/Classes/**/*'
-  s.subspec 'DKCategory' do |dkCategory|
-      dkCategory.source_files = 'DKProject/Classes/DKCategory/**/*'
+  s.source_files = 'DKProject/Classes/**/*'
+  s.subspec 'DKCategory' do |ss|
+      ss.source_files = 'DKProject/Classes/DKCategory/**/*'
+  end
+  
+  s.subspec 'DKBase' do |ss|
+      ss.source_files = 'DKProject/Classes/DKBase/**/*'
+      ss.public_header_files = 'Pod/Classes/**/*.h'
+      ss.dependency 'DKProject/DKCategory'
+      ss.dependency 'DKProject/DKConfigure'
+      ss.dependency 'MJExtension'
+      ss.dependency 'ReactiveObjC'
+  end
+  
+  s.subspec 'DKConfigure' do |ss|
+      ss.source_files = 'DKProject/Classes/DKConfigure/**/*'
+      ss.public_header_files = 'Pod/Classes/**/*.h'
+      ss.dependency 'HexColors', '4.0.0'
+  end
+  
+  
+  s.subspec 'DKCustom' do |ss|
+      ss.source_files = 'DKProject/Classes/DKCustom/**/*'
+      ss.public_header_files = 'Pod/Classes/**/*.h'
+      ss.dependency 'DKProject/DKCategory'
+      ss.dependency 'DKProject/DKConfigure'
+  end
+  
+  s.subspec 'KDTool' do |ss|
+      ss.source_files = 'DKProject/Classes/KDTool/**/*'
+      ss.public_header_files = 'Pod/Classes/**/*.h'
+      ss.subspec 'DKNaviFixSpace' do |sss|
+          ss.source_files = 'DKProject/Classes/KDTool/DKNaviFixSpace/**/*'
+          ss.public_header_files = 'Pod/Classes/**/*.h'
+          ss.dependency 'DKProject/DKCategory'
+          ss.dependency 'DKProject/DKConfigure'
+      end
   end
   
   # s.resource_bundles = {
   #   'DKProject' => ['DKProject/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.frameworks = 'UIKit', 'Foundation', 'Photos'
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
+  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
   # s.dependency 'AFNetworking', '~> 2.3'
 end
