@@ -1,6 +1,6 @@
 {
   "name": "DKProject",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "summary": "一个小框架",
   "description": "一个小框架,包含基类、分类、自定义控件、工具类等等。",
   "homepage": "https://github.com/CoderDawnKing/DKProject",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/CoderDawnKing/DKProject.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
   "platforms": {
     "ios": "8.0"
@@ -35,7 +35,12 @@
   "subspecs": [
     {
       "name": "DKCategory",
-      "source_files": "DKProject/Classes/DKCategory/**/*"
+      "source_files": "DKProject/Classes/DKCategory/**/*",
+      "dependencies": {
+        "DKProject/DKConfigure": [
+
+        ]
+      }
     },
     {
       "name": "DKBase",
@@ -46,6 +51,9 @@
 
         ],
         "DKProject/DKConfigure": [
+
+        ],
+        "DKProject/DKNaviFixSpace": [
 
         ],
         "MJExtension": [
@@ -67,35 +75,9 @@
       }
     },
     {
-      "name": "DKCustom",
-      "source_files": "DKProject/Classes/DKCustom/**/*",
-      "public_header_files": "Pod/Classes/**/*.h",
-      "dependencies": {
-        "DKProject/DKCategory": [
-
-        ],
-        "DKProject/DKConfigure": [
-
-        ]
-      }
-    },
-    {
-      "name": "KDTool",
-      "source_files": "DKProject/Classes/KDTool/DKNaviFixSpace/**/*",
-      "public_header_files": "Pod/Classes/**/*.h",
-      "dependencies": {
-        "DKProject/DKCategory": [
-
-        ],
-        "DKProject/DKConfigure": [
-
-        ]
-      },
-      "subspecs": [
-        {
-          "name": "DKNaviFixSpace"
-        }
-      ]
+      "name": "DKNaviFixSpace",
+      "source_files": "DKProject/Classes/DKNaviFixSpace/**/*",
+      "public_header_files": "Pod/Classes/**/*.h"
     }
   ]
 }

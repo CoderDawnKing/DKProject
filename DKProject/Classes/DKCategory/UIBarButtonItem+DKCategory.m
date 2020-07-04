@@ -7,10 +7,11 @@
 //
 
 #import "UIBarButtonItem+DKCategory.h"
-#import "DKCustomButton.h"
+
 #import "UIView+DKCategory.h"
-#import <DKProject/DKColorConfigure.h>
 #import "UIFont+DKCategory.h"
+#import <DKProject/DKColorConfigure.h>
+#import <DKProject/DKCustomButton.h>
 
 @implementation UIBarButtonItem (DKCategory)
 

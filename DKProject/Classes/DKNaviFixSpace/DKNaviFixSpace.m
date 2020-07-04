@@ -7,9 +7,7 @@
 //
 
 #import "DKNaviFixSpace.h"
-
 #import <objc/runtime.h>
-#import <DKProject/UIBarButtonItem+DKCategory.h>
 
 void dk_swizzle(Class oldClass, NSString *oldSelector, Class newClass) {
     NSString *newSelector = [NSString stringWithFormat:@"dk_%@", oldSelector];

@@ -7,10 +7,9 @@
 //
 
 #import "DKCustomButton.h"
-#import <DKProject/UIView+DKCategory.h>
-#import <DKProject/UIButton+DKCategory.h>
+#import "UIView+DKCategory.h"
+#import "UIButton+DKCategory.h"
 #import <DKProject/DKColorConfigure.h>
-#import <DKProject/DKDefaultConfigure.h>
 
 @interface DKCustomButton (){
     DKCustomButtonType _type;

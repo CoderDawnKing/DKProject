@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
   s.source_files = 'DKProject/Classes/**/*'
   s.subspec 'DKCategory' do |ss|
       ss.source_files = 'DKProject/Classes/DKCategory/**/*'
+      ss.dependency 'DKProject/DKConfigure'
   end
   
   s.subspec 'DKBase' do |ss|
@@ -41,6 +42,7 @@ Pod::Spec.new do |s|
       ss.public_header_files = 'Pod/Classes/**/*.h'
       ss.dependency 'DKProject/DKCategory'
       ss.dependency 'DKProject/DKConfigure'
+      ss.dependency 'DKProject/DKNaviFixSpace'
       ss.dependency 'MJExtension'
       ss.dependency 'ReactiveObjC'
   end
@@ -51,23 +53,9 @@ Pod::Spec.new do |s|
       ss.dependency 'HexColors', '4.0.0'
   end
   
-  
-  s.subspec 'DKCustom' do |ss|
-      ss.source_files = 'DKProject/Classes/DKCustom/**/*'
+  s.subspec 'DKNaviFixSpace' do |ss|
+      ss.source_files = 'DKProject/Classes/DKNaviFixSpace/**/*'
       ss.public_header_files = 'Pod/Classes/**/*.h'
-      ss.dependency 'DKProject/DKCategory'
-      ss.dependency 'DKProject/DKConfigure'
-  end
-  
-  s.subspec 'KDTool' do |ss|
-      ss.source_files = 'DKProject/Classes/KDTool/**/*'
-      ss.public_header_files = 'Pod/Classes/**/*.h'
-      ss.subspec 'DKNaviFixSpace' do |sss|
-          ss.source_files = 'DKProject/Classes/KDTool/DKNaviFixSpace/**/*'
-          ss.public_header_files = 'Pod/Classes/**/*.h'
-          ss.dependency 'DKProject/DKCategory'
-          ss.dependency 'DKProject/DKConfigure'
-      end
   end
   
   # s.resource_bundles = {

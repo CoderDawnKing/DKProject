@@ -7,7 +7,7 @@
 //
 
 #import "DKBaseNaviController.h"
-#import "DKNaviFixSpace.h"
+#import <DKProject/DKNaviFixSpace.h>
 #import <DKProject/UIFont+DKCategory.h>
 #import <DKProject/UIImage+DKCategory.h>
 #import <DKProject/UIBarButtonItem+DKCategory.h>

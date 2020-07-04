@@ -15,6 +15,7 @@
 #import "DKBaseView.h"
 #import "DKBaseViewController.h"
 #import "DKBaseViewModel.h"
+#import "DKCustomButton.h"
 #import "NSDate+DKCategory.h"
 #import "NSDateFormatter+DKCategory.h"
 #import "NSObject+DKCategory.h"
@@ -25,14 +26,14 @@
 #import "UIView+DKCategory.h"
 #import "DKColorConfigure.h"
 #import "DKDefaultConfigure.h"
-#import "DKCustomButton.h"
-#import "DKProject.h"
 #import "DKNaviFixSpace.h"
+#import "DKProject.h"
 #import "DKBaseModel.h"
 #import "DKBaseNaviController.h"
 #import "DKBaseView.h"
 #import "DKBaseViewController.h"
 #import "DKBaseViewModel.h"
+#import "DKCustomButton.h"
 #import "NSDate+DKCategory.h"
 #import "NSDateFormatter+DKCategory.h"
 #import "NSObject+DKCategory.h"
@@ -43,7 +44,7 @@
 #import "UIView+DKCategory.h"
 #import "DKColorConfigure.h"
 #import "DKDefaultConfigure.h"
-#import "DKCustomButton.h"
+#import "DKNaviFixSpace.h"
 
 FOUNDATION_EXPORT double DKProjectVersionNumber;
 FOUNDATION_EXPORT const unsigned char DKProjectVersionString[];

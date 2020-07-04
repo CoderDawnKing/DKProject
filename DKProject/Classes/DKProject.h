@@ -15,6 +15,7 @@
 #import "UIFont+DKCategory.h"
 #import "NSDate+DKCategory.h"
 #import "NSDateFormatter+DKCategory.h"
+#import "NSObject+DKCategory.h"
 
 // Configure
 #import "DKColorConfigure.h"
