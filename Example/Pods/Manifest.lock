@@ -4,15 +4,15 @@ PODS:
   - DKProject/DKCategory (0.1.0)
 
 DEPENDENCIES:
-  - DKProject (from `../`)
+  - DKProject
 
-EXTERNAL SOURCES:
-  DKProject:
-    :path: "../"
+SPEC REPOS:
+  trunk:
+    - DKProject
 
 SPEC CHECKSUMS:
   DKProject: 7366395fa88d38874ab431f6da6c9dd4ee94a3fd
 
-PODFILE CHECKSUM: 7971990d43a15df354fe6211637f6bc951259766
+PODFILE CHECKSUM: 208683cb1590b872da0abf952ab3d309bdb0a306
 
-COCOAPODS: 1.8.0.beta.2
+COCOAPODS: 1.9.3
