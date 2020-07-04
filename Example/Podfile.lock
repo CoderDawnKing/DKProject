@@ -1,0 +1,16 @@
+PODS:
+  - DKProject (0.1.0)
+
+DEPENDENCIES:
+  - DKProject (from `../`)
+
+EXTERNAL SOURCES:
+  DKProject:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DKProject: 83c27058f2f7b275b7c325331f8ac80ed21adb17
+
+PODFILE CHECKSUM: 7971990d43a15df354fe6211637f6bc951259766
+
+COCOAPODS: 1.8.0.beta.2
