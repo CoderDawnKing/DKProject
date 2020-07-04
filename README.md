@@ -2,7 +2,7 @@
 
 [![CI Status](https://img.shields.io/travis/wangshaoyu/DKProject.svg?style=flat)](https://travis-ci.org/wangshaoyu/DKProject)
 [![Version](https://img.shields.io/cocoapods/v/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
-[![License](https://github.com/CoderDawnKing/DKProject/blob/master/LICENSE)](https://cocoapods.org/pods/DKProject)
+[![License](https://img.shields.io/cocoapods/l/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![Platform](https://img.shields.io/cocoapods/p/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 
 ## Example
