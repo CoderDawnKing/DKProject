@@ -35,6 +35,12 @@
   "dependencies": {
     "HexColors": [
       "4.0.0"
+    ],
+    "MJRefresh": [
+      "3.4.3"
+    ],
+    "MJExtension": [
+      "3.2.2"
     ]
   }
 }

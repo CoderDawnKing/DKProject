@@ -29,33 +29,33 @@
 #define dk_LogRespone DKLog(@"%@", respone.mj_keyValues)
 
 /*状态栏高度*/
-#define dk_StatusBarHeight (CGFloat)(IS_IPHONE_X?(44.0):(20.0))
+#define dk_StatusBarHeight (CGFloat)(dk_IS_IPHONE_X?(44.0):(20.0))
 /*导航栏高度*/
 #define dk_NavBarHeight (44.0)
 /*状态栏和导航栏总高度*/
-#define dk_NavBarAndStatusBarHeight (CGFloat)(IS_IPHONE_X?(88.0):(64.0))
+#define dk_NavBarAndStatusBarHeight (CGFloat)(dk_IS_IPHONE_X?(88.0):(64.0))
 /*TabBar高度*/
-#define dk_TabBarHeight (CGFloat)(IS_IPHONE_X?(49.0 + 34.0):(49.0))
+#define dk_TabBarHeight (CGFloat)(dk_IS_IPHONE_X?(49.0 + 34.0):(49.0))
 /*顶部安全区域远离高度*/
-#define dk_TopBarSafeHeight (CGFloat)(IS_IPHONE_X?(44.0):(0))
+#define dk_TopBarSafeHeight (CGFloat)(dk_IS_IPHONE_X?(44.0):(0))
 /*底部安全区域远离高度*/
-#define dk_BottomSafeHeight (CGFloat)(IS_IPHONE_X?(34.0):(0))
+#define dk_BottomSafeHeight (CGFloat)(dk_IS_IPHONE_X?(34.0):(0))
 /*iPhoneX的状态栏高度差值*/
-#define dk_TopBarDifHeight (CGFloat)(IS_IPHONE_X?(24.0):(0))
+#define dk_TopBarDifHeight (CGFloat)(dk_IS_IPHONE_X?(24.0):(0))
 /*导航条和Tabbar总高度*/
 #define dk_NavAndTabHeight (kNavBarAndStatusBarHeight + kTabBarHeight)
 
-#define dkIMAGE(image) [UIImage dkImageNamed:image]
-#define dkIMAGEClearColor [UIImage imageWithClearColor]
+#define dk_IMAGE(image) [UIImage dkImageNamed:image]
+#define dk_IMAGEClearColor [UIImage imageWithClearColor]
 
 #define dk_KeyboardHeight 216.0 //键盘高度
 #define dk_ViewHeight 90  //键盘上面textview高度
 #define dk_ToolViewHeight 145.0  //带有工具栏键盘上面textview高度
 
 //新增
-#define IS_IPHONE_5 (fabs([[ UIScreen mainScreen ] bounds ].size.height)>=568)
-#define IS_SMALL_IPHONE (fabs([[ UIScreen mainScreen ] bounds ].size.width)==320) //小屏
-#define IS_IPHONE_X \
+#define dk_IS_IPHONE_5 (fabs([[ UIScreen mainScreen ] bounds ].size.height)>=568)
+#define dk_IS_SMALL_IPHONE (fabs([[ UIScreen mainScreen ] bounds ].size.width)==320) //小屏
+#define dk_IS_IPHONE_X \
 ({BOOL isPhoneX = NO;\
 if (@available(iOS 11.0, *)) {\
 isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\

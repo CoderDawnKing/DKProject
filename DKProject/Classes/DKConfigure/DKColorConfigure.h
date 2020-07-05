@@ -9,9 +9,10 @@
 #import <HexColors/HexColors.h>
 
 #define dk_ClearColor [UIColor clearColor]
-#define HexColor(hexValue) [UIColor hx_colorWithHexRGBAString:hexValue]
-#define HexColorWithAlpha(hexValue, alphaValue) [UIColor hx_colorWithHexRGBAString:hexValue alpha:alphaValue]
+#define dk_HexColor(hexValue) [UIColor hx_colorWithHexRGBAString:hexValue]
+#define dk_HexColorWithAlpha(hexValue, alphaValue) [UIColor hx_colorWithHexRGBAString:hexValue alpha:alphaValue]
 
+///App 主色
 static NSString * const COLOR_APPMAIN = @"#FF5555";
 
 ///TAB选中颜色
@@ -19,33 +20,33 @@ static NSString * const COLOR_TAB_TEXT_SELECT = @"#FC575A";
 ///TAB字体颜色
 static NSString * const COLOR_TAB_TEXT_UNSELECT = @"#838383";
 ///整体橙色
-static NSString * const COLOR_ORANGE =@"#ff9900";
+static NSString * const COLOR_ORANGE = @"#FF9900";
 ///蓝色字体
-static NSString * const COLOR_TEXT_BLUE =@"#007AFF";
+static NSString * const COLOR_TEXT_BLUE = @"#007AFF";
 ///浅蓝色
-static NSString * const COLOR_BG_BLUE =@"#46abef";
+static NSString * const COLOR_BG_BLUE = @"#46ABEF";
 ///深蓝色
-static NSString * const COLOR_DEEP_BLUE =@"#027BFF";
+static NSString * const COLOR_DEEP_BLUE = @"#027BFF";
 
 ///浅灰色
-static NSString * const COLOR_ALL_LIGHT_BLACK = @"#4b4b4b";
+static NSString * const COLOR_ALL_LIGHT_BLACK = @"#4B4B4B";
 ///页面背景颜色
-static NSString * const COLOR_ALL_BG =@"#F3F7F8";
+static NSString * const COLOR_ALL_BG = @"#F3F7F8";
 ///昵称浅蓝色
-static NSString * const COLOR_TEXT_LIGHT_Blue =@"#64749B";
+static NSString * const COLOR_TEXT_LIGHT_Blue = @"#64749B";
 ///线条颜色
-static NSString * const COLOR_LINE_BG =@"#E8EAE9";
+static NSString * const COLOR_LINE_BG = @"#E8EAE9";
 ///vip红色字体
-static NSString * const COLOR_RED_VIP =@"#FF0000";
+static NSString * const COLOR_RED_VIP = @"#FF0000";
 ///女 粉红色
-static NSString * const COLOR_GIRL =@"#FF7EBF";
+static NSString * const COLOR_GIRL = @"#FF7EBF";
 ///男 蓝色
-static NSString * const COLOR_BOY =@"#4EA1F1";
+static NSString * const COLOR_BOY = @"#4EA1F1";
 
 //
-static NSString * const COLOR_999999 =@"#999999";
+static NSString * const COLOR_999999 = @"#999999";
 //
-static NSString * const COLOR_888888 =@"#888888";
+static NSString * const COLOR_888888 = @"#888888";
 ///黑色字体
 static NSString * const COLOR_222222 = @"#222222";
 ///标题字体颜色 黑色

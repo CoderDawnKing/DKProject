@@ -1,7 +1,11 @@
 PODS:
   - DKProject (0.2.0):
     - HexColors (= 4.0.0)
+    - MJExtension (= 3.2.2)
+    - MJRefresh (= 3.4.3)
   - HexColors (4.0.0)
+  - MJExtension (3.2.2)
+  - MJRefresh (3.4.3)
 
 DEPENDENCIES:
   - DKProject (from `../`)
@@ -9,14 +13,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - HexColors
+    - MJExtension
+    - MJRefresh
 
 EXTERNAL SOURCES:
   DKProject:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DKProject: 438d8b971260517b97419d21e09581fe2a3612ac
+  DKProject: 780f562ba7bf57a01aa31212151ff5c0ffbb3f6a
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
+  MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
+  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
 
 PODFILE CHECKSUM: 9d35f6d54a17cdf4b97e3e029624ba0685711a32
 

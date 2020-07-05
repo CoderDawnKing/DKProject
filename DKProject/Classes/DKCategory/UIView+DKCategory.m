@@ -283,7 +283,7 @@ static const NSString *dk_longPressBlockKey = @"dk_longPressBlockKey";
 }
 
 - (void)addBorderDefault {
-    [self addBorderWithColor:HexColor(COLOR_DDDDDD) width:.5f];
+    [self addBorderWithColor:dk_HexColor(COLOR_DDDDDD) width:.5f];
 }
 
 - (void)addBorderWithColor:(UIColor *)borderColor width:(CGFloat)borderWidth {
@@ -305,7 +305,7 @@ static const NSString *dk_longPressBlockKey = @"dk_longPressBlockKey";
     if (color) {
         return color;
     }
-    return HexColor(COLOR_LINE);
+    return dk_HexColor(COLOR_LINE);
 }
 
 - (void)setDk_borderType:(DKViewBorderType)dk_borderType {

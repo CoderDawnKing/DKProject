@@ -42,5 +42,7 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
   s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
   s.dependency 'HexColors', '4.0.0'
+  s.dependency 'MJRefresh', '3.4.3'
+  s.dependency 'MJExtension', '3.2.2'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
