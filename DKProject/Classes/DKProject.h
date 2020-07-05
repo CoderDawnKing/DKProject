@@ -6,11 +6,6 @@
 //  Copyright © 2019 wisezone. All rights reserved.
 //
 
-// Base 
-#import "DKBaseModel.h"
-#import "DKBaseViewModel.h"
-#import "DKBaseView.h"
-
 // Category
 #import "UIFont+DKCategory.h"
 #import "NSDate+DKCategory.h"
@@ -22,6 +17,4 @@
 #import "DKDefaultConfigure.h"
 
 // Library
-#import <MJExtension/MJExtension.h>
-#import <ReactiveObjC/ReactiveObjC.h>
 #import <HexColors/HexColors.h>

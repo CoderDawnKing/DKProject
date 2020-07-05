@@ -19,8 +19,8 @@
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": "DKProject/Classes/**/*",
-  "public_header_files": "Pod/Classes/**/*.h",
+  "source_files": "DKProject/Classes/**/*.{h,m}",
+  "public_header_files": "DKProject/Classes/**/*.{h}",
   "frameworks": [
     "UIKit",
     "Foundation",
@@ -32,52 +32,9 @@
   "pod_target_xcconfig": {
     "OTHER_LDFLAGS": "-lObjC"
   },
-  "subspecs": [
-    {
-      "name": "DKCategory",
-      "source_files": "DKProject/Classes/DKCategory/**/*",
-      "dependencies": {
-        "DKProject/DKConfigure": [
-
-        ]
-      }
-    },
-    {
-      "name": "DKBase",
-      "source_files": "DKProject/Classes/DKBase/**/*",
-      "public_header_files": "Pod/Classes/**/*.h",
-      "dependencies": {
-        "DKProject/DKCategory": [
-
-        ],
-        "DKProject/DKConfigure": [
-
-        ],
-        "DKProject/DKNaviFixSpace": [
-
-        ],
-        "MJExtension": [
-
-        ],
-        "ReactiveObjC": [
-
-        ]
-      }
-    },
-    {
-      "name": "DKConfigure",
-      "source_files": "DKProject/Classes/DKConfigure/**/*",
-      "public_header_files": "Pod/Classes/**/*.h",
-      "dependencies": {
-        "HexColors": [
-          "4.0.0"
-        ]
-      }
-    },
-    {
-      "name": "DKNaviFixSpace",
-      "source_files": "DKProject/Classes/DKNaviFixSpace/**/*",
-      "public_header_files": "Pod/Classes/**/*.h"
-    }
-  ]
+  "dependencies": {
+    "HexColors": [
+      "4.0.0"
+    ]
+  }
 }
