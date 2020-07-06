@@ -1,11 +1,11 @@
 # DKProject
 
-**[English](./README_EN.md) | 中文**
+**English | [中文](./README.md)**
  
 [![Version](https://img.shields.io/cocoapods/v/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![License](https://img.shields.io/cocoapods/l/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![Platform](https://img.shields.io/cocoapods/p/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
-[![Support](https://img.shields.io/cocoapods/p/DKProject.svg?style=flatt)](https://cocoapods.org/pods/DKProject)
+[![Support](https://img.shields.io/badge/support-iOS%209.0+%20-red.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 
 ## Feature
 
@@ -67,9 +67,8 @@ pod 'DKProject'
 
 ## Usage
 
-Temporarily unavailable
-Import base classes, categories, tools, custom controls, and configuration classes. 
-(Unfinished cannot be used)
+Temporarily unavailable  
+Import base classes, categories, tools, custom controls, and configuration classes. (Unfinished cannot be used)
 
 ## TODO
 - [ ] Fix the bug of DKBaseTabBarController and don't depend on the library

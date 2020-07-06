@@ -5,7 +5,7 @@
 [![Version](https://img.shields.io/cocoapods/v/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![License](https://img.shields.io/cocoapods/l/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![Platform](https://img.shields.io/cocoapods/p/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
-[![Support](https://img.shields.io/cocoapods/p/DKProject.svg?style=flatt)](https://cocoapods.org/pods/DKProject)
+[![Support](https://img.shields.io/badge/support-iOS%209.0+%20-red.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 
 ## 特性
 
@@ -65,7 +65,7 @@ pod 'DKProject'
 
 ## Usage
 
-暂时不可用
+暂时不可用  
 导入基类、分类、工具类、自定义控件、配置类。（未完成不可使用）
 
 ## TODO
