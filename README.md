@@ -12,9 +12,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 项目 | 版本 | 日期 | 作者
 :-: | :-: | :-: | :-:
-[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.1 | 2020.7.6 | DawnKing
-[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.0 | 2020.7.5 | DawnKing
-[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.1.0 | 2020.7.4 | DawnKing
+[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.2 | 2020.7.6 | DawnKing
 
 ## Installation
 
@@ -27,6 +25,8 @@ pod 'DKProject'
 
 ## Feature
 导入基类、分类、工具类、自定义控件、配置类。（未完成不可使用）
+DKBaseTabBarController 有 bug。
+DKNetworkManage 未完全解耦。
 
 ## Author
 
