@@ -11,25 +11,25 @@
 
 @implementation NSNumber (DKCategory)
 
-- (NSString *)decimalString {
-    NSNumberFormatter *formatter = [NSNumberFormatter defaultDecimalNumberFormatter];
+- (NSString *)dk_decimalString {
+    NSNumberFormatter *formatter = [NSNumberFormatter dk_defaultDecimalNumberFormatter];
     NSString *numberString = [formatter stringFromNumber:self];
-    return numberString.isNotEmpty?numberString:@"0";
+    return numberString.dk_notEmpty?numberString:@"0";
 }
 
-- (NSString *)decimalFormatterString {
-    NSNumberFormatter *formatter = [NSNumberFormatter defaultDecimalNumberFormatter];
+- (NSString *)dk_decimalFormatterString {
+    NSNumberFormatter *formatter = [NSNumberFormatter dk_defaultDecimalNumberFormatter];
     NSString *numberString = [formatter stringFromNumber:self];
     if (self.integerValue >= 10000) {
         numberString = [NSString stringWithFormat:@"%.1f万", self.integerValue / 10000.0];
     }
-    return numberString.isNotEmpty?numberString:@"0";
+    return numberString.dk_notEmpty?numberString:@"0";
 }
 
-- (NSString *)currencyString {
-    NSNumberFormatter *formatter = [NSNumberFormatter defaultCurrencyNumberFormatter];
+- (NSString *)dk_currencyString {
+    NSNumberFormatter *formatter = [NSNumberFormatter dk_defaultCurrencyNumberFormatter];
     NSString *numberString = [formatter stringFromNumber:self];
-    return numberString.isNotEmpty?numberString:@"¥0";
+    return numberString.dk_notEmpty?numberString:@"¥0";
 }
 
 @end

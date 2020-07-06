@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 是否空数据 autoShowEmpty 为 NO 时生效 */
 @property (nonatomic, assign, getter=isEmptyDatas) BOOL emptyDatas;
 
-@property (nonatomic, strong, nullable) DKBaseEmptyView *emptyView;
+@property (nonatomic, strong, nullable) DKBaseEmptyView *dk_emptyView;
 
 @end
 

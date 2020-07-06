@@ -13,13 +13,13 @@
 
 + (instancetype)lineView {
     DKBaseView *view = [[DKBaseView alloc] init];
-    view.backgroundColor = dk_HexColor(COLOR_LINE);
+    view.backgroundColor = dk_HexColor(DK_COLOR_LINE);
     return view;
 }
 
 + (instancetype)circularViewWithRadius:(CGFloat)radius {
     DKBaseView *view = [[DKBaseView alloc] init];
-    view.backgroundColor = dk_HexColor(COLOR_DDDDDD);
+    view.backgroundColor = dk_HexColor(DK_COLOR_DDDDDD);
     view.layer.cornerRadius = radius;
     view.layer.masksToBounds = YES;
     return view;

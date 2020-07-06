@@ -64,11 +64,6 @@ NS_ASSUME_NONNULL_BEGIN
  给 cell 添加长按手势
  */
 - (void)addLongPressWithCell:(DKBaseTableViewCell *)cell indexPath:(NSIndexPath *)indexPath;
--(void)showAlertTitleMessage:(NSString *)Message;//加粗，标题显示
--(void)showAlertMessage:(NSString *)Message;
--(void)RequestCamera:(void(^)(BOOL success))block;
-
-- (void)tapDismissAction:(UITapGestureRecognizer *)tap;
 
 
 @end

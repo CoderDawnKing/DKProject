@@ -10,35 +10,35 @@
 #import <DKProject/DKProject.h>
 
 @interface DKBaseNaviController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>
-{
-    CGPoint startPoint;
-    
-    UIImageView *lastScreenShotView;// view
-}
+//{
+//    CGPoint startPoint;
+//    
+//    UIImageView *lastScreenShotView;// view
+//}
 
-//@property (nonatomic, strong) id popDelegate;
+@property (nonatomic, strong) id popDelegate;
 
-@property (nonatomic, strong) UIView *backGroundView;
+//@property (nonatomic, strong) UIView *backGroundView;
 
-@property (nonatomic, strong) NSMutableArray *screenShotList;
+//@property (nonatomic, strong) NSMutableArray *screenShotList;
 
-@property (nonatomic, assign) BOOL isMoving;
+//@property (nonatomic, assign) BOOL isMoving;
 
 @end
 
-static CGFloat offset_float = 0.65;// 拉伸参数
-static CGFloat min_distance = 100;// 最小回弹距离
+//static CGFloat offset_float = 0.65;// 拉伸参数
+//static CGFloat min_distance = 100;// 最小回弹距离
 
 @implementation DKBaseNaviController
 
 @synthesize backgroundColor = _backgroundColor;
 
-- (NSMutableArray *)screenShotList {
-    if (!_screenShotList) {
-        _screenShotList = [NSMutableArray array];
-    }
-    return _screenShotList;
-}
+//- (NSMutableArray *)screenShotList {
+//    if (!_screenShotList) {
+//        _screenShotList = [NSMutableArray array];
+//    }
+//    return _screenShotList;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,7 +48,7 @@ static CGFloat min_distance = 100;// 最小回弹距离
     //设置导航栏 title 的字体样式
     [self.navigationBar setTitleTextAttributes:@{
                                                  NSFontAttributeName:[UIFont pfMediumWithSize:18],
-                                                 NSForegroundColorAttributeName:dk_HexColor(COLOR_333333),
+                                                 NSForegroundColorAttributeName:dk_HexColor(DK_COLOR_333333),
                                                  }];
     if (@available(iOS 11.0, *)) {
         NSMutableParagraphStyle *style = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -56,7 +56,7 @@ static CGFloat min_distance = 100;// 最小回弹距离
         style.firstLineHeadIndent = 0;
         [self.navigationBar setLargeTitleTextAttributes:@{
                                                           NSFontAttributeName:[UIFont pfMediumWithSize:20],
-                                                          NSForegroundColorAttributeName:dk_HexColor(COLOR_333333),
+                                                          NSForegroundColorAttributeName:dk_HexColor(DK_COLOR_333333),
                                                           NSParagraphStyleAttributeName:style
                                                           }];
     } else {
@@ -64,10 +64,10 @@ static CGFloat min_distance = 100;// 最小回弹距离
     }
     //设置导航栏按钮间距
     [UINavigationConfig shared].dk_defaultFixSpace = dk_defaultSpace;
-    self.view.backgroundColor = dk_HexColor(COLOR_WHITE);
-    self.view.superview.backgroundColor = dk_HexColor(COLOR_WHITE);
-    self.navigationBar.barTintColor = dk_HexColor(COLOR_WHITE);
-    [self.navigationBar setShadowImage:[UIImage imageWithColor:dk_HexColor(COLOR_LINE) size:CGSizeMake(dk_ScreenWidth, 1)]];
+    self.view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
+    self.view.superview.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
+    self.navigationBar.barTintColor = dk_HexColor(DK_COLOR_WHITE);
+    [self.navigationBar setShadowImage:[UIImage imageWithColor:dk_HexColor(DK_COLOR_LINE) size:CGSizeMake(dk_ScreenWidth, 1)]];
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -91,16 +91,16 @@ static CGFloat min_distance = 100;// 最小回弹距离
 
 //导航控制器跳转完成的时候调用
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//    if (viewController == self.viewControllers[0]) {
+    if (viewController == self.viewControllers[0]) {
         //显示根控制器
         //还原滑动返回手势的代理
-//        self.interactivePopGestureRecognizer.delegate = self.popDelegate;
+        self.interactivePopGestureRecognizer.delegate = self.popDelegate;
         
-//    } else {
+    } else {
         //实现滑动返回功能
         //清空滑动返回手势的代理，就能实现滑动返回
-//        self.interactivePopGestureRecognizer.delegate = nil;
-//    }
+        self.interactivePopGestureRecognizer.delegate = nil;
+    }
 }
 
 
@@ -111,12 +111,12 @@ static CGFloat min_distance = 100;// 最小回弹距离
         // 隐藏tabbar
         viewController.hidesBottomBarWhenPushed = YES;
     }
-    if (!self.recognizer && ([self.viewControllers count] == 1)) {
-        self.recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(paningGestureReceive:)];
-        self.recognizer.delegate = self;
-        [self.view addGestureRecognizer:self.recognizer];
-    }
-    [self.screenShotList addObject:[self capture]];
+//    if (!self.recognizer && ([self.viewControllers count] == 1)) {
+//        self.recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(paningGestureReceive:)];
+//        self.recognizer.delegate = self;
+//        [self.view addGestureRecognizer:self.recognizer];
+//    }
+//    [self.screenShotList addObject:[self capture]];
     
     // 这句super的push要放在后面, 让viewController可以覆盖上面设置的leftBarButtonItem
     [super pushViewController:viewController animated:animated];
@@ -144,11 +144,11 @@ static CGFloat min_distance = 100;// 最小回弹距离
 
 - (NSArray *)popToRootViewControllerAnimated:(BOOL)animated{
     if (self.viewControllers.count  <= 2) {
-        if (self.recognizer) {
-            [self.view removeGestureRecognizer:self.recognizer];
-            self.recognizer = nil;
-            self.recognizer.delegate = nil;
-        }
+//        if (self.recognizer) {
+//            [self.view removeGestureRecognizer:self.recognizer];
+//            self.recognizer = nil;
+//            self.recognizer.delegate = nil;
+//        }
     }
     
     return [super popToRootViewControllerAnimated:animated];
@@ -157,29 +157,29 @@ static CGFloat min_distance = 100;// 最小回弹距离
 // override the pop method
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated {
     if (animated) {
-        if([self.screenShotList count]>0){
-            [self.screenShotList removeLastObject];
-        }
+//        if([self.screenShotList count]>0){
+//            [self.screenShotList removeLastObject];
+//        }
         if (self.viewControllers.count  <= 2) {
-            if (self.recognizer) {
-                [self.view removeGestureRecognizer:self.recognizer];
-                self.recognizer = nil;
-                self.recognizer.delegate = nil;
-            }
+//            if (self.recognizer) {
+//                [self.view removeGestureRecognizer:self.recognizer];
+//                self.recognizer = nil;
+//                self.recognizer.delegate = nil;
+//            }
         }
         
         return [super popViewControllerAnimated:animated];
         
     } else {
-        if([self.screenShotList count]>0){
-            [self.screenShotList removeLastObject];
-        }
+//        if([self.screenShotList count]>0){
+//            [self.screenShotList removeLastObject];
+//        }
         if (self.viewControllers.count  <= 2) {
-            if (self.recognizer) {
-                [self.view removeGestureRecognizer:self.recognizer];
-                self.recognizer = nil;
-                self.recognizer.delegate = nil;
-            }
+//            if (self.recognizer) {
+//                [self.view removeGestureRecognizer:self.recognizer];
+//                self.recognizer = nil;
+//                self.recognizer.delegate = nil;
+//            }
         }
         
         return [super popViewControllerAnimated:animated];
@@ -189,219 +189,219 @@ static CGFloat min_distance = 100;// 最小回弹距离
 - (void)popAnimation {
 
     if (self.viewControllers.count <= 2) {
-        if (self.recognizer) {
-            [self.view removeGestureRecognizer:self.recognizer];
-            self.recognizer = nil;
-            self.recognizer.delegate = nil;
-        }
+//        if (self.recognizer) {
+//            [self.view removeGestureRecognizer:self.recognizer];
+//            self.recognizer = nil;
+//            self.recognizer.delegate = nil;
+//        }
 
     }
-    if (!self.backGroundView) {
-        CGRect frame = self.view.frame;
-
-        _backGroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
-
-        _backGroundView.backgroundColor = dk_HexColor(COLOR_WHITE);
-
-    }
-
-    [self.view.superview insertSubview:self.backGroundView belowSubview:self.view];
-
-    _backGroundView.hidden = NO;
-
-    if (lastScreenShotView) [lastScreenShotView removeFromSuperview];
-
-    UIImage *lastScreenShot = [self.screenShotList lastObject];
-
-    lastScreenShotView = [[UIImageView alloc] initWithImage:lastScreenShot];
-
-    lastScreenShotView.frame = (CGRect){-(dk_ScreenWidth*offset_float),0,dk_ScreenWidth,dk_ScreenHeight};
-
-    [self.backGroundView addSubview:lastScreenShotView];
-
-    [UIView animateWithDuration:0.25 animations:^{
-
-        [self moveViewWithX:dk_ScreenWidth];
-
-    } completion:^(BOOL finished) {
-        [self gestureAnimation:NO];
-
-        CGRect frame = self.view.frame;
-
-        frame.origin.x = 0;
-
-        self.view.frame = frame;
-
-        self.isMoving = NO;
-
-        self.backGroundView.hidden = YES;
-    }];
+//    if (!self.backGroundView) {
+//        CGRect frame = self.view.frame;
+//
+//        _backGroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
+//
+//        _backGroundView.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
+//
+//    }
+//
+//    [self.view.superview insertSubview:self.backGroundView belowSubview:self.view];
+//
+//    _backGroundView.hidden = NO;
+//
+//    if (lastScreenShotView) [lastScreenShotView removeFromSuperview];
+//
+//    UIImage *lastScreenShot = [self.screenShotList lastObject];
+//
+//    lastScreenShotView = [[UIImageView alloc] initWithImage:lastScreenShot];
+//
+//    lastScreenShotView.frame = (CGRect){-(dk_ScreenWidth*offset_float),0,dk_ScreenWidth,dk_ScreenHeight};
+//
+//    [self.backGroundView addSubview:lastScreenShotView];
+//
+//    [UIView animateWithDuration:0.25 animations:^{
+//
+//        [self moveViewWithX:dk_ScreenWidth];
+//
+//    } completion:^(BOOL finished) {
+//        [self gestureAnimation:NO];
+//
+//        CGRect frame = self.view.frame;
+//
+//        frame.origin.x = 0;
+//
+//        self.view.frame = frame;
+//
+//        self.isMoving = NO;
+//
+//        self.backGroundView.hidden = YES;
+//    }];
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-    CGPoint point = [touch locationInView:self.view];
-    if (point.x > 49) {
-        return NO;
-    }
-    return YES;
-}
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+//    CGPoint point = [touch locationInView:self.view];
+//    if (point.x > 49) {
+//        return NO;
+//    }
+//    return YES;
+//}
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    //手势冲突解决
-    return (self.topViewController != [self.viewControllers firstObject]);
-}
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+//    //手势冲突解决
+//    return (self.topViewController != [self.viewControllers firstObject]);
+//}
 
 #pragma mark - Utility Methods -
 // get the current view screen shot
 - (UIImage *)capture {
-    CGSize imageSize = [[UIScreen mainScreen] bounds].size;
-    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    
-    UIWindow *window = [[UIApplication sharedApplication].delegate window];
-    if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen]) {
-        CGContextSaveGState(context);
-        CGContextTranslateCTM(context, [window center].x, [window center].y);
-        CGContextConcatCTM(context, [window transform]);
-        CGContextTranslateCTM(context, -[window bounds].size.width*[[window layer] anchorPoint].x, -[window bounds].size.height*[[window layer] anchorPoint].y);
-        [[window layer] renderInContext:context];
-        
-        CGContextRestoreGState(context);
-    }
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    return image;
+//    CGSize imageSize = [[UIScreen mainScreen] bounds].size;
+//    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//
+//
+//    UIWindow *window = [[UIApplication sharedApplication].delegate window];
+//    if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen]) {
+//        CGContextSaveGState(context);
+//        CGContextTranslateCTM(context, [window center].x, [window center].y);
+//        CGContextConcatCTM(context, [window transform]);
+//        CGContextTranslateCTM(context, -[window bounds].size.width*[[window layer] anchorPoint].x, -[window bounds].size.height*[[window layer] anchorPoint].y);
+//        [[window layer] renderInContext:context];
+//
+//        CGContextRestoreGState(context);
+//    }
+//
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//
+//    UIGraphicsEndImageContext();
+//    return image;
 }
 
 // set lastScreenShotView 's position when paning
 - (void)moveViewWithX:(float)x {
-    x = x>dk_ScreenWidth?dk_ScreenWidth:x;
-    
-    x = x<0?0:x;
-    
-    CGRect frame = self.view.frame;
-    frame.origin.x = x;
-    self.view.frame = frame;
-    // TODO
-    lastScreenShotView.frame = (CGRect){-(dk_ScreenWidth*offset_float)+x*offset_float,0,dk_ScreenWidth,dk_ScreenHeight};
+//    x = x>dk_ScreenWidth?dk_ScreenWidth:x;
+//
+//    x = x<0?0:x;
+//
+//    CGRect frame = self.view.frame;
+//    frame.origin.x = x;
+//    self.view.frame = frame;
+//    // TODO
+//    lastScreenShotView.frame = (CGRect){-(dk_ScreenWidth*offset_float)+x*offset_float,0,dk_ScreenWidth,dk_ScreenHeight};
 }
 
 - (void)gestureAnimation:(BOOL)animated {
-    if([self.screenShotList count]>0){
-        [self.screenShotList removeLastObject];
-    }
-    if (self.viewControllers.count<=2) {
-        if (self.recognizer) {
-            [self.view removeGestureRecognizer:self.recognizer];
-            self.recognizer = nil;
-            self.recognizer.delegate = nil;
-        }
-    }
-    if (self.HideNavType == 2) {
-        self.navigationBarHidden=NO;
-        self.HideNavType = 1;
-    }
-    if (self.popType == 2) {
-        [super popToRootViewControllerAnimated:animated];
-        self.popType = 1;
-    }else{
-        [super popViewControllerAnimated:animated];
-    }
+//    if([self.screenShotList count]>0){
+//        [self.screenShotList removeLastObject];
+//    }
+//    if (self.viewControllers.count<=2) {
+//        if (self.recognizer) {
+//            [self.view removeGestureRecognizer:self.recognizer];
+//            self.recognizer = nil;
+//            self.recognizer.delegate = nil;
+//        }
+//    }
+//    if (self.HideNavType == 2) {
+//        self.navigationBarHidden=NO;
+//        self.HideNavType = 1;
+//    }
+//    if (self.popType == 2) {
+//        [super popToRootViewControllerAnimated:animated];
+//        self.popType = 1;
+//    }else{
+//        [super popViewControllerAnimated:animated];
+//    }
     
 }
 
 #pragma mark - Gesture Recognizer -
-- (void)paningGestureReceive:(UIPanGestureRecognizer *)recoginzer
-{
-    // If the viewControllers has only one vc or disable the interaction, then return.
-    if (self.viewControllers.count <= 1) return;
-    
-    // we get the touch position by the window's coordinate
-    CGPoint touchPoint = [recoginzer locationInView:[UIApplication sharedApplication].keyWindow];
-    
-    // begin paning, show the backgroundView(last screenshot),if not exist, create it.
-    if (recoginzer.state == UIGestureRecognizerStateBegan) {
-        
-        _isMoving = YES;
-        
-        startPoint = touchPoint;
-        
-        if (!self.backGroundView) {
-            CGRect frame = self.view.frame;
-            
-            _backGroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
-            
-            _backGroundView.backgroundColor = dk_HexColor(COLOR_WHITE);
-            
-        }
-        [self.view.superview insertSubview:self.backGroundView belowSubview:self.view];
-        
-        _backGroundView.hidden = NO;
-        
-        if (lastScreenShotView) [lastScreenShotView removeFromSuperview];
-        
-        UIImage *lastScreenShot = [self.screenShotList lastObject];
-        
-        lastScreenShotView = [[UIImageView alloc] initWithImage:lastScreenShot];
-        
-        lastScreenShotView.frame = (CGRect){-(dk_ScreenWidth*offset_float),0,dk_ScreenWidth,dk_ScreenHeight};
-        
-        [self.backGroundView addSubview:lastScreenShotView];
-        
-        //End paning, always check that if it should move right or move left automatically
-    }else if (recoginzer.state == UIGestureRecognizerStateEnded){
-        
-        if (touchPoint.x - startPoint.x > min_distance)
-        {
-            [UIView animateWithDuration:0.25 animations:^{
-                
-                [self moveViewWithX:dk_ScreenWidth];
-                
-            } completion:^(BOOL finished) {
-                [self gestureAnimation:NO];
-                
-                CGRect frame = self.view.frame;
-                
-                frame.origin.x = 0;
-                
-                self.view.frame = frame;
-                
-                self.isMoving = NO;
-            }];
-        }
-        else
-        {
-            [UIView animateWithDuration:0.25 animations:^{
-                [self moveViewWithX:0];
-            } completion:^(BOOL finished) {
-                self.isMoving = NO;
-                
-                self.backGroundView.hidden = YES;
-            }];
-            
-        }
-        return;
-        // cancal panning, alway move to left side automatically
-    }else if (recoginzer.state == UIGestureRecognizerStateCancelled){
-        
-        [UIView animateWithDuration:0.25 animations:^{
-            [self moveViewWithX:0];
-        } completion:^(BOOL finished) {
-            self.isMoving = NO;
-            
-            self.backGroundView.hidden = YES;
-        }];
-        
-        return;
-    }
-    // it keeps move with touch
-    if (_isMoving) {
-        [self moveViewWithX:touchPoint.x - startPoint.x];
-    }
-}
+//- (void)paningGestureReceive:(UIPanGestureRecognizer *)recoginzer
+//{
+//    // If the viewControllers has only one vc or disable the interaction, then return.
+//    if (self.viewControllers.count <= 1) return;
+//    
+//    // we get the touch position by the window's coordinate
+//    CGPoint touchPoint = [recoginzer locationInView:[UIApplication sharedApplication].keyWindow];
+//    
+//    // begin paning, show the backgroundView(last screenshot),if not exist, create it.
+//    if (recoginzer.state == UIGestureRecognizerStateBegan) {
+//        
+//        _isMoving = YES;
+//        
+//        startPoint = touchPoint;
+//        
+//        if (!self.backGroundView) {
+//            CGRect frame = self.view.frame;
+//            
+//            _backGroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
+//            
+//            _backGroundView.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
+//            
+//        }
+//        [self.view.superview insertSubview:self.backGroundView belowSubview:self.view];
+//        
+//        _backGroundView.hidden = NO;
+//        
+//        if (lastScreenShotView) [lastScreenShotView removeFromSuperview];
+//        
+//        UIImage *lastScreenShot = [self.screenShotList lastObject];
+//        
+//        lastScreenShotView = [[UIImageView alloc] initWithImage:lastScreenShot];
+//        
+//        lastScreenShotView.frame = (CGRect){-(dk_ScreenWidth*offset_float),0,dk_ScreenWidth,dk_ScreenHeight};
+//        
+//        [self.backGroundView addSubview:lastScreenShotView];
+//        
+//        //End paning, always check that if it should move right or move left automatically
+//    }else if (recoginzer.state == UIGestureRecognizerStateEnded){
+//        
+//        if (touchPoint.x - startPoint.x > min_distance)
+//        {
+//            [UIView animateWithDuration:0.25 animations:^{
+//                
+//                [self moveViewWithX:dk_ScreenWidth];
+//                
+//            } completion:^(BOOL finished) {
+//                [self gestureAnimation:NO];
+//                
+//                CGRect frame = self.view.frame;
+//                
+//                frame.origin.x = 0;
+//                
+//                self.view.frame = frame;
+//                
+//                self.isMoving = NO;
+//            }];
+//        }
+//        else
+//        {
+//            [UIView animateWithDuration:0.25 animations:^{
+//                [self moveViewWithX:0];
+//            } completion:^(BOOL finished) {
+//                self.isMoving = NO;
+//                
+//                self.backGroundView.hidden = YES;
+//            }];
+//            
+//        }
+//        return;
+//        // cancal panning, alway move to left side automatically
+//    }else if (recoginzer.state == UIGestureRecognizerStateCancelled){
+//        
+//        [UIView animateWithDuration:0.25 animations:^{
+//            [self moveViewWithX:0];
+//        } completion:^(BOOL finished) {
+//            self.isMoving = NO;
+//            
+//            self.backGroundView.hidden = YES;
+//        }];
+//        
+//        return;
+//    }
+//    // it keeps move with touch
+//    if (_isMoving) {
+//        [self moveViewWithX:touchPoint.x - startPoint.x];
+//    }
+//}
 
 //旋转问题
 - (BOOL)shouldAutorotate {
@@ -417,7 +417,7 @@ static CGFloat min_distance = 100;// 最小回弹距离
         //去掉导航栏底部的黑线
         [self.navigationBar setShadowImage:[UIImage imageWithColor:dk_ClearColor size:CGSizeMake(dk_ScreenWidth, 1)]];
     } else {
-        [self.navigationBar setShadowImage:[UIImage imageWithColor:dk_HexColor(COLOR_LINE) size:CGSizeMake(dk_ScreenWidth, 1)]];
+        [self.navigationBar setShadowImage:[UIImage imageWithColor:dk_HexColor(DK_COLOR_LINE) size:CGSizeMake(dk_ScreenWidth, 1)]];
     }
 }
 
@@ -452,7 +452,7 @@ static CGFloat min_distance = 100;// 最小回弹距离
 
 - (UIColor *)backgroundColor {
     if (!_backgroundColor) {
-        _backgroundColor = dk_HexColor(COLOR_WHITE);
+        _backgroundColor = dk_HexColor(DK_COLOR_WHITE);
     }
     return _backgroundColor;
 }

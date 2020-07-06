@@ -26,16 +26,6 @@ typedef void(^RequestResultBlock)(id object);
 
 @end
 
-typedef enum : NSUInteger {
-    RefreshEnd_HasMoreData = 1,
-    RefreshEnd_HasNoMoreData,
-} RefreshEnd;
-
-typedef NS_ENUM(NSInteger, UploadImageState) {
-    UploadImageFailed   = 0,
-    UploadImageSuccess  = 1
-};
-
 @interface DKBaseViewModel : NSObject<DKBaseViewModelProtocol>{
     NSInteger _page_no;
     NSInteger _page_size;
@@ -51,7 +41,7 @@ typedef NS_ENUM(NSInteger, UploadImageState) {
 @property (nonatomic, strong) RACSubject *loadEnd;
 @property (nonatomic, strong) RACSubject *loadMoreEnd;
 
-@property (nonatomic, strong) NSMutableArray *dataArrayM;
+@property (nonatomic, strong) NSMutableArray *datasArrM;
 
 @property (nonatomic, assign) NSInteger total;
 

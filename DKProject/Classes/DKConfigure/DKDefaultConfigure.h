@@ -22,11 +22,11 @@
 /// 线条宽度
 #define dk_LineWidth 1.0/[[UIScreen mainScreen] scale]
 
-#define dk_ScreenHeightRatio (ScreenHeight / 667.0)
-#define dk_ScreenWidthRatio (ScreenWidth / 375.0)
+#define dk_ScreenHeightRatio (dk_ScreenHeight / 667.0)
+#define dk_ScreenWidthRatio (dk_ScreenWidth / 375.0)
 
-#define dk_WidthRatio(width) ((width * ScreenWidth) / 375.0)
-#define dk_HeightRatio(height) ((height * ScreenHeight) / 667.0)
+#define dk_WidthRatio(width) ((width * dk_ScreenWidth) / 375.0)
+#define dk_HeightRatio(height) ((height * dk_ScreenHeight) / 667.0)
 
 #define dk_Window [UIApplication sharedApplication].keyWindow
 

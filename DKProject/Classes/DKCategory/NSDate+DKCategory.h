@@ -18,76 +18,91 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDate (DKCategory)
-- (NSString *)timeIntervalDescription;//距离当前的时间间隔描述
-- (NSString *)minuteDescription;/*精确到分钟的日期描述*/
-- (NSString *)formattedTime;
-- (NSString *)formattedDateDescription;//格式化日期描述
-///距离当前的时间间隔描述 xx 天 xx 时
+/// 距离当前的时间间隔描述
+- (NSString *)timeIntervalDescription;
+/// 精确到分钟的日期描述
+- (NSString *)minuteDescription;
+/// 格式化日期描述
+- (NSString *)formattedDateDescription;
+/// 标准时间日期描述
+- (NSString *)formattedTimeDescription;
+/// 距离当前的时间间隔描述 xx 天 xx 时
 - (NSString *)formattedDayHourDescription;
-///距离当前的时间间隔描述 xx 月 xx 日 去年 xx 年 xx 月 xx 日
+/// 距离当前的时间间隔描述 xx 月 xx 日 去年 xx 年 xx 月 xx 日
 - (NSString *)formattedDayDescription;
-- (NSTimeInterval)timeIntervalSince1970InMilliSecond;//当前时间秒数
+/// 当前时间秒数
+- (NSTimeInterval)timeIntervalSince1970InMilliSecond;
+/// 秒/毫秒转 Date
 + (NSDate *)dateWithTimeIntervalInMilliSecondSince1970:(NSTimeInterval)timeIntervalInMilliSecond;
+/// 秒/毫秒转字符串
 + (NSString *)formattedTimeFromTimeInterval:(NSTimeInterval)time;
-// Relative dates from the current date
-+ (NSString *)currentDateWithDefaultFormatter;
-+ (NSDate *)DateWithDefaultFormatter:(NSString *)date;
+/// 年月日时分秒
++ (NSDate *)dateWithDefaultFormatter;
 ///精确到毫秒显示
-+ (NSString *)currentDateWithMSDefaultFormatter;
++ (NSString *)dateWithMSDefaultFormatter;
 ///获取当前是上午还是下午
-+ (NSString *)currentIsMorningOrAfternoon;
++ (NSString *)dateIsAMOrPM;
+/// 距离当前的时间超过 1 小时
 - (BOOL)timeIntervalGreaterThanAnHour;
-+ (NSDate *) dateTomorrow;
-+ (NSDate *) dateYesterday;
-+ (NSDate *) dateWithDaysFromNow: (NSInteger) days;
-+ (NSDate *) dateWithDaysBeforeNow: (NSInteger) days;
-+ (NSDate *) dateWithHoursFromNow: (NSInteger) dHours;
-+ (NSDate *) dateWithHoursBeforeNow: (NSInteger) dHours;
-+ (NSDate *) dateWithMinutesFromNow: (NSInteger) dMinutes;
-+ (NSDate *) dateWithMinutesBeforeNow: (NSInteger) dMinutes;
+/// 明天
++ (NSDate *)dateTomorrow;
+/// 昨天
++ (NSDate *)dateYesterday;
+/// 往后多少天
++ (NSDate *)dateWithDaysFromNow:(NSInteger)days;
+/// 往前多少天
++ (NSDate *)dateWithDaysBeforeNow:(NSInteger)days;
+/// 往后多少小时
++ (NSDate *)dateWithHoursFromNow:(NSInteger)dHours;
+/// 往前多少小时
++ (NSDate *)dateWithHoursBeforeNow:(NSInteger)dHours;
+/// 往后多少分钟
++ (NSDate *)dateWithMinutesFromNow:(NSInteger)dMinutes;
+/// 往前多少分钟
++ (NSDate *)dateWithMinutesBeforeNow:(NSInteger)dMinutes;
 ///秒数转换成时分秒
 + (NSString *)secondFormatterHour:(NSUInteger)time;
 
 // Comparing dates
-- (BOOL) isEqualToDateIgnoringTime: (NSDate *) aDate;
-- (BOOL) isToday;
-- (BOOL) isTomorrow;
-- (BOOL) isYesterday;
-- (BOOL) isSameWeekAsDate: (NSDate *) aDate;
-- (BOOL) isThisWeek;
-- (BOOL) isNextWeek;
-- (BOOL) isLastWeek;
-- (BOOL) isSameMonthAsDate: (NSDate *) aDate;
-- (BOOL) isThisMonth;
-- (BOOL) isSameYearAsDate: (NSDate *) aDate;
-- (BOOL) isThisYear;
-- (BOOL) isNextYear;
-- (BOOL) isLastYear;
-- (BOOL) isEarlierThanDate: (NSDate *) aDate;
-- (BOOL) isLaterThanDate: (NSDate *) aDate;
-- (BOOL) isInFuture;
-- (BOOL) isInPast;
+- (BOOL)isEqualToDateIgnoringTime:(NSDate *)aDate;
+- (BOOL)isToday;
+- (BOOL)isTomorrow;
+- (BOOL)isYesterday;
+- (BOOL)isSameWeekAsDate:(NSDate *)aDate;
+- (BOOL)isThisWeek;
+- (BOOL)isNextWeek;
+- (BOOL)isLastWeek;
+- (BOOL)isSameMonthAsDate:(NSDate *)aDate;
+- (BOOL)isThisMonth;
+- (BOOL)isSameYearAsDate:(NSDate *)aDate;
+- (BOOL)isThisYear;
+- (BOOL)isNextYear;
+- (BOOL)isLastYear;
+- (BOOL)isEarlierThanDate:(NSDate *)aDate;
+- (BOOL)isLaterThanDate:(NSDate *)aDate;
+- (BOOL)isInFuture;
+- (BOOL)isInPast;
 
 // Date roles
-- (BOOL) isTypicallyWorkday;
-- (BOOL) isTypicallyWeekend;
+- (BOOL)isTypicallyWorkday;
+- (BOOL)isTypicallyWeekend;
 
 // Adjusting dates
-- (NSDate *) dateByAddingDays: (NSInteger) dDays;
-- (NSDate *) dateBySubtractingDays: (NSInteger) dDays;
-- (NSDate *) dateByAddingHours: (NSInteger) dHours;
-- (NSDate *) dateBySubtractingHours: (NSInteger) dHours;
-- (NSDate *) dateByAddingMinutes: (NSInteger) dMinutes;
-- (NSDate *) dateBySubtractingMinutes: (NSInteger) dMinutes;
-- (NSDate *) dateAtStartOfDay;
+- (NSDate *)dateByAddingDays:(NSInteger)dDays;
+- (NSDate *)dateBySubtractingDays:(NSInteger)dDays;
+- (NSDate *)dateByAddingHours:(NSInteger)dHours;
+- (NSDate *)dateBySubtractingHours:(NSInteger)dHours;
+- (NSDate *)dateByAddingMinutes:(NSInteger)dMinutes;
+- (NSDate *)dateBySubtractingMinutes:(NSInteger)dMinutes;
+- (NSDate *)dateAtStartOfDay;
 
 // Retrieving intervals
-- (NSInteger) minutesAfterDate: (NSDate *) aDate;
-- (NSInteger) minutesBeforeDate: (NSDate *) aDate;
-- (NSInteger) hoursAfterDate: (NSDate *) aDate;
-- (NSInteger) hoursBeforeDate: (NSDate *) aDate;
-- (NSInteger) daysAfterDate: (NSDate *) aDate;
-- (NSInteger) daysBeforeDate: (NSDate *) aDate;
+- (NSInteger)minutesAfterDate:(NSDate *)aDate;
+- (NSInteger)minutesBeforeDate:(NSDate *)aDate;
+- (NSInteger)hoursAfterDate:(NSDate *)aDate;
+- (NSInteger)hoursBeforeDate:(NSDate *)aDate;
+- (NSInteger)daysAfterDate:(NSDate *)aDate;
+- (NSInteger)daysBeforeDate:(NSDate *)aDate;
 - (NSInteger)distanceInDaysToDate:(NSDate *)anotherDate;
 
 // Decomposing dates

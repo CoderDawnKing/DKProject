@@ -61,6 +61,7 @@
 #import <DKProject/DKColorConfigure.h>
 #import <DKProject/DKDefaultConfigure.h>
 #import <DKProject/DKNotificationConfigure.h>
+#import <DKProject/DKConstantConfigure.h>
 
 // Custom
 #import <DKProject/DKCustomButton.h>

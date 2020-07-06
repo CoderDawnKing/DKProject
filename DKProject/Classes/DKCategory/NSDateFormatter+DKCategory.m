@@ -26,6 +26,10 @@
     return [self dateFormatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
 
++ (instancetype)defaultYearMonthDayMilliScondDateFormatter {
+    return [self dateFormatterWithFormat:@"yyyy-MM-dd HH:mm:ss:SSS"];
+}
+
 + (instancetype)defaultYearMonthDayDateFormatter {
     return [self dateFormatterWithFormat:@"yyyy-MM-dd"];
 }
@@ -38,11 +42,15 @@
     return [self dateFormatterWithFormat:@"MM-dd"];
 }
 
-+ (instancetype)defaultMinuteDateFormatter {
++ (instancetype)defaultHourDateFormatter {
+    return [self dateFormatterWithFormat:@"HH"];
+}
+
++ (instancetype)defaultHourMinuteDateFormatter {
     return [self dateFormatterWithFormat:@"HH:mm"];
 }
 
-+ (instancetype)defaultSecondDateFormatter {
++ (instancetype)defaultHourMinuteSecondDateFormatter {
     return [self dateFormatterWithFormat:@"HH:mm:ss"];
 }
 

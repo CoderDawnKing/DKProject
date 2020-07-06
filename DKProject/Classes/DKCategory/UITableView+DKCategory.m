@@ -121,24 +121,24 @@ static const char *emptyDatasKey = "emptyDatas";
     return [objc_getAssociatedObject(self, emptyDatasKey) boolValue];
 }
 
-static const char *endHeaderRefreshingKey = "endHeaderRefreshing";
+static const char *dk_endHeaderRefreshingKey = "dk_endHeaderRefreshing";
 - (void)setEndHeaderRefreshing:(BOOL)endHeaderRefreshing {
-    objc_setAssociatedObject(self, endHeaderRefreshingKey, @(endHeaderRefreshing), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, dk_endHeaderRefreshingKey, @(endHeaderRefreshing), OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (BOOL)isEndHeaderRefreshing {
-    return [objc_getAssociatedObject(self, endHeaderRefreshingKey) boolValue];
+    return [objc_getAssociatedObject(self, dk_endHeaderRefreshingKey) boolValue];
 }
 
 static NSString * const dk_EmptyView = @"emptyView";
 #pragma mark - Getter & Setter
-- (DKBaseEmptyView *)emptyView {
+- (DKBaseEmptyView *)dk_emptyView {
     return objc_getAssociatedObject(self, &dk_EmptyView);
 }
 
-- (void)setEmptyView:(DKBaseEmptyView *)emptyView {
-    emptyView.tag = 999;
-    objc_setAssociatedObject(self, &dk_EmptyView, emptyView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setDk_emptyView:(DKBaseEmptyView *)dk_emptyView {
+    dk_emptyView.tag = 999;
+    objc_setAssociatedObject(self, &dk_EmptyView, dk_emptyView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 /**
@@ -165,18 +165,18 @@ static NSString * const dk_EmptyView = @"emptyView";
 }
 
 - (void)setShowEmptyView {
-    if (!self.emptyView) return;
+    if (!self.dk_emptyView) return;
     if (!self.isEndHeaderRefreshing && self.isAutoShowEmpty) return;
     UIView *view = [self viewWithTag:999];
     [view removeFromSuperview];
 
     if ((self.isAutoShowEmpty && [self emptyData_itemCount] == 0) || (!self.isAutoShowEmpty && self.isEmptyDatas)) {
-        self.emptyView.hidden = NO;
-        [self insertSubview:self.emptyView atIndex:0];
-        self.emptyView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+        self.dk_emptyView.hidden = NO;
+        [self insertSubview:self.dk_emptyView atIndex:0];
+        self.dk_emptyView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
     } else {
-        self.emptyView.hidden = YES;
-        [self.emptyView removeFromSuperview];
+        self.dk_emptyView.hidden = YES;
+        [self.dk_emptyView removeFromSuperview];
     }
 }
 

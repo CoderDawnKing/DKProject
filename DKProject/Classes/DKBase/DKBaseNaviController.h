@@ -18,17 +18,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DKBaseNaviController : UINavigationController
 
-///全局返回手势
-@property(nonatomic, strong, nullable) UIPanGestureRecognizer *recognizer;
-@property (nonatomic, strong) UINavigationController *navi;
-@property(nonatomic, assign) NSInteger popType;//2: 返回rootViewController
-@property(nonatomic, assign) NSInteger HideNavType;//2: 显示导航栏
+//@property(nonatomic, assign) NSInteger popType;//2: 返回rootViewController
+//@property(nonatomic, assign) NSInteger HideNavType;//2: 显示导航栏
 ///隐藏底部线条
 @property (nonatomic, assign, getter=isHiddenShadowImage) BOOL hiddenShadowImage;
 ///导航栏透明
 @property (nonatomic, assign, getter=isTransparent) BOOL transparent;
 ///大标题
 @property (nonatomic, strong) NSString *leftBarTitle;
+/// 返回代理
 @property (nonatomic, weak) id<DKBaseNaviControllerDelegate> dk_delegate;
 ///导航栏透明度
 @property (nonatomic, assign) CGFloat dk_navAlpha;

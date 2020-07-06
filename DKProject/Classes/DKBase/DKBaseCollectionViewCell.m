@@ -110,7 +110,7 @@
 - (UIImageView *)imageV {
     if (!_imageV) {
         _imageV = [[UIImageView alloc] init];
-        _imageV.backgroundColor = dk_HexColor(COLOR_DDDDDD);
+        _imageV.backgroundColor = dk_HexColor(DK_COLOR_DDDDDD);
         _imageV.contentMode = UIViewContentModeScaleAspectFill;
         _imageV.layer.masksToBounds = YES;
     }
@@ -122,7 +122,7 @@
         _title = [[UILabel alloc] init];
         _title.text = @"";
         _title.font = [UIFont pfRegularWithSize:12];
-        _title.textColor = dk_HexColor(COLOR_333333);
+        _title.textColor = dk_HexColor(DK_COLOR_333333);
         _title.textAlignment = NSTextAlignmentCenter;
     }
     return _title;

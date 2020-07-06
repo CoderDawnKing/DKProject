@@ -29,9 +29,9 @@ typedef NS_ENUM(NSInteger , DKShadowPathType) {
     DKShadowPathAround = 6,
 };
 
-typedef void(^TapGestureRecognizerBlock)(UITapGestureRecognizer *tap);
-typedef void(^PanGestureRecognizerBlock)(UIPanGestureRecognizer *pan);
-typedef void(^LongPressGestureRecognizerBlock)(UILongPressGestureRecognizer *longPress);
+typedef void(^DK_TapGestureRecognizerBlock)(UITapGestureRecognizer *tap);
+typedef void(^DK_PanGestureRecognizerBlock)(UIPanGestureRecognizer *pan);
+typedef void(^DK_LongPressGestureRecognizerBlock)(UILongPressGestureRecognizer *longPress);
 
 @interface UIView (DKCategory)
 
@@ -46,32 +46,31 @@ typedef void(^LongPressGestureRecognizerBlock)(UILongPressGestureRecognizer *lon
 @property (nonatomic, assign) CGFloat centerY;
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
-@property (nonatomic, assign) CGSize size;
+@property (nonatomic, assign) CGSize  size;
 @property (nonatomic, assign) CGPoint origin;
 
 @property (nonatomic, assign, readonly) CGPoint boundsCenter;
 @property (nonatomic, assign, readonly) CGFloat boundsCenterX;
 @property (nonatomic, assign, readonly) CGFloat boundsCenterY;
 
-- (NSDictionary *)returnFontDicWith:(CGFloat)first;
 //圆角
-- (void)setRadius;
-- (void)setRadiusWithCornerRadii:(CGFloat)cornerRadii;
-- (void)setRoundingCorners:(UIRectCorner)corners cornerRadii:(CGFloat)cornerRadii;
+- (void)dk_radius;
+- (void)dk_cornerRadii:(CGFloat)cornerRadii;
+- (void)dk_roundingCorners:(UIRectCorner)corners cornerRadii:(CGFloat)cornerRadii;
 //阴影
-- (void)addShadowDefault;
-- (void)addShadowRadius:(CGFloat)shadowRadius;
-- (void)addShadowRadius:(CGFloat)shadowRadius cornerRadius:(CGFloat)cornerRadius;
-- (void)addShadowWithColor:(UIColor *)shadowColor shadowOffset:(CGSize)shadowOffset shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius;
-- (void)addShadowWithColor:(UIColor *)shadowColor shadowOffset:(CGSize)shadowOffset shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius cornerRadius:(CGFloat)cornerRadius;
-- (void)addShadowWithColor:(UIColor *)shadowColor shadowOffset:(CGSize)shadowOffset shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius cornerRadius:(CGFloat)cornerRadius roundingCorners:(UIRectCorner)corners;
-- (void)viewShadowPathWithColor:(UIColor *)shadowColor shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius shadowPathType:(DKShadowPathType)shadowPathType shadowPathWidth:(CGFloat)shadowPathWidth;
+- (void)dk_addShadowDefault;
+- (void)dk_addShadowRadius:(CGFloat)shadowRadius;
+- (void)dk_addShadowRadius:(CGFloat)shadowRadius cornerRadius:(CGFloat)cornerRadius;
+- (void)dk_addShadowWithColor:(UIColor *)shadowColor shadowOffset:(CGSize)shadowOffset shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius;
+- (void)dk_addShadowWithColor:(UIColor *)shadowColor shadowOffset:(CGSize)shadowOffset shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius cornerRadius:(CGFloat)cornerRadius;
+- (void)dk_addShadowWithColor:(UIColor *)shadowColor shadowOffset:(CGSize)shadowOffset shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius cornerRadius:(CGFloat)cornerRadius roundingCorners:(UIRectCorner)corners;
+- (void)dk_viewShadowPathWithColor:(UIColor *)shadowColor shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius shadowPathType:(DKShadowPathType)shadowPathType shadowPathWidth:(CGFloat)shadowPathWidth;
 //边框
-- (void)addBorderDefault;
-- (void)addBorderWithColor:(UIColor *)borderColor width:(CGFloat)borderWidth;
+- (void)dk_addBorderDefault;
+- (void)dk_addBorderWithColor:(UIColor *)borderColor width:(CGFloat)borderWidth;
 //虚线边框
-- (void)addDottedLineBorderWithColor:(UIColor *)borderColor width:(CGFloat)borderWidth  cornerRadii:(CGFloat)cornerRadii;
-- (void)addDottedLineWithLineWidth:(CGFloat)lineWidth
+- (void)dk_addDottedLineBorderWithColor:(UIColor *)borderColor width:(CGFloat)borderWidth  cornerRadii:(CGFloat)cornerRadii;
+- (void)dk_addDottedLineWithLineWidth:(CGFloat)lineWidth
                        lineSpacing:(CGFloat)lineSpacing
                          lineColor:(UIColor *)lineColor
                      lineDirection:(BOOL)isHorizonal;
@@ -90,15 +89,15 @@ typedef void(^LongPressGestureRecognizerBlock)(UILongPressGestureRecognizer *lon
 
 /// 添加 tap 手势
 /// @param tapGestureRecognizerBlock block 点击回调
-- (void)addTapGestureRecognizer:(TapGestureRecognizerBlock)tapGestureRecognizerBlock;
+- (void)dk_addTapGestureRecognizer:(DK_TapGestureRecognizerBlock)tapGestureRecognizerBlock;
 /// 添加 pan 手势
 /// @param panGestureRecognizerBlock block 点击回调
-- (void)addPanGestureRecognizer:(PanGestureRecognizerBlock)panGestureRecognizerBlock;
+- (void)dk_addPanGestureRecognizer:(DK_PanGestureRecognizerBlock)panGestureRecognizerBlock;
 /// 添加 long 手势
 /// @param longPressGestureRecognizerBlock  block 点击回调
-- (void)addLongPressGestureRecognizer:(LongPressGestureRecognizerBlock)longPressGestureRecognizerBlock;
+- (void)dk_addLongPressGestureRecognizer:(DK_LongPressGestureRecognizerBlock)longPressGestureRecognizerBlock;
 /// 移除所有手势
-- (void)removeAllGestureRecognizer;
+- (void)dk_removeAllGestureRecognizer;
 
 @end
 

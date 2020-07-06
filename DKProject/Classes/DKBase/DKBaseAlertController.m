@@ -37,7 +37,7 @@
 }
 
 + (instancetype)dk_AlertControllerWithTitle:(NSString *)title message:(NSString *)message actionDefault:(NSString *)actionDefaultStr actionCancel:(NSString *)actionCancelStr handlerDefault:(void (^)(UIAlertAction *))handlerDefault handlerCancel:(void (^)(UIAlertAction *))handlerCancel {
-    return [self dk_AlertControllerWithTitle:title message:message actionDefault:actionDefaultStr actionDefaultColor:dk_HexColor(COLOR_APPMAIN) actionCancel:actionCancelStr actionCancelColor:dk_HexColor(COLOR_414141) handlerDefault:handlerDefault handlerCancel:handlerCancel];
+    return [self dk_AlertControllerWithTitle:title message:message actionDefault:actionDefaultStr actionDefaultColor:dk_HexColor(DK_COLOR_APPMAIN) actionCancel:actionCancelStr actionCancelColor:dk_HexColor(DK_COLOR_414141) handlerDefault:handlerDefault handlerCancel:handlerCancel];
 }
 
 + (instancetype)dk_AlertControllerWithTitle:(nullable NSString *)title
@@ -53,7 +53,7 @@
     //修改 title
     if (title) {
         NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:title];
-        [alertControllerStr addAttribute:NSForegroundColorAttributeName value:dk_HexColor(COLOR_414141) range:NSMakeRange(0, title.length)];
+        [alertControllerStr addAttribute:NSForegroundColorAttributeName value:dk_HexColor(DK_COLOR_414141) range:NSMakeRange(0, title.length)];
         [alertControllerStr addAttribute:NSFontAttributeName value:[UIFont pfMediumWithSize:17] range:NSMakeRange(0, title.length)];
         [alert setValue:alertControllerStr forKey:@"attributedTitle"];
     }
@@ -61,9 +61,9 @@
     //修改 message
     if (message) {
         NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:message];
-        UIColor *msgColor = dk_HexColor(COLOR_999999);
+        UIColor *msgColor = dk_HexColor(DK_COLOR_999999);
         if (!title) {
-            msgColor = dk_HexColor(COLOR_414141);
+            msgColor = dk_HexColor(DK_COLOR_414141);
         }
         [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:msgColor range:NSMakeRange(0, message.length)];
         [alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont pfRegularWithSize:14] range:NSMakeRange(0, message.length)];
@@ -73,14 +73,14 @@
     if (actionDefaultStr) {
         UIAlertAction *actionDefault = [UIAlertAction actionWithTitle:actionDefaultStr style:UIAlertActionStyleDefault handler:handlerDefault];
         //修改 action
-        [actionDefault setValue:actionDefaultColor?:dk_HexColor(COLOR_APPMAIN) forKey:@"titleTextColor"];
+        [actionDefault setValue:actionDefaultColor?:dk_HexColor(DK_COLOR_APPMAIN) forKey:@"titleTextColor"];
         [alert addAction:actionDefault];
     }
     
     if (actionCancelStr) {
         UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:actionCancelStr style:UIAlertActionStyleCancel handler:handlerCancel];
         //修改 action
-        [actionCancel setValue:actionCancelColor?:dk_HexColor(COLOR_414141) forKey:@"titleTextColor"];
+        [actionCancel setValue:actionCancelColor?:dk_HexColor(DK_COLOR_414141) forKey:@"titleTextColor"];
         [alert addAction:actionCancel];
     }
     
@@ -99,7 +99,7 @@
     //修改 title
     if (title) {
         NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:title];
-        [alertControllerStr addAttribute:NSForegroundColorAttributeName value:dk_HexColor(COLOR_414141) range:NSMakeRange(0, title.length)];
+        [alertControllerStr addAttribute:NSForegroundColorAttributeName value:dk_HexColor(DK_COLOR_414141) range:NSMakeRange(0, title.length)];
         [alertControllerStr addAttribute:NSFontAttributeName value:[UIFont pfMediumWithSize:17] range:NSMakeRange(0, title.length)];
         [alert setValue:alertControllerStr forKey:@"attributedTitle"];
     }
@@ -107,9 +107,9 @@
     //修改 message
     if (message) {
         NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:message];
-        UIColor *msgColor = dk_HexColor(COLOR_999999);
+        UIColor *msgColor = dk_HexColor(DK_COLOR_999999);
         if (!title) {
-            msgColor = dk_HexColor(COLOR_414141);
+            msgColor = dk_HexColor(DK_COLOR_414141);
         }
         [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:msgColor range:NSMakeRange(0, message.length)];
         [alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont pfRegularWithSize:14] range:NSMakeRange(0, message.length)];
@@ -132,7 +132,7 @@
                     [actionDefault setValue:actionDefaultColors[i] forKey:@"titleTextColor"];
                 }
             } else {
-                [actionDefault setValue:dk_HexColor(COLOR_APPMAIN) forKey:@"titleTextColor"];
+                [actionDefault setValue:dk_HexColor(DK_COLOR_APPMAIN) forKey:@"titleTextColor"];
             }
             [alert addAction:actionDefault];
         }
@@ -141,7 +141,7 @@
     if (actionCancelStr) {
         UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:actionCancelStr style:UIAlertActionStyleCancel handler:handlerCancel];
         //修改 action
-        [actionCancel setValue:dk_HexColor(COLOR_414141) forKey:@"titleTextColor"];
+        [actionCancel setValue:dk_HexColor(DK_COLOR_414141) forKey:@"titleTextColor"];
         [alert addAction:actionCancel];
     }
     
@@ -159,14 +159,14 @@
                 handlerDefault(action, i);
             }];
             //修改 action
-            [actionDefault setValue:dk_HexColor(COLOR_666666) forKey:@"titleTextColor"];
+            [actionDefault setValue:dk_HexColor(DK_COLOR_666666) forKey:@"titleTextColor"];
             [alert addAction:actionDefault];
         }
     }
     if (actionCancelStr) {
         UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:actionCancelStr style:UIAlertActionStyleCancel handler:handlerCancel];
         //修改 action
-        [actionCancel setValue:dk_HexColor(COLOR_666666) forKey:@"titleTextColor"];
+        [actionCancel setValue:dk_HexColor(DK_COLOR_666666) forKey:@"titleTextColor"];
         [alert addAction:actionCancel];
     }
     
@@ -188,7 +188,7 @@
             handlerDefault(action, index);
         }];
         //修改 action
-        [actionDefault setValue:dk_HexColor(COLOR_666666) forKey:@"titleTextColor"];
+        [actionDefault setValue:dk_HexColor(DK_COLOR_666666) forKey:@"titleTextColor"];
         [alert addAction:actionDefault];
         //va_arg 指向下一个参数地址
         //这里是问题的所在 网上的例子，没有保存第一个参数地址，后边循环，指针将不会在指向第一个参数
@@ -200,7 +200,7 @@
                     handlerDefault(action, index);
                 }];
                 //修改 action
-                [actionDefault setValue:dk_HexColor(COLOR_666666) forKey:@"titleTextColor"];
+                [actionDefault setValue:dk_HexColor(DK_COLOR_666666) forKey:@"titleTextColor"];
                 [alert addAction:actionDefault];
             }
         }
@@ -211,7 +211,7 @@
     if (actionCancelStr) {
         UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:actionCancelStr style:UIAlertActionStyleCancel handler:handlerCancel];
         //修改 action
-        [actionCancel setValue:dk_HexColor(COLOR_666666) forKey:@"titleTextColor"];
+        [actionCancel setValue:dk_HexColor(DK_COLOR_666666) forKey:@"titleTextColor"];
         [alert addAction:actionCancel];
     }
     
@@ -219,10 +219,10 @@
 }
 
 - (void)show {
-    if ([[self getCurrentViewController] isKindOfClass:[DKBaseAlertController class]]) {
+    if ([[self dk_getCurrentController] isKindOfClass:[DKBaseAlertController class]]) {
         return;
     }
-    [[self getCurrentViewController] presentViewController:self animated:YES completion:nil];
+    [[self dk_getCurrentController] presentViewController:self animated:YES completion:nil];
 }
 
 @end

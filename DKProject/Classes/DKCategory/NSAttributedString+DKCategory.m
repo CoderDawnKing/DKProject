@@ -10,7 +10,7 @@
 
 @implementation NSAttributedString (DKCategory)
 
-- (NSAttributedString *)setAttributes:(NSDictionary<NSAttributedStringKey,id> *)attr range:(NSRange)rang {
+- (NSAttributedString *)dk_setAttributes:(NSDictionary<NSAttributedStringKey,id> *)attr range:(NSRange)rang {
     NSMutableAttributedString *attrM = [[NSMutableAttributedString alloc] initWithAttributedString:self];
     [attrM setAttributes:attr range:rang];
     return attrM;

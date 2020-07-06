@@ -58,15 +58,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)subStringWithLength:(NSInteger)length;
 ///计算文本的宽度或高度
 -(CGSize)boundingRectWithFont:(UIFont *)font size:(CGSize)size;
+/// 取出所有的 url
 - (NSArray *)arrayOfCheckStringWithURL;
+/// 取出所以符合正则的字符串
 - (NSArray *)arrayOfCheckStringWithRegular:(NSString *)regular;
 
 ///保留数字
-- (NSString *)keepNumber;
+- (NSString *)dk_keepNumber;
 ///保留小数点和数字
-- (NSString *)keepDecimalNumber;
+- (NSString *)dk_keepDecimalNumber;
 ///保留 formatter 中的字符串
-- (NSString *)keepStringWithFormatter:(NSString *)formatter;
+- (NSString *)dk_keepStringWithFormatter:(NSString *)formatter;
 
 @end
 

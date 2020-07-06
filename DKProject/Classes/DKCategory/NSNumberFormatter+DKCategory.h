@@ -12,11 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSNumberFormatter (DKCategory)
 
-+ (instancetype)numberFormatter;
-+ (instancetype)numberFormatterWithStyle:(NSNumberFormatterStyle)style;
++ (instancetype)dk_numberFormatter;
++ (instancetype)dk_numberFormatterWithStyle:(NSNumberFormatterStyle)style;
 ///显示 1,234.00 小数
-+ (instancetype)defaultDecimalNumberFormatter;
-+ (instancetype)defaultCurrencyNumberFormatter;
++ (instancetype)dk_defaultDecimalNumberFormatter;
++ (instancetype)dk_defaultCurrencyNumberFormatter;
 
 @end
 

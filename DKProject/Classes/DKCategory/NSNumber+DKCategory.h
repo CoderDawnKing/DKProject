@@ -13,11 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSNumber (DKCategory)
 /// 1,234 类型
-- (NSString *)decimalString;
+- (NSString *)dk_decimalString;
 /// 1,234 类型 超过 1 万自动显示万
-- (NSString *)decimalFormatterString;
+- (NSString *)dk_decimalFormatterString;
 /// 货币类型
-- (NSString *)currencyString;
+- (NSString *)dk_currencyString;
 
 @end
 

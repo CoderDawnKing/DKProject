@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = dk_HexColor(COLOR_TABLEVIEW_BACKGROUND);
+    self.view.backgroundColor = dk_HexColor(DK_COLOR_TABLEVIEW_BACKGROUND);
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(saveClick) title:@"保存"];
 }
 
@@ -47,7 +47,7 @@
         _textView.text = self.context;
         _textView.textContainerInset = UIEdgeInsetsMake(10, 15, 0, 15);
         _textView.font = [UIFont pfRegularWithSize:14];
-        _textView.backgroundColor = dk_HexColor(COLOR_WHITE);
+        _textView.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
     }
     return _textView;
 }
@@ -58,7 +58,7 @@
     if (self.backBlock) {
         self.backBlock(self.textView.text);
     }
-    [self backToSuperViewController];
+    [self dk_backToSuperViewController];
 }
 
 

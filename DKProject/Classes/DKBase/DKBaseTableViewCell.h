@@ -58,27 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-///38
-static const CGFloat rightArrowImageMargin = 38.f;
-///10
-static const CGFloat constMargin = 10.0f;
-///0.5
-static const CGFloat lineHeight = 0.5f;
-///8
-static const CGFloat labelMargin = 8.0f;
-///20
-static const CGFloat leftCellMargin = 20.0f;
-///20
-static const CGFloat rightCellMargin = 20.0f;
-///15
-static const CGFloat topCellMargin = 15.0f;
-///15
-static const CGFloat bottomCellMargin = 15.0f;
-///15
-static const CGFloat betweenMargin = 15.0f;
-///5
-static const CGFloat littleMargin = 5.0f;
-
 @interface DKBaseTableViewCell : UITableViewCell<DKBaseCellProtocol>
 /** 输入框 */
 @property (nonatomic, strong) UITextField *textField;

@@ -10,7 +10,7 @@
 
 @implementation UIViewController (DKCategory)
 
-- (void)popToViewController:(NSString *)className animated:(BOOL)animated {
+- (void)dk_popToViewController:(NSString *)className animated:(BOOL)animated {
     for (UIViewController *temp in self.navigationController.viewControllers) {
         if([temp isKindOfClass:NSClassFromString(className)]) {
             [self.navigationController popToViewController:temp animated:animated];
@@ -18,24 +18,24 @@
     }
 }
 
-- (void)backToRootViewController {
-    [self backToRootViewControllerAnimated:YES completion:nil];
+- (void)dk_backToRootViewController {
+    [self dk_backToRootViewControllerAnimated:YES completion:nil];
 }
 
-- (void)backToRootViewControllerAnimated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
+- (void)dk_backToRootViewControllerAnimated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
     if (self.navigationController.viewControllers.count>1) {
         [self.navigationController popToRootViewControllerAnimated:flag];
     } else {
-        [self dismissRootViewControllerAnimated:flag completion:completion];
+        [self dk_dismissRootViewControllerAnimated:flag completion:completion];
     }
 }
 
-- (void)backToSuperViewController {
-    [self backToSuperViewControllerAnimated:YES completion:nil];
+- (void)dk_backToSuperViewController {
+    [self dk_backToSuperViewControllerAnimated:YES completion:nil];
 }
 
 
-- (void)backToSuperViewControllerAnimated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
+- (void)dk_backToSuperViewControllerAnimated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
     if (self.navigationController.viewControllers.count>1) {
         [self.navigationController popViewControllerAnimated:flag];
     } else {
@@ -43,7 +43,7 @@
     }
 }
 
-- (void)dismissRootViewControllerAnimated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
+- (void)dk_dismissRootViewControllerAnimated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
     UIViewController *rootVC = self.presentingViewController;
     while (rootVC.presentingViewController) {
         rootVC = rootVC.presentingViewController;

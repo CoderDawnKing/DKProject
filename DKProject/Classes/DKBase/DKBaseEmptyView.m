@@ -51,7 +51,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self.emptyBtn setRadius];
+    [self.emptyBtn dk_radius];
 }
 
 #pragma - mark setter
@@ -114,7 +114,7 @@
     if (!_emptyLab) {
         _emptyLab = [[UILabel alloc] init];
         _emptyLab.font = [UIFont pfRegularWithSize:15];
-        _emptyLab.textColor = dk_HexColorWithAlpha(COLOR_APPMAIN, .5);
+        _emptyLab.textColor = dk_HexColorWithAlpha(DK_COLOR_APPMAIN, .5);
         _emptyLab.numberOfLines = 0;
         _emptyLab.textAlignment = NSTextAlignmentCenter;
         _emptyLab.text = @"啊哦～此地暂时空空如也～";
@@ -124,9 +124,9 @@
 
 - (UIButton *)emptyBtn {
     if (!_emptyBtn) {
-        _emptyBtn = [[UIButton alloc] initWithTitle:@"" color:dk_HexColor(COLOR_WHITE) font:[UIFont pfMediumWithSize:15]];
+        _emptyBtn = [[UIButton alloc] initWithTitle:@"" color:dk_HexColor(DK_COLOR_WHITE) font:[UIFont pfMediumWithSize:15]];
         [_emptyBtn addTarget:self action:@selector(emptyBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        [_emptyBtn setBackgroundColor:dk_HexColor(COLOR_APPMAIN) forState:UIControlStateNormal];
+        [_emptyBtn setBackgroundColor:dk_HexColor(DK_COLOR_APPMAIN) forState:UIControlStateNormal];
         _emptyBtn.hidden = YES;
     }
     return _emptyBtn;
