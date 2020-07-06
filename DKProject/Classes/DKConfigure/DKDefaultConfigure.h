@@ -6,8 +6,12 @@
 //  Copyright (c) 2018年 DiDa. All rights reserved.
 //
 
-/// 应用ID
-#define dk_ApplicationID  @"yourId"
+#pragma mark - 打印到控制台
+#if DEBUG
+#define DKLog(FORMAT, ...) fprintf(stderr,"\%s [第%d行] %s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define DKLog(FORMAT, ...)
+#endif
 
 /// 版本号
 #define dk_Version [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
@@ -46,6 +50,7 @@
 #define dk_NavAndTabHeight (kNavBarAndStatusBarHeight + kTabBarHeight)
 
 #define dk_IMAGE(image) [UIImage dkImageNamed:image]
+#define dk_BundleIMAGE(image) [UIImage dkBundleImageNamed:image]
 #define dk_IMAGEClearColor [UIImage imageWithClearColor]
 
 #define dk_KeyboardHeight 216.0 //键盘高度

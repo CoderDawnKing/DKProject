@@ -18,7 +18,8 @@ typedef enum : NSUInteger {
 @interface UIImage (DKCategory)
 
 ///去除 name 为空时控制台警告
-+ (UIImage *)dkImageNamed:(NSString *)name;
++ (nullable UIImage *)dkImageNamed:(nullable NSString *)name;
++ (nullable UIImage *)dkBundleImageNamed:(nullable NSString *)name;
 
 /**
  修改图片颜色

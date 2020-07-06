@@ -8,6 +8,7 @@
 
 #import "UIImage+DKCategory.h"
 #import "NSObject+DKCategory.h"
+#import <DKProject/DKProject.h>
 
 @implementation UIImage (DKCategory)
 
@@ -15,6 +16,19 @@
 + (UIImage *)dkImageNamed:(NSString *)name {
     if (name.isNotEmpty) {
         return [self imageNamed:name];
+    }
+    return nil;
+}
+
++ (UIImage *)dkBundleImageNamed:(NSString *)name {
+    if (name.isNotEmpty) {
+        NSInteger scale = [[UIScreen mainScreen] scale];
+        NSString *imgName = [NSString stringWithFormat:@"%@@%zdx.png", name, scale];
+        NSBundle *curBundle = [NSBundle bundleForClass:DKBaseModel.class];
+        NSString *curBundleName = curBundle.infoDictionary[@"CFBundleName"];
+        NSURL *bundleURL = [curBundle URLForResource:curBundleName withExtension:@"bundle"];
+        NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
+        return [self imageWithContentsOfFile:[bundle pathForResource:imgName ofType:nil]];
     }
     return nil;
 }

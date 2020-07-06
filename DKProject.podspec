@@ -33,9 +33,9 @@ Pod::Spec.new do |s|
 
   s.source_files = 'DKProject/Classes/**/*.{h,m}'
   
-  # s.resource_bundles = {
-  #   'DKProject' => ['DKProject/Assets/*.png']
-  # }
+   s.resource_bundles = {
+     'DKProject' => ['DKProject/Assets/*']
+   }
 
   s.public_header_files = 'DKProject/Classes/**/*.{h}'
   s.frameworks = 'UIKit', 'Foundation', 'Photos'
@@ -44,5 +44,16 @@ Pod::Spec.new do |s|
   s.dependency 'HexColors', '4.0.0'
   s.dependency 'MJRefresh', '3.4.3'
   s.dependency 'MJExtension', '3.2.2'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'Masonry', '1.1.0'
+  s.dependency 'ReactiveObjC', '3.1.1'
+  s.dependency 'SVProgressHUD', '2.2.5'
+  s.dependency 'CYLTabBarController', '~> 1.28.3'
+  
+  s.subspec "DKNaviFixSpace" do |ss|
+      ss.name             = 'DKNaviFixSpace'
+  end
+  s.subspec "DKNetworkingTool" do |ss|
+      ss.name             = 'DKNetworkingTool'
+      s.dependency 'AFNetworking', '3.2.1'
+  end
 end

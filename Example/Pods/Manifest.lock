@@ -1,31 +1,87 @@
 PODS:
-  - DKProject (0.2.0):
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - CYLTabBarController (1.28.5):
+    - CYLTabBarController/Core (= 1.28.5)
+  - CYLTabBarController/Core (1.28.5)
+  - DKProject (0.2.1):
+    - AFNetworking (= 3.2.1)
+    - CYLTabBarController (~> 1.28.3)
+    - DKProject/DKNaviFixSpace (= 0.2.1)
+    - DKProject/DKNetworkingTool (= 0.2.1)
     - HexColors (= 4.0.0)
+    - Masonry (= 1.1.0)
     - MJExtension (= 3.2.2)
     - MJRefresh (= 3.4.3)
+    - ReactiveObjC (= 3.1.1)
+    - SVProgressHUD (= 2.2.5)
+  - DKProject/DKNaviFixSpace (0.2.1):
+    - AFNetworking (= 3.2.1)
+    - CYLTabBarController (~> 1.28.3)
+    - HexColors (= 4.0.0)
+    - Masonry (= 1.1.0)
+    - MJExtension (= 3.2.2)
+    - MJRefresh (= 3.4.3)
+    - ReactiveObjC (= 3.1.1)
+    - SVProgressHUD (= 2.2.5)
+  - DKProject/DKNetworkingTool (0.2.1):
+    - AFNetworking (= 3.2.1)
+    - CYLTabBarController (~> 1.28.3)
+    - HexColors (= 4.0.0)
+    - Masonry (= 1.1.0)
+    - MJExtension (= 3.2.2)
+    - MJRefresh (= 3.4.3)
+    - ReactiveObjC (= 3.1.1)
+    - SVProgressHUD (= 2.2.5)
   - HexColors (4.0.0)
+  - Masonry (1.1.0)
   - MJExtension (3.2.2)
   - MJRefresh (3.4.3)
+  - ReactiveObjC (3.1.1)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - DKProject (from `../`)
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
+    - CYLTabBarController
     - HexColors
+    - Masonry
     - MJExtension
     - MJRefresh
+    - ReactiveObjC
+    - SVProgressHUD
 
 EXTERNAL SOURCES:
   DKProject:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DKProject: 780f562ba7bf57a01aa31212151ff5c0ffbb3f6a
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  CYLTabBarController: edd9fecba9afa3f2e9e44ed50ca6dde69941f25f
+  DKProject: 382e916961167b004e97bde19531c9aff4d28306
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 9d35f6d54a17cdf4b97e3e029624ba0685711a32
+PODFILE CHECKSUM: 5c16b1b1eab6c8aca45720b27972939d6600831b
 
 COCOAPODS: 1.9.3
