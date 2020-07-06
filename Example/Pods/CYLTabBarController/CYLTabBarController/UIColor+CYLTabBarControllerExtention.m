@@ -11,14 +11,12 @@
 @implementation UIColor (CYLTabBarControllerExtention)
 
 + (UIColor *)cyl_systemRedColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
-    #if __has_include(<UIKit/UIScene.h>)
+#if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemRedColor];
-    #else
-    #endif
-    }
+#else
 #endif
+    }
     return [UIColor
             colorWithRed:1.0
             green:0.23137254901960785
@@ -28,14 +26,12 @@
 }
 
 + (UIColor *)cyl_systemGreenColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemGreenColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.20392156862745098
             green:0.7803921568627451
@@ -45,14 +41,12 @@
 }
 
 + (UIColor *)cyl_systemBlueColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemBlueColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.0
             green:0.47843137254901963
@@ -62,14 +56,13 @@
 }
 
 + (UIColor *)cyl_systemOrangeColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemOrangeColor];
 #else
 #endif
     }
-#endif
+    
     return [UIColor
             colorWithRed:1.0
             green:0.5843137254901961
@@ -79,14 +72,12 @@
 }
 
 + (UIColor *)cyl_systemYellowColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemYellowColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:1.0
             green:0.8
@@ -96,14 +87,12 @@
 }
 
 + (UIColor *)cyl_systemPinkColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemPinkColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:1.0
             green:0.17647058823529413
@@ -113,14 +102,12 @@
 }
 
 + (UIColor *)cyl_systemPurpleColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemPurpleColor];
 #else
 #endif
     }
-#endif
     
     return [UIColor
             colorWithRed:0.6862745098039216
@@ -131,14 +118,12 @@
 }
 
 + (UIColor *)cyl_systemTealColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemTealColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.35294117647058826
             green:0.7843137254901961
@@ -148,14 +133,12 @@
 }
 
 + (UIColor *)cyl_systemIndigoColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemIndigoColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.34509803921568627
             green:0.33725490196078434
@@ -165,14 +148,12 @@
 }
 
 + (UIColor *)cyl_systemGrayColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemGrayColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.5568627450980392
             green:0.5568627450980392
@@ -182,14 +163,12 @@
 }
 
 + (UIColor *)cyl_systemGray2Color {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemGray2Color];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.6823529411764706
             green:0.6823529411764706
@@ -199,14 +178,12 @@
 }
 
 + (UIColor *)cyl_systemGray3Color {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemGray3Color];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.7803921568627451
             green:0.7803921568627451
@@ -216,14 +193,12 @@
 }
 
 + (UIColor *)cyl_systemGray4Color {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemGray4Color];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.8196078431372549
             green:0.8196078431372549
@@ -233,14 +208,12 @@
 }
 
 + (UIColor *)cyl_systemGray5Color {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemGray5Color];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.8980392156862745
             green:0.8980392156862745
@@ -250,14 +223,12 @@
 }
 
 + (UIColor *)cyl_systemGray6Color {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemGray6Color];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.9490196078431372
             green:0.9490196078431372
@@ -269,14 +240,12 @@
 #pragma mark Foreground colors
 
 + (UIColor *)cyl_labelColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor labelColor];
 #else
 #endif
     }
-#endif
     
     return [UIColor
             colorWithRed:0.0
@@ -287,14 +256,12 @@
 }
 
 + (UIColor *)cyl_secondaryLabelColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor secondaryLabelColor];
 #else
 #endif
     }
-#endif
     
     return [UIColor
             colorWithRed:0.23529411764705882
@@ -305,8 +272,6 @@
 }
 
 + (UIColor *)cyl_tertiaryLabelColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
-#endif
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor tertiaryLabelColor];
@@ -322,14 +287,12 @@
 }
 
 + (UIColor *)cyl_quaternaryLabelColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor quaternaryLabelColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.23529411764705882
             green:0.23529411764705882
@@ -341,14 +304,12 @@
 /* Foreground color for standard system links.
  */
 + (UIColor *)cyl_linkColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor linkColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.0
             green:0.47843137254901963
@@ -358,14 +319,12 @@
 }
 
 + (UIColor *)cyl_placeholderTextColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor placeholderTextColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.23529411764705882
             green:0.23529411764705882
@@ -375,14 +334,12 @@
 }
 
 + (UIColor *)cyl_separatorColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor separatorColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.23529411764705882
             green:0.23529411764705882
@@ -392,14 +349,12 @@
 }
 
 + (UIColor *)cyl_opaqueSeparatorColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor opaqueSeparatorColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.7764705882352941
             green:0.7764705882352941
@@ -411,14 +366,12 @@
 #pragma mark Background colors
 
 + (UIColor *)cyl_systemBackgroundColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemBackgroundColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:1.0
             green:1.0
@@ -428,14 +381,12 @@
 }
 
 + (UIColor *)cyl_secondarySystemBackgroundColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor secondarySystemBackgroundColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.9490196078431372
             green:0.9490196078431372
@@ -445,14 +396,12 @@
 }
 
 + (UIColor *)cyl_tertiarySystemBackgroundColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor tertiarySystemBackgroundColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:1.0
             green:1.0
@@ -462,14 +411,12 @@
 }
 
 + (UIColor *)cyl_systemGroupedBackgroundColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemGroupedBackgroundColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.9490196078431372
             green:0.9490196078431372
@@ -479,14 +426,12 @@
 }
 
 + (UIColor *)cyl_secondarySystemGroupedBackgroundColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor secondarySystemGroupedBackgroundColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:1.0
             green:1.0
@@ -496,14 +441,12 @@
 }
 
 + (UIColor *)cyl_tertiarySystemGroupedBackgroundColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor tertiarySystemGroupedBackgroundColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.9490196078431372
             green:0.9490196078431372
@@ -515,14 +458,12 @@
 #pragma mark Fill colors
 
 + (UIColor *)cyl_systemFillColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor systemFillColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.47058823529411764
             green:0.47058823529411764
@@ -532,14 +473,12 @@
 }
 
 + (UIColor *)cyl_secondarySystemFillColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor secondarySystemFillColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.47058823529411764
             green:0.47058823529411764
@@ -549,14 +488,12 @@
 }
 
 + (UIColor *)cyl_tertiarySystemFillColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor tertiarySystemFillColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.4627450980392157
             green:0.4627450980392157
@@ -566,14 +503,12 @@
 }
 
 + (UIColor *)cyl_quaternarySystemFillColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor quaternarySystemFillColor];
 #else
 #endif
     }
-    #endif
     return [UIColor
             colorWithRed:0.4549019607843137
             green:0.4549019607843137
@@ -585,14 +520,12 @@
 #pragma mark Other colors
 
 + (UIColor *)cyl_lightTextColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor lightTextColor];
 #else
 #endif
     }
-    #endif
     return [UIColor
             colorWithRed:1.0
             green:1.0
@@ -602,14 +535,12 @@
 }
 
 + (UIColor *)cyl_darkTextColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
 #if __has_include(<UIKit/UIScene.h>)
         return [UIColor darkTextColor];
 #else
 #endif
     }
-#endif
     return [UIColor
             colorWithRed:0.0
             green:0.0
