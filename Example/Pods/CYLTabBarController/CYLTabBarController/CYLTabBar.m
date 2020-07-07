@@ -124,7 +124,6 @@ static void *const CYLTabBarContext = (void*)&CYLTabBarContext;
 }
 
 - (void)presetUnselectedItemTintColor {
-    #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
         if (self.unselectedItemTintColor) {
             return;
@@ -142,7 +141,6 @@ static void *const CYLTabBarContext = (void*)&CYLTabBarContext;
         }];
         self.unselectedItemTintColor = tabLabelTextColor;
     }
-    #endif
 }
 
 - (void)layoutSubviews {

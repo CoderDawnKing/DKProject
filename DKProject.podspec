@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
   s.dependency 'Masonry', '1.1.0'
   s.dependency 'ReactiveObjC', '3.1.1'
   s.dependency 'SVProgressHUD', '2.2.5'
-  s.dependency 'CYLTabBarController', '~> 1.28.3'
+  s.dependency 'CYLTabBarController', '1.28.3'
   
   s.subspec "DKNaviFixSpace" do |ss|
       ss.name             = 'DKNaviFixSpace'
