@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary (DKCategory)
 
-@property (nonatomic, strong) NSData *toJsonData;
+@property (nonatomic, strong) NSData *dk_toJsonData;
 
 @end
 
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 添加非空字符串
 /// @param stringObject 字符串
 /// @param key 关键字
-- (void)addUnEmptyString:(id)stringObject forKey:(NSString *)key;
+- (void)dk_addUnEmptyString:(id)stringObject forKey:(NSString *)key;
 @end
 
 NS_ASSUME_NONNULL_END

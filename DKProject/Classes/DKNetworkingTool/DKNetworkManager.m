@@ -12,7 +12,8 @@
 #import <DKProject/DKProject.h>
 
 #define TimeoutInterval 10
-#define BaseURL DK_BaseUrl
+#define DK_NetworkBaseURL DK_BaseUrl
+#define DK_NetworkSecretKey @""
 
 @implementation DKNetworkBaseModel
 
@@ -101,7 +102,7 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
     
     dispatch_once(&onceToken, ^{
         
-        manager = [[self alloc] initWithBaseURL:[NSURL URLWithString:BaseURL]];
+        manager = [[self alloc] initWithBaseURL:[NSURL URLWithString:DK_NetworkBaseURL]];
         
         /**设置请求超时时间*/
         
@@ -308,7 +309,7 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
     if ([urlString hasPrefix:@"http"] || [urlString hasPrefix:@"https"]) {
         request = [self.requestSerializer requestWithMethod:method URLString:urlString parameters:parameters error:nil];
     } else {
-        request = [self.requestSerializer requestWithMethod:method URLString:[NSString stringWithFormat:@"%@%@", BaseURL, urlString] parameters:parameters error:nil];
+        request = [self.requestSerializer requestWithMethod:method URLString:[NSString stringWithFormat:@"%@%@", DK_NetworkBaseURL, urlString] parameters:parameters error:nil];
     }
     
     if (hasHeader) {
@@ -323,10 +324,8 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
 //            [request addValue:[OpenUDID value] forHTTPHeaderField:@"imei"];
 //
 //            NSMutableString *tempToken=[[NSMutableString alloc]init];
-//            [tempToken appendFormat:@"%@",CML_Private_KEY];
+//            [tempToken appendFormat:@"%@",DK_NetworkSecretKey];
 //            [tempToken appendFormat:@"%@",timestamp];
-//            [tempToken appendFormat:@"%@",manager.UserID.stringValue];
-//            [tempToken appendFormat:@"%@",manager.UserSecret];
 //            [request addValue:[tempToken md5Encryption] forHTTPHeaderField:@"token"];
 //        }
         
@@ -371,7 +370,7 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
         DKLog(@"\n ========== code ========== \n%@", responeModel.code);
         DKLog(@"\n ========== des ========== \n%@", responeModel.des);
         if (responeModel && self.isShowError) {
-            if (responeModel.des.isNotEmpty) {
+            if (responeModel.des.dk_notEmpty) {
                 [DKBaseProgressHUD showErrorWithStatus:responeModel.des];
             } else {
                 [DKBaseProgressHUD showErrorWithStatus:[error.userInfo valueForKey:NSLocalizedDescriptionKey]];
@@ -426,21 +425,21 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
     }
     
     if (resopne.code.integerValue == DKRequestRetcodeNotLoggedIn) {
-        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKRequestRetcodeNotLoggedIn userInfo:@{NSLocalizedDescriptionKey: resopne.des.isNotEmpty?resopne.des:@"用户未登录，请先登录"}];
+        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKRequestRetcodeNotLoggedIn userInfo:@{NSLocalizedDescriptionKey: resopne.des.dk_notEmpty?resopne.des:@"用户未登录，请先登录"}];
         [[NSNotificationCenter defaultCenter] postNotificationName:DK_Noti_NotLoggedIn_NameKey object:nil];
         return error;
     }
     
     if (resopne.code.integerValue == DKRequestRetcodeErrorParameter) {
-        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKRequestRetcodeErrorParameter userInfo:@{NSLocalizedDescriptionKey: resopne.des.isNotEmpty?resopne.des:@"参数错误"}];
+        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKRequestRetcodeErrorParameter userInfo:@{NSLocalizedDescriptionKey: resopne.des.dk_notEmpty?resopne.des:@"参数错误"}];
         return error;
     }
     if (resopne.code.integerValue == DKRequestRetcodeBlockingAccess) {
-        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKRequestRetcodeBlockingAccess userInfo:@{NSLocalizedDescriptionKey: resopne.des.isNotEmpty?resopne.des:@"禁止访问"}];
+        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKRequestRetcodeBlockingAccess userInfo:@{NSLocalizedDescriptionKey: resopne.des.dk_notEmpty?resopne.des:@"禁止访问"}];
         [[NSNotificationCenter defaultCenter] postNotificationName:DK_Noti_NetworkError_NameKey object:nil];
         return error;
     }
-    error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:resopne.code.integerValue userInfo:@{NSLocalizedDescriptionKey: resopne.des.isNotEmpty?resopne.des:@"请求失败,请稍后再试"}];
+    error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:resopne.code.integerValue userInfo:@{NSLocalizedDescriptionKey: resopne.des.dk_notEmpty?resopne.des:@"请求失败,请稍后再试"}];
     return error;
     
 }

@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = dk_HexColor(COLOR_WHITE);
+    self.view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
     DKBaseTableView *baseTableView = [[DKBaseTableView alloc] initWithFrame:self.tableView.frame style:self.tableViewStyle];
     self.tableView = baseTableView;
     [self __addSubViews];
@@ -74,7 +74,7 @@
         if (self.showBigTitle) {
             for (UIView *view in self.dk_Navi.navigationBar.subviews) {
                 if ([view isKindOfClass:NSClassFromString(@"_UINavigationBarLargeTitleView")]) {
-                    view.backgroundColor = dk_HexColor(COLOR_WHITE);
+                    view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
                     self.navigationBarLargeTitleView = view;
                     for (UIView *largeTitleLabel1 in view.subviews) {
                         if ([largeTitleLabel1 isKindOfClass:[UILabel class]]) {
@@ -91,7 +91,7 @@
                     }
                 }
                 if ([view isKindOfClass:NSClassFromString(@"_UIBarBackground")]) {
-                    view.backgroundColor = dk_HexColor(COLOR_WHITE);
+                    view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
                     self.barBackgroundView = view;
                 }
             }
@@ -100,7 +100,7 @@
                     for (UIView * wrapperView in transitionView.subviews) {
                         if ([wrapperView isKindOfClass:NSClassFromString(@"UIViewControllerWrapperView")]) {
                             for (UIView *view in wrapperView.subviews) {
-                                view.backgroundColor = dk_HexColor(COLOR_WHITE);
+                                view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
                             }
                         }
                     }

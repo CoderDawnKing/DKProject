@@ -29,14 +29,14 @@
 
 @implementation NSObject (DKCategory)
 
-- (BOOL)isNotEmpty {
+- (BOOL)dk_notEmpty {
     return !([self isKindOfClass:[NSNull class]] ||
              ([self respondsToSelector:@selector(length)] && [self performSelector:@selector(length)] == 0) ||
              ([self respondsToSelector:@selector(count)] && [self performSelector:@selector(count)] == 0));
 }
 
-- (UIViewController *)getCurrentViewController {
-    UIViewController *currentViewController = [self getRootViewController];//获取根视图UIWindow.rootViewController
+- (UIViewController *)dk_getCurrentController {
+    UIViewController *currentViewController = [self dk_getRootController];//获取根视图UIWindow.rootViewController
     
     while (1) {
         //使控制器呈现的方法有两种：UINavigationController的push 、 UIViewController的present
@@ -62,7 +62,7 @@
     return currentViewController;
 }
 
-- (UIViewController *)getRootViewController{
+- (UIViewController *)dk_getRootController{
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
     NSAssert(window, @"The window is empty");
     return window.rootViewController;

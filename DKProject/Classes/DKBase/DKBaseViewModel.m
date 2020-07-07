@@ -10,9 +10,6 @@
 #import <DKProject/DKProject.h>
 
 @interface DKBaseViewModel ()
-{
-//    OSSClient * client;
-}
 
 @end
 
@@ -30,16 +27,6 @@
     if (self = [super init]) {
     }
     return self;
-}
-
-- (BOOL)validatePhone:(NSString *)phone {
-    NSString *phoneRegex = @"^1[0-9]{10}$";//@"^1[3|4|5|7|8][0-9]\\d{8}$";
-    NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegex];
-    return [phonePredicate evaluateWithObject:phone];
-}
-
-- (void)requestFinsh:(NSDictionary *)dict error:(NSError *)error {
-    
 }
 
 - (void)__loadData {
@@ -64,11 +51,11 @@
     return _loadMoreEnd;
 }
 
-- (NSMutableArray *)dataArrayM {
-    if (!_dataArrayM) {
-        _dataArrayM = [NSMutableArray array];
+- (NSMutableArray *)datasArrM {
+    if (!_datasArrM) {
+        _datasArrM = [NSMutableArray array];
     }
-    return _dataArrayM;
+    return _datasArrM;
 }
 
 - (NSMutableDictionary *)requestParams {

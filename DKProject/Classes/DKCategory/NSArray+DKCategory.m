@@ -36,7 +36,7 @@
 
 #endif
 
-- (NSArray *)filteredArrayWithFormat:(NSString *)format, ... {
+- (NSArray *)dk_filteredArrayWithFormat:(NSString *)format, ... {
     va_list ap;
     va_start(ap, format);
     NSPredicate *pred = [NSPredicate predicateWithFormat:format arguments:ap];

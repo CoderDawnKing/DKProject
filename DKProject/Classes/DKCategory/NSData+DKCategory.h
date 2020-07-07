@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSData (DKCategory)
 
-@property (nonatomic, strong) NSString *toJsonString;
+@property (nonatomic, strong) NSString *dk_toJsonString;
 
 @end
 

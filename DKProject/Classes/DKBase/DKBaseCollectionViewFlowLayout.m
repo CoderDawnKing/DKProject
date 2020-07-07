@@ -17,25 +17,25 @@
 @end
 
 @implementation DKBaseCollectionViewFlowLayout
-- (void)setBetweenOfCell:(CGFloat)betweenOfCell {
-    _betweenOfCell = betweenOfCell;
-    self.minimumInteritemSpacing = betweenOfCell;
+- (void)setDk_cellMargin:(CGFloat)dk_cellMargin {
+    _dk_cellMargin = dk_cellMargin;
+    self.minimumInteritemSpacing = _dk_cellMargin;
 }
 
-- (instancetype)initWithType:(AlignType)cellType {
+- (instancetype)initWithAlignment:(DKBaseCollectionViewAlignment)alignment {
     self.customType = YES;
-    return [self initWithType:cellType betweenOfCell:5.0];
+    return [self initWithAlignment:alignment cellMargin:5.f];
 }
 
-- (instancetype)initWithType:(AlignType)cellType betweenOfCell:(CGFloat)betweenOfCell {
+- (instancetype)initWithAlignment:(DKBaseCollectionViewAlignment)alignment cellMargin:(CGFloat)cellMargin {
     self = [super init];
     if (self){
         self.scrollDirection = UICollectionViewScrollDirectionVertical;
         self.minimumLineSpacing = 5;
-        self.minimumInteritemSpacing = betweenOfCell;
+        self.minimumInteritemSpacing = cellMargin;
         self.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
-        _betweenOfCell = betweenOfCell;
-        _cellType = cellType;
+        _dk_cellMargin = cellMargin;
+        _dk_alignment = alignment;
     }
     return self;
 }
@@ -84,39 +84,39 @@
 //调整属于同一行的cell的位置frame
 - (void)setCellFrameWith:(NSMutableArray*)layoutAttributes {
     CGFloat nowWidth = 0.0;
-    switch (_cellType) {
-        case AlignWithLeft:
+    switch (_dk_alignment) {
+        case DKBaseCollectionViewAlignmentLeft:
             nowWidth = self.sectionInset.left;
             for (UICollectionViewLayoutAttributes * attributes in layoutAttributes) {
                 CGRect nowFrame = attributes.frame;
                 nowFrame.origin.x = nowWidth;
                 attributes.frame = nowFrame;
-                nowWidth += nowFrame.size.width + self.betweenOfCell;
+                nowWidth += nowFrame.size.width + self.dk_cellMargin;
             }
             _sumCellWidth = 0.0;
             [layoutAttributes removeAllObjects];
             break;
             
-        case AlignWithCenter:
-            nowWidth = (self.collectionView.frame.size.width - _sumCellWidth - ((layoutAttributes.count - 1) * _betweenOfCell)) / 2;
+        case DKBaseCollectionViewAlignmentCenter:
+            nowWidth = (self.collectionView.frame.size.width - _sumCellWidth - ((layoutAttributes.count - 1) * self.dk_cellMargin)) / 2;
             for (UICollectionViewLayoutAttributes * attributes in layoutAttributes) {
                 CGRect nowFrame = attributes.frame;
                 nowFrame.origin.x = nowWidth;
                 attributes.frame = nowFrame;
-                nowWidth += nowFrame.size.width + self.betweenOfCell;
+                nowWidth += nowFrame.size.width + self.dk_cellMargin;
             }
             _sumCellWidth = 0.0;
             [layoutAttributes removeAllObjects];
             break;
             
-        case AlignWithRight:
+        case DKBaseCollectionViewAlignmentRight:
             nowWidth = self.collectionView.frame.size.width - self.sectionInset.right;
             for (NSInteger index = layoutAttributes.count - 1 ; index >= 0 ; index-- ) {
                 UICollectionViewLayoutAttributes * attributes = layoutAttributes[index];
                 CGRect nowFrame = attributes.frame;
                 nowFrame.origin.x = nowWidth - nowFrame.size.width;
                 attributes.frame = nowFrame;
-                nowWidth = nowWidth - nowFrame.size.width - _betweenOfCell;
+                nowWidth = nowWidth - nowFrame.size.width - self.dk_cellMargin;
             }
             _sumCellWidth = 0.0;
             [layoutAttributes removeAllObjects];

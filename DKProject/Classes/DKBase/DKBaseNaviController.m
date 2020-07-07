@@ -48,7 +48,7 @@ static CGFloat min_distance = 100;// 最小回弹距离
     //设置导航栏 title 的字体样式
     [self.navigationBar setTitleTextAttributes:@{
                                                  NSFontAttributeName:[UIFont pfMediumWithSize:18],
-                                                 NSForegroundColorAttributeName:dk_HexColor(COLOR_333333),
+                                                 NSForegroundColorAttributeName:dk_HexColor(DK_COLOR_333333),
                                                  }];
     if (@available(iOS 11.0, *)) {
         NSMutableParagraphStyle *style = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -56,7 +56,7 @@ static CGFloat min_distance = 100;// 最小回弹距离
         style.firstLineHeadIndent = 0;
         [self.navigationBar setLargeTitleTextAttributes:@{
                                                           NSFontAttributeName:[UIFont pfMediumWithSize:20],
-                                                          NSForegroundColorAttributeName:dk_HexColor(COLOR_333333),
+                                                          NSForegroundColorAttributeName:dk_HexColor(DK_COLOR_333333),
                                                           NSParagraphStyleAttributeName:style
                                                           }];
     } else {
@@ -64,10 +64,10 @@ static CGFloat min_distance = 100;// 最小回弹距离
     }
     //设置导航栏按钮间距
     [UINavigationConfig shared].dk_defaultFixSpace = dk_defaultSpace;
-    self.view.backgroundColor = dk_HexColor(COLOR_WHITE);
-    self.view.superview.backgroundColor = dk_HexColor(COLOR_WHITE);
-    self.navigationBar.barTintColor = dk_HexColor(COLOR_WHITE);
-    [self.navigationBar setShadowImage:[UIImage imageWithColor:dk_HexColor(COLOR_LINE) size:CGSizeMake(dk_ScreenWidth, 1)]];
+    self.view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
+    self.view.superview.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
+    self.navigationBar.barTintColor = dk_HexColor(DK_COLOR_WHITE);
+    [self.navigationBar setShadowImage:[UIImage imageWithColor:dk_HexColor(DK_COLOR_LINE) size:CGSizeMake(dk_ScreenWidth, 1)]];
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -201,7 +201,7 @@ static CGFloat min_distance = 100;// 最小回弹距离
 
         _backGroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
 
-        _backGroundView.backgroundColor = dk_HexColor(COLOR_WHITE);
+        _backGroundView.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
 
     }
 
@@ -334,7 +334,7 @@ static CGFloat min_distance = 100;// 最小回弹距离
             
             _backGroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
             
-            _backGroundView.backgroundColor = dk_HexColor(COLOR_WHITE);
+            _backGroundView.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
             
         }
         [self.view.superview insertSubview:self.backGroundView belowSubview:self.view];
@@ -417,7 +417,7 @@ static CGFloat min_distance = 100;// 最小回弹距离
         //去掉导航栏底部的黑线
         [self.navigationBar setShadowImage:[UIImage imageWithColor:dk_ClearColor size:CGSizeMake(dk_ScreenWidth, 1)]];
     } else {
-        [self.navigationBar setShadowImage:[UIImage imageWithColor:dk_HexColor(COLOR_LINE) size:CGSizeMake(dk_ScreenWidth, 1)]];
+        [self.navigationBar setShadowImage:[UIImage imageWithColor:dk_HexColor(DK_COLOR_LINE) size:CGSizeMake(dk_ScreenWidth, 1)]];
     }
 }
 
@@ -452,7 +452,7 @@ static CGFloat min_distance = 100;// 最小回弹距离
 
 - (UIColor *)backgroundColor {
     if (!_backgroundColor) {
-        _backgroundColor = dk_HexColor(COLOR_WHITE);
+        _backgroundColor = dk_HexColor(DK_COLOR_WHITE);
     }
     return _backgroundColor;
 }

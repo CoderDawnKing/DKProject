@@ -125,7 +125,7 @@
             _limitLab.text = [NSString stringWithFormat:@"0/%ld", _limitNumber];
         }
         _limitLab.hidden = YES;
-        _limitLab.textColor = dk_HexColor(COLOR_888888);
+        _limitLab.textColor = dk_HexColor(DK_COLOR_888888);
         _limitLab.font = [UIFont systemFontOfSize:12];
         _limitLab.textAlignment = NSTextAlignmentRight;
     }
@@ -144,10 +144,10 @@
 - (void)textViewDidChange:(UITextView *)textView {
     if (_leastNumber) {
         if (textView.text.length >= _leastNumber) {
-            self.limitLab.textColor = dk_HexColor(COLOR_333333);
+            self.limitLab.textColor = dk_HexColor(DK_COLOR_333333);
         }
         if (textView.text.length < _leastNumber) {
-            self.limitLab.textColor = dk_HexColor(COLOR_AAAAAA);
+            self.limitLab.textColor = dk_HexColor(DK_COLOR_AAAAAA);
         }
         if (textView.text.length > _limitNumber && _limitNumber) {
             UITextRange *markedRange = [textView markedTextRange];

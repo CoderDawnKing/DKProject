@@ -166,8 +166,8 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
         appearance.backgroundColor = dk_ClearColor;
         NSInteger scale = [[UIScreen mainScreen] scale];
         appearance.backgroundImage = [dk_BundleIMAGE(@"tabbarClearBg") resizableImageWithCapInsets:UIEdgeInsetsMake(89, 0, 14, 0) resizingMode:UIImageResizingModeStretch];
-//        appearance.backgroundImage = [UIImage imageWithColor:dk_HexColor(COLOR_WHITE)];
-        self.tabBar.tintColor = dk_HexColor(COLOR_TAB_TEXT_SELECT);
+//        appearance.backgroundImage = [UIImage imageWithColor:dk_HexColor(DK_COLOR_WHITE)];
+        self.tabBar.tintColor = dk_HexColor(DK_COLOR_TAB_TEXT_SELECT);
         self.tabBar.standardAppearance = appearance;
         self.tabBar.layer.shadowColor = [UIColor blackColor].CGColor;
         self.tabBar.layer.shadowRadius = 15;
@@ -190,7 +190,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
         // set the text color for selected state
         // 选中状态下的文字属性
         NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-        selectedAttrs[NSForegroundColorAttributeName] = dk_HexColor(COLOR_TAB_TEXT_SELECT);
+        selectedAttrs[NSForegroundColorAttributeName] = dk_HexColor(DK_COLOR_TAB_TEXT_SELECT);
         
         
         // set the text Attributes
@@ -216,8 +216,8 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
         
         [[UITabBar appearance] setBackgroundColor:dk_ClearColor];
         [[UITabBar appearance] setBackgroundImage:dk_BundleIMAGE(@"tabbarClearBg")];
-//        [[UITabBar appearance] setBackgroundColor:dk_HexColor(COLOR_WHITE)];
-//        [[UITabBar appearance] setBackgroundImage:[UIImage imageWithColor:dk_HexColor(COLOR_WHITE)]];
+//        [[UITabBar appearance] setBackgroundColor:dk_HexColor(DK_COLOR_WHITE)];
+//        [[UITabBar appearance] setBackgroundImage:[UIImage imageWithColor:dk_HexColor(DK_COLOR_WHITE)]];
         
         
         
@@ -319,7 +319,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
 - (void)gotoLogin {
     DKBaseViewController *loginVC = [[DKBaseViewController alloc] init];
     DKBaseNaviController *navi = [[DKBaseNaviController alloc] initWithRootViewController:loginVC];
-    [[self getCurrentViewController] presentViewController:navi animated:YES completion:nil];
+    [[self dk_getCurrentController] presentViewController:navi animated:YES completion:nil];
 }
 
 @end

@@ -162,7 +162,7 @@
 - (UIProgressView *)progressView {
     if (!_progressView){
         _progressView = [[UIProgressView alloc] init];
-        _progressView.tintColor = dk_HexColor(COLOR_APPMAIN);
+        _progressView.tintColor = dk_HexColor(DK_COLOR_APPMAIN);
         _progressView.trackTintColor = [UIColor clearColor];
     }
     return _progressView;

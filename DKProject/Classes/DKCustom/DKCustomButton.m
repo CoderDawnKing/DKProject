@@ -128,7 +128,7 @@ static const CGFloat loadingLineWidth = 2;
     shapeLayer.path = bezierPath.CGPath;
     
     //颜色渐变 由白变红
-    NSMutableArray *colors = [NSMutableArray arrayWithObjects:(id)dk_HexColor(COLOR_WHITE).CGColor,(id)self.backgroundColor.CGColor, nil];
+    NSMutableArray *colors = [NSMutableArray arrayWithObjects:(id)dk_HexColor(DK_COLOR_WHITE).CGColor,(id)self.backgroundColor.CGColor, nil];
     self.gradientLayer = [CAGradientLayer layer];
     self.gradientLayer.shadowPath = bezierPath.CGPath;
     //x=0,y=0,头部渐变

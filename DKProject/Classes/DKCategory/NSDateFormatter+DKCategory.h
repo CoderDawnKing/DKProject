@@ -20,16 +20,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** yyyy-MM-dd HH:mm:ss */
 + (instancetype)defaultDateFormatter;
+/// yyyy-MM-dd HH:mm:ss:SSS
++ (instancetype)defaultYearMonthDayMilliScondDateFormatter;
 /** yyyy-MM */
 + (instancetype)defaultYearMonthDateFormatter;
 /** MM-dd */
 + (instancetype)defaultMonthDayDateFormatter;
 /** yyyy-MM-dd */
 + (instancetype)defaultYearMonthDayDateFormatter;
+/// HH
++ (instancetype)defaultHourDateFormatter;
 /** HH:mm */
-+ (instancetype)defaultMinuteDateFormatter;
++ (instancetype)defaultHourMinuteDateFormatter;
 /** HH:mm:ss */
-+ (instancetype)defaultSecondDateFormatter;
++ (instancetype)defaultHourMinuteSecondDateFormatter;
 
 @end
 

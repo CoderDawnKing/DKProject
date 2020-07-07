@@ -45,8 +45,8 @@
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     if (string) {
         [button setTitle:string forState:UIControlStateNormal];
-        [button setTitleColor:dk_HexColor(COLOR_666666) forState:UIControlStateNormal];
-        [button setTitleColor:dk_HexColor(COLOR_DDDDDD) forState:UIControlStateHighlighted];
+        [button setTitleColor:dk_HexColor(DK_COLOR_666666) forState:UIControlStateNormal];
+        [button setTitleColor:dk_HexColor(DK_COLOR_DDDDDD) forState:UIControlStateHighlighted];
         button.titleLabel.font = [UIFont systemFontOfSize:16];
         button.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
         [button sizeToFit];
@@ -65,8 +65,8 @@
                          action:action
                           title:title
                            font:[UIFont pfBoldWithSize:16]
-                     titleColor:dk_HexColor(COLOR_666666)
-               highlightedColor:dk_HexColor(COLOR_DDDDDD)
+                     titleColor:dk_HexColor(DK_COLOR_666666)
+               highlightedColor:dk_HexColor(DK_COLOR_DDDDDD)
                 titleEdgeInsets:UIEdgeInsetsZero
      contentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
 }
@@ -235,8 +235,8 @@
                          action:action
                           title:title
                            font:[UIFont pfRegularWithSize:16]
-                     titleColor:dk_HexColor(COLOR_666666)
-               highlightedColor:dk_HexColor(COLOR_666666)
+                     titleColor:dk_HexColor(DK_COLOR_666666)
+               highlightedColor:dk_HexColor(DK_COLOR_666666)
                 titleEdgeInsets:UIEdgeInsetsZero
                           image:nil
                highlightedImage:nil
@@ -304,7 +304,7 @@
                         title:(nullable NSString *)title
                         image:(nullable UIImage *)image
                  isRightImage:(BOOL)isRightImage {
-    return [self itemWithTarget:target action:action title:title font:[UIFont pfRegularWithSize:16] titleColor:dk_HexColor(COLOR_666666) image:image isRightImage:isRightImage];
+    return [self itemWithTarget:target action:action title:title font:[UIFont pfRegularWithSize:16] titleColor:dk_HexColor(DK_COLOR_666666) image:image isRightImage:isRightImage];
 }
 
 /**
@@ -385,7 +385,7 @@
     if (highlightedColor) {
         [button setTitleColor:highlightedColor forState:UIControlStateHighlighted];
     }
-    [button setTitleColor:dk_HexColor(COLOR_DDDDDD) forState:UIControlStateDisabled];
+    [button setTitleColor:dk_HexColor(DK_COLOR_DDDDDD) forState:UIControlStateDisabled];
     
     if (image) {
         [button setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];

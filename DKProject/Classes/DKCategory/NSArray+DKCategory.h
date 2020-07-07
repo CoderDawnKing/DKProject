@@ -11,7 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSArray (DKCategory)
-- (NSArray *)filteredArrayWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1, 2);
+
+/// NSPredicate 谓词筛选
+- (NSArray *)dk_filteredArrayWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1, 2);
+
 @end
 
 @interface NSMutableArray (DKCategory)

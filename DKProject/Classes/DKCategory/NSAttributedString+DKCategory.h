@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSAttributedString (DKCategory)
 ///修改富文本属性
-- (NSAttributedString *)setAttributes:(nullable NSDictionary<NSAttributedStringKey,id> *)attr range:(NSRange)rang;
+- (NSAttributedString *)dk_setAttributes:(nullable NSDictionary<NSAttributedStringKey,id> *)attr range:(NSRange)rang;
 
 @end
 

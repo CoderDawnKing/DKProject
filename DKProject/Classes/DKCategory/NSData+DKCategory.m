@@ -10,9 +10,9 @@
 
 @implementation NSData (DKCategory)
 
-- (void)setToJsonString:(NSString *)toJsonString {}
+- (void)setDk_toJsonString:(NSString *)dk_toJsonString {}
 
-- (NSString *)toJsonString {
+- (NSString *)dk_toJsonString {
     return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
 }
 

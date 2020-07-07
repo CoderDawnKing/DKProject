@@ -30,10 +30,10 @@ dkkvo_remove(id target, DKKVOObserverToken token);
 @interface NSObject (DKCategory)
 
 ///判断是不是空对象（字符串或二进制数据长度为0，集合的元素数量为0）
-- (BOOL)isNotEmpty;
+- (BOOL)dk_notEmpty;
 
 ///获取当前控制器
-- (UIViewController *)getCurrentViewController;
+- (UIViewController *)dk_getCurrentController;
 
 /// Add an observer, you don't need to remove observer (autoremove)
 /// 添加观察者, 无需移除 (将会自动移除)

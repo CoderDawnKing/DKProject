@@ -16,7 +16,7 @@
 - (void)addHeaderRefresh:(DKRefreshComponentAction)refreshBlock{
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:refreshBlock];
     header.stateLabel.font = [UIFont systemFontOfSize:14];
-    header.stateLabel.textColor = dk_HexColor(COLOR_888888);
+    header.stateLabel.textColor = dk_HexColor(DK_COLOR_888888);
     header.lastUpdatedTimeLabel.hidden = YES;
     self.mj_header = header;
 }
@@ -32,7 +32,7 @@
 - (void)addFooterRefresh:(DKRefreshComponentAction)refreshBlock{
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:refreshBlock];
     footer.stateLabel.font = [UIFont systemFontOfSize:14];
-    footer.stateLabel.textColor = dk_HexColor(COLOR_888888);
+    footer.stateLabel.textColor = dk_HexColor(DK_COLOR_888888);
     self.mj_footer = footer;
 }
 /** 开始脚部刷新 */

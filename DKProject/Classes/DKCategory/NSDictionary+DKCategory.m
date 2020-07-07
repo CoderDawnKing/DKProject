@@ -11,9 +11,9 @@
 
 @implementation NSDictionary (DKCategory)
 
-- (void)setToJsonData:(NSData *)toJsonData {}
+- (void)setDk_toJsonData:(NSData *)dk_toJsonData {}
 
-- (NSData *)toJsonData {
+- (NSData *)dk_toJsonData {
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
     return jsonData;
@@ -50,11 +50,11 @@
 
 @implementation NSMutableDictionary (DKCategory)
 
-- (void)addUnEmptyString:(id)stringObject forKey:(NSString *)key{
-    if (![stringObject isNotEmpty]) {
-        [self setObject:@"" forKey:key];
-    }else{
+- (void)dk_addUnEmptyString:(id)stringObject forKey:(NSString *)key{
+    if ([stringObject dk_notEmpty]) {
         [self setObject:stringObject forKey:key];
+    }else{
+        [self setObject:@"" forKey:key];
     }
 }
 @end

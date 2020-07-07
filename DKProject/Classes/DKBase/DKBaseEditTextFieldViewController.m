@@ -14,6 +14,7 @@
 @end
 
 @implementation DKBaseEditTextFieldViewController
+
 @synthesize tableView = _tableView;
 
 - (instancetype)init {
@@ -97,15 +98,15 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *footer = [UIView new];
-    if (self.prompt.isNotEmpty) {
+    if (self.prompt.dk_notEmpty) {
         UILabel *label = [UILabel new];
         label.font = [UIFont pfRegularWithSize:12];
-        label.textColor = dk_HexColor(COLOR_888888);
+        label.textColor = dk_HexColor(DK_COLOR_888888);
         label.numberOfLines = 0;
         label.text = self.prompt;
         [footer addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(UIEdgeInsetsMake(10, leftCellMargin, 10, rightCellMargin));
+            make.edges.mas_equalTo(UIEdgeInsetsMake(10, dk_leftMargin, 10, dk_rightMargin));
         }];
     }
     return footer;
@@ -138,7 +139,7 @@
         if (self.isCanEmpty) {
             self.navigationItem.rightBarButtonItem.enabled = ![x isEqualToString:self.context];
         } else {
-            self.navigationItem.rightBarButtonItem.enabled = ![x isEqualToString:self.context] && x.isNotEmpty;
+            self.navigationItem.rightBarButtonItem.enabled = ![x isEqualToString:self.context] && x.dk_notEmpty;
         }
     }];
 }
@@ -154,7 +155,7 @@
         self.backBlock(self.tf.text);
     }
     if (back) {
-        [self backToSuperViewController];
+        [self dk_backToSuperViewController];
     }
 }
 

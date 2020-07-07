@@ -14,14 +14,14 @@
 
 ///去除 name 为空时控制台警告
 + (UIImage *)dkImageNamed:(NSString *)name {
-    if (name.isNotEmpty) {
+    if (name.dk_notEmpty) {
         return [self imageNamed:name];
     }
     return nil;
 }
 
 + (UIImage *)dkBundleImageNamed:(NSString *)name {
-    if (name.isNotEmpty) {
+    if (name.dk_notEmpty) {
         NSInteger scale = [[UIScreen mainScreen] scale];
         NSString *imgName = [NSString stringWithFormat:@"%@@%zdx.png", name, scale];
         NSBundle *curBundle = [NSBundle bundleForClass:DKBaseModel.class];

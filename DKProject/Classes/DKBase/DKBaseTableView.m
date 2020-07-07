@@ -32,8 +32,8 @@
         self.estimatedSectionHeaderHeight = 0;
         self.contentInset = UIEdgeInsetsMake(0, 0, dk_BottomSafeHeight, 0);
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.backgroundColor = dk_HexColor(COLOR_TABLEVIEW_BACKGROUND);
-        self.emptyView = [[DKBaseEmptyView alloc] init];
+        self.backgroundColor = dk_HexColor(DK_COLOR_TABLEVIEW_BACKGROUND);
+        self.dk_emptyView = [[DKBaseEmptyView alloc] init];
         self.autoHideMjFooter = YES;
         self.autoShowEmpty = YES;
     }
@@ -45,7 +45,7 @@
         [self __addSubViews];
         [self __makeConstraints];
         [self __addViewModel];
-        self.backgroundColor = dk_HexColor(COLOR_TABLEVIEW_BACKGROUND);
+        self.backgroundColor = dk_HexColor(DK_COLOR_TABLEVIEW_BACKGROUND);
     }
     return self;
 }

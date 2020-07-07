@@ -33,7 +33,7 @@
 }
 
 - (BOOL)regularMatchStringWithRegularMatch:(NSString *)regularMatch {
-    if ([self isNotEmpty]) {
+    if ([self dk_notEmpty]) {
         NSString *regex = regularMatch;
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
         return [pred evaluateWithObject:self];
@@ -334,15 +334,15 @@
     return arrayM;
 }
 
-- (NSString *)keepNumber {
-    return [self keepStringWithFormatter:@"0123456789"];
+- (NSString *)dk_keepNumber {
+    return [self dk_keepStringWithFormatter:@"0123456789"];
 }
 
-- (NSString *)keepDecimalNumber {
-    return [self keepStringWithFormatter:@"0123456789."];
+- (NSString *)dk_keepDecimalNumber {
+    return [self dk_keepStringWithFormatter:@"0123456789."];
 }
 
-- (NSString *)keepStringWithFormatter:(NSString *)formatter {
+- (NSString *)dk_keepStringWithFormatter:(NSString *)formatter {
     NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:formatter] invertedSet];
     NSString *string = [[self componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
     return string;

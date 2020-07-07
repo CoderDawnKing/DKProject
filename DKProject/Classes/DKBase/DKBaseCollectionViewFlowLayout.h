@@ -10,22 +10,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger,AlignType){
-    AlignWithLeft,
-    AlignWithCenter,
-    AlignWithRight
-};
+typedef enum : NSUInteger {
+    DKBaseCollectionViewAlignmentLeft,
+    DKBaseCollectionViewAlignmentCenter,
+    DKBaseCollectionViewAlignmentRight,
+} DKBaseCollectionViewAlignment;
 
 @interface DKBaseCollectionViewFlowLayout : UICollectionViewFlowLayout
 
 //两个Cell之间的距离
-@property (nonatomic,assign)CGFloat betweenOfCell;
+@property (nonatomic,assign) CGFloat dk_cellMargin;
 //cell对齐方式
-@property (nonatomic,assign)AlignType cellType;
+@property (nonatomic, assign) DKBaseCollectionViewAlignment dk_alignment;
 
--(instancetype)initWithType:(AlignType)cellType;
+- (instancetype)initWithAlignment:(DKBaseCollectionViewAlignment)alignment;
 //全能初始化方法 其他方式初始化最终都会走到这里
--(instancetype)initWithType:(AlignType)cellType betweenOfCell:(CGFloat)betweenOfCell;
+- (instancetype)initWithAlignment:(DKBaseCollectionViewAlignment)alignment cellMargin:(CGFloat)cellMargin;
 
 @end
 

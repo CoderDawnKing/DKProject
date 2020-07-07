@@ -25,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = dk_HexColor(COLOR_WHITE);
+    self.view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
     [self __addSubViews];
     [self __makeConstraints];
     [self __addViewModel];
@@ -84,7 +84,7 @@
         if (self.showBigTitle) {
             for (UIView *view in self.dk_Navi.navigationBar.subviews) {
                 if ([view isKindOfClass:NSClassFromString(@"_UINavigationBarLargeTitleView")]) {
-                    view.backgroundColor = dk_HexColor(COLOR_WHITE);
+                    view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
                     self.navigationBarLargeTitleView = view;
                     for (UIView *largeTitleLabel1 in view.subviews) {
                         if ([largeTitleLabel1 isKindOfClass:[UILabel class]]) {
@@ -101,7 +101,7 @@
                     }
                 }
                 if ([view isKindOfClass:NSClassFromString(@"_UIBarBackground")]) {
-                    view.backgroundColor = dk_HexColor(COLOR_WHITE);
+                    view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
                     self.barBackgroundView = view;
                 }
             }
@@ -110,7 +110,7 @@
                     for (UIView * wrapperView in transitionView.subviews) {
                         if ([wrapperView isKindOfClass:NSClassFromString(@"UIViewControllerWrapperView")]) {
                             for (UIView *view in wrapperView.subviews) {
-                                view.backgroundColor = dk_HexColor(COLOR_WHITE);
+                                view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
                             }
                         }
                     }
@@ -177,33 +177,33 @@
 #pragma - mark 修改缺省页通知
 - (void)noNetwork {
     if (!self.emptyOriginalImage) {
-        self.emptyOriginalImage = self.tableView.emptyView.emptyImage;
+        self.emptyOriginalImage = self.tableView.dk_emptyView.emptyImage;
     }
     if (!self.emptyOriginalPrompt) {
-        self.emptyOriginalPrompt = self.tableView.emptyView.emptyPrompt;
+        self.emptyOriginalPrompt = self.tableView.dk_emptyView.emptyPrompt;
     }
-    self.tableView.emptyView.emptyImage = dk_IMAGE(@"default_img_noNetwork");
-    self.tableView.emptyView.emptyPrompt = @"网络出错啦，请检查网络情况~";
+    self.tableView.dk_emptyView.emptyImage = dk_IMAGE(@"default_img_noNetwork");
+    self.tableView.dk_emptyView.emptyPrompt = @"网络出错啦，请检查网络情况~";
 }
 
 - (void)networkError {
     if (!self.emptyOriginalImage) {
-        self.emptyOriginalImage = self.tableView.emptyView.emptyImage;
+        self.emptyOriginalImage = self.tableView.dk_emptyView.emptyImage;
     }
     if (!self.emptyOriginalPrompt) {
-        self.emptyOriginalPrompt = self.tableView.emptyView.emptyPrompt;
+        self.emptyOriginalPrompt = self.tableView.dk_emptyView.emptyPrompt;
     }
-    self.tableView.emptyView.emptyImage = dk_IMAGE(@"default_img_networkError");
-    self.tableView.emptyView.emptyPrompt = @"程序猿小哥哥正在维修中，请稍后再试～";
+    self.tableView.dk_emptyView.emptyImage = dk_IMAGE(@"default_img_networkError");
+    self.tableView.dk_emptyView.emptyPrompt = @"程序猿小哥哥正在维修中，请稍后再试～";
 }
 
 - (void)networkSuccess {
     if (self.emptyOriginalImage) {
-        self.tableView.emptyView.emptyImage = self.emptyOriginalImage;
+        self.tableView.dk_emptyView.emptyImage = self.emptyOriginalImage;
         self.emptyOriginalImage = nil;
     }
     if (self.emptyOriginalPrompt) {
-        self.tableView.emptyView.emptyPrompt =self.emptyOriginalPrompt;
+        self.tableView.dk_emptyView.emptyPrompt =self.emptyOriginalPrompt;
         self.emptyOriginalPrompt = nil;
     }
 }

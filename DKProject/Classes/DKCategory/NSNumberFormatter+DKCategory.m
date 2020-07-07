@@ -23,20 +23,18 @@
 
 @implementation NSNumberFormatter (DKCategory)
 
-+ (instancetype)numberFormatter
-{
++ (instancetype)dk_numberFormatter {
     return [[self alloc] init];
 }
 
-+ (instancetype)numberFormatterWithStyle:(NSNumberFormatterStyle)style
-{
++ (instancetype)dk_numberFormatterWithStyle:(NSNumberFormatterStyle)style {
     NSNumberFormatter *formatter = [[self alloc]init];
     formatter.numberStyle = style;
     return formatter;
 }
 
-+ (instancetype)defaultDecimalNumberFormatter {
-    NSNumberFormatter *formatter = [self numberFormatterWithStyle:NSNumberFormatterDecimalStyle];
++ (instancetype)dk_defaultDecimalNumberFormatter {
+    NSNumberFormatter *formatter = [self dk_numberFormatterWithStyle:NSNumberFormatterDecimalStyle];
     formatter.locale = [NSLocale localeWithLocaleIdentifier:@"zh-cn"];
     // 小数位最多位数
     formatter.maximumFractionDigits = 2;
@@ -45,8 +43,8 @@
     return formatter;
 }
 
-+ (instancetype)defaultCurrencyNumberFormatter {
-    NSNumberFormatter *formatter = [self numberFormatterWithStyle:NSNumberFormatterCurrencyStyle];
++ (instancetype)dk_defaultCurrencyNumberFormatter {
+    NSNumberFormatter *formatter = [self dk_numberFormatterWithStyle:NSNumberFormatterCurrencyStyle];
     formatter.locale = [NSLocale localeWithLocaleIdentifier:@"zh-cn"];
     return formatter;
 }

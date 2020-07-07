@@ -32,11 +32,6 @@ typedef enum : NSUInteger {
 
 @end
 
-static const CGFloat leftCollectionCellMargin = 20.0f;
-static const CGFloat rightCollectionCellMargin = 20.0f;
-static const CGFloat topCollectionCellMargin = 15.0f;
-static const CGFloat bottomCollectionCellMargin = 15.0f;
-
 @interface DKBaseCollectionViewCell : UICollectionViewCell<DKBaseCollectionViewCellProtocol>
 
 @property (nonatomic, assign) DKBaseCollectionViewCellType dk_type;

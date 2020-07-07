@@ -33,7 +33,7 @@
     [super setHighlighted:highlighted animated:animated];
     if (highlighted && self.dk_selectionStyle != DKBaseTableViewCellSelectionStyleNone) {
         [UIView animateWithDuration:0.3 animations:^{
-            self.cellBackgroundView.backgroundColor = dk_HexColor(COLOR_F2F2F2);
+            self.cellBackgroundView.backgroundColor = dk_HexColor(DK_COLOR_F2F2F2);
         }];
     } else {
         [UIView animateWithDuration:0.3 animations:^{
@@ -56,9 +56,9 @@
         if (self.isHasArrow) {
             [self.contentView addSubview:self.arrow];
         }
-        self.topLineInsets = UIEdgeInsetsMake(0, leftCellMargin, 0, 0);
-        self.bottomLineInsets = UIEdgeInsetsMake(0, leftCellMargin, 0, 0);
-        self.dottedLineInsets = UIEdgeInsetsMake(0, leftCellMargin, 0, 0);
+        self.topLineInsets = UIEdgeInsetsMake(0, dk_leftMargin, 0, 0);
+        self.bottomLineInsets = UIEdgeInsetsMake(0, dk_leftMargin, 0, 0);
+        self.dottedLineInsets = UIEdgeInsetsMake(0, dk_leftMargin, 0, 0);
         [self.contentView addSubview:self.topLine];
         [self.contentView addSubview:self.bottomLine];
         [self.contentView addSubview:self.dottedLine];
@@ -84,9 +84,9 @@
         }
         if (self.isHasImageRoundedCorner) {
             if (self.imageRoundedCorner) {
-                [self.imageV setRadiusWithCornerRadii:self.imageRoundedCorner];
+                [self.imageV dk_cornerRadii:self.imageRoundedCorner];
             } else {
-                [self.imageV setRadius];
+                [self.imageV dk_radius];
             }
         }
     }
@@ -96,14 +96,14 @@
         [self.topLine mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.cellBackgroundView.mas_top).offset(self.topLineInsets.top-self.topLineInsets.bottom);
             make.left.equalTo(self.cellBackgroundView.mas_left).offset(self.topLineInsets.left);
-            make.height.mas_equalTo(lineHeight);
+            make.height.mas_equalTo(dk_lineHeight);
             make.right.equalTo(self.cellBackgroundView.mas_right).offset(-self.topLineInsets.right);
         }];
     }
     if (self.bottomLineInsets.top || self.bottomLineInsets.left || self.bottomLineInsets.right || self.bottomLineInsets.bottom) {
         [self.bottomLine mas_remakeConstraints:^(MASConstraintMaker *make) { make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(self.bottomLineInsets.top-self.bottomLineInsets.bottom);
             make.left.equalTo(self.cellBackgroundView.mas_left).offset(self.bottomLineInsets.left);
-            make.height.mas_equalTo(lineHeight);
+            make.height.mas_equalTo(dk_lineHeight);
             make.right.equalTo(self.cellBackgroundView.mas_right).offset(-self.bottomLineInsets.right);
         }];
     }
@@ -127,18 +127,18 @@
     if (self.isHasArrow) {
         [self.arrow mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.cellBackgroundView.mas_centerY).offset(0);
-            make.right.equalTo(self.cellBackgroundView.mas_right).offset(-rightCellMargin);
+            make.right.equalTo(self.cellBackgroundView.mas_right).offset(-dk_rightMargin);
         }];
     }
     [self.topLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.cellBackgroundView.mas_top).offset(self.topLineInsets.top-self.topLineInsets.bottom);
         make.left.equalTo(self.cellBackgroundView.mas_left).offset(self.topLineInsets.left);
-        make.height.mas_equalTo(lineHeight);
+        make.height.mas_equalTo(dk_lineHeight);
         make.right.equalTo(self.cellBackgroundView.mas_right).offset(-self.topLineInsets.right);
     }];
     [self.bottomLine mas_makeConstraints:^(MASConstraintMaker *make) { make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(self.bottomLineInsets.top-self.bottomLineInsets.bottom);
         make.left.equalTo(self.cellBackgroundView.mas_left).offset(self.bottomLineInsets.left);
-        make.height.mas_equalTo(lineHeight);
+        make.height.mas_equalTo(dk_lineHeight);
         make.right.equalTo(self.cellBackgroundView.mas_right).offset(-self.bottomLineInsets.right);
     }];
     
@@ -149,8 +149,8 @@
 //    }];
     
     [self.dottedLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
-        make.right.equalTo(self.cellBackgroundView.mas_right).offset(-rightCellMargin);
+        make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
+        make.right.equalTo(self.cellBackgroundView.mas_right).offset(-dk_rightMargin);
         make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
         make.height.mas_equalTo(2);
     }];
@@ -238,7 +238,7 @@
         {
             self.textField.clearButtonMode = UITextFieldViewModeNever;
             self.textField.textAlignment = NSTextAlignmentRight;
-            self.detail.textColor = dk_HexColor(COLOR_333333);
+            self.detail.textColor = dk_HexColor(DK_COLOR_333333);
             [self.contentView addSubview:self.title];
             [self.contentView addSubview:self.textField];
             [self.contentView addSubview:self.detail];
@@ -265,10 +265,10 @@
         case DKBaseTableViewCellTypeDefault:
         {
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
             }];
         }
             break;
@@ -279,7 +279,7 @@
             [self.title setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             [self.title setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
             }];
@@ -287,11 +287,11 @@
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
                 if (self.dk_type == DKBaseTableViewCellTypeValue1 || self.dk_type == DKBaseTableViewCellTypeValue3) {
-                    make.right.lessThanOrEqualTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
-                    make.left.equalTo(self.title.mas_right).offset(labelMargin);
+                    make.right.lessThanOrEqualTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
+                    make.left.equalTo(self.title.mas_right).offset(dk_labelMargin);
                 } else {
-                    make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
-                    make.left.greaterThanOrEqualTo(self.title.mas_right).offset(labelMargin);
+                    make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
+                    make.left.greaterThanOrEqualTo(self.title.mas_right).offset(dk_labelMargin);
                 }
             }];
         }
@@ -301,34 +301,34 @@
             [self.imageV setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             [self.imageV setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.cellBackgroundView.mas_top).offset(constMargin);
-                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-constMargin);
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(dk_constMargin);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-dk_constMargin);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
                 make.height.mas_greaterThanOrEqualTo(24).priorityHigh();
                 make.width.mas_equalTo(120);
             }];
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.imageV.mas_right).offset(betweenMargin);
-                make.top.equalTo(self.cellBackgroundView.mas_top).offset(constMargin);
-                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-constMargin);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
+                make.left.equalTo(self.imageV.mas_right).offset(dk_betweenMargin);
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(dk_constMargin);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-dk_constMargin);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
             }];
         }
             break;
         case DKBaseTableViewCellTypeImageRight:
         {
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
-                make.top.equalTo(self.cellBackgroundView.mas_top).offset(constMargin);
-                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-constMargin);
-                make.right.equalTo(self.imageV.mas_left).offset(-betweenMargin);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(dk_constMargin);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-dk_constMargin);
+                make.right.equalTo(self.imageV.mas_left).offset(-dk_betweenMargin);
             }];
             [self.imageV setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             [self.imageV setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.cellBackgroundView.mas_top).offset(constMargin);
-                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-constMargin);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(dk_constMargin);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-dk_constMargin);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
                 make.width.mas_equalTo(self.imageV.mas_height);
                 make.height.mas_greaterThanOrEqualTo(24).priorityHigh();
                 make.width.mas_lessThanOrEqualTo(120).priorityHigh();
@@ -338,37 +338,37 @@
         case DKBaseTableViewCellTypeSubtitle:
         {
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
-                make.top.equalTo(self.cellBackgroundView.mas_top).offset(topCellMargin);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(dk_topMargin);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
                 make.height.mas_equalTo(21);
             }];
             [self.detail mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
-                make.top.equalTo(self.title.mas_bottom).offset(labelMargin);
-                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-bottomCellMargin);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
+                make.top.equalTo(self.title.mas_bottom).offset(dk_labelMargin);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-dk_bottomMargin);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
             }];
         }
             break;
         case DKBaseTableViewCellTypeSubtitle1:
         {
             [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.cellBackgroundView.mas_top).offset(topCellMargin);
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(dk_topMargin);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
                 make.size.mas_equalTo(CGSizeMake(40, 40));
             }];
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.imageV.mas_right).offset(betweenMargin);
-                make.top.equalTo(self.cellBackgroundView.mas_top).offset(constMargin);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
+                make.left.equalTo(self.imageV.mas_right).offset(dk_betweenMargin);
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(dk_constMargin);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
                 make.height.mas_equalTo(21);
             }];
             [self.detail mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.imageV.mas_right).offset(betweenMargin);
+                make.left.equalTo(self.imageV.mas_right).offset(dk_betweenMargin);
                 make.top.equalTo(self.title.mas_bottom).offset(2);
-                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-constMargin);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-dk_constMargin);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
             }];
         }
             break;
@@ -377,8 +377,8 @@
             [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
             }];
         }
             break;
@@ -387,13 +387,13 @@
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
             }];
             [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
-                make.left.greaterThanOrEqualTo(self.title.mas_right).offset(constMargin);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
+                make.left.greaterThanOrEqualTo(self.title.mas_right).offset(dk_constMargin);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
                 make.width.mas_greaterThanOrEqualTo(40);
             }];
         }
@@ -403,19 +403,19 @@
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
             }];
             [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
-                make.left.greaterThanOrEqualTo(self.title.mas_right).offset(constMargin);
+                make.left.greaterThanOrEqualTo(self.title.mas_right).offset(dk_constMargin);
                 make.width.mas_greaterThanOrEqualTo(40);
             }];
             [self.detail mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
-                make.left.equalTo(self.textField.mas_right).offset(constMargin);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin));
+                make.left.equalTo(self.textField.mas_right).offset(dk_constMargin);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
             }];
         }
             break;
@@ -429,7 +429,7 @@
 /** 设置 cell 是否圆角 */
 - (void)__setRoundedCorner {
     self.bottomLine.hidden = YES;
-    [self.cellBackgroundView setRoundingCorners:self.rectCorner cornerRadii:self.cornerRadii];
+    [self.cellBackgroundView dk_roundingCorners:self.rectCorner cornerRadii:self.cornerRadii];
 }
 
 - (void)setLabelInsets:(UIEdgeInsets)labelInsets {
@@ -438,10 +438,10 @@
         case DKBaseTableViewCellTypeDefault:
             {
                 [self.title mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin+labelInsets.left);
+                    make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin+labelInsets.left);
                     make.top.equalTo(self.cellBackgroundView.mas_top).offset(labelInsets.top);
                     make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-labelInsets.bottom);
-                    make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin)-labelInsets.right);
+                    make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin)-labelInsets.right);
                 }];
             }
             break;
@@ -450,7 +450,7 @@
         case DKBaseTableViewCellTypeValue3:
         {
             [self.title mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin+labelInsets.left);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin+labelInsets.left);
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(labelInsets.top);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-labelInsets.bottom);
             }];
@@ -458,9 +458,9 @@
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(labelInsets.top);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-labelInsets.bottom);
                 if (self.dk_type == DKBaseTableViewCellTypeValue1 || self.dk_type == DKBaseTableViewCellTypeValue3) {
-                    make.right.lessThanOrEqualTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin)-labelInsets.right);
+                    make.right.lessThanOrEqualTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin)-labelInsets.right);
                 } else {
-                    make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin)-labelInsets.right);
+                    make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin)-labelInsets.right);
                 }
             }];
         }
@@ -468,16 +468,16 @@
         case DKBaseTableViewCellTypeSubtitle:
         {
             [self.title mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin+labelInsets.left);
-                make.top.equalTo(self.cellBackgroundView.mas_top).offset(topCellMargin+labelInsets.top);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin)-labelInsets.right);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin+labelInsets.left);
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(dk_topMargin+labelInsets.top);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin)-labelInsets.right);
                 make.height.mas_equalTo(21);
             }];
             [self.detail mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.cellBackgroundView.mas_left).offset(leftCellMargin+labelInsets.left);
-                make.top.equalTo(self.title.mas_bottom).offset(labelMargin);
-                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-bottomCellMargin-labelInsets.bottom);
-                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?rightArrowImageMargin:rightCellMargin)-labelInsets.right);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin+labelInsets.left);
+                make.top.equalTo(self.title.mas_bottom).offset(dk_labelMargin);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-dk_bottomMargin-labelInsets.bottom);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin)-labelInsets.right);
             }];
         }
             break;
@@ -492,7 +492,7 @@
     if (self.isHasArrow) {
         [self.arrow mas_updateConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.cellBackgroundView.mas_centerY).offset(0 + arrowInsets.top - arrowInsets.bottom);
-            make.right.equalTo(self.cellBackgroundView.mas_right).offset(-rightCellMargin - arrowInsets.right + arrowInsets.left);
+            make.right.equalTo(self.cellBackgroundView.mas_right).offset(-dk_rightMargin - arrowInsets.right + arrowInsets.left);
         }];
     }
 }
@@ -576,10 +576,10 @@
 - (UITextField *)textField {
     if (!_textField) {
         _textField = [[UITextField alloc] init];
-        _textField.textColor = dk_HexColor(COLOR_333333);
+        _textField.textColor = dk_HexColor(DK_COLOR_333333);
         _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         _textField.font = [UIFont pfRegularWithSize:14];
-        [_textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName:dk_HexColor(COLOR_AAAAAA)}]];
+        [_textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName:dk_HexColor(DK_COLOR_AAAAAA)}]];
     }
     return _textField;
 }
@@ -602,7 +602,7 @@
 - (DKCustonLabel *)title {
     if (!_title) {
         _title = [[DKCustonLabel alloc] init];
-        _title.textColor = dk_HexColor(COLOR_333333);
+        _title.textColor = dk_HexColor(DK_COLOR_333333);
         _title.font = [UIFont pfRegularWithSize:15];
     }
     return _title;
@@ -611,7 +611,7 @@
 - (DKCustonLabel *)detail {
     if (!_detail) {
         _detail = [[DKCustonLabel alloc] init];
-        _detail.textColor = dk_HexColor(COLOR_888888);
+        _detail.textColor = dk_HexColor(DK_COLOR_888888);
         _detail.font = [UIFont pfRegularWithSize:14];
         if (self.dk_type == DKBaseTableViewCellTypeValue2) {
             _detail.textAlignment = NSTextAlignmentRight;
@@ -623,7 +623,7 @@
 - (UIImageView *)imageV {
     if (!_imageV) {
         _imageV = [[UIImageView alloc] init];
-        _imageV.backgroundColor = dk_HexColor(COLOR_DDDDDD);
+        _imageV.backgroundColor = dk_HexColor(DK_COLOR_DDDDDD);
         _imageV.contentMode = UIViewContentModeScaleAspectFill;
         _imageV.layer.masksToBounds = YES;
     }
@@ -641,7 +641,7 @@
 - (DKBaseView *)cellBackgroundView {
     if (!_cellBackgroundView) {
         _cellBackgroundView = [[DKBaseView alloc] init];
-        _cellBackgroundColor = _cellBackgroundView.backgroundColor = dk_HexColor(COLOR_WHITE);
+        _cellBackgroundColor = _cellBackgroundView.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
     }
     return _cellBackgroundView;
 }
