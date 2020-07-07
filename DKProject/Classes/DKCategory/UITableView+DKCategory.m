@@ -59,7 +59,7 @@ void dk_tableView_swizzleMethod(Class class, SEL originalSelector, SEL swizzledS
 - (void)dk_reloadData {
     [self dk_reloadData];
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.autoHideMjFooter) {
+        if (self.isAutoHideMjFooter) {
             [self setFooterShow];
         }
         [self setShowEmptyView];
@@ -69,7 +69,7 @@ void dk_tableView_swizzleMethod(Class class, SEL originalSelector, SEL swizzledS
 - (void)dk_reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
     [self dk_reloadSections:sections withRowAnimation:animation];
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.autoHideMjFooter) {
+        if (self.isAutoHideMjFooter) {
             [self setFooterShow];
         }
         [self setShowEmptyView];
@@ -79,7 +79,7 @@ void dk_tableView_swizzleMethod(Class class, SEL originalSelector, SEL swizzledS
 - (void)dk_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
     [self dk_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.autoHideMjFooter) {
+        if (self.isAutoHideMjFooter) {
             [self setFooterShow];
         }
         [self setShowEmptyView];
@@ -94,13 +94,13 @@ void dk_tableView_swizzleMethod(Class class, SEL originalSelector, SEL swizzledS
 }
 
 #pragma mark - 添加属性
-static const char *autoHideMjFooterKey = "autoHideMjFooter";
+static const char *dk_autoHideMjFooterKey = "dk_autoHideMjFooterKey";
 - (void)setAutoHideMjFooter:(BOOL)autoHideMjFooter {
-    objc_setAssociatedObject(self, autoHideMjFooterKey, @(autoHideMjFooter), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, dk_autoHideMjFooterKey, @(autoHideMjFooter), OBJC_ASSOCIATION_ASSIGN);
 }
 
-- (BOOL)autoHideMjFooter{
-    return [objc_getAssociatedObject(self, autoHideMjFooterKey) boolValue];
+- (BOOL)isAutoHideMjFooter{
+    return [objc_getAssociatedObject(self, dk_autoHideMjFooterKey) boolValue];
 }
 
 static const char *autoShowEmptyKey = "autoShowEmpty";

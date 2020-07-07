@@ -5,7 +5,7 @@
 [![Version](https://img.shields.io/cocoapods/v/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![License](https://img.shields.io/cocoapods/l/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![Platform](https://img.shields.io/cocoapods/p/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
-[![Support](https://img.shields.io/badge/support-iOS%209.0+%20-red.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
+[![Support](https://img.shields.io/badge/support-iOS%208.0+%20-red.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 
 ## 特性
 
@@ -39,7 +39,7 @@
 
 项目 | 版本 | iOS 最低版本 | 日期 | 作者
 :-: | :-: | :-: | :-: | :-:
-[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.3 | iOS 9.0 | 2020.7.7 | DawnKing
+[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.5 | iOS 8.0 | 2020.7.7 | DawnKing
 
 ## Dependency
 
