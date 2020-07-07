@@ -39,7 +39,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 Project | Version | Minimum iOS Target | Date
 :-: | :-: | :-: | :-:
-[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.5 | iOS 8.0 | 2020.7.7
+[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.6 | iOS 8.0 | 2020.7.7
 
 ## Dependency
 

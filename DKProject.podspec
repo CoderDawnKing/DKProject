@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DKProject'
-  s.version          = '0.2.5'
+  s.version          = '0.2.6'
   s.summary          = '一个小框架'
 
 # This description is used to generate tags and improve search results.
