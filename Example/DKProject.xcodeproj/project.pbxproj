@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0761E02910A9BE33B621E8F0 /* Pods_DKProject_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0483503810781CE5A09B03 /* Pods_DKProject_Tests.framework */; };
-		21E7B50524B39BEF00106C66 /* README_EN.md in Resources */ = {isa = PBXBuildFile; fileRef = 21E7B50424B39BEF00106C66 /* README_EN.md */; };
+		217270EB24B426CB00072F86 /* README_EN.md in Resources */ = {isa = PBXBuildFile; fileRef = 217270EA24B426CA00072F86 /* README_EN.md */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -39,7 +39,7 @@
 
 /* Begin PBXFileReference section */
 		0212DF18EAE1E8FF13157E91 /* Pods-DKProject_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKProject_Example.release.xcconfig"; path = "Target Support Files/Pods-DKProject_Example/Pods-DKProject_Example.release.xcconfig"; sourceTree = "<group>"; };
-		21E7B50424B39BEF00106C66 /* README_EN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README_EN.md; path = ../README_EN.md; sourceTree = "<group>"; };
+		217270EA24B426CA00072F86 /* README_EN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README_EN.md; path = ../README_EN.md; sourceTree = "<group>"; };
 		39DB328F623946BDFC945A2D /* Pods-DKProject_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKProject_Example.debug.xcconfig"; path = "Target Support Files/Pods-DKProject_Example/Pods-DKProject_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4A32643D7D3A8180F68E4DF7 /* Pods-DKProject_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKProject_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DKProject_Tests/Pods-DKProject_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* DKProject_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DKProject_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				67EB9F281316736B3F40EF4E /* DKProject.podspec */,
-				21E7B50424B39BEF00106C66 /* README_EN.md */,
+				217270EA24B426CA00072F86 /* README_EN.md */,
 				C4C459C686ECB2A4AC32D281 /* README.md */,
 				919DA566842BB99C6AC64C84 /* LICENSE */,
 			);
@@ -285,7 +285,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
-				21E7B50524B39BEF00106C66 /* README_EN.md in Resources */,
+				217270EB24B426CB00072F86 /* README_EN.md in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
