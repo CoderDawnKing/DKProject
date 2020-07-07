@@ -1,0 +1,17 @@
+//
+//  DKPrefixHeader.pch
+//  DKProject
+//
+//  Created by 王 on 2020/7/7.
+//  Copyright © 2020 wangshaoyu. All rights reserved.
+//
+
+#ifndef DKPrefixHeader_pch
+#define DKPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <DKProject/DKProject.h>
+
+#endif /* DKPrefixHeader_pch */

@@ -7,7 +7,8 @@
 //
 
 #import "DKAppDelegate.h"
-#import "DKHomePageViewController.h"
+#import "DKMainTabBarViewController.h"
+#import "DKMainTabPlusButton.h"
 #import <DKProject/DKProject.h>
 
 @implementation DKAppDelegate
@@ -17,7 +18,8 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    DKHomePageViewController *control = [[DKHomePageViewController alloc] init];
+    [DKMainTabPlusButton registerPlusButton];
+    DKMainTabBarViewController *control = [[DKMainTabBarViewController alloc] initWithContext:@""];
     self.window.rootViewController = control;
     [self.window makeKeyAndVisible];
     

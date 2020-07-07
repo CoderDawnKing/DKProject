@@ -36,7 +36,7 @@
 
 + (instancetype)barButtonBackItemWithTarget:(id)target action:(SEL)action string:(NSString *)string imageEdgeInsets:(UIEdgeInsets)imageEdgeInsets contentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button setImage:[[UIImage imageNamed:@"icon_back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+    [button setImage:[dk_BundleImage(@"nav_icon_back") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     [button setImage:nil forState:UIControlStateHighlighted];
     button.frame = CGRectMake(0, 0, 40, 44);
     [button setImageEdgeInsets:imageEdgeInsets];

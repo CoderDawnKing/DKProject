@@ -17,36 +17,40 @@ PODS:
   - CYLTabBarController (1.28.3):
     - CYLTabBarController/Core (= 1.28.3)
   - CYLTabBarController/Core (1.28.3)
-  - DKProject (0.2.5):
+  - DKProject (0.2.6):
     - AFNetworking (= 3.2.1)
     - CYLTabBarController (= 1.28.3)
-    - DKProject/DKNaviFixSpace (= 0.2.5)
-    - DKProject/DKNetworkingTool (= 0.2.5)
+    - DKProject/DKNaviFixSpace (= 0.2.6)
+    - DKProject/DKNetworkingTool (= 0.2.6)
     - HexColors (= 4.0.0)
+    - JXCategoryView (~> 1.5.5)
     - Masonry (= 1.1.0)
     - MJExtension (= 3.2.2)
     - MJRefresh (= 3.4.3)
     - ReactiveObjC (= 3.1.1)
     - SVProgressHUD (= 2.2.5)
-  - DKProject/DKNaviFixSpace (0.2.5):
+  - DKProject/DKNaviFixSpace (0.2.6):
     - AFNetworking (= 3.2.1)
     - CYLTabBarController (= 1.28.3)
     - HexColors (= 4.0.0)
+    - JXCategoryView (~> 1.5.5)
     - Masonry (= 1.1.0)
     - MJExtension (= 3.2.2)
     - MJRefresh (= 3.4.3)
     - ReactiveObjC (= 3.1.1)
     - SVProgressHUD (= 2.2.5)
-  - DKProject/DKNetworkingTool (0.2.5):
+  - DKProject/DKNetworkingTool (0.2.6):
     - AFNetworking (= 3.2.1)
     - CYLTabBarController (= 1.28.3)
     - HexColors (= 4.0.0)
+    - JXCategoryView (~> 1.5.5)
     - Masonry (= 1.1.0)
     - MJExtension (= 3.2.2)
     - MJRefresh (= 3.4.3)
     - ReactiveObjC (= 3.1.1)
     - SVProgressHUD (= 2.2.5)
   - HexColors (4.0.0)
+  - JXCategoryView (1.5.5)
   - Masonry (1.1.0)
   - MJExtension (3.2.2)
   - MJRefresh (3.4.3)
@@ -61,6 +65,7 @@ SPEC REPOS:
     - AFNetworking
     - CYLTabBarController
     - HexColors
+    - JXCategoryView
     - Masonry
     - MJExtension
     - MJRefresh
@@ -74,8 +79,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   CYLTabBarController: cd14c6260a38337600737873a57b3114c7065a8e
-  DKProject: 811c45b03e634d84a9d28d29fe9bfd6ba28988ea
+  DKProject: caa4165de6ed99df9dd63b21e0499424916b27af
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
+  JXCategoryView: 0293fcb356f10a5c2e679dac0a1a5f1899ee0c87
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6

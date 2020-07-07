@@ -7,10 +7,9 @@
 //
 
 #import "DKHomePageViewController.h"
+#import "DKMainCategoryViewController.h"
 
 @interface DKHomePageViewController ()<UITableViewDelegate, UITableViewDataSource>
-
-@property (nonatomic, strong) UILabel *titleLab;
 
 @end
 
@@ -25,28 +24,19 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.dk_Navi.navigationBarHidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.dk_Navi.navigationBarHidden = NO;
 }
 
 - (void)__addSubViews {
-    [self.view addSubview:self.titleLab];
     [self.view addSubview:self.tableView];
 }
 
 - (void)__makeConstraints {
-    [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(dk_leftMargin);
-        make.top.mas_equalTo(dk_StatusBarHeight + 20);
-    }];
-    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLab.mas_bottom).offset(20);
-        make.left.bottom.right.mas_equalTo(0);
+        make.edges.mas_equalTo(0);
     }];
 }
 
@@ -73,6 +63,9 @@
 #pragma UITableView Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    DKMainCategoryViewController *secondViewController = [[DKMainCategoryViewController alloc] init];
+    secondViewController.defaultSelectedIndex = 3;
+    [self.navigationController pushViewController:secondViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -111,16 +104,6 @@
 }
 
 #pragma - mark lazy
-- (UILabel *)titleLab {
-    if (!_titleLab) {
-        _titleLab = [[UILabel alloc] init];
-        _titleLab.text = @"欢迎你";
-        _titleLab.font = [UIFont pfMediumWithSize:20];
-        _titleLab.textColor = dk_HexColor(DK_COLOR_333333);
-    }
-    return _titleLab;
-}
-
 - (DKBaseTableView *)tableView {
     if (!_tableView) {
         _tableView = [[DKBaseTableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];

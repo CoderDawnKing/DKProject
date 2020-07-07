@@ -8,6 +8,8 @@
 
 #import <HexColors/HexColors.h>
 
+#define dk_RGBColor(R,G,B) [UIColor colorWithRed:R green:G blue:B alpha:1]
+#define dk_RGBColorWithAlpha(R,G,B,A) [UIColor colorWithRed:R green:G blue:B alpha:A]
 #define dk_ClearColor [UIColor clearColor]
 #define dk_HexColor(hexValue) [UIColor hx_colorWithHexRGBAString:hexValue]
 #define dk_HexColorWithAlpha(hexValue, alphaValue) [UIColor hx_colorWithHexRGBAString:hexValue alpha:alphaValue]

@@ -9,7 +9,7 @@
 
 ## Feature
 
-A small framework containing base classes, classifications, custom controls, utility classes, and more.
+A small framework, including the base class, classification, custom controls, tool classes and some third-party library integration use and so on.
 
 ### DKBase
 
@@ -39,7 +39,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 Project | Version | Minimum iOS Target | Date
 :-: | :-: | :-: | :-:
-[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.6 | iOS 8.0 | 2020.7.7
+[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.7 | iOS 8.0 | 2020.7.7
 
 ## Dependency
 
@@ -53,6 +53,7 @@ A bit more dependency library
 * [ReactiveObjC (3.1.1)](https://github.com/ReactiveCocoa/ReactiveObjC)
 * [SVProgressHUD (2.2.5)](https://github.com/SVProgressHUD/SVProgressHUD)
 * [CYLTabBarController (1.28.3)](https://github.com/ChenYilong/CYLTabBarController)
+* [JXCategoryView (1.5.5)](https://github.com/pujiaxin33/JXCategoryView)
 ### DKNetworkManage
 * [AFNetworking (3.2.1)](https://github.com/AFNetworking/AFNetworking)
 

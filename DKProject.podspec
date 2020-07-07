@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DKProject'
-  s.version          = '0.2.6'
+  s.version          = '0.2.7'
   s.summary          = '一个小框架'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-                          一个小框架,包含基类、分类、自定义控件、工具类等等。
+                          一个小框架,包含基类、分类、自定义控件、工具类以及一些第三方库的集成使用等等。
                        DESC
 
   s.homepage         = 'https://github.com/CoderDawnKing/DKProject'
@@ -48,6 +48,7 @@ Pod::Spec.new do |s|
   s.dependency 'ReactiveObjC', '3.1.1'
   s.dependency 'SVProgressHUD', '2.2.5'
   s.dependency 'CYLTabBarController', '1.28.3'
+  s.dependency 'JXCategoryView', '1.5.5'
   
   s.subspec "DKNaviFixSpace" do |ss|
       ss.name             = 'DKNaviFixSpace'

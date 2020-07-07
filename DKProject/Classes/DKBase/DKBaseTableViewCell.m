@@ -305,7 +305,7 @@
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-dk_constMargin);
                 make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
                 make.height.mas_greaterThanOrEqualTo(24).priorityHigh();
-                make.width.mas_equalTo(120);
+                make.width.mas_lessThanOrEqualTo(120).priorityHigh();
             }];
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.imageV.mas_right).offset(dk_betweenMargin);

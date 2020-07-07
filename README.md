@@ -9,7 +9,7 @@
 
 ## 特性
 
-一个小框架,包含基类、分类、自定义控件、工具类等等。
+一个小框架,包含基类、分类、自定义控件、工具类以及一些第三方库的集成使用等等。
 
 ### DKBase
 
@@ -39,7 +39,7 @@
 
 项目 | 版本 | iOS 最低版本 | 日期 | 作者
 :-: | :-: | :-: | :-: | :-:
-[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.6 | iOS 8.0 | 2020.7.7 | DawnKing
+[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.7 | iOS 8.0 | 2020.7.7 | DawnKing
 
 ## Dependency
 
@@ -52,6 +52,7 @@
 * [ReactiveObjC (3.1.1)](https://github.com/ReactiveCocoa/ReactiveObjC)
 * [SVProgressHUD (2.2.5)](https://github.com/SVProgressHUD/SVProgressHUD)
 * [CYLTabBarController (1.28.3)](https://github.com/ChenYilong/CYLTabBarController)
+* [JXCategoryView (1.5.5)](https://github.com/pujiaxin33/JXCategoryView)
 ### DKNetworkManage
 * [AFNetworking (3.2.1)](https://github.com/AFNetworking/AFNetworking)
 

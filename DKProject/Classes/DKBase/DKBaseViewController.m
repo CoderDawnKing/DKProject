@@ -26,6 +26,8 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self __addSubViews];
     [self __makeConstraints];
     [self __addViewModel];

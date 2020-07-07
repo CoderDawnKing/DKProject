@@ -10,6 +10,9 @@
 		0761E02910A9BE33B621E8F0 /* Pods_DKProject_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0483503810781CE5A09B03 /* Pods_DKProject_Tests.framework */; };
 		217270EB24B426CB00072F86 /* README_EN.md in Resources */ = {isa = PBXBuildFile; fileRef = 217270EA24B426CA00072F86 /* README_EN.md */; };
 		217270EE24B444A600072F86 /* DKHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 217270ED24B444A600072F86 /* DKHomePageViewController.m */; };
+		2172710624B47EAE00072F86 /* DKMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2172710524B47EAE00072F86 /* DKMainTabBarViewController.m */; };
+		2172710A24B480EA00072F86 /* DKMainTabPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2172710924B480EA00072F86 /* DKMainTabPlusButton.m */; };
+		2172710D24B484CA00072F86 /* DKMainCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2172710C24B484CA00072F86 /* DKMainCategoryViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -43,6 +46,13 @@
 		217270EA24B426CA00072F86 /* README_EN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README_EN.md; path = ../README_EN.md; sourceTree = "<group>"; };
 		217270EC24B444A600072F86 /* DKHomePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKHomePageViewController.h; sourceTree = "<group>"; };
 		217270ED24B444A600072F86 /* DKHomePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKHomePageViewController.m; sourceTree = "<group>"; };
+		2172710424B47EAE00072F86 /* DKMainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKMainTabBarViewController.h; sourceTree = "<group>"; };
+		2172710524B47EAE00072F86 /* DKMainTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMainTabBarViewController.m; sourceTree = "<group>"; };
+		2172710724B47EFE00072F86 /* DKPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKPrefixHeader.pch; sourceTree = "<group>"; };
+		2172710824B480EA00072F86 /* DKMainTabPlusButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKMainTabPlusButton.h; sourceTree = "<group>"; };
+		2172710924B480EA00072F86 /* DKMainTabPlusButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMainTabPlusButton.m; sourceTree = "<group>"; };
+		2172710B24B484CA00072F86 /* DKMainCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKMainCategoryViewController.h; sourceTree = "<group>"; };
+		2172710C24B484CA00072F86 /* DKMainCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMainCategoryViewController.m; sourceTree = "<group>"; };
 		39DB328F623946BDFC945A2D /* Pods-DKProject_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKProject_Example.debug.xcconfig"; path = "Target Support Files/Pods-DKProject_Example/Pods-DKProject_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4A32643D7D3A8180F68E4DF7 /* Pods-DKProject_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKProject_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DKProject_Tests/Pods-DKProject_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* DKProject_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DKProject_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,8 +160,15 @@
 			children = (
 				6003F59C195388D20070C39A /* DKAppDelegate.h */,
 				6003F59D195388D20070C39A /* DKAppDelegate.m */,
+				2172710724B47EFE00072F86 /* DKPrefixHeader.pch */,
+				2172710424B47EAE00072F86 /* DKMainTabBarViewController.h */,
+				2172710524B47EAE00072F86 /* DKMainTabBarViewController.m */,
+				2172710824B480EA00072F86 /* DKMainTabPlusButton.h */,
+				2172710924B480EA00072F86 /* DKMainTabPlusButton.m */,
 				217270EC24B444A600072F86 /* DKHomePageViewController.h */,
 				217270ED24B444A600072F86 /* DKHomePageViewController.m */,
+				2172710B24B484CA00072F86 /* DKMainCategoryViewController.h */,
+				2172710C24B484CA00072F86 /* DKMainCategoryViewController.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* DKViewController.h */,
 				6003F5A6195388D20070C39A /* DKViewController.m */,
@@ -318,6 +335,7 @@
 				"${BUILT_PRODUCTS_DIR}/CYLTabBarController/CYLTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/DKProject/DKProject.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
+				"${BUILT_PRODUCTS_DIR}/JXCategoryView/JXCategoryView.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
@@ -330,6 +348,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CYLTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKProject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXCategoryView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
@@ -393,7 +412,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* DKAppDelegate.m in Sources */,
+				2172710624B47EAE00072F86 /* DKMainTabBarViewController.m in Sources */,
 				217270EE24B444A600072F86 /* DKHomePageViewController.m in Sources */,
+				2172710A24B480EA00072F86 /* DKMainTabPlusButton.m in Sources */,
+				2172710D24B484CA00072F86 /* DKMainCategoryViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* DKViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -553,13 +575,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P265E6PKRB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DKProject/DKProject-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/DKPrefixHeader.pch";
 				INFOPLIST_FILE = "DKProject/DKProject-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -571,13 +594,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P265E6PKRB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DKProject/DKProject-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/DKPrefixHeader.pch";
 				INFOPLIST_FILE = "DKProject/DKProject-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
