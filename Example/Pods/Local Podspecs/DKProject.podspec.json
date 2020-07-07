@@ -1,8 +1,8 @@
 {
   "name": "DKProject",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "summary": "一个小框架",
-  "description": "一个小框架,包含基类、分类、自定义控件、工具类等等。",
+  "description": "一个小框架,包含基类、分类、自定义控件、工具类以及一些第三方库的集成使用等等。",
   "homepage": "https://github.com/CoderDawnKing/DKProject",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/CoderDawnKing/DKProject.git",
-    "tag": "0.2.6"
+    "tag": "0.2.7"
   },
   "platforms": {
     "ios": "8.0"
@@ -60,7 +60,7 @@
       "1.28.3"
     ],
     "JXCategoryView": [
-      "~> 1.5.5"
+      "1.5.5"
     ],
     "AFNetworking": [
       "3.2.1"
