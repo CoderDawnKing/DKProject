@@ -64,8 +64,9 @@
     NSString *ident = @"DKBaseTableViewCell";
     DKBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident];
     if (!cell) {
-        cell = [DKBaseTableViewCell cellWithType:DKBaseTableViewCellTypeDefault ident:ident];
+        cell = [DKBaseTableViewCell cellWithType:DKBaseTableViewCellTypeDefault ident:ident hasArrow:YES];
     }
+    cell.title.text = [NSString stringWithFormat:@"%ld", indexPath.row];
     return cell;
 }
 
@@ -75,7 +76,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
+//    return UITableViewAutomaticDimension;
+    return 40;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {

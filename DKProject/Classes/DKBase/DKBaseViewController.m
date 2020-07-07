@@ -182,7 +182,7 @@
     if (!self.emptyOriginalPrompt) {
         self.emptyOriginalPrompt = self.tableView.dk_emptyView.emptyPrompt;
     }
-    self.tableView.dk_emptyView.emptyImage = dk_IMAGE(@"default_img_noNetwork");
+    self.tableView.dk_emptyView.emptyImage = dk_BundleImage(@"default_img_noNetwork");
     self.tableView.dk_emptyView.emptyPrompt = @"网络出错啦，请检查网络情况~";
 }
 
@@ -193,7 +193,7 @@
     if (!self.emptyOriginalPrompt) {
         self.emptyOriginalPrompt = self.tableView.dk_emptyView.emptyPrompt;
     }
-    self.tableView.dk_emptyView.emptyImage = dk_IMAGE(@"default_img_networkError");
+    self.tableView.dk_emptyView.emptyImage = dk_BundleImage(@"default_img_networkError");
     self.tableView.dk_emptyView.emptyPrompt = @"程序猿小哥哥正在维修中，请稍后再试～";
 }
 

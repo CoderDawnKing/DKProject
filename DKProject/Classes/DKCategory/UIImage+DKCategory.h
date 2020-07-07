@@ -19,7 +19,7 @@ typedef enum : NSUInteger {
 
 ///去除 name 为空时控制台警告
 + (nullable UIImage *)dkImageNamed:(nullable NSString *)name;
-+ (nullable UIImage *)dkBundleImageNamed:(nullable NSString *)name;
++ (nullable UIImage *)dkBundleImageNamed:(nullable NSString *)name inBundle:(nullable NSBundle *)bundle compatibleWithTraitCollection:(nullable UITraitCollection *)traitCollection;
 
 /**
  修改图片颜色

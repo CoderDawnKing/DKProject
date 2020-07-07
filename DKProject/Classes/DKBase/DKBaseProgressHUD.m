@@ -52,7 +52,7 @@
 }
 
 + (void)showOnlyTextWithStatus:(NSString *)status {
-    [self setInfoImage:dk_IMAGE(@"")];
+    [self setInfoImage:dk_BundleImage(@"")];
     [self showInfoWithStatus:status];
 }
 

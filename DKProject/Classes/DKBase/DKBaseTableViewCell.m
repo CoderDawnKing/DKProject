@@ -632,7 +632,7 @@
 
 - (UIImageView *)arrow {
     if (!_arrow) {
-        _arrow = [[UIImageView alloc] initWithImage:dk_IMAGE(@"ic_cell_more")];
+        _arrow = [[UIImageView alloc] initWithImage:dk_BundleImage(@"arrow_ic_cell_more")];
         [_arrow sizeToFit];
     }
     return _arrow;
@@ -648,7 +648,7 @@
 
 - (UIImageView *)dottedLine {
     if (!_dottedLine) {
-        _dottedLine = [[UIImageView alloc] initWithImage:dk_IMAGE(@"plant_dottedLine")];
+        _dottedLine = [[UIImageView alloc] initWithImage:dk_BundleImage(@"arrow_ic_cell_dottedLine")];
         _dottedLine.hidden = YES;
     }
     return _dottedLine;

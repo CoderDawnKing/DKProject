@@ -99,7 +99,7 @@
 - (UIImageView *)emptyImageV {
     if (!_emptyImageV) {
         _emptyImageV = [[UIImageView alloc] init];
-        _emptyImageV.image = dk_IMAGE(@"default_img_default");
+        _emptyImageV.image = dk_BundleImage(@"default_img_default");
         _emptyImageV.layer.cornerRadius = 50;
         _emptyImageV.layer.masksToBounds = YES;
     }
@@ -107,7 +107,7 @@
 }
 
 - (UIImage *)emptyImage {
-    return dk_IMAGE(@"default_img_default");
+    return dk_BundleImage(@"default_img_default");
 }
 
 - (UILabel *)emptyLab {

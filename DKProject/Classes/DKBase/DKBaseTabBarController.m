@@ -84,7 +84,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
 - (NSArray *)tabBarItemsAttributesForTabBar {
     NSDictionary *firstTabBarItemsAttributes = @{
                                                  CYLTabBarItemTitle : @"花信风",
-                                                 CYLTabBarItemImage : dk_BundleIMAGE(@"home_tab_ic_1_nor")?:@"",
+                                                 CYLTabBarItemImage : dk_BundleImage(@"home_tab_ic_1_nor")?:@"",
 //                                                 CYLTabBarItemSelectedImage : @"home_tab_ic_1_sel",
                                                  };
     
@@ -164,8 +164,8 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
         appearance.shadowColor = dk_ClearColor;
         ///配置透明背景
         appearance.backgroundColor = dk_ClearColor;
-        NSInteger scale = [[UIScreen mainScreen] scale];
-        appearance.backgroundImage = [dk_BundleIMAGE(@"tabbarClearBg") resizableImageWithCapInsets:UIEdgeInsetsMake(89, 0, 14, 0) resizingMode:UIImageResizingModeStretch];
+        
+        appearance.backgroundImage = [dk_BundleImage(@"tabbarClearBg") resizableImageWithCapInsets:UIEdgeInsetsMake(89, 0, 14, 0) resizingMode:UIImageResizingModeStretch];
 //        appearance.backgroundImage = [UIImage imageWithColor:dk_HexColor(DK_COLOR_WHITE)];
         self.tabBar.tintColor = dk_HexColor(DK_COLOR_TAB_TEXT_SELECT);
         self.tabBar.standardAppearance = appearance;
@@ -215,7 +215,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
         //             [UITabBar appearance].barTintColor = [UIColor cyl_systemBackgroundColor];
         
         [[UITabBar appearance] setBackgroundColor:dk_ClearColor];
-        [[UITabBar appearance] setBackgroundImage:dk_BundleIMAGE(@"tabbarClearBg")];
+        [[UITabBar appearance] setBackgroundImage:dk_BundleImage(@"tabbarClearBg")];
 //        [[UITabBar appearance] setBackgroundColor:dk_HexColor(DK_COLOR_WHITE)];
 //        [[UITabBar appearance] setBackgroundImage:[UIImage imageWithColor:dk_HexColor(DK_COLOR_WHITE)]];
         

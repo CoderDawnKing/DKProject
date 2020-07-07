@@ -18,12 +18,12 @@
 
 + (instancetype)itemWithCloseTarget:(id)target action:(SEL)action {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setBackgroundImage:dk_IMAGE(@"release_nav_ic_close") forState:UIControlStateNormal];
-    [btn setBackgroundImage:dk_IMAGE(@"release_nav_ic_close") forState:UIControlStateHighlighted];
+    [btn setBackgroundImage:dk_BundleImage(@"nav_ic_close") forState:UIControlStateNormal];
+    [btn setBackgroundImage:dk_BundleImage(@"nav_ic_close") forState:UIControlStateHighlighted];
     [btn sizeToFit];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
-    return [UIBarButtonItem itemWithTarget:target action:action image:dk_IMAGE(@"release_nav_ic_close")];
+    return [UIBarButtonItem itemWithTarget:target action:action image:dk_BundleImage(@"nav_ic_close")];
 }
 
 + (instancetype)barButtonBackItemWithTarget:(id)target action:(SEL)action {

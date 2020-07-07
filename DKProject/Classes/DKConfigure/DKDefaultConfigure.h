@@ -49,8 +49,16 @@
 /*导航条和Tabbar总高度*/
 #define dk_NavAndTabHeight (kNavBarAndStatusBarHeight + kTabBarHeight)
 
-#define dk_IMAGE(image) [UIImage dkImageNamed:image]
-#define dk_BundleIMAGE(image) [UIImage dkBundleImageNamed:image]
+#define dk_Image(image) [UIImage dkImageNamed:image]
+#define dk_BundleImage(image)\
+({UIImage *img = nil;\
+NSInteger scale = [[UIScreen mainScreen] scale];\
+NSString *imgName = [NSString stringWithFormat:@"%@@%zdx.png", image, scale];\
+NSBundle *curBundle = [NSBundle bundleForClass:self.class];\
+NSString *curBundleName = curBundle.infoDictionary[@"CFBundleName"];\
+NSBundle *bundle = [NSBundle bundleWithURL:[curBundle URLForResource:curBundleName withExtension:@"bundle"]];\
+img = [UIImage imageNamed:image inBundle:bundle compatibleWithTraitCollection:nil];\
+(img);})
 #define dk_IMAGEClearColor [UIImage imageWithClearColor]
 
 #define dk_KeyboardHeight 216.0 //键盘高度

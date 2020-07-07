@@ -11,8 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
-    DKCustonLabelVerticalAlignmentTop = 0,
-    DKCustonLabelVerticalAlignmentCenter,// default
+    DKCustonLabelVerticalAlignmentCenter = 0,// default
+    DKCustonLabelVerticalAlignmentTop,
     DKCustonLabelVerticalAlignmentBottom,
 } DKCustonLabelVerticalAlignmentType;
 

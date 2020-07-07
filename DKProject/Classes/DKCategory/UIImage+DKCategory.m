@@ -20,15 +20,9 @@
     return nil;
 }
 
-+ (UIImage *)dkBundleImageNamed:(NSString *)name {
++ (UIImage *)dkBundleImageNamed:(NSString *)name inBundle:(NSBundle *)bundle compatibleWithTraitCollection:(nullable UITraitCollection *)traitCollection {
     if (name.dk_notEmpty) {
-        NSInteger scale = [[UIScreen mainScreen] scale];
-        NSString *imgName = [NSString stringWithFormat:@"%@@%zdx.png", name, scale];
-        NSBundle *curBundle = [NSBundle bundleForClass:DKBaseModel.class];
-        NSString *curBundleName = curBundle.infoDictionary[@"CFBundleName"];
-        NSURL *bundleURL = [curBundle URLForResource:curBundleName withExtension:@"bundle"];
-        NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
-        return [self imageWithContentsOfFile:[bundle pathForResource:imgName ofType:nil]];
+        return [self imageNamed:name inBundle:bundle compatibleWithTraitCollection:traitCollection];
     }
     return nil;
 }

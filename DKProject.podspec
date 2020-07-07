@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.source_files = 'DKProject/Classes/**/*.{h,m}'
   
    s.resource_bundles = {
-     'DKProject' => ['DKProject/Assets/*']
+     'DKProject' => ['DKProject/Assets/*.xcassets']
    }
 
   s.public_header_files = 'DKProject/Classes/**/*.{h}'
