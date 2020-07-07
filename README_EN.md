@@ -1,49 +1,50 @@
 # DKProject
 
-**[English](./README_EN.md) | 中文**
+**English | [中文](./README.md)**
  
 [![Version](https://img.shields.io/cocoapods/v/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![License](https://img.shields.io/cocoapods/l/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![Platform](https://img.shields.io/cocoapods/p/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![Support](https://img.shields.io/badge/support-iOS%209.0+%20-red.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 
-## 特性
+## Feature
 
-一个小框架,包含基类、分类、自定义控件、工具类等等。
+A small framework containing base classes, classifications, custom controls, utility classes, and more.
 
 ### DKBase
 
-一些基类
+Some of the base class
 
 ### DKCategory
 
-常用的分类
+Common classification
 
 ### DKConfigure
 
-默认配置
+default allocation
 
 ### DKNaviFixSpace
 
-修改导航栏 item 间距
+Modify the navigation bar item spacing
 
 ### DKNetworkManage
 
-网络请求工具类
+Network request tools
 
 ## Example
 
-要运行示例项目，请克隆存储库，并且在Example目录下运行`pod install`。
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 
-项目 | 版本 | iOS 最低版本 | 日期 | 作者
-:-: | :-: | :-: | :-: | :-:
-[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.3 | iOS 9.0 | 2020.7.7 | DawnKing
+Project | Version | Minimum iOS Target | Date
+:-: | :-: | :-: | :-:
+[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.3 | iOS 9.0 | 2020.7.7
 
 ## Dependency
 
-依赖库比较多
+A bit more dependency library
+
 ### DKProject 
 * [HexColors (4.0.0)](https://github.com/mRs-/HexColors)
 * [MJRefresh (3.4.3)](https://github.com/CoderMJLee/MJRefresh)
@@ -56,8 +57,9 @@
 * [AFNetworking (3.2.1)](https://github.com/AFNetworking/AFNetworking)
 
 ## Installation
-DKProject可通过 [CocoaPods](https://cocoapods.org/pods/DKProject)获得。
-要安装它，只需将以下行添加到您的Podfile中:
+
+DKProject is available through [CocoaPods](https://cocoapods.org/pods/DKProject). To install
+it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'DKProject'
@@ -65,13 +67,13 @@ pod 'DKProject'
 
 ## Usage
 
-暂时不可用  
-导入基类、分类、工具类、自定义控件、配置类。（未完成不可使用）
+Temporarily unavailable  
+Import base classes, categories, tools, custom controls, and configuration classes. (Unfinished cannot be used)
 
 ## TODO
-- [ ] 修复 DKBaseTabBarController 的 bug,不依赖
-- [ ] DKNetworkManage 完全解耦
-- [ ] 添加工具类、自定义控件。
+- [ ] Fix the bug of DKBaseTabBarController and don't depend on the library
+- [ ] DKNetworkManage completely decoupled
+- [ ] Add tools, custom controls
 
 ## Author
 
