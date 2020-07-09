@@ -18,7 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol DKBaseCategoryViewControllerDelegate <NSObject>
 
 @optional
-///默认是 NO 
+/// 默认 JXCategoryBaseView
+- (JXCategoryBaseView *)preferredCategoryView;
+/// 高度 默认 50
+- (CGFloat)preferredCategoryViewHeight;
+/// y 值 默认 0
+- (CGFloat)preferredCategoryViewTop;
+///默认是 NO
 - (BOOL)dk_isKindOfClass;
 
 @end
@@ -32,10 +38,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) JXCategoryListContainerView *listContainerView;
 ///修改初始化的时候默认选择的index
 @property (nonatomic, assign) NSInteger defaultSelectedIndex;
-
-- (JXCategoryBaseView *)preferredCategoryView;
-
-- (CGFloat)preferredCategoryViewHeight;
 
 @end
 

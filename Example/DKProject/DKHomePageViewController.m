@@ -87,7 +87,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
-    return 0.0001;
+    if (@available (iOS 11.0, *)) {// 11以下闪退
+        return 0.0001;
+    }
+    return 40;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -100,7 +103,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section {
-    return 0.0001;
+    if (@available (iOS 11.0, *)) {
+        return 0.0001;
+    }
+    return 40;
 }
 
 #pragma - mark lazy

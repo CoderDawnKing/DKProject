@@ -39,7 +39,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.dk_Navi.navigationBarHidden = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

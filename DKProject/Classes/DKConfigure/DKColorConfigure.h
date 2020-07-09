@@ -7,6 +7,7 @@
 //
 
 #import <HexColors/HexColors.h>
+#import "DKConfigure.h"
 
 #define dk_RGBColor(R,G,B) [UIColor colorWithRed:R green:G blue:B alpha:1]
 #define dk_RGBColorWithAlpha(R,G,B,A) [UIColor colorWithRed:R green:G blue:B alpha:A]
@@ -15,12 +16,19 @@
 #define dk_HexColorWithAlpha(hexValue, alphaValue) [UIColor hx_colorWithHexRGBAString:hexValue alpha:alphaValue]
 
 ///App 主色
-static NSString * const DK_COLOR_APPMAIN = @"#FF5555";
-
+#define DK_COLOR_APPMAIN DKCONFIG.dkc_color_main
+///线条颜色
+#define DK_COLOR_LINE DKCONFIG.dkc_color_line
+///tableView 背景色
+#define DK_COLOR_TABLEVIEW_BACKGROUND DKCONFIG.dkc_color_tableView_background
 ///TAB选中颜色
-static NSString * const DK_COLOR_TAB_TEXT_SELECT = @"#FC575A";
+#define DK_COLOR_TAB_TEXT_SELECT DKCONFIG.dkc_color_tab_text_select
 ///TAB字体颜色
-static NSString * const DK_COLOR_TAB_TEXT_UNSELECT = @"#838383";
+#define DK_COLOR_TAB_TEXT_UNSELECT DKCONFIG.dkc_color_tab_text_unselect
+///白色
+static NSString * const DK_COLOR_WHITE = @"#FFFFFF";
+///黑色
+static NSString * const DK_COLOR_BLACK = @"#000000";
 ///橙色
 static NSString * const DK_COLOR_ORANGE = @"#FF9900";
 ///浅蓝色
@@ -35,19 +43,10 @@ static NSString * const DK_COLOR_71CB99 = @"#71CB99";
 ///绿色
 static NSString * const DK_COLOR_7BB455 = @"#7BB455";
 
-
-///白色
-static NSString * const DK_COLOR_WHITE = @"#FFFFFF";
-///黑色
-static NSString * const DK_COLOR_BLACK = @"#000000";
 ///红色
 static NSString * const DK_COLOR_RED = @"#FF0000";
 ///蓝色
 static NSString * const DK_COLOR_BLUE = @"#0000FF";
-///线条颜色
-static NSString * const DK_COLOR_LINE = @"#EEEEEE";
-///tableView 背景色
-static NSString * const DK_COLOR_TABLEVIEW_BACKGROUND = @"#F5F5F5";
 
 
 static NSString * const DK_COLOR_999999 = @"#999999";

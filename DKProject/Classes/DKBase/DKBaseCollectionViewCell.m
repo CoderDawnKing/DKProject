@@ -105,6 +105,25 @@
     [self __makeConstraints];
 }
 
+- (void)setLabelInsets:(UIEdgeInsets)labelInsets {
+    _labelInsets = labelInsets;
+    switch (self.dk_type) {
+        case DKBaseCollectionViewCellTypeBottomTitleTopImage:
+            {
+                [self.title mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(self.imageV.mas_bottom).offset(10+labelInsets.top);
+                    make.left.mas_equalTo(0+labelInsets.left);
+                    make.right.mas_equalTo(0-labelInsets.right);
+                    make.bottom.mas_equalTo(-15-labelInsets.bottom);
+                }];
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 #pragma - mark lazy
 
 - (UIImageView *)imageV {

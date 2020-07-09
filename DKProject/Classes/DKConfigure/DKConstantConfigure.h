@@ -5,23 +5,25 @@
 //  Created by 王 on 2020/7/6.
 //
 
+#import "DKConfigure.h"
+
 /// 箭头间距 38
-static const CGFloat dk_rightArrowImageMargin = 38.f;
+#define dk_rightArrowImageMargin DKCONFIG.dkc_rightArrowImageMargin
 /// 常用间距 10
-static const CGFloat dk_constMargin = 10.0f;
+#define dk_constMargin DKCONFIG.dkc_constMargin
 /// 线条高度 0.5
-static const CGFloat dk_lineHeight = 1.f;
+#define dk_lineHeight DKCONFIG.dkc_lineHeight
 /// label 间距 8
-static const CGFloat dk_labelMargin = 8.0f;
+#define dk_labelMargin DKCONFIG.dkc_labelMargin
 /// 左边距 20
-static const CGFloat dk_leftMargin = 20.0f;
+#define dk_leftMargin DKCONFIG.dkc_leftMargin
 /// 右边距 20
-static const CGFloat dk_rightMargin = 20.0f;
+#define dk_rightMargin DKCONFIG.dkc_rightMargin
 /// 上边距 15
-static const CGFloat dk_topMargin = 15.0f;
+#define dk_topMargin DKCONFIG.dkc_topMargin
 /// 下边距 15
-static const CGFloat dk_bottomMargin = 15.0f;
+#define dk_bottomMargin DKCONFIG.dkc_bottomMargin
 /// 间距 15
-static const CGFloat dk_betweenMargin = 15.0f;
+#define dk_betweenMargin DKCONFIG.dkc_betweenMargin
 /// 小间距 5
-static const CGFloat dk_littleMargin = 5.0f;
+#define dk_littleMargin DKCONFIG.dkc_littleMargin

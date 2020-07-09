@@ -20,6 +20,12 @@
     // Do any additional setup after loading the view.
     self.title = @"第二页";
     self.myCategoryView.titles = self.titles;
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    self.dk_Navi.navigationBarHidden = YES;
 }
 
 - (JXCategoryBaseView *)preferredCategoryView {
@@ -34,10 +40,6 @@
     self.dk_Navi.recognizer.enabled = (index == 0);
 }
 
-- (void)categoryView:(JXCategoryBaseView *)categoryView scrollingFromLeftIndex:(NSInteger)leftIndex toRightIndex:(NSInteger)rightIndex ratio:(CGFloat)ratio {
-    [self.listContainerView scrollingFromLeftIndex:leftIndex toRightIndex:rightIndex ratio:ratio selectedIndex:categoryView.selectedIndex];
-}
-
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     DKBaseListViewController *list = [[DKBaseListViewController alloc] init];
     list.view.backgroundColor = dk_RGBColor(arc4random()%255/255.0, arc4random()%255/255.0, arc4random()%255/255.0);
@@ -47,8 +49,6 @@
 - (JXCategoryTitleView *)myCategoryView {
     if (!_myCategoryView) {
         _myCategoryView = (JXCategoryTitleView *)self.categoryView;
-        _myCategoryView.defaultSelectedIndex = self.defaultSelectedIndex;
-        _myCategoryView.titles = self.titles;
         _myCategoryView.titleColorGradientEnabled = YES;
         JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
         lineView.indicatorColor = dk_HexColor(DK_COLOR_APPMAIN);

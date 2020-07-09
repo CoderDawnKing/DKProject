@@ -31,9 +31,9 @@
     [super viewDidLayoutSubviews];
 
     if (![self dk_isKindOfClass]) {
-        self.categoryView.frame = CGRectMake(0, 0, self.view.bounds.size.width, [self preferredCategoryViewHeight]);
+        self.categoryView.frame = CGRectMake(0, [self preferredCategoryViewTop], self.view.bounds.size.width, [self preferredCategoryViewHeight]);
     }
-    self.listContainerView.frame = CGRectMake(0, [self preferredCategoryViewHeight], self.view.bounds.size.width, self.view.bounds.size.height);
+    self.listContainerView.frame = CGRectMake(0, self.categoryView.bottom, self.view.bounds.size.width, self.view.bounds.size.height);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -60,6 +60,10 @@
 
 - (CGFloat)preferredCategoryViewHeight {
     return 50;
+}
+
+- (CGFloat)preferredCategoryViewTop {
+    return 0;
 }
 
 - (JXCategoryBaseView *)categoryView {

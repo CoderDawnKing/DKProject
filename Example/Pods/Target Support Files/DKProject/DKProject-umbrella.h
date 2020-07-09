@@ -59,6 +59,7 @@
 #import "UIView+DKCategory.h"
 #import "UIViewController+DKCategory.h"
 #import "DKColorConfigure.h"
+#import "DKConfigure.h"
 #import "DKConstantConfigure.h"
 #import "DKDefaultConfigure.h"
 #import "DKNotificationConfigure.h"

@@ -39,6 +39,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) UILabel *title;
 @property (nonatomic, strong) UIImageView *imageV;
 
+/** 内部 Label 内边距 */
+@property (nonatomic, assign) UIEdgeInsets labelInsets;
+
 @end
 
 NS_ASSUME_NONNULL_END

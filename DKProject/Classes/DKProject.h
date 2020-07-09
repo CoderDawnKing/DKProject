@@ -60,6 +60,7 @@
 #import <DKProject/UIViewController+DKCategory.h>
 
 // Configure
+#import <DKProject/DKConfigure.h>
 #import <DKProject/DKColorConfigure.h>
 #import <DKProject/DKDefaultConfigure.h>
 #import <DKProject/DKNotificationConfigure.h>
