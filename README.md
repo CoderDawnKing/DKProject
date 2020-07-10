@@ -39,7 +39,7 @@
 
 项目 | 版本 | iOS 最低版本 | 日期 | 作者
 :-: | :-: | :-: | :-: | :-:
-[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.8 | iOS 8.0 | 2020.7.7 | DawnKing
+[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.9 | iOS 8.0 | 2020.7.7 | DawnKing
 
 ## Dependency
 
