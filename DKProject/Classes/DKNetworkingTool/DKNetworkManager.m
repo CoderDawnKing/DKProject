@@ -7,13 +7,26 @@
 //
 
 #import "DKNetworkManager.h"
-//#import "OpenUDID.h"
+#import <MJExtension/MJExtension.h>
+#import <DKProject/DKConfigure.h>
+#import <DKProject/DKNotificationConfigure.h>
+#import <DKProject/DKDefaultConfigure.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 //#import "Debugo.h"
-#import <DKProject/DKProject.h>
 
 #define TimeoutInterval 10
 #define DK_NetworkBaseURL DK_BaseUrl
 #define DK_NetworkSecretKey @""
+
+@implementation NSObject (DKNetWorkCategory)
+
+- (BOOL)dkNet_NotEmpty {
+    return !([self isKindOfClass:[NSNull class]] ||
+             ([self respondsToSelector:@selector(length)] && [self performSelector:@selector(length)] == 0) ||
+             ([self respondsToSelector:@selector(count)] && [self performSelector:@selector(count)] == 0));
+}
+
+@end
 
 @implementation DKNetworkBaseModel
 
@@ -21,39 +34,22 @@ MJLogAllIvars
 MJImplementDebugDescription
 MJCodingImplementation
 
-+ (NSDictionary *)mj_replacedKeyFromPropertyName {
-    return @{
-             @"Id" : @"id",
-             @"desc" : @"description"
-             };
-}
-
-- (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property {
-    if (property.type.typeClass == [NSString class]) {//过滤空字符串
-        if (oldValue == nil) return @"";
-    } else if (property.type.typeClass == [NSDate class]) {//转换 date
-        if (oldValue == [NSString class]) {
-            NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-            fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-            return [fmt dateFromString:oldValue];
-        } else {
-            NSTimeInterval timeInterval = ((NSNumber *)oldValue).doubleValue;
-            if(timeInterval > 140000000000) {
-                timeInterval = timeInterval / 1000;
-            }
-            return [NSDate dateWithTimeIntervalSince1970:timeInterval];
-        }
-    }
-    return oldValue;
-}
-
 @end
 
 @implementation DKNetworkResultModel
 @end
 @implementation DKNetworkResponeModel
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{
+        @"msg":DK_Network_Massage,
+        @"data":DK_Network_Data,
+        @"code":DK_Network_Code,
+    };
+}
+
 - (DKNetworkResultModel *)resultModel {
-    return [DKNetworkResultModel mj_objectWithKeyValues:self.result];
+    return [DKNetworkResultModel mj_objectWithKeyValues:self.data];
 }
 @end
 @interface DKNetworkRequestModel ()
@@ -90,9 +86,6 @@ MJCodingImplementation
 @end
 
 @implementation DKNetworkManager
-
-static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.app.Request";
-
 
 /// 单例
 + (instancetype)shareManager {
@@ -165,7 +158,7 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
            isShowLoading:(BOOL)showLoading
                hasHeader:(BOOL)hasHeader
         withRequestBlock:(nullable RequestBlock)requestBlock {
-    [self requestWithType:HttpRequestTypeGet withUrlString:urlString withParameters:parameters isShowLoading:showLoading hasHeader:hasHeader withRequestBlock:requestBlock];
+    [self requestWithType:DKHttpRequestTypeGet withUrlString:urlString withParameters:parameters isShowLoading:showLoading hasHeader:hasHeader withRequestBlock:requestBlock];
 }
 
 /**
@@ -203,7 +196,7 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
             isShowLoading:(BOOL)showLoading
                 hasHeader:(BOOL)hasHeader
          withRequestBlock:(nullable RequestBlock)requestBlock {
-    [self requestWithType:HttpRequestTypePost withUrlString:urlString withParameters:parameters withBody:body isShowLoading:showLoading isShowError:YES hasHeader:hasHeader withRequestBlock:requestBlock];
+    [self requestWithType:DKHttpRequestTypePost withUrlString:urlString withParameters:parameters withBody:body isShowLoading:showLoading isShowError:YES hasHeader:hasHeader withRequestBlock:requestBlock];
 }
 
 /**
@@ -226,17 +219,17 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
            isShowLoading:(BOOL)showLoading
                hasHeader:(BOOL)hasHeader
         withRequestBlock:(nullable RequestBlock)requestBlock {
-    [self requestWithType:HttpRequestTypePut withUrlString:urlString withParameters:parameters withBody:body isShowLoading:showLoading isShowError:YES hasHeader:hasHeader withRequestBlock:requestBlock];
+    [self requestWithType:DKHttpRequestTypePut withUrlString:urlString withParameters:parameters withBody:body isShowLoading:showLoading isShowError:YES hasHeader:hasHeader withRequestBlock:requestBlock];
 }
 
 /**
  网络请求Type的实例方法
  */
-- (void)requestWithType:(HttpRequestType)type withUrlString:(NSString *)urlString withParameters:(NSDictionary *)parameters withRequestBlock:(nullable RequestBlock)requestBlock {
+- (void)requestWithType:(DKHttpRequestType)type withUrlString:(NSString *)urlString withParameters:(NSDictionary *)parameters withRequestBlock:(nullable RequestBlock)requestBlock {
     [self requestWithType:type withUrlString:urlString withParameters:parameters withBody:nil isShowLoading:NO isShowError:YES hasHeader:YES withRequestBlock:requestBlock];
 }
 
-- (void)requestWithType:(HttpRequestType)type
+- (void)requestWithType:(DKHttpRequestType)type
           withUrlString:(NSString *)urlString
          withParameters:(nullable NSDictionary *)parameters
                withBody:(nullable NSData *)body
@@ -248,7 +241,7 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
 /**
  网络请求TypeLoading的实例方法
  */
-- (void)requestWithType:(HttpRequestType)type
+- (void)requestWithType:(DKHttpRequestType)type
           withUrlString:(NSString *)urlString
           withParameters:(NSDictionary *)parameters
           isShowLoading:(BOOL)showLoading
@@ -268,7 +261,7 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
  @param successBlock 成功回调
  @param failureBlock 失败回调
  */
-- (void)requestWithType:(HttpRequestType)type
+- (void)requestWithType:(DKHttpRequestType)type
           withUrlString:(NSString *)urlString
           withParameters:(NSDictionary *)parameters
                withBody:(NSData *)body
@@ -279,22 +272,22 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
     
     NSString *method = @"";
     switch (type) {
-        case HttpRequestTypeGet:
+        case DKHttpRequestTypeGet:
             method = @"GET";
             break;
-        case HttpRequestTypePost:
+        case DKHttpRequestTypePost:
             method = @"POST";
             break;
-        case HttpRequestTypeDelect:
+        case DKHttpRequestTypeDelect:
             method = @"DELETE";
             break;
-        case HttpRequestTypePut:
+        case DKHttpRequestTypePut:
             method = @"PUT";
             break;
-        case HttpRequestTypePatch:
+        case DKHttpRequestTypePatch:
             method = @"PATCH";
             break;
-        case HttpRequestTypeHead:
+        case DKHttpRequestTypeHead:
             method = @"HEAD";
             break;
         default:
@@ -313,25 +306,9 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
     }
     
     if (hasHeader) {
-        // TODO: 添加 header
-//        GardenManager *manager = [GardenManager sharedManager];
-//        if (manager.UserID.integerValue > 0) {
-//            [request addValue:manager.UserID.stringValue forHTTPHeaderField:@"userid"];
-//
-//            NSString *timestamp = [NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSince1970InMilliSecond]];
-//            [request addValue:timestamp forHTTPHeaderField:@"timestamp"];
-//
-//            [request addValue:[OpenUDID value] forHTTPHeaderField:@"imei"];
-//
-//            NSMutableString *tempToken=[[NSMutableString alloc]init];
-//            [tempToken appendFormat:@"%@",DK_NetworkSecretKey];
-//            [tempToken appendFormat:@"%@",timestamp];
-//            [request addValue:[tempToken md5Encryption] forHTTPHeaderField:@"token"];
-//        }
-        
-        NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];//获取项目版本号
-        if (version) {
-            [request addValue:version forHTTPHeaderField:@"version"];
+        NSDictionary *dict = DKCONFIG.dkc_defaultRequestHeaderField;
+        for (NSString *key in dict) {
+            [request setValue:[dict valueForKey:key] forHTTPHeaderField:key];
         }
     }
     
@@ -368,12 +345,12 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
         DKLog(@"\n ========== body ========== \n%@", request.httpBodyJsonString);
         DKLog(@"\n ========== parameters ========== \n%@", request.httpParameters);
         DKLog(@"\n ========== code ========== \n%@", responeModel.code);
-        DKLog(@"\n ========== des ========== \n%@", responeModel.des);
+        DKLog(@"\n ========== des ========== \n%@", responeModel.msg);
         if (responeModel && self.isShowError) {
-            if (responeModel.des.dk_notEmpty) {
-                [DKBaseProgressHUD showErrorWithStatus:responeModel.des];
+            if (responeModel.msg) {
+                [SVProgressHUD showErrorWithStatus:responeModel.msg];
             } else {
-                [DKBaseProgressHUD showErrorWithStatus:[error.userInfo valueForKey:NSLocalizedDescriptionKey]];
+                [SVProgressHUD showErrorWithStatus:[error.userInfo valueForKey:NSLocalizedDescriptionKey]];
             }
         }
     }
@@ -399,7 +376,7 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
 - (NSError *)errorWtihRespone:(DKNetworkResponeModel *)resopne withError:(NSError *)error {
     
     if (_showLoading) {
-        [DKBaseProgressHUD dismiss];
+        [SVProgressHUD dismiss];
     }
     
     if (error) {
@@ -419,27 +396,33 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
         }
         return error;
     }
-    if (resopne.code.integerValue == DKRequestRetcodeSuccess) {
+    if (resopne.code.integerValue == DKCONFIG.dkc_networkSuccessCode) {
         [[NSNotificationCenter defaultCenter] postNotificationName:DK_Noti_NetworkSuccess_NameKey object:nil];
         return nil;
     }
     
-    if (resopne.code.integerValue == DKRequestRetcodeNotLoggedIn) {
-        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKRequestRetcodeNotLoggedIn userInfo:@{NSLocalizedDescriptionKey: resopne.des.dk_notEmpty?resopne.des:@"用户未登录，请先登录"}];
+    if (resopne.code.integerValue == DKCONFIG.dkc_networkFailureCode) {
+        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKCONFIG.dkc_networkFailureCode userInfo:@{NSLocalizedDescriptionKey: resopne.msg.dkNet_NotEmpty?resopne.msg:DKCONFIG.dkc_networkFailureMsg}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:DK_Noti_NetworkFailure_NameKey object:nil];
+        return error;
+    }
+    
+    if (resopne.code.integerValue == DKCONFIG.dkc_networkNotLoggedInCode) {
+        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKCONFIG.dkc_networkNotLoggedInCode userInfo:@{NSLocalizedDescriptionKey: resopne.msg.dkNet_NotEmpty?resopne.msg:DKCONFIG.dkc_networkNotLoggedInMsg}];
         [[NSNotificationCenter defaultCenter] postNotificationName:DK_Noti_NotLoggedIn_NameKey object:nil];
         return error;
     }
     
-    if (resopne.code.integerValue == DKRequestRetcodeErrorParameter) {
-        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKRequestRetcodeErrorParameter userInfo:@{NSLocalizedDescriptionKey: resopne.des.dk_notEmpty?resopne.des:@"参数错误"}];
+    if (resopne.code.integerValue == DKCONFIG.dkc_networkParameterErrorCode) {
+        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKCONFIG.dkc_networkParameterErrorCode userInfo:@{NSLocalizedDescriptionKey: resopne.msg.dkNet_NotEmpty?resopne.msg:DKCONFIG.dkc_networkParameterErrorMsg}];
         return error;
     }
-    if (resopne.code.integerValue == DKRequestRetcodeBlockingAccess) {
-        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKRequestRetcodeBlockingAccess userInfo:@{NSLocalizedDescriptionKey: resopne.des.dk_notEmpty?resopne.des:@"禁止访问"}];
+    if (resopne.code.integerValue == DKCONFIG.dkc_networkSystemErrorCode) {
+        error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:DKCONFIG.dkc_networkSystemErrorCode userInfo:@{NSLocalizedDescriptionKey: resopne.msg.dkNet_NotEmpty?resopne.msg:DKCONFIG.dkc_networkSystemErrorMsg}];
         [[NSNotificationCenter defaultCenter] postNotificationName:DK_Noti_NetworkError_NameKey object:nil];
         return error;
     }
-    error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:resopne.code.integerValue userInfo:@{NSLocalizedDescriptionKey: resopne.des.dk_notEmpty?resopne.des:@"请求失败,请稍后再试"}];
+    error = [NSError errorWithDomain:NetworkRequestRetcodeErrorDomain code:resopne.code.integerValue userInfo:@{NSLocalizedDescriptionKey: resopne.msg.dkNet_NotEmpty?resopne.msg:DKCONFIG.dkc_networkDefaultErrorMsg}];
     return error;
     
 }
@@ -456,7 +439,7 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
  */
 - (void)cancle {
     if ([self dataTaskIsShowloding:self.dataTask]) {
-        [DKBaseProgressHUD dismiss];
+        [SVProgressHUD dismiss];
     }
     [self.dataTask cancel];
 }
@@ -466,8 +449,8 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
  */
 - (void)startWithDataTask:(NSURLSessionDataTask *)dataTask {
     if ([self dataTaskIsShowloding:dataTask]) {
-        [DKBaseProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
-        [DKBaseProgressHUD show];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+        [SVProgressHUD show];
     }
     [dataTask resume];
 }
@@ -505,7 +488,7 @@ static NSString * const NetworkRequestRetcodeErrorDomain = @"com.gardenManager.a
 
 - (void)cancelAllRequest {
     if ([self dataTaskIsShowloding:self.dataTask]) {
-        [DKBaseProgressHUD dismiss];
+        [SVProgressHUD dismiss];
     }
     [self.tasks enumerateObjectsUsingBlock:^(NSURLSessionTask * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj cancel];

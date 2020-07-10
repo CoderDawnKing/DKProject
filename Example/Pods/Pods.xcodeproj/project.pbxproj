@@ -46,7 +46,6 @@
 		10FDD1A090F204E9ECD7E855186F4641 /* DKProject.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B45D43AA8EB398ED959E04CCD9B89B81 /* DKProject.bundle */; };
 		112C2E24076411C81FD40368BD331085 /* NSObject+RACKVOWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E4172D0E15E37A143B2A9E8D4E8A3A54 /* NSObject+RACKVOWrapper.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		11353FE544C03BF2EB7AF96FF369D3D6 /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = CA2FFAB775E0E8ED93B9E859142203AE /* MJRefreshConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		114390C8FBDA0EE82F091538D85DE2EF /* DKNaviFixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 990FFB91654476521703168FC232EBF7 /* DKNaviFixSpace.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		11539625D87C87EF67CD68E16814B97E /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2FA7BFD97A54D5A8B04BE4356E6945 /* UIScrollView+MJExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1154FE06FF78DA0C6A7B368BE7DC2BF5 /* UIImage+DKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDD8C63D6F263EB6E8DC464A069B13 /* UIImage+DKCategory.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1175945A808B3E6BC4371819E1452C69 /* DKBaseEditTextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 740C11E49B0F5FD5BD4188E0EA28C3A8 /* DKBaseEditTextViewViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -271,6 +270,7 @@
 		67AF6F67BA45D502A1B7EDBB092CB912 /* ReactiveObjC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFA2695342ABDE514814CD3B25F955 /* ReactiveObjC-dummy.m */; };
 		67BECE6E16707155BC3646546DB592BD /* DKBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = A627D7A67661224F8184213C32B99829 /* DKBaseView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67F89F4894B0D5ED4BE9CC982C876626 /* RACValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = C10BDD52F350094D6E997E8B32FBD556 /* RACValueTransformer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		68A2DD89E4C1E049B4EDB5E45D1DAE42 /* DKConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 62432A1DC18809A65A3F1B3A90DFB772 /* DKConfigure.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		68CD71788F1011D3BF7004FEA0DFFA5B /* UITableViewCell+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C46005BF8B6301C15274BEC2726BBE /* UITableViewCell+RACSignalSupport.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		68FF246E46E3B1E7E52D3AC7FA6D7CC3 /* RACEXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC21F028ACF49E5DEF64F800D2AEA09 /* RACEXTRuntimeExtensions.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		691324E1EECCD9EE3827353B67870BE3 /* JXCategoryImageCellModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FABEC46491EF4D3C12E7AB3E54C0D641 /* JXCategoryImageCellModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -357,7 +357,6 @@
 		8E016D1D38E2336735BEB34FC09424B7 /* UITableViewCell+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = A52B84236FF78CC9E61CF2EB95193E88 /* UITableViewCell+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8E920F2628744B499A4A7BAD95261903 /* NSObject+RACDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 77F91A7E3D2DBDC9C1E09AFEACE61901 /* NSObject+RACDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8EE5D557987EA5555FC6550CB9AC1F25 /* UIDevice+DKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCFF02B5C0870ED1EA37FC844F8AE1D /* UIDevice+DKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8F2FB016A232929F8334547504C5CE29 /* DKConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 62432A1DC18809A65A3F1B3A90DFB772 /* DKConfigure.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8F5B403B152F5817C8C2FD77F36C2C77 /* NSObject+RACPropertySubscribing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3E6650A96B4FA9CD8645472696E666 /* NSObject+RACPropertySubscribing.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8FA3EA97D6E8CCC4964AEABC361B7889 /* RACKVOProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = AA7E337371F04BD7EA302733A7B6E278 /* RACKVOProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FA5A3DA62DF94D3C5C5EB9556171C90 /* JXCategoryTitleVerticalZoomCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F865061887E3C40B15C9310F64E7C82C /* JXCategoryTitleVerticalZoomCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -535,7 +534,6 @@
 		D7D6BBBF4C64F27B31A17CDAF779AD68 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3518A5B59B77A86609A8B57607ECE62C /* MASConstraintMaker.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		D8111585F6F45534DEDF8C0711D14FDE /* JXCategoryListContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F44A4DDF1257C77ED0AA7D1703130 /* JXCategoryListContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8AC64927565BB9A6C49A51CCE1547AC /* RACReplaySubject.h in Headers */ = {isa = PBXBuildFile; fileRef = 233B88544CBF1C1377364B5AC0C30C20 /* RACReplaySubject.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DA5E6BD08B403631C2D0D1594FC8D337 /* DKNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A40BC031E2C5618CE399CE886BA611F4 /* DKNetworkManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		DA85165065575E942EB7C5895AB5DCCA /* CYLBadgeProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A314305DCBD11E31F23E34E71B6088 /* CYLBadgeProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB0D4DB90B28F22863692E8094111F91 /* NSSet+RACSequenceAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C11EE5789273C5EF93B867EA68E4522 /* NSSet+RACSequenceAdditions.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		DB249CCCE00BD7CA1CD8C6176CF41332 /* NSNotificationCenter+RACSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = C6305EDAD13AB523DADAA1C14A605A9C /* NSNotificationCenter+RACSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -557,6 +555,7 @@
 		E32815205078879182A838AD1ABC7BD3 /* DKBaseEmptyView.h in Headers */ = {isa = PBXBuildFile; fileRef = F11F45ACEEB027F71C4B8951EF13091E /* DKBaseEmptyView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E349725C57DDAF863A3B4D5A7CC9EFB5 /* UIFont+DKCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A4F37A342DA13040A5F1BA752E30952 /* UIFont+DKCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E356893F09353920ADFE658D68E5CBAD /* RACSignal+Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = D15362277E5D90CB0F87D91072A6D969 /* RACSignal+Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E3BFCA60E123C398547E4BB718207264 /* DKNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A40BC031E2C5618CE399CE886BA611F4 /* DKNetworkManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E3C23ADFCE889C4E0359E644A9E946D0 /* RACStream.m in Sources */ = {isa = PBXBuildFile; fileRef = B803637EBAFBF5EB7A160EEAAF96A68B /* RACStream.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E4006774D8C6CFEA012349D833C6FE8A /* HexColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 37116E03E8EF30A411F7534986E379D4 /* HexColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4580F68BC8B559429E8BF924D08E24D /* RACScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 72E211C4A493F9CA80921FF2D492623A /* RACScheduler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -604,6 +603,7 @@
 		F6F0A01AEF4201F3B5F0B6FC1CD48170 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA88F0653F342DCE34C3475B0214083 /* MJRefreshBackGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F8241A461E006D4A9A0EAE4047A4BB97 /* JXCategoryIndicatorCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 806AA00D2841EAA503999958371902E0 /* JXCategoryIndicatorCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F83BEB704A4CD0E35491353C079E3E15 /* CYLBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2357C4D005E45C4B994C84FE551B114F /* CYLBaseTableViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F9B227A3DB95478039789F6DCEE09342 /* DKNaviFixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 990FFB91654476521703168FC232EBF7 /* DKNaviFixSpace.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		FA4D4C808321FBF8395434DB84F094F0 /* RACSignalSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 00ED9975BD73C57B57564A8685A2F7EA /* RACSignalSequence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC551D6DBC22986D37E0D7E1552D3652 /* JXCategoryTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFAB9C410860D131877252C39F1425 /* JXCategoryTitleView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		FC84FE03B17A8E5A7AA7C71B654492A9 /* JXCategoryView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6412336F8E9A981F8508AB3FF24A91C /* JXCategoryView.framework */; };
@@ -3579,11 +3579,11 @@
 				E75DE4E4B47FC683EA31071A8BCD6880 /* DKBaseViewController.m in Sources */,
 				415170E0A0B090F1FF775912BF76C1C6 /* DKBaseViewModel.m in Sources */,
 				C254AE2B102B62A3920A1409573BA9C1 /* DKBaseWebViewController.m in Sources */,
-				8F2FB016A232929F8334547504C5CE29 /* DKConfigure.m in Sources */,
+				68A2DD89E4C1E049B4EDB5E45D1DAE42 /* DKConfigure.m in Sources */,
 				EACDF530F6A51517B04ACA47A9B797C5 /* DKCustomButton.m in Sources */,
 				55F5F37832F482B44AE16AC6C14CBC89 /* DKCustonLabel.m in Sources */,
-				114390C8FBDA0EE82F091538D85DE2EF /* DKNaviFixSpace.m in Sources */,
-				DA5E6BD08B403631C2D0D1594FC8D337 /* DKNetworkManager.m in Sources */,
+				F9B227A3DB95478039789F6DCEE09342 /* DKNaviFixSpace.m in Sources */,
+				E3BFCA60E123C398547E4BB718207264 /* DKNetworkManager.m in Sources */,
 				874B986689EDC28AA81C075317464B7B /* DKProject-dummy.m in Sources */,
 				507F9FDBBBFF0BF2929C04AEEE441411 /* NSArray+DKCategory.m in Sources */,
 				C29A9C3C869BBB58E5D88F629F5E1EA8 /* NSAttributedString+DKCategory.m in Sources */,

@@ -19,6 +19,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *dkc_h5DevelopmentUrlString;
 @property (nonatomic, copy) NSString *dkc_h5DistributionUrlString;
 @property (nonatomic, copy) NSString *dkc_localUrlString;
+@property (nonatomic, copy) NSString *dkc_networkMessage;
+@property (nonatomic, copy) NSString *dkc_networkData;
+@property (nonatomic, copy) NSString *dkc_networkCode;
+@property (nonatomic, copy) NSString *dkc_networkRequestRetcodeErrorDomain;
+@property (nonatomic, strong) NSDictionary *dkc_defaultRequestHeaderField;
+@property (nonatomic, assign) NSInteger dkc_networkSuccessCode;
+@property (nonatomic, assign) NSInteger dkc_networkFailureCode;
+@property (nonatomic, assign) NSInteger dkc_networkNotLoggedInCode;
+@property (nonatomic, assign) NSInteger dkc_networkParameterErrorCode;
+@property (nonatomic, assign) NSInteger dkc_networkSystemErrorCode;
+@property (nonatomic, copy) NSString *dkc_networkSuccessMsg;
+@property (nonatomic, copy) NSString *dkc_networkFailureMsg;
+@property (nonatomic, copy) NSString *dkc_networkNotLoggedInMsg;
+@property (nonatomic, copy) NSString *dkc_networkParameterErrorMsg;
+@property (nonatomic, copy) NSString *dkc_networkSystemErrorMsg;
+@property (nonatomic, copy) NSString *dkc_networkDefaultErrorMsg;
 
 // MARK: Color
 @property (nonatomic, copy) NSString *dkc_color_main;

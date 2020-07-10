@@ -50,11 +50,21 @@ Pod::Spec.new do |s|
   s.dependency 'CYLTabBarController', '1.28.3'
   s.dependency 'JXCategoryView', '1.5.5'
   
+  s.subspec "DKConfigure" do |ss|
+      ss.name             = 'DKConfigure'
+      ss.source_files     = 'DKProject/Classes/DKConfigure/*.{h,m}'
+  end
+  
   s.subspec "DKNaviFixSpace" do |ss|
       ss.name             = 'DKNaviFixSpace'
+      ss.source_files     = 'DKProject/Classes/DKNaviFixSpace/*.{h,m}'
   end
   s.subspec "DKNetworkingTool" do |ss|
       ss.name             = 'DKNetworkingTool'
-      s.dependency 'AFNetworking', '3.2.1'
+      ss.source_files     = 'DKProject/Classes/DKNetworkingTool/*.{h,m}'
+      ss.dependency 'MJExtension', '3.2.2'
+      ss.dependency 'SVProgressHUD', '2.2.5'
+      ss.dependency 'AFNetworking', '3.2.1'
+      ss.dependency 'DKProject/DKConfigure'
   end
 end

@@ -39,6 +39,9 @@
 /// 当前h5地址
 #define DK_H5UrlStringUserDefault @"DK_H5UrlStringUserDefault"
 
+/// 替换 model 属性名称 用于 response 如不需要可以使用 request.responseObject 获取返回参数
+#define DK_Network_Massage DKCONFIG.dkc_networkMessage
+#define DK_Network_Data DKCONFIG.dkc_networkData
+#define DK_Network_Code DKCONFIG.dkc_networkCode
 
-
-
+#define NetworkRequestRetcodeErrorDomain DKCONFIG.dkc_networkRequestRetcodeErrorDomain

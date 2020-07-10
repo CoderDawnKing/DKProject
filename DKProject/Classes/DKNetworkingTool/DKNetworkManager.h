@@ -13,38 +13,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**定义请求类型的枚举*/
 
-typedef NS_ENUM(NSUInteger,HttpRequestType)
+typedef NS_ENUM(NSUInteger,DKHttpRequestType)
 {
     ///Get请求
-    HttpRequestTypeGet = 0,
+    DKHttpRequestTypeGet = 0,
     ///Post请求
-    HttpRequestTypePost,
+    DKHttpRequestTypePost,
     ///Delect请求
-    HttpRequestTypeDelect,
+    DKHttpRequestTypeDelect,
     ///Put请求
-    HttpRequestTypePut,
+    DKHttpRequestTypePut,
     ///Patch请求
-    HttpRequestTypePatch,
+    DKHttpRequestTypePatch,
     ///Head请求
-    HttpRequestTypeHead,
+    DKHttpRequestTypeHead,
+    ///以下请求方式暂不可用
     ///Upload请求
-    HttpRequestTypeUploadImage,
+    DKHttpRequestTypeUploadImage,
     ///Upload请求
-    HttpRequestTypeUploadVideo,
+    DKHttpRequestTypeUploadVideo,
     ///Download请求
-    HttpRequestTypeDownloadFile,
+    DKHttpRequestTypeDownloadFile,
 };
 
-typedef NS_ENUM(NSUInteger, HttpErrorCodeType) {
-    ///成功
-    DKRequestRetcodeSuccess = 1,
-    ///未登录
-    DKRequestRetcodeNotLoggedIn = 201,
-    ///参数错误
-    DKRequestRetcodeErrorParameter = -1,
-    ///禁止访问
-    DKRequestRetcodeBlockingAccess = -100,
-};
+@interface NSObject (DKNetWorkCategory)
+
+///判断是不是空对象（字符串或二进制数据长度为0，集合的元素数量为0）
+- (BOOL)dkNet_NotEmpty;
+
+@end
 
 @interface DKNetworkBaseModel : NSObject
 
@@ -61,8 +58,8 @@ typedef NS_ENUM(NSUInteger, HttpErrorCodeType) {
 @end
 
 @interface DKNetworkResponeModel : DKNetworkBaseModel
-@property (nonatomic, strong) NSString *des;
-@property (nonatomic, strong) id        result;
+@property (nonatomic, strong) NSString *msg;
+@property (nonatomic, strong) id        data;
 @property (nonatomic, strong) NSNumber *code;
 @property (nonatomic, strong) DKNetworkResultModel *resultModel;
 @end
@@ -194,7 +191,7 @@ typedef void(^DownloadProgress)(float progress);
 /**
  网络请求Type的实例方法
  */
-- (void)requestWithType:(HttpRequestType)type
+- (void)requestWithType:(DKHttpRequestType)type
           withUrlString:(NSString *)urlString
           withParameters:(nullable NSDictionary *)parameters
        withRequestBlock:(nullable RequestBlock)requestBlock;
@@ -202,7 +199,7 @@ typedef void(^DownloadProgress)(float progress);
 /**
  网络请求Type的实例方法
  */
-- (void)requestWithType:(HttpRequestType)type
+- (void)requestWithType:(DKHttpRequestType)type
           withUrlString:(NSString *)urlString
           withParameters:(nullable NSDictionary *)parameters
                withBody:(nullable NSData *)body
@@ -212,7 +209,7 @@ typedef void(^DownloadProgress)(float progress);
 /**
  网络请求TypeLoading的实例方法 是否传 header
  */
-- (void)requestWithType:(HttpRequestType)type
+- (void)requestWithType:(DKHttpRequestType)type
           withUrlString:(NSString *)urlString
           withParameters:(nullable NSDictionary *)parameters
           isShowLoading:(BOOL)showLoading
@@ -232,7 +229,7 @@ typedef void(^DownloadProgress)(float progress);
  @param successBlock 成功回调
  @param failureBlock 失败回调
  */
-- (void)requestWithType:(HttpRequestType)type
+- (void)requestWithType:(DKHttpRequestType)type
           withUrlString:(NSString *)urlString
           withParameters:(nullable NSDictionary *)parameters
                withBody:(nullable NSData *)body

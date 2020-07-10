@@ -31,6 +31,22 @@
     self.dkc_h5DevelopmentUrlString = @"";
     self.dkc_h5DistributionUrlString = @"";
     self.dkc_localUrlString = @"";
+    self.dkc_networkMessage = @"msg";
+    self.dkc_networkData = @"data";
+    self.dkc_networkCode = @"code";
+    self.dkc_networkRequestRetcodeErrorDomain = @"com.DKProject.app.Request";
+    self.dkc_defaultRequestHeaderField = @{};
+    self.dkc_networkSuccessCode = 1;
+    self.dkc_networkFailureCode = 0;
+    self.dkc_networkNotLoggedInCode = -11;
+    self.dkc_networkParameterErrorCode = -1;
+    self.dkc_networkSystemErrorCode = -4;
+    self.dkc_networkSuccessMsg = @"请求成功";
+    self.dkc_networkFailureMsg = @"请求失败";
+    self.dkc_networkNotLoggedInMsg = @"用户未登录，请先登录";
+    self.dkc_networkParameterErrorMsg = @"参数错误";
+    self.dkc_networkSystemErrorMsg = @"系统错误";
+    self.dkc_networkDefaultErrorMsg = @"请稍后再试";
     
     self.dkc_color_main = @"#FF5555";
     self.dkc_color_line = @"#EEEEEE";

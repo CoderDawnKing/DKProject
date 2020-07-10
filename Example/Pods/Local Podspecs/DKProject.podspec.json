@@ -1,6 +1,6 @@
 {
   "name": "DKProject",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "summary": "一个小框架",
   "description": "一个小框架,包含基类、分类、自定义控件、工具类以及一些第三方库的集成使用等等。",
   "homepage": "https://github.com/CoderDawnKing/DKProject",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/CoderDawnKing/DKProject.git",
-    "tag": "0.2.7"
+    "tag": "0.2.8"
   },
   "platforms": {
     "ios": "8.0"
@@ -61,17 +61,34 @@
     ],
     "JXCategoryView": [
       "1.5.5"
-    ],
-    "AFNetworking": [
-      "3.2.1"
     ]
   },
   "subspecs": [
     {
-      "name": "DKNaviFixSpace"
+      "name": "DKConfigure",
+      "source_files": "DKProject/Classes/DKConfigure/*.{h,m}"
     },
     {
-      "name": "DKNetworkingTool"
+      "name": "DKNaviFixSpace",
+      "source_files": "DKProject/Classes/DKNaviFixSpace/*.{h,m}"
+    },
+    {
+      "name": "DKNetworkingTool",
+      "source_files": "DKProject/Classes/DKNetworkingTool/*.{h,m}",
+      "dependencies": {
+        "MJExtension": [
+          "3.2.2"
+        ],
+        "SVProgressHUD": [
+          "2.2.5"
+        ],
+        "AFNetworking": [
+          "3.2.1"
+        ],
+        "DKProject/DKConfigure": [
+
+        ]
+      }
     }
   ]
 }

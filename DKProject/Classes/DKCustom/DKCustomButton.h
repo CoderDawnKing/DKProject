@@ -35,7 +35,8 @@ typedef void(^DKCustomButtonClickBlock)(DKCustomButton *sender);
 - (void)addEventType:(DKCustomButtonEventType)eventType clickBlock:(DKCustomButtonClickBlock)clickBlock;
 
 @property (nonatomic, assign) CGFloat imageTop;
-
+/// 开始倒计时
+- (void)startCountDown;
 /** 等待动画时显示文字 */
 @property (nonatomic, copy) NSString *loadingText;
 /** 结束动画 */

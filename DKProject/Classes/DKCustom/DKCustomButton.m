@@ -75,31 +75,35 @@ static const CGFloat loadingLineWidth = 2;
         self.block(sender);
     }
     if (_eventType == DKCustomButtonEventTypeValidateCode) {
-        __block NSInteger second = timecount;
-        __block NSString *normalTitle = sender.titleLabel.text;
-        dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
-        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-        dispatch_source_set_event_handler(timer, ^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (second == 0) {
-                    sender.enabled = YES;
-                    [sender setTitle:[NSString stringWithFormat:@"%@", normalTitle] forState:UIControlStateNormal];
-                    second = timecount;
-                    dispatch_cancel(timer);
-                } else {
-                    sender.enabled = NO;
-                    [sender setTitle:[NSString stringWithFormat:@"%ld秒",second] forState:UIControlStateNormal];
-                    second--;
-                }
-            });
-        });
-        dispatch_resume(timer);
+        
     }
     if (_eventType == DKCustomButtonEventTypeLoading) {
         self.normalText = [self titleForState:UIControlStateNormal];
         [self startLoadingAnimation];
     }
+}
+
+- (void)startCountDown {
+    __block NSInteger second = timecount;
+    __block NSString *normalTitle = self.titleLabel.text;
+    dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (second == 0) {
+                self.enabled = YES;
+                [self setTitle:[NSString stringWithFormat:@"%@", normalTitle] forState:UIControlStateNormal];
+                second = timecount;
+                dispatch_cancel(timer);
+            } else {
+                self.enabled = NO;
+                [self setTitle:[NSString stringWithFormat:@"%ld秒",second] forState:UIControlStateNormal];
+                second--;
+            }
+        });
+    });
+    dispatch_resume(timer);
 }
 
 #pragma - mark 按钮等待动画
