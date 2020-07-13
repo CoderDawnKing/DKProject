@@ -40,14 +40,14 @@
     [super viewDidAppear:animated];
 
     //处于第一个item的时候，才允许屏幕边缘手势返回
-    self.dk_Navi.recognizer.enabled = (self.categoryView.selectedIndex == 0);
+    self.recognizerEnable = (self.categoryView.selectedIndex == 0);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 
     //离开页面的时候，需要恢复屏幕边缘手势，不能影响其他页面
-    self.dk_Navi.recognizer.enabled = YES;
+    self.recognizerEnable = YES;
 }
 
 - (BOOL)dk_isKindOfClass {
@@ -97,7 +97,7 @@
 
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
     //侧滑手势处理
-    self.dk_Navi.recognizer.enabled = (index == 0);
+    self.recognizerEnable = (index == 0);
 }
 
 - (void)categoryView:(JXCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSInteger)index {

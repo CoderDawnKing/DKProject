@@ -20,7 +20,10 @@
     // Do any additional setup after loading the view.
     self.title = @"第二页";
     self.myCategoryView.titles = self.titles;
-    
+}
+
+- (void)handleBackButtonEvent:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -37,7 +40,7 @@
 }
 
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
-    self.dk_Navi.recognizer.enabled = (index == 0);
+    self.recognizerEnable = (index == 0);
 }
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {

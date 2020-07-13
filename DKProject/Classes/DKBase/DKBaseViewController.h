@@ -6,7 +6,7 @@
 //  Copyright © 2019 wisezone. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <QMUIKit/QMUICommonViewController.h>
 
 @protocol DKBaseViewModelProtocol;
 @class DKBaseModel;
@@ -38,9 +38,12 @@ typedef enum : NSUInteger {
 
 @end
 
-@interface DKBaseViewController : UIViewController<DKBaseViewControllerProtocol>
+@interface DKBaseViewController : QMUICommonViewController<DKBaseViewControllerProtocol>
 
 @property (nonatomic, strong) DKBaseNaviController *dk_Navi;
+
+/// 返回手势
+@property (nonatomic, assign, getter=isRecognizerEnable) BOOL recognizerEnable;
 
 /** TableView */
 @property (nonatomic, strong, nullable) DKBaseTableView *tableView;

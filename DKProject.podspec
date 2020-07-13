@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DKProject'
-  s.version          = '0.2.9'
+  s.version          = '0.3.0'
   s.summary          = '一个小框架'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/CoderDawnKing/DKProject.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.requires_arc = true
 
   s.source_files = 'DKProject/Classes/**/*.{h,m}'
@@ -49,6 +49,8 @@ Pod::Spec.new do |s|
   s.dependency 'SVProgressHUD', '2.2.5'
   s.dependency 'CYLTabBarController', '1.28.3'
   s.dependency 'JXCategoryView', '1.5.5'
+  s.dependency 'QMUIKit', '4.1.3'
+  
   
   s.subspec "DKConfigure" do |ss|
       ss.name             = 'DKConfigure'

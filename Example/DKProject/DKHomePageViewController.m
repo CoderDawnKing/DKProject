@@ -56,7 +56,7 @@
     if (!cell) {
         cell = [DKBaseTableViewCell cellWithType:DKBaseTableViewCellTypeDefault ident:ident hasArrow:YES];
     }
-    cell.title.text = [NSString stringWithFormat:@"%ld", indexPath.row];
+    cell.title.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
     return cell;
 }
 

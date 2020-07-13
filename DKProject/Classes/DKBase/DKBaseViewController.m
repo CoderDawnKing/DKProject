@@ -21,6 +21,11 @@
 
 @implementation DKBaseViewController
 
+- (void)didInitialize {
+    [super didInitialize];
+    self.recognizerEnable = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -209,4 +214,7 @@
     }
 }
 
+- (BOOL)forceEnableInteractivePopGestureRecognizer {
+    return self.recognizerEnable;
+}
 @end

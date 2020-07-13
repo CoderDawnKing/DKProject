@@ -5,7 +5,7 @@
 [![Version](https://img.shields.io/cocoapods/v/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![License](https://img.shields.io/cocoapods/l/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
 [![Platform](https://img.shields.io/cocoapods/p/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject)
-[![Support](https://img.shields.io/badge/support-iOS%208.0+%20-red.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
+[![Support](https://img.shields.io/badge/support-iOS%209.0+%20-red.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 
 ## Feature
 
@@ -39,7 +39,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 Project | Version | Minimum iOS Target | Date
 :-: | :-: | :-: | :-:
-[DKProject](https://github.com/CoderDawnKing/DKProject.git) | 0.2.9 | iOS 8.0 | 2020.7.7
+[DKProject](https://github.com/CoderDawnKing/DKProject.git) | [![Version](https://img.shields.io/cocoapods/v/DKProject.svg?style=flat)](https://cocoapods.org/pods/DKProject) | iOS 9.0 | 2020.7.7
 
 ## Dependency
 

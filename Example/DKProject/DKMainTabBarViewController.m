@@ -50,22 +50,22 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
 
 - (NSArray *)viewControllersForTabBar {
     DKHomePageViewController *firstViewController = [[DKHomePageViewController alloc] init];
-    UIViewController *firstNavigationController = [[DKBaseNaviController alloc]
+    UIViewController *firstNavigationController = [[DKBaseNavigationController alloc]
                                                    initWithRootViewController:firstViewController];
     [firstViewController cyl_setHideNavigationBarSeparator:YES];
     DKMainCategoryViewController *secondViewController = [[DKMainCategoryViewController alloc] init];
     secondViewController.defaultSelectedIndex = 1;
-    UIViewController *secondNavigationController = [[DKBaseNaviController alloc]
+    UIViewController *secondNavigationController = [[DKBaseNavigationController alloc]
                                                     initWithRootViewController:secondViewController];
     [secondViewController cyl_setHideNavigationBarSeparator:YES];
     
     DKHomePageViewController *thirdViewController = [[DKHomePageViewController alloc] init];
-    UIViewController *thirdNavigationController = [[DKBaseNaviController alloc]
+    UIViewController *thirdNavigationController = [[DKBaseNavigationController alloc]
                                                    initWithRootViewController:thirdViewController];
     [thirdViewController cyl_setHideNavigationBarSeparator:YES];
     
     DKHomePageViewController *fourthViewController = [[DKHomePageViewController alloc] init];
-    UIViewController *fourthNavigationController = [[DKBaseNaviController alloc]
+    UIViewController *fourthNavigationController = [[DKBaseNavigationController alloc]
                                                    initWithRootViewController:fourthViewController];
     [fourthViewController cyl_setHideNavigationBarSeparator:YES];
     NSArray *viewControllers = @[
@@ -307,7 +307,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
 #pragma - mark noti
 - (void)gotoLogin {
     DKHomePageViewController *loginVC = [[DKHomePageViewController alloc] init];
-    DKBaseNaviController *navi = [[DKBaseNaviController alloc] initWithRootViewController:loginVC];
+    DKBaseNavigationController *navi = [[DKBaseNavigationController alloc] initWithRootViewController:loginVC];
     [[self dk_getCurrentController] presentViewController:navi animated:YES completion:nil];
 }
 
