@@ -228,13 +228,19 @@
             break;
         case DKBaseTableViewCellTypeTitleTextField:
         {
+            [self.contentView addSubview:self.title];
+            [self.contentView addSubview:self.textField];
+        }
+            break;
+        case DKBaseTableViewCellTypeTitleRightTextField:
+        {
             self.textField.clearButtonMode = UITextFieldViewModeNever;
             self.textField.textAlignment = NSTextAlignmentRight;
             [self.contentView addSubview:self.title];
             [self.contentView addSubview:self.textField];
         }
             break;
-        case DKBaseTableViewCellTypeTitleTextFieldUnit:
+        case DKBaseTableViewCellTypeTitleRightTextFieldUnit:
         {
             self.textField.clearButtonMode = UITextFieldViewModeNever;
             self.textField.textAlignment = NSTextAlignmentRight;
@@ -384,6 +390,26 @@
             break;
         case DKBaseTableViewCellTypeTitleTextField:
         {
+            [self.title setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+            [self.title setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+            [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
+                make.right.equalTo(self.textField.mas_left).offset(-dk_constMargin);
+            }];
+            [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
+            }];
+        }
+            break;
+        case DKBaseTableViewCellTypeTitleRightTextField:
+        {
+            
+            [self.title setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+            [self.title setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
@@ -398,8 +424,22 @@
             }];
         }
             break;
-        case DKBaseTableViewCellTypeTitleTextFieldUnit:
+        case DKBaseTableViewCellTypeTitleRightTextFieldUnit:
         {
+            [self.title setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+            [self.title setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+            [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin);
+            }];
+            [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
+                make.left.greaterThanOrEqualTo(self.title.mas_right).offset(dk_constMargin);
+                make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin));
+                make.width.mas_greaterThanOrEqualTo(40);
+            }];
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.cellBackgroundView.mas_top).offset(0);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(0);
@@ -478,6 +518,16 @@
                 make.top.equalTo(self.title.mas_bottom).offset(dk_labelMargin);
                 make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-dk_bottomMargin-labelInsets.bottom);
                 make.right.equalTo(self.cellBackgroundView.mas_right).offset(-(self.isHasArrow?dk_rightArrowImageMargin:dk_rightMargin)-labelInsets.right);
+            }];
+        }
+            break;
+        case DKBaseTableViewCellTypeTitleTextField:
+        {
+            [self.title mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.cellBackgroundView.mas_top).offset(labelInsets.top);
+                make.bottom.equalTo(self.cellBackgroundView.mas_bottom).offset(-labelInsets.bottom);
+                make.left.equalTo(self.cellBackgroundView.mas_left).offset(dk_leftMargin+labelInsets.left);
+                make.right.equalTo(self.textField.mas_left).offset(-dk_constMargin-labelInsets.right);
             }];
         }
             break;
@@ -564,7 +614,7 @@
 }
 
 - (void)setTextFieldEstimatedWidth:(CGFloat)textFieldEstimatedWidth {
-    if (self.dk_type == DKBaseTableViewCellTypeTitleTextField || self.dk_type == DKBaseTableViewCellTypeTitleTextFieldUnit) {
+    if (self.dk_type == DKBaseTableViewCellTypeTitleRightTextField || self.dk_type == DKBaseTableViewCellTypeTitleRightTextFieldUnit) {
         [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.mas_greaterThanOrEqualTo(textFieldEstimatedWidth);
         }];

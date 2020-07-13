@@ -39,6 +39,8 @@ typedef void(^DKCustomButtonClickBlock)(DKCustomButton *sender);
 - (void)startCountDown;
 /** 等待动画时显示文字 */
 @property (nonatomic, copy) NSString *loadingText;
+/// 开始动画
+- (void)startLoadingAnimation;
 /** 结束动画 */
 - (void)endAnimation;
 

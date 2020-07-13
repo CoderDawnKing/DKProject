@@ -32,8 +32,10 @@ typedef enum : NSUInteger {
     DKBaseTableViewCellTypeTextField,
     ///有标题输入框
     DKBaseTableViewCellTypeTitleTextField,
+    ///有标题输入框
+    DKBaseTableViewCellTypeTitleRightTextField,
     ///有标题输入框带单位
-    DKBaseTableViewCellTypeTitleTextFieldUnit,
+    DKBaseTableViewCellTypeTitleRightTextFieldUnit,
     ///自定义
     DKBaseTableViewCellTypeCustom,
 } DKBaseTableViewCellType;

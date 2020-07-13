@@ -79,7 +79,6 @@ static const CGFloat loadingLineWidth = 2;
     }
     if (_eventType == DKCustomButtonEventTypeLoading) {
         self.normalText = [self titleForState:UIControlStateNormal];
-        [self startLoadingAnimation];
     }
 }
 

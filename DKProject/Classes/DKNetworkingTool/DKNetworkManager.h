@@ -36,6 +36,13 @@ typedef NS_ENUM(NSUInteger,DKHttpRequestType)
     DKHttpRequestTypeDownloadFile,
 };
 
+typedef NS_ENUM(NSUInteger, DKNetworkStatus) {
+    DKNetworkStatusUnknown          = -1,
+    DKNetworkStatusNoNetWork     = 0,
+    DKNetworkStatusMobile = 1,
+    DKNetworkStatusWiFi = 2,
+};
+
 @interface NSObject (DKNetWorkCategory)
 
 ///判断是不是空对象（字符串或二进制数据长度为0，集合的元素数量为0）
@@ -103,6 +110,7 @@ typedef void(^DownloadProgress)(float progress);
 
 @property (nonatomic, assign, getter=isShowError) BOOL showError;
 
+@property (nonatomic, assign) DKNetworkStatus networkStatus;
 
 /**
  *  单例方法

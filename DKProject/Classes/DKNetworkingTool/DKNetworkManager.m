@@ -122,7 +122,7 @@ MJCodingImplementation
         
         /**设置apikey ------类似于自己应用中的tokken---此处仅仅作为测试使用*/
 //        [self.requestSerializer setValue:apikey forHTTPHeaderField:@"apikey"];
-        [manager.requestSerializer setValue:@"iphone_cxr" forHTTPHeaderField:@"User-Agent"];
+//        [manager.requestSerializer setValue:@"iphone_cxr" forHTTPHeaderField:@"User-Agent"];
         
         /**设置接受的类型*/
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
@@ -348,9 +348,13 @@ MJCodingImplementation
         DKLog(@"\n ========== des ========== \n%@", responeModel.msg);
         if (responeModel && self.isShowError) {
             if (responeModel.msg) {
+                [SVProgressHUD setMinimumDismissTimeInterval:1];
+                [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
                 [SVProgressHUD showErrorWithStatus:responeModel.msg];
             } else {
-                [SVProgressHUD showErrorWithStatus:[error.userInfo valueForKey:NSLocalizedDescriptionKey]];
+                [SVProgressHUD setMinimumDismissTimeInterval:1];
+                [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+                [SVProgressHUD showErrorWithStatus:[requestError.userInfo valueForKey:NSLocalizedDescriptionKey]];
             }
         }
     }
