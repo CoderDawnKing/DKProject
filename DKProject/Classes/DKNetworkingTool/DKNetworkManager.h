@@ -36,11 +36,11 @@ typedef NS_ENUM(NSUInteger,DKHttpRequestType)
     DKHttpRequestTypeDownloadFile,
 };
 
-typedef NS_ENUM(NSUInteger, DKNetworkStatus) {
-    DKNetworkStatusUnknown          = -1,
-    DKNetworkStatusNoNetWork     = 0,
-    DKNetworkStatusMobile = 1,
-    DKNetworkStatusWiFi = 2,
+typedef NS_ENUM(NSInteger, DKNetworkStatus) {
+    DKNetworkStatusUnknown      = -1,
+    DKNetworkStatusNoNetWork    = 0,
+    DKNetworkStatusMobile       = 1,
+    DKNetworkStatusWiFi         = 2,
 };
 
 @interface NSObject (DKNetWorkCategory)
