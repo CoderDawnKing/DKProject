@@ -1,46 +1,66 @@
 //
-//  DKHomePageViewController.m
+//  DKNavigationBarMaxYViewController.m
 //  DKProject_Example
 //
-//  Created by 王 on 2020/7/7.
+//  Created by DawnKing on 2020/7/15.
 //  Copyright © 2020 wangshaoyu. All rights reserved.
 //
 
-#import "DKHomePageViewController.h"
-#import "DKChangeNaviBarViewController.h"
 #import "DKNavigationBarMaxYViewController.h"
 
-@interface DKHomePageViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface DKNavigationBarMaxYViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property(nonatomic, strong) UIView *testView;
 
 @end
 
-@implementation DKHomePageViewController
+@implementation DKNavigationBarMaxYViewController
 
 @synthesize tableView = _tableView;
-@synthesize datasArrM = _datasArrM;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"首页";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem qmui_itemWithTitle:@"关于" target:self action:@selector(click)];
+    self.title = @"隐藏导航栏";
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem qmui_itemWithTitle:@"返回首页" target:self action:@selector(popRoot)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    // 主动在转场过程中触发布局的重新运算
+    [self.view setNeedsLayout];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.view setNeedsLayout];
+    });
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    // 主动在转场过程中触发布局的重新运算
+    [self.view setNeedsLayout];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.view setNeedsLayout];
+    });
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    // y 紧贴着导航栏底部，以表示当前的 self.qmui_navigationBarMaxYInViewCoordinator 的值
+    self.testView.frame = CGRectSetXY(self.testView.frame, CGFloatGetCenter(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.testView.frame)), self.qmui_navigationBarMaxYInViewCoordinator);
 }
 
 - (void)__addSubViews {
+    self.testView = [[UIView alloc] qmui_initWithSize:CGSizeMake(100, 100)];
+    self.testView.userInteractionEnabled = NO;
+    self.testView.backgroundColor = dk_HexColor(DK_COLOR_RED);
+    [self.view addSubview:self.testView];
     [self.view addSubview:self.tableView];
 }
 
 - (void)__makeConstraints {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
+        
+        make.edges.mas_equalTo(UIEdgeInsetsMake(self.edgesForExtendedLayout == UIRectEdgeNone?self.isHiddenNavigationBar?dk_StatusBarHeight:0:dk_NavBarAndStatusBarHeight, 0, 0, 0));
     }];
 }
 
@@ -51,7 +71,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.datasArrM.count;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,28 +80,16 @@
     if (!cell) {
         cell = [DKBaseTableViewCell cellWithType:DKBaseTableViewCellTypeDefault ident:ident hasArrow:YES];
     }
-    cell.title.text = self.datasArrM[indexPath.row];
+    cell.title.text = @[@"进入显示 navigationBar 的界面", @"进入隐藏 navigationBar 的界面"][indexPath.row];
     return cell;
 }
 
 #pragma UITableView Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DKBaseViewController *viewController = nil;
-    NSString *title = self.datasArrM[indexPath.row];
-    if ([title isEqualToString:@"方便控制界面导航栏样式"]) {
-        viewController = [[DKChangeNaviBarViewController alloc] initWithBarStyle:DKNavigationBarStyleOrigin];
-    }
-    else if ([title isEqualToString:@"优化导航栏在转场时的样式"]) {
-        viewController = [[DKChangeNaviBarViewController alloc] init];
-        ((DKChangeNaviBarViewController *)viewController).customNavBarTransition = YES;
-    }
-    else if ([title isEqualToString:@"获取导航栏的正确布局位置"]) {
-        viewController = [[DKNavigationBarMaxYViewController alloc] init];
-        ((DKNavigationBarMaxYViewController *)viewController).hiddenNavigationBar = YES;
-    }
+    DKNavigationBarMaxYViewController *viewController = [[DKNavigationBarMaxYViewController alloc] init];
+    viewController.hiddenNavigationBar = [@[@"进入显示 navigationBar 的界面", @"进入隐藏 navigationBar 的界面"][indexPath.row] isEqualToString:@"进入隐藏 navigationBar 的界面"];
     [self.navigationController pushViewController:viewController animated:YES];
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,8 +118,18 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *footer = [UIView new];
-    return footer;
+    QMUITableViewHeaderFooterView *footerView = [[QMUITableViewHeaderFooterView alloc] init];
+    footerView.backgroundView.backgroundColor = UIColorClear;
+    footerView.contentEdgeInsets = UIEdgeInsetsSetTop(footerView.contentEdgeInsets, 0);
+    footerView.titleLabel.font = UIFontMake(12);
+    footerView.titleLabel.textColor = dk_HexColor(DK_COLOR_DDDDDD);
+    footerView.titleLabel.qmui_borderPosition = QMUIViewBorderPositionTop;
+    footerView.titleLabel.qmui_borderColor = TableViewSeparatorColor;
+    return footerView;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    return @"\n色块顶部的 y 值也即 self.qmui_navigationBarMaxYInViewCoordinator 的值，选择不同显隐状态进入下一个界面，观察 push/pop/手势返回过程中色块布局是否会跳动";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -136,17 +154,10 @@
     return _tableView;
 }
 
-- (NSMutableArray *)datasArrM {
-    if (!_datasArrM) {
-        _datasArrM = [NSMutableArray array];
-        [_datasArrM addObjectsFromArray:@[@"方便控制界面导航栏样式", @"优化导航栏在转场时的样式", @"获取导航栏的正确布局位置"]];
-    }
-    return _datasArrM;
+#pragma - mark action
+- (void)popRoot {
+    [self dk_backToRootViewController];
 }
 
-#pragma - mark action
-- (void)click {
-    
-}
 
 @end

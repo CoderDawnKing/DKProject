@@ -154,7 +154,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
         ///配置透明背景
         appearance.backgroundColor = dk_ClearColor;
         
-        appearance.backgroundImage = [dk_Image(@"tabbarClearBg") resizableImageWithCapInsets:UIEdgeInsetsMake(89, 0, 14, 0) resizingMode:UIImageResizingModeStretch];
+        appearance.backgroundImage = dk_Image(@"tabbarClearBg");
 //        appearance.backgroundImage = [UIImage imageWithColor:dk_HexColor(DK_COLOR_WHITE)];
         self.tabBar.tintColor = dk_HexColor(DK_COLOR_TAB_TEXT_SELECT);
         self.tabBar.standardAppearance = appearance;

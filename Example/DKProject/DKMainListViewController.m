@@ -1,37 +1,25 @@
 //
-//  DKHomePageViewController.m
+//  DKMainListViewController.m
 //  DKProject_Example
 //
-//  Created by 王 on 2020/7/7.
+//  Created by DawnKing on 2020/7/15.
 //  Copyright © 2020 wangshaoyu. All rights reserved.
 //
 
-#import "DKHomePageViewController.h"
-#import "DKChangeNaviBarViewController.h"
-#import "DKNavigationBarMaxYViewController.h"
+#import "DKMainListViewController.h"
+#import "DKMainCategoryViewController.h"
 
-@interface DKHomePageViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface DKMainListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
-@implementation DKHomePageViewController
+@implementation DKMainListViewController
 
 @synthesize tableView = _tableView;
-@synthesize datasArrM = _datasArrM;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"首页";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem qmui_itemWithTitle:@"关于" target:self action:@selector(click)];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
 }
 
 - (void)__addSubViews {
@@ -51,7 +39,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.datasArrM.count;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,29 +47,18 @@
     DKBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident];
     if (!cell) {
         cell = [DKBaseTableViewCell cellWithType:DKBaseTableViewCellTypeDefault ident:ident hasArrow:YES];
+        cell.cellBackgroundColor = dk_ClearColor;
     }
-    cell.title.text = self.datasArrM[indexPath.row];
+    cell.title.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
     return cell;
 }
 
 #pragma UITableView Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DKBaseViewController *viewController = nil;
-    NSString *title = self.datasArrM[indexPath.row];
-    if ([title isEqualToString:@"方便控制界面导航栏样式"]) {
-        viewController = [[DKChangeNaviBarViewController alloc] initWithBarStyle:DKNavigationBarStyleOrigin];
-    }
-    else if ([title isEqualToString:@"优化导航栏在转场时的样式"]) {
-        viewController = [[DKChangeNaviBarViewController alloc] init];
-        ((DKChangeNaviBarViewController *)viewController).customNavBarTransition = YES;
-    }
-    else if ([title isEqualToString:@"获取导航栏的正确布局位置"]) {
-        viewController = [[DKNavigationBarMaxYViewController alloc] init];
-        ((DKNavigationBarMaxYViewController *)viewController).hiddenNavigationBar = YES;
-    }
-    [self.navigationController pushViewController:viewController animated:YES];
-    
+    DKMainCategoryViewController *secondViewController = [[DKMainCategoryViewController alloc] init];
+    secondViewController.defaultSelectedIndex = indexPath.row > 10 ? 10 : indexPath.row;
+    [self.navigationController pushViewController:secondViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -131,22 +108,9 @@
         _tableView = [[DKBaseTableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
+        _tableView.backgroundColor = dk_ClearColor;
     }
     return _tableView;
-}
-
-- (NSMutableArray *)datasArrM {
-    if (!_datasArrM) {
-        _datasArrM = [NSMutableArray array];
-        [_datasArrM addObjectsFromArray:@[@"方便控制界面导航栏样式", @"优化导航栏在转场时的样式", @"获取导航栏的正确布局位置"]];
-    }
-    return _datasArrM;
-}
-
-#pragma - mark action
-- (void)click {
-    
 }
 
 @end

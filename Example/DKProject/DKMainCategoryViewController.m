@@ -7,6 +7,7 @@
 //
 
 #import "DKMainCategoryViewController.h"
+#import "DKMainListViewController.h"
 
 @interface DKMainCategoryViewController ()
 @property (nonatomic, strong) JXCategoryTitleView *myCategoryView;
@@ -44,7 +45,7 @@
 }
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    DKBaseListViewController *list = [[DKBaseListViewController alloc] init];
+    DKMainListViewController *list = [[DKMainListViewController alloc] init];
     list.view.backgroundColor = dk_RGBColor(arc4random()%255/255.0, arc4random()%255/255.0, arc4random()%255/255.0);
     return list;
 }
@@ -59,6 +60,21 @@
         _myCategoryView.indicators = @[lineView];
     }
     return _myCategoryView;
+}
+
+- (BOOL)dk_popViewController {
+    // 这里不要做一些费时的操作，否则可能会卡顿。
+    QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否返回？" message:@"返回后输入框的数据将不会自动保存" preferredStyle:QMUIAlertControllerStyleAlert];
+    QMUIAlertAction *backActioin = [QMUIAlertAction actionWithTitle:@"返回" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertController *aAlertController, QMUIAlertAction *action) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    QMUIAlertAction *continueAction = [QMUIAlertAction actionWithTitle:@"继续编辑" style:QMUIAlertActionStyleDefault handler:^(QMUIAlertController *aAlertController, QMUIAlertAction *action) {
+        
+    }];
+    [alertController addAction:backActioin];
+    [alertController addAction:continueAction];
+    [alertController showWithAnimated:YES];
+    return NO;
 }
 
 @end

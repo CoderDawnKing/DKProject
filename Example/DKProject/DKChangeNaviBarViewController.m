@@ -1,29 +1,34 @@
 //
-//  DKHomePageViewController.m
+//  DKChangeNaviBarViewController.m
 //  DKProject_Example
 //
-//  Created by 王 on 2020/7/7.
+//  Created by DawnKing on 2020/7/15.
 //  Copyright © 2020 wangshaoyu. All rights reserved.
 //
 
-#import "DKHomePageViewController.h"
 #import "DKChangeNaviBarViewController.h"
-#import "DKNavigationBarMaxYViewController.h"
 
-@interface DKHomePageViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface DKChangeNaviBarViewController ()<UITableViewDelegate, UITableViewDataSource>
 
+@property(nonatomic, strong) DKChangeNaviBarViewController *viewController;
 @end
 
-@implementation DKHomePageViewController
+@implementation DKChangeNaviBarViewController
 
 @synthesize tableView = _tableView;
-@synthesize datasArrM = _datasArrM;
+
+- (instancetype)initWithBarStyle:(DKNavigationBarStyle)barStyle {
+    if (self = [super init]) {
+        self.dk_barStyle = barStyle;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"首页";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem qmui_itemWithTitle:@"关于" target:self action:@selector(click)];
+    self.title = @"修改导航栏样式";
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem qmui_itemWithTitle:@"返回首页" target:self action:@selector(popRoot)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,7 +45,8 @@
 
 - (void)__makeConstraints {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
+        
+        make.edges.mas_equalTo(UIEdgeInsetsMake(self.edgesForExtendedLayout == UIRectEdgeNone?0:dk_NavBarAndStatusBarHeight, 0, 0, 0));
     }];
 }
 
@@ -51,7 +57,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.datasArrM.count;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,28 +66,20 @@
     if (!cell) {
         cell = [DKBaseTableViewCell cellWithType:DKBaseTableViewCellTypeDefault ident:ident hasArrow:YES];
     }
-    cell.title.text = self.datasArrM[indexPath.row];
+    cell.title.text = @[@"默认navBar样式", @"浅色navBar样式", @"暗色navBar样式"][indexPath.row];
     return cell;
 }
 
 #pragma UITableView Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DKBaseViewController *viewController = nil;
-    NSString *title = self.datasArrM[indexPath.row];
-    if ([title isEqualToString:@"方便控制界面导航栏样式"]) {
-        viewController = [[DKChangeNaviBarViewController alloc] initWithBarStyle:DKNavigationBarStyleOrigin];
+    self.viewController = [[DKChangeNaviBarViewController alloc] initWithBarStyle:indexPath.row];
+    if (self.customNavBarTransition) {
+        self.viewController.previousBarStyle = self.dk_barStyle;
+        self.viewController.customNavBarTransition = YES;
     }
-    else if ([title isEqualToString:@"优化导航栏在转场时的样式"]) {
-        viewController = [[DKChangeNaviBarViewController alloc] init];
-        ((DKChangeNaviBarViewController *)viewController).customNavBarTransition = YES;
-    }
-    else if ([title isEqualToString:@"获取导航栏的正确布局位置"]) {
-        viewController = [[DKNavigationBarMaxYViewController alloc] init];
-        ((DKNavigationBarMaxYViewController *)viewController).hiddenNavigationBar = YES;
-    }
-    [self.navigationController pushViewController:viewController animated:YES];
-    
+    self.viewController.title = @[@"默认navBar样式", @"浅色navBar样式", @"暗色navBar样式"][indexPath.row];
+    [self.navigationController pushViewController:self.viewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -136,17 +134,22 @@
     return _tableView;
 }
 
-- (NSMutableArray *)datasArrM {
-    if (!_datasArrM) {
-        _datasArrM = [NSMutableArray array];
-        [_datasArrM addObjectsFromArray:@[@"方便控制界面导航栏样式", @"优化导航栏在转场时的样式", @"获取导航栏的正确布局位置"]];
-    }
-    return _datasArrM;
+#pragma - mark action
+- (void)popRoot {
+    [self dk_backToRootViewController];
 }
 
-#pragma - mark action
-- (void)click {
-    
+#pragma mark - <QMUICustomNavigationBarTransitionDelegate>
+
+- (NSString *)customNavigationBarTransitionKey {
+    // 父类已经支持 这里重新实现
+    // 不同的 barStyle 返回不同的 key，这样在不同 barStyle 的界面之间切换时就能使用自定义的 navigationBar 样式，会带来更好的视觉体验
+    // 返回 nil 则表示当前界面没有修改过导航栏样式
+    // 注意，如果你使用配置表，建议打开 AutomaticCustomNavigationBarTransitionStyle，由 QMUI 自动帮你判断是否需要使用自定义样式，这样就无需再实现 customNavigationBarTransitionKey 方法。QMUI Demo 里为了展示接口的使用，没有打开这个开关。
+    if (self.customNavBarTransition) {
+        return self.dk_barStyle == DKNavigationBarStyleOrigin ? nil : [NSString qmui_stringWithNSInteger:self.dk_barStyle];
+    }
+    return nil;
 }
 
 @end
