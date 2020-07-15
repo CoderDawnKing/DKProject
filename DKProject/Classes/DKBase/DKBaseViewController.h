@@ -62,12 +62,16 @@ typedef NS_ENUM(NSInteger, DKNavigationBarStyle) {
 @property(nonatomic, assign) DKNavigationBarStyle dk_barStyle;
 /// 导航栏背景图片
 @property (nonatomic, strong, nullable) UIImage *dk_navigationBarBackgroundImage;
+/// 导航栏背景颜色
+@property (nonatomic, strong, nullable) UIColor *dk_navigationBarBackgroundColor;
 /// 导航栏底部投影图片
 @property (nonatomic, strong, nullable) UIImage *dk_navigationBarShadowImage;
 /// 导航栏颜色
 @property (nonatomic, strong, nullable) UIColor *dk_navigationBarTintColor;
 /// 导航栏标题颜色
 @property (nonatomic, strong, nullable) UIColor *dk_titleViewTintColor;
+/// 导航栏透明度
+@property (nonatomic, assign) CGFloat dk_navigationBarAlpha;
 /// 隐藏底部线条
 @property (nonatomic, assign, getter=isHiddenShadowImage) BOOL hiddenShadowImage;
 /// 隐藏导航栏

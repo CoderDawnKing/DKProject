@@ -18,17 +18,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    [self.navigationBar setTitleTextAttributes:@{
-        NSFontAttributeName:[UIFont pfMediumWithSize:18],
-        NSForegroundColorAttributeName:dk_HexColor(DK_COLOR_RED),
-    }];
     
     // 设置导航栏按钮间距
     // iOS 13 以后 自定义按钮才生效 默认不设置 leftBarButtonItem 无法对系统按钮生效 需要对 leftBarButtonItem 重新赋值
     // TODO: (后面查一下原因)
     [UINavigationConfig shared].dk_defaultFixSpace = dk_defaultSpace;
-    
-//    self.navigationBar.tintColor = dk_HexColor(DK_COLOR_BLACK);
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{

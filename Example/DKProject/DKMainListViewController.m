@@ -102,6 +102,12 @@
     return 40;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(dk_scrollViewDidScroll:)]) {
+        [self.delegate dk_scrollViewDidScroll:scrollView];
+    }
+}
+
 #pragma - mark lazy
 - (DKBaseTableView *)tableView {
     if (!_tableView) {

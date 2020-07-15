@@ -45,16 +45,17 @@
 
 依赖库比较多
 ### DKProject 
+* [QMUIKit (4.1.3)](https://github.com/Tencent/QMUI_iOS)
 * [HexColors (4.0.0)](https://github.com/mRs-/HexColors)
 * [MJRefresh (3.4.3)](https://github.com/CoderMJLee/MJRefresh)
 * [MJExtension (3.2.2)](https://github.com/CoderMJLee/MJExtension)
 * [Masonry (1.1.0)](https://github.com/SnapKit/Masonry)
 * [ReactiveObjC (3.1.1)](https://github.com/ReactiveCocoa/ReactiveObjC)
 * [SVProgressHUD (2.2.5)](https://github.com/SVProgressHUD/SVProgressHUD)
-* [CYLTabBarController (1.28.3)](https://github.com/ChenYilong/CYLTabBarController)
+* [CYLTabBarController (1.28.5)](https://github.com/ChenYilong/CYLTabBarController)
 * [JXCategoryView (1.5.5)](https://github.com/pujiaxin33/JXCategoryView)
 ### DKNetworkManage
-* [AFNetworking (3.2.1)](https://github.com/AFNetworking/AFNetworking)
+* [AFNetworking (4.0.1)](https://github.com/AFNetworking/AFNetworking)
 
 ## Installation
 DKProject可通过 [CocoaPods](https://cocoapods.org/pods/DKProject)获得。
@@ -73,6 +74,7 @@ pod 'DKProject'
 - [ ] 修复 DKBaseTabBarController 的 bug,不依赖
 - [ ] DKNetworkManage 完全解耦
 - [ ] 添加工具类、自定义控件。
+- [ ] 按照自己的代码习惯对 QMUIKit 进行二次封装
 
 ## Author
 

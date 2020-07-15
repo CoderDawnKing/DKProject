@@ -9,6 +9,7 @@
 #import "DKHomePageViewController.h"
 #import "DKChangeNaviBarViewController.h"
 #import "DKNavigationBarMaxYViewController.h"
+#import "DKLargrTitlesViewController.h"
 
 @interface DKHomePageViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -24,6 +25,7 @@
     // Do any additional setup after loading the view.
     self.title = @"首页";
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem qmui_itemWithTitle:@"关于" target:self action:@selector(click)];
+    self.dk_barStyle = DKNavigationBarStyleDark;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -67,7 +69,7 @@
 #pragma UITableView Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DKBaseViewController *viewController = nil;
+    UIViewController *viewController = nil;
     NSString *title = self.datasArrM[indexPath.row];
     if ([title isEqualToString:@"方便控制界面导航栏样式"]) {
         viewController = [[DKChangeNaviBarViewController alloc] initWithBarStyle:DKNavigationBarStyleOrigin];
@@ -79,7 +81,10 @@
     else if ([title isEqualToString:@"获取导航栏的正确布局位置"]) {
         viewController = [[DKNavigationBarMaxYViewController alloc] init];
         ((DKNavigationBarMaxYViewController *)viewController).hiddenNavigationBar = YES;
+    } else if ([title isEqualToString:@"兼容 LargeTitle"]) {
+        viewController = [[DKLargrTitlesViewController alloc] init];
     }
+    viewController.title = title;
     [self.navigationController pushViewController:viewController animated:YES];
     
 }
@@ -139,7 +144,7 @@
 - (NSMutableArray *)datasArrM {
     if (!_datasArrM) {
         _datasArrM = [NSMutableArray array];
-        [_datasArrM addObjectsFromArray:@[@"方便控制界面导航栏样式", @"优化导航栏在转场时的样式", @"获取导航栏的正确布局位置"]];
+        [_datasArrM addObjectsFromArray:@[@"方便控制界面导航栏样式", @"优化导航栏在转场时的样式", @"获取导航栏的正确布局位置", @"兼容 LargeTitle"]];
     }
     return _datasArrM;
 }

@@ -11,9 +11,6 @@
 
 @interface DKBaseViewController ()<UINavigationControllerBackButtonHandlerProtocol, DKBaseNaviControllerDelegate>
 
-@property (nonatomic, strong) UIView *navigationBarLargeTitleView;
-@property (nonatomic, strong) UIView *barBackgroundView;
-@property (nonatomic, strong) UILabel *largeTitleLabel;
 @property (nonatomic, strong, nullable) UIImage *emptyOriginalImage;
 @property (nonatomic, strong, nullable) NSString *emptyOriginalPrompt;
 
@@ -87,36 +84,12 @@
 - (void)__updateConstraints{}
 
 #pragma - mark method
-- (void)setShowBigTitle:(BOOL)showBigTitle {
-    if ([self.navigationController isKindOfClass:[DKBaseNaviController class]]) {
-        DKBaseNaviController *navi = (DKBaseNaviController *)self.navigationController;
-        navi.hiddenShadowImage = _showBigTitle = showBigTitle;
-        
-        
-        if (@available(iOS 11.0, *)) {
-            self.navigationController.navigationBar.prefersLargeTitles = _showBigTitle;
-            self.navigationItem.largeTitleDisplayMode = _showBigTitle ? UINavigationItemLargeTitleDisplayModeAlways : UINavigationItemLargeTitleDisplayModeNever;
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-    
-}
-
-- (DKBaseNaviController *)dk_Navi {
+- (DKBaseNavigationController *)dk_Navi {
     if (!_dk_Navi && [self.navigationController isKindOfClass:DKBaseNavigationController.class]) {
         _dk_Navi = (DKBaseNavigationController *)self.navigationController;
     }
     return _dk_Navi;
 }
-
-//- (UIModalPresentationStyle)modalPresentationStyle {
-//    return UIModalPresentationFullScreen;
-//}
-//
-//- (UIUserInterfaceStyle)overrideUserInterfaceStyle {
-//    return UIUserInterfaceStyleLight;
-//}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     if (self.dk_barStyle == DKNavigationBarStyleDark) {
@@ -168,6 +141,21 @@
     } else {
         self.dk_navigationBarShadowImage = nil;
     }
+}
+
+- (void)setDk_navigationBarAlpha:(CGFloat)dk_navigationBarAlpha {
+    _dk_navigationBarAlpha = dk_navigationBarAlpha;
+    self.navigationController.navigationBar.subviews.firstObject.alpha = _dk_navigationBarAlpha;
+}
+
+- (void)setDk_navigationBarBackgroundColor:(UIColor *)dk_navigationBarBackgroundColor {
+    _dk_navigationBarBackgroundColor = dk_navigationBarBackgroundColor;
+    self.dk_navigationBarBackgroundImage = [UIImage imageWithColor:_dk_navigationBarBackgroundColor];
+}
+
+- (void)setDk_navigationBarBackgroundImage:(UIImage *)dk_navigationBarBackgroundImage {
+    _dk_navigationBarBackgroundImage = dk_navigationBarBackgroundImage;
+    [self.navigationController.navigationBar setBackgroundImage:_dk_navigationBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
 }
 
 #pragma - mark DKBaseViewControllerDelegate

@@ -46,16 +46,17 @@ Project | Version | Minimum iOS Target | Date
 A bit more dependency library
 
 ### DKProject 
+* [QMUIKit (4.1.3)](https://github.com/Tencent/QMUI_iOS)
 * [HexColors (4.0.0)](https://github.com/mRs-/HexColors)
 * [MJRefresh (3.4.3)](https://github.com/CoderMJLee/MJRefresh)
 * [MJExtension (3.2.2)](https://github.com/CoderMJLee/MJExtension)
 * [Masonry (1.1.0)](https://github.com/SnapKit/Masonry)
 * [ReactiveObjC (3.1.1)](https://github.com/ReactiveCocoa/ReactiveObjC)
 * [SVProgressHUD (2.2.5)](https://github.com/SVProgressHUD/SVProgressHUD)
-* [CYLTabBarController (1.28.3)](https://github.com/ChenYilong/CYLTabBarController)
+* [CYLTabBarController (1.28.5)](https://github.com/ChenYilong/CYLTabBarController)
 * [JXCategoryView (1.5.5)](https://github.com/pujiaxin33/JXCategoryView)
 ### DKNetworkManage
-* [AFNetworking (3.2.1)](https://github.com/AFNetworking/AFNetworking)
+* [AFNetworking (4.0.1)](https://github.com/AFNetworking/AFNetworking)
 
 ## Installation
 
@@ -75,6 +76,7 @@ Import base classes, categories, tools, custom controls, and configuration class
 - [ ] Fix the bug of DKBaseTabBarController and don't depend on the library
 - [ ] DKNetworkManage completely decoupled
 - [ ] Add tools, custom controls
+- [ ] Second encapsulation of qmuikit according to their own code habits
 
 ## Author
 

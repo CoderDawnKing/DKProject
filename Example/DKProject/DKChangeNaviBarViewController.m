@@ -27,7 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"修改导航栏样式";
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem qmui_itemWithTitle:@"返回首页" target:self action:@selector(popRoot)];
 }
 

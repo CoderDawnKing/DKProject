@@ -41,15 +41,15 @@ Pod::Spec.new do |s|
   s.frameworks = 'UIKit', 'Foundation', 'Photos'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
   s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
-  s.dependency 'HexColors', '4.0.0'
-  s.dependency 'MJRefresh', '3.4.3'
-  s.dependency 'MJExtension', '3.2.2'
-  s.dependency 'Masonry', '1.1.0'
-  s.dependency 'ReactiveObjC', '3.1.1'
-  s.dependency 'SVProgressHUD', '2.2.5'
-  s.dependency 'CYLTabBarController', '1.28.3'
-  s.dependency 'JXCategoryView', '1.5.5'
-  s.dependency 'QMUIKit', '4.1.3'
+  s.dependency 'HexColors', '~>4.0.0'
+  s.dependency 'MJRefresh', '~>3.4.3'
+  s.dependency 'MJExtension', '~>3.2.2'
+  s.dependency 'Masonry', '~>1.1.0'
+  s.dependency 'ReactiveObjC', '~>3.1.1'
+  s.dependency 'SVProgressHUD', '~>2.2.5'
+  s.dependency 'CYLTabBarController', '~>1.28.5'
+  s.dependency 'JXCategoryView', '~>1.5.5'
+  s.dependency 'QMUIKit', '~>4.1.3'
   
   
   s.subspec "DKConfigure" do |ss|
@@ -64,9 +64,9 @@ Pod::Spec.new do |s|
   s.subspec "DKNetworkingTool" do |ss|
       ss.name             = 'DKNetworkingTool'
       ss.source_files     = 'DKProject/Classes/DKNetworkingTool/*.{h,m}'
-      ss.dependency 'MJExtension', '3.2.2'
-      ss.dependency 'SVProgressHUD', '2.2.5'
-      ss.dependency 'AFNetworking', '3.2.1'
+      ss.dependency 'MJExtension', '~>3.2.2'
+      ss.dependency 'SVProgressHUD', '~>2.2.5'
+      ss.dependency 'AFNetworking', '~>4.0.1'
       ss.dependency 'DKProject/DKConfigure'
   end
 end

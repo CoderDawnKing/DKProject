@@ -13,6 +13,7 @@
 		2172710624B47EAE00072F86 /* DKMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2172710524B47EAE00072F86 /* DKMainTabBarViewController.m */; };
 		2172710A24B480EA00072F86 /* DKMainTabPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2172710924B480EA00072F86 /* DKMainTabPlusButton.m */; };
 		2172710D24B484CA00072F86 /* DKMainCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2172710C24B484CA00072F86 /* DKMainCategoryViewController.m */; };
+		21A0519224BF4C1600A91939 /* DKLargrTitlesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A0519124BF4C1600A91939 /* DKLargrTitlesViewController.m */; };
 		21AABE7B24BE252800A3021A /* DKMainListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AABE7A24BE252800A3021A /* DKMainListViewController.m */; };
 		21AABE7E24BE270F00A3021A /* DKChangeNaviBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AABE7D24BE270F00A3021A /* DKChangeNaviBarViewController.m */; };
 		21AABE8124BE44BD00A3021A /* DKNavigationBarMaxYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AABE8024BE44BD00A3021A /* DKNavigationBarMaxYViewController.m */; };
@@ -56,6 +57,8 @@
 		2172710924B480EA00072F86 /* DKMainTabPlusButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMainTabPlusButton.m; sourceTree = "<group>"; };
 		2172710B24B484CA00072F86 /* DKMainCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKMainCategoryViewController.h; sourceTree = "<group>"; };
 		2172710C24B484CA00072F86 /* DKMainCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMainCategoryViewController.m; sourceTree = "<group>"; };
+		21A0519024BF4C1600A91939 /* DKLargrTitlesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKLargrTitlesViewController.h; sourceTree = "<group>"; };
+		21A0519124BF4C1600A91939 /* DKLargrTitlesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKLargrTitlesViewController.m; sourceTree = "<group>"; };
 		21AABE7924BE252800A3021A /* DKMainListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKMainListViewController.h; sourceTree = "<group>"; };
 		21AABE7A24BE252800A3021A /* DKMainListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMainListViewController.m; sourceTree = "<group>"; };
 		21AABE7C24BE270F00A3021A /* DKChangeNaviBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKChangeNaviBarViewController.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				21AABE7D24BE270F00A3021A /* DKChangeNaviBarViewController.m */,
 				21AABE7F24BE44BD00A3021A /* DKNavigationBarMaxYViewController.h */,
 				21AABE8024BE44BD00A3021A /* DKNavigationBarMaxYViewController.m */,
+				21A0519024BF4C1600A91939 /* DKLargrTitlesViewController.h */,
+				21A0519124BF4C1600A91939 /* DKLargrTitlesViewController.m */,
 				2172710B24B484CA00072F86 /* DKMainCategoryViewController.h */,
 				2172710C24B484CA00072F86 /* DKMainCategoryViewController.m */,
 				21AABE7924BE252800A3021A /* DKMainListViewController.h */,
@@ -437,6 +442,7 @@
 				21AABE7B24BE252800A3021A /* DKMainListViewController.m in Sources */,
 				2172710D24B484CA00072F86 /* DKMainCategoryViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* DKViewController.m in Sources */,
+				21A0519224BF4C1600A91939 /* DKLargrTitlesViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				21AABE7E24BE270F00A3021A /* DKChangeNaviBarViewController.m in Sources */,
 			);

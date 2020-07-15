@@ -9,7 +9,7 @@
 #import "DKMainCategoryViewController.h"
 #import "DKMainListViewController.h"
 
-@interface DKMainCategoryViewController ()
+@interface DKMainCategoryViewController ()<DKMainListViewControllerDelegate>
 @property (nonatomic, strong) JXCategoryTitleView *myCategoryView;
 @end
 
@@ -20,7 +20,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"第二页";
+    self.view.backgroundColor = dk_HexColor(DK_COLOR_BLUE);
     self.myCategoryView.titles = self.titles;
+    self.dk_navigationBarBackgroundColor = dk_HexColor(DK_COLOR_RED);
 }
 
 - (void)handleBackButtonEvent:(id)sender {
@@ -47,7 +49,19 @@
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     DKMainListViewController *list = [[DKMainListViewController alloc] init];
     list.view.backgroundColor = dk_RGBColor(arc4random()%255/255.0, arc4random()%255/255.0, arc4random()%255/255.0);
+    list.delegate = self;
     return list;
+}
+
+- (void)dk_scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat alpha = scrollView.contentOffset.y;
+    if (alpha < 0) {
+        alpha = 0;
+    }
+    if (alpha > 100) {
+        alpha = 100;
+    }
+    self.dk_navigationBarAlpha = (100 - alpha) / 100.0;
 }
 
 - (JXCategoryTitleView *)myCategoryView {
