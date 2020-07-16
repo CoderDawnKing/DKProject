@@ -36,8 +36,6 @@ typedef void(^RequestResultBlock)(id object);
 
 @property (nonatomic, strong) NSData *bodyData;
 
-- (BOOL)validatePhone:(NSString *)phone;
-
 @property (nonatomic, strong) RACSubject *loadEnd;
 @property (nonatomic, strong) RACSubject *loadMoreEnd;
 

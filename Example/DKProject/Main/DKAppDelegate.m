@@ -105,8 +105,10 @@
 - (void)didInitWindow {
     
     /// 配置全局默认属性
-//    DKCONFIG.dkc_color_main = @"#000000";
+    DKCONFIG.dkc_color_main = @"#31BDF3";
+    DKCONFIG.dkc_color_tab_text_select = @"#31BDF3";
     
+    // TODO: 后期改成 QMUITabBarViewController, 并且自定义 DKBaseTabBarController
     [DKMainTabPlusButton registerPlusButton];
     DKMainTabBarViewController *control = [[DKMainTabBarViewController alloc] initWithContext:@""];
     self.window.rootViewController = control;

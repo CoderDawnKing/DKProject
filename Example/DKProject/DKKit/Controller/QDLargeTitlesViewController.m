@@ -17,11 +17,11 @@
 - (void)initSubviews {
     [super initSubviews];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, APPLICATION_HEIGHT)];
-//    self.recognizerEnable = YES;
 }
 
 - (void)initDataSource {
     [super initDataSource];
+    // TODO: 当 data 数据源问空时,大标题动画失效.具体原因未知,后面查找
     self.dataSourceWithDetailText = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
                                      @"push 一个不显示大标题的 vc", @"LargeTitleDisplayModeNever",
                                      @"push 一个显示大标题的 vc", @"LargeTitleDisplayModeAlways",

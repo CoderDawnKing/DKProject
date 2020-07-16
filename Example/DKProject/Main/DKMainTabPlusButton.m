@@ -114,9 +114,15 @@
 - (void)clickPublish {
     
     DKBaseViewController *vc = [[DKBaseViewController alloc] init];
+    vc.navigationItem.leftBarButtonItem = [UIBarButtonItem qmui_itemWithTitle:@"返回" target:self action:@selector(back)];
+    DKBaseNavigationController *navi = [[DKBaseNavigationController alloc] initWithRootViewController:vc];
     //present出一个透明控制器 Controller,在控制器中实现毛玻璃效果
     vc.modalPresentationStyle = UIModalPresentationCustom;
-    [[self dk_getCurrentController] presentViewController:vc animated:YES completion:nil];
+    [[self dk_getCurrentController] presentViewController:navi animated:YES completion:nil];
+}
+
+- (void)back {
+    [self.dk_getCurrentController dk_backToSuperViewController];
 }
 
 #pragma mark - CYLPlusButtonSubclassing

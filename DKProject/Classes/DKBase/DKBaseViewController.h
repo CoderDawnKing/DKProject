@@ -16,14 +16,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-typedef enum : NSUInteger {
-    /// 顶部
-    DKTableViewScrollTypeTop,
-    /// 底部
-    DKTableViewScrollTypeBottom
-} DKTableViewScrollType;
-
-
 @protocol DKBaseViewControllerProtocol <NSObject>
 
 - (instancetype)initWithModel:(DKBaseModel *)model;
@@ -42,6 +34,8 @@ typedef enum : NSUInteger {
 @protocol DKBaseViewControllerDelegate <NSObject>
 
 /// 拦截返回方法 包括手势返回和按钮返回
+/// 当导航栏设置了自定义返回按钮并调用 pop 方法时,需要用该代理方法拦截返回按钮点击事件
+/// shouldPopViewControllerByBackButtonOrPopGesture 将拦截不到返回按钮事件
 - (BOOL)dk_popViewController;
 
 @end
@@ -71,14 +65,10 @@ typedef enum : NSUInteger {
 /// 隐藏导航栏
 @property (nonatomic, assign, getter=isHiddenNavigationBar) BOOL hiddenNavigationBar;
 
-
 /** TableView */
 @property (nonatomic, strong, nullable) DKBaseTableView *tableView;
 /** 数据源 */
 @property (nonatomic, strong) NSMutableArray *datasArrM;
-
-///展示大标题
-@property (nonatomic, assign, getter=isShowBigTitle) BOOL showBigTitle;
 
 @end
 
