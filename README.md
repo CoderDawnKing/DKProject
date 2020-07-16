@@ -52,7 +52,6 @@
 * [Masonry (1.1.0)](https://github.com/SnapKit/Masonry)
 * [ReactiveObjC (3.1.1)](https://github.com/ReactiveCocoa/ReactiveObjC)
 * [SVProgressHUD (2.2.5)](https://github.com/SVProgressHUD/SVProgressHUD)
-* [CYLTabBarController (1.28.5)](https://github.com/ChenYilong/CYLTabBarController)
 * [JXCategoryView (1.5.5)](https://github.com/pujiaxin33/JXCategoryView)
 ### DKNetworkManage
 * [AFNetworking (4.0.1)](https://github.com/AFNetworking/AFNetworking)

@@ -6,11 +6,10 @@
 //  Copyright © 2019 wisezone. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "DKBaseViewController.h"
+#import <QMUIKit/QMUIKit.h>
+#import "DKBaseNavigationController.h"
 
 @class DKBaseTableViewCell;
-@class DKBaseNaviController;
 @class DKBaseModel;
 @protocol DKBaseViewModelProtocol;
 
@@ -31,40 +30,37 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface DKBaseTableViewController : UITableViewController<DKBaseTableViewControllerProtocol>
+@protocol DKBaseTableViewControllerDelegate <NSObject>
 
-@property (nonatomic, strong) DKBaseNaviController *dk_Navi;
+/// 拦截返回方法 包括手势返回和按钮返回
+- (BOOL)dk_popViewController;
 
-@property (nonatomic, assign) UITableViewStyle tableViewStyle;
-/** 数据源 添加长按拖动，分区元素必须为可变数组，最好 */
-@property (nonatomic, strong) NSMutableArray *datasArrM;
-/** 记录手指所在的位置 */
-@property (nonatomic, assign) CGPoint longLocation;
-/** 对被选中的cell的截图 */
-@property (nonatomic, strong, nullable) UIView *snapshotView;
-/** 被选中的cell的原始位置 */
-@property (nonatomic, strong, nullable) NSIndexPath *oldIndexPath;
-/** 被选中的cell的新位置 */
-@property (nonatomic, strong, nullable) NSIndexPath *newestIndexPath;
-/** 定时器 */
-@property (nonatomic, strong, nullable) CADisplayLink *scrollTimer;
-/** 长按手势 */
-@property (nonatomic, strong) UILongPressGestureRecognizer *longPress;
-/** 滚动方向 */
-@property (nonatomic, assign) DKTableViewScrollType scrollType;
-/** 锁定头不能拖动,且cell无法拖动到头部以上 */
-@property (nonatomic, assign, getter=isLockHead) BOOL lockHead;
-/** 锁定脚不能拖动,且cell无法拖动到脚部以下 */
-@property (nonatomic, assign, getter=isLockFoot) BOOL lockFoot;
+@end
 
-///展示大标题
-@property (nonatomic, assign, getter=isShowBigTitle) BOOL showBigTitle;
+@interface DKBaseTableViewController : QMUICommonTableViewController<DKBaseTableViewControllerProtocol, DKBaseTableViewControllerDelegate>
 
-/**
- 给 cell 添加长按手势
- */
-- (void)addLongPressWithCell:(DKBaseTableViewCell *)cell indexPath:(NSIndexPath *)indexPath;
-
+/// 默认导航栏
+@property (nonatomic, strong, nullable) DKBaseNavigationController *dk_Navi;
+/// 返回手势
+@property (nonatomic, assign, getter=isRecognizerEnable) BOOL recognizerEnable;
+/// 导航栏样式 优先级最低
+@property(nonatomic, assign) DKNavigationBarStyle dk_barStyle;
+/// 导航栏背景图片
+@property (nonatomic, strong, nullable) UIImage *dk_navigationBarBackgroundImage;
+/// 导航栏背景颜色
+@property (nonatomic, strong, nullable) UIColor *dk_navigationBarBackgroundColor;
+/// 导航栏底部投影图片
+@property (nonatomic, strong, nullable) UIImage *dk_navigationBarShadowImage;
+/// 导航栏颜色
+@property (nonatomic, strong, nullable) UIColor *dk_navigationBarTintColor;
+/// 导航栏标题颜色
+@property (nonatomic, strong, nullable) UIColor *dk_titleViewTintColor;
+/// 导航栏透明度
+@property (nonatomic, assign) CGFloat dk_navigationBarAlpha;
+/// 隐藏底部线条
+@property (nonatomic, assign, getter=isHiddenShadowImage) BOOL hiddenShadowImage;
+/// 隐藏导航栏
+@property (nonatomic, assign, getter=isHiddenNavigationBar) BOOL hiddenNavigationBar;
 
 @end
 

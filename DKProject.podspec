@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DKProject'
-  s.version          = '0.3.0-beta'
+  s.version          = '0.3.0-beta.2'
   s.summary          = '一个小框架'
 
 # This description is used to generate tags and improve search results.
@@ -47,7 +47,6 @@ Pod::Spec.new do |s|
   s.dependency 'Masonry', '~>1.1.0'
   s.dependency 'ReactiveObjC', '~>3.1.1'
   s.dependency 'SVProgressHUD', '~>2.2.5'
-  s.dependency 'CYLTabBarController', '~>1.28.5'
   s.dependency 'JXCategoryView', '~>1.5.5'
   s.dependency 'QMUIKit', '~>4.1.3'
   

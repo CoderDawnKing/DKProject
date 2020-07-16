@@ -106,7 +106,7 @@
 #pragma mark - JXCategoryListContainerViewDelegate
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    DKBaseListViewController *list = [[DKBaseListViewController alloc] init];
+    DKBaseCategoryListViewController *list = [[DKBaseCategoryListViewController alloc] init];
     return list;
 }
 

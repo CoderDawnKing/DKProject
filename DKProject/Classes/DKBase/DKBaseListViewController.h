@@ -1,18 +1,26 @@
 //
 //  DKBaseListViewController.h
-//  GardenManager
+//  AFNetworking
 //
-//  Created by 王 on 2019/11/8.
-//  Copyright © 2019 wisezone. All rights reserved.
+//  Created by DawnKing on 2020/7/17.
 //
 
-#import "DKBaseViewController.h"
-
-@protocol JXCategoryListContentViewDelegate;
+#import "DKBaseTableViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DKBaseListViewController : DKBaseViewController<JXCategoryListContentViewDelegate>
+@interface DKBaseListViewController : DKBaseTableViewController
+
+@property(nonatomic, strong) NSArray<NSString *> *dataSource;
+@property(nonatomic, strong) QMUIOrderedDictionary<NSString *, NSString *> *dataSourceWithDetailText;
+
+@end
+
+@interface DKBaseListViewController (UISubclassingHooks)
+
+// 子类继承，可以不调super
+- (void)initDataSource;
+- (void)didSelectCellWithTitle:(NSString *)title;
 
 @end
 

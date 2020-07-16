@@ -8,6 +8,7 @@ target 'DKProject_Example' do
 #  pod 'DKProject'
 
   pod 'LookinServer', :configurations => ['Debug']
+  pod 'CYLTabBarController', '~>1.28.5'
 
   target 'DKProject_Tests' do
     inherit! :search_paths

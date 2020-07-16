@@ -29,8 +29,6 @@
     if (self.childViewControllers.count) { // 如果push进来的不是第一个控制器
         UIBarButtonItem *leftBarButtonItem = [UIBarButtonItem qmui_itemWithImage:dk_BundleImage(@"nav_icon_back") target:self action:@selector(pop)];
         viewController.navigationItem.leftBarButtonItem = leftBarButtonItem;
-        // 隐藏tabbar
-        viewController.hidesBottomBarWhenPushed = YES;
     }
     
     // 这句super的push要放在后面, 让viewController可以覆盖上面设置的leftBarButtonItem

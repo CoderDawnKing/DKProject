@@ -9,7 +9,7 @@
 #import "DKBaseViewController.h"
 #import <DKProject/DKProject.h>
 
-@interface DKBaseViewController ()<UINavigationControllerBackButtonHandlerProtocol, DKBaseNaviControllerDelegate>
+@interface DKBaseViewController ()<UINavigationControllerBackButtonHandlerProtocol, DKBaseNavigationControllerDelegate>
 
 @property (nonatomic, strong, nullable) UIImage *emptyOriginalImage;
 @property (nonatomic, strong, nullable) NSString *emptyOriginalPrompt;
@@ -26,11 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (IsUITest && self.isViewLoaded) {
+        self.view.accessibilityLabel = [NSString stringWithFormat:@"viewController-%@", self.title];
+    }
     
-    self.view.backgroundColor = dk_HexColor(DK_COLOR_WHITE);
-    
-    // TODO: 不让view延伸到整个屏幕  但是默认高斯模糊导航栏切换颜色时会闪一下 后面看情况修改
-    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self __addSubViews];
     [self __makeConstraints];
     [self __addViewModel];
@@ -38,6 +37,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noNetwork) name:DK_Noti_NoNetwork_NameKey object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkError) name:DK_Noti_NetworkError_NameKey object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkSuccess) name:DK_Noti_NetworkSuccess_NameKey object:nil];
+}
+
+- (void)setTitle:(NSString *)title {
+    [super setTitle:title];
+    if (IsUITest && self.isViewLoaded) {
+        self.view.accessibilityLabel = [NSString stringWithFormat:@"viewController-%@", self.title];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

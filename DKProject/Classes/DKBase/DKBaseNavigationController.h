@@ -9,6 +9,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, DKNavigationBarStyle) {
+    DKNavigationBarStyleOrigin,
+    DKNavigationBarStyleLight,
+    DKNavigationBarStyleDark
+};
 
 @protocol DKBaseNavigationControllerDelegate <NSObject>
 @optional
@@ -19,18 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DKBaseNavigationController : QMUINavigationController
 
 @property (nonatomic, weak) id<DKBaseNavigationControllerDelegate> dk_delegate;
-///隐藏底部线条
-@property (nonatomic, assign, getter=isHiddenShadowImage) BOOL hiddenShadowImage;
-///导航栏透明
-@property (nonatomic, assign, getter=isTransparent) BOOL transparent;
-///大标题
-@property (nonatomic, strong) NSString *leftBarTitle;
-///导航栏透明度
-@property (nonatomic, assign) CGFloat dk_navAlpha;
-///导航栏背景色
-@property (nonatomic, strong) UIColor *backgroundColor;
-///导航栏背景图片
-@property (nonatomic, strong) UIImage *backgroundImage;
 
 @end
 

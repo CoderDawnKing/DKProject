@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)dk_scrollViewDidScroll:(UIScrollView *)scrollView;
 @end
 
-@interface DKMainListViewController : DKBaseListViewController
+@interface DKMainListViewController : DKBaseCategoryListViewController
 
 @property (nonatomic, weak) id<DKMainListViewControllerDelegate> delegate;
 

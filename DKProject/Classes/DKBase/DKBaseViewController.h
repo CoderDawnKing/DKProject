@@ -6,11 +6,11 @@
 //  Copyright © 2019 wisezone. All rights reserved.
 //
 
-#import <QMUIKit/QMUICommonViewController.h>
+#import <QMUIKit/QMUIKit.h>
+#import "DKBaseNavigationController.h"
 
 @protocol DKBaseViewModelProtocol;
 @class DKBaseModel;
-@class DKBaseNavigationController;
 @class DKBaseTableView;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -23,12 +23,6 @@ typedef enum : NSUInteger {
     DKTableViewScrollTypeBottom
 } DKTableViewScrollType;
 
-
-typedef NS_ENUM(NSInteger, DKNavigationBarStyle) {
-    DKNavigationBarStyleOrigin,
-    DKNavigationBarStyleLight,
-    DKNavigationBarStyleDark
-};
 
 @protocol DKBaseViewControllerProtocol <NSObject>
 

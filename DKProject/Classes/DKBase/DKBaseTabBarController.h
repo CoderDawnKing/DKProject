@@ -6,11 +6,8 @@
 //  Copyright © 2018年 differ. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <CYLTabBarController/CYLTabBarController.h>
+#import <QMUIKit/QMUIKit.h>
 
-@interface DKBaseTabBarController : CYLTabBarController
-
-- (instancetype)initWithContext:(NSString *)context;
+@interface DKBaseTabBarController : QMUITabBarViewController
 
 @end
