@@ -37,17 +37,28 @@
 
 - (void)didInitialize {
     [super didInitialize];
-    
     self.classes = @[
                      QMUIConfigurationTemplate.class,
                      QMUIConfigurationTemplateGrapefruit.class,
                      QMUIConfigurationTemplateGrass.class,
                      QMUIConfigurationTemplatePinkRose.class,
                      QMUIConfigurationTemplateDark.class];
+    NSArray *classesName = @[
+        DKThemeIdentifierDefault,
+        DKThemeIdentifierGrapefruit,
+        DKThemeIdentifierGrass,
+        DKThemeIdentifierPinkRose,
+        DKThemeIdentifierDark,
+    ];
     [self.classes enumerateObjectsUsingBlock:^(Class  _Nonnull class, NSUInteger idx, BOOL * _Nonnull stop) {
         BOOL hasInstance = NO;
         for (NSObject<DKThemeProtocol> *theme in QMUIThemeManagerCenter.defaultThemeManager.themes) {
-            if ([theme isKindOfClass:class]) {
+            // !!!: 官方 Demo 这里判断有个 bug. 因为文件顺序不一致,导致 QMUIConfiguration 类 执行 applyInitialTemplate 方法的时候搜索出来 QMUIConfigurationTemplateDark 和 QMUIConfigurationTemplate 对比结果是相同 Class 导致 QMUIConfigurationTemplate 未加载进去  这里我修改成用字符串来判断
+//            if ([theme isKindOfClass:class]) {
+//                hasInstance = YES;
+//                break;
+//            }
+            if ([theme.themeName isEqualToString:classesName[idx]]) {
                 hasInstance = YES;
                 break;
             }

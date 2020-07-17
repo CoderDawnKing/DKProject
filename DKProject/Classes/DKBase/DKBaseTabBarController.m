@@ -17,7 +17,7 @@
 
 - (void)didInitialize {
     [super didInitialize];
-    [self customizeTabBarAppearance];
+//    [self customizeTabBarAppearance];
 }
 
 - (void)customizeTabBarAppearance {
