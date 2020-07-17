@@ -19,7 +19,7 @@
     self.titles = @[@"螃蟹", @"麻辣小龙虾", @"苹果", @"营养胡萝卜", @"葡萄", @"美味西瓜", @"香蕉", @"香甜菠萝", @"鸡肉", @"鱼", @"海星"];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"第二页";
+    self.navigationItem.title = @"第二页";
     self.view.backgroundColor = dk_HexColor(DK_COLOR_BLUE);
     self.myCategoryView.titles = self.titles;
     self.dk_navigationBarBackgroundColor = dk_HexColor(DK_COLOR_RED);

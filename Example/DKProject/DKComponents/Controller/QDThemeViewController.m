@@ -153,6 +153,14 @@
 
 - (void)handleThemeButtonEvent:(QDThemeButton *)themeButton {
     QMUIThemeManagerCenter.defaultThemeManager.currentThemeIdentifier = themeButton.currentTitle;
+    // TODO: 更换主题之后,tabbar 的高斯模糊又重新加上了.QMUIKit 不支持配置透明 需要手动重新设置 后期修改,查看原因
+//    if (@available(iOS 13.0, *)) {
+//        [self.tabBarController.tabBar.standardAppearance configureWithTransparentBackground];
+//        self.tabBarController.tabBar.standardAppearance.backgroundImage = QMUICMI.tabBarBackgroundImage;
+//    } else {
+//        [UITabBar appearance].translucent = YES;
+//        [[UITabBar appearance] setBackgroundImage:QMUICMI.tabBarBackgroundImage];
+//    }
 }
 
 - (void)qmui_themeDidChangeByManager:(QMUIThemeManager *)manager identifier:(NSString *)identifier theme:(__kindof NSObject *)theme {
