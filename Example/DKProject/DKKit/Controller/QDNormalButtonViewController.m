@@ -14,8 +14,11 @@
 @property(nonatomic, strong) QMUIButton *borderedButton;
 @property(nonatomic, strong) QMUIButton *imagePositionButton1;
 @property(nonatomic, strong) QMUIButton *imagePositionButton2;
+@property(nonatomic, strong) QMUIButton *imagePositionButton3;
+@property(nonatomic, strong) QMUIButton *imagePositionButton4;
 @property(nonatomic, strong) CALayer *separatorLayer;
 @property(nonatomic, strong) CAShapeLayer *imageButtonSeparatorLayer;
+@property(nonatomic, strong) CAShapeLayer *imageButtonSeparatorLayer2;
 
 @end
 
@@ -58,8 +61,31 @@
     self.imagePositionButton2.qmui_borderPosition = QMUIViewBorderPositionTop | QMUIViewBorderPositionBottom;
     [self.view addSubview:self.imagePositionButton2];
     
+    
+    self.imagePositionButton3 = [[QMUIButton alloc] init];
+    self.imagePositionButton3.tintColorAdjustsTitleAndImage = UIColor.dk_tintColor;
+    self.imagePositionButton3.imagePosition = QMUIButtonImagePositionLeft;// 将图片位置改为在文字上方
+    self.imagePositionButton3.spacingBetweenImageAndTitle = 8;
+    [self.imagePositionButton3 setImage:UIImageMake(@"icon_emotion") forState:UIControlStateNormal];
+    [self.imagePositionButton3 setTitle:NSLocalizedString(@"QMUIButton_Image_Position_Button_Title_3", @"Text left image") forState:UIControlStateNormal];
+    self.imagePositionButton3.titleLabel.font = UIFontMake(11);
+    self.imagePositionButton3.qmui_borderPosition = QMUIViewBorderPositionTop | QMUIViewBorderPositionBottom;
+    [self.view addSubview:self.imagePositionButton3];
+    
+    self.imagePositionButton4 = [[QMUIButton alloc] init];
+    self.imagePositionButton4.tintColorAdjustsTitleAndImage = UIColor.dk_tintColor;
+    self.imagePositionButton4.imagePosition = QMUIButtonImagePositionRight;// 将图片位置改为在文字下方
+    self.imagePositionButton4.spacingBetweenImageAndTitle = 8;
+    [self.imagePositionButton4 setImage:UIImageMake(@"icon_emotion") forState:UIControlStateNormal];
+    [self.imagePositionButton4 setTitle:NSLocalizedString(@"QMUIButton_Image_Position_Button_Title_4", @"Text right image") forState:UIControlStateNormal];
+    self.imagePositionButton4.titleLabel.font = UIFontMake(11);
+    self.imagePositionButton4.qmui_borderPosition = QMUIViewBorderPositionTop | QMUIViewBorderPositionBottom;
+    [self.view addSubview:self.imagePositionButton4];
+    
     self.imageButtonSeparatorLayer = [CAShapeLayer qmui_separatorDashLayerWithLineLength:3 lineSpacing:2 lineWidth:PixelOne lineColor:UIColorSeparator.CGColor isHorizontal:NO];
     [self.view.layer addSublayer:self.imageButtonSeparatorLayer];
+    self.imageButtonSeparatorLayer2 = [CAShapeLayer qmui_separatorDashLayerWithLineLength:3 lineSpacing:2 lineWidth:PixelOne lineColor:UIColorSeparator.CGColor isHorizontal:NO];
+    [self.view.layer addSublayer:self.imageButtonSeparatorLayer2];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -77,8 +103,11 @@
     // 图片+文字按钮
     self.imagePositionButton1.frame = CGRectFlatMake(0, contentMinY + buttonSpacingHeight * 2, CGRectGetWidth(self.view.bounds) / 2.0, buttonSpacingHeight);
     self.imagePositionButton2.frame = CGRectSetX(self.imagePositionButton1.frame, CGRectGetMaxX(self.imagePositionButton1.frame));
+    self.imagePositionButton3.frame = CGRectFlatMake(0, contentMinY + buttonSpacingHeight * 3, CGRectGetWidth(self.view.bounds) / 2.0, buttonSpacingHeight);
+    self.imagePositionButton4.frame = CGRectSetX(self.imagePositionButton3.frame, CGRectGetMaxX(self.imagePositionButton3.frame));
     
     self.imageButtonSeparatorLayer.frame = CGRectFlatMake(CGRectGetMaxX(self.imagePositionButton1.frame), CGRectGetMinY(self.imagePositionButton1.frame), PixelOne, buttonSpacingHeight);
+    self.imageButtonSeparatorLayer2.frame = CGRectFlatMake(CGRectGetMaxX(self.imagePositionButton3.frame), CGRectGetMinY(self.imagePositionButton3.frame), PixelOne, buttonSpacingHeight);
 }
 
 @end
