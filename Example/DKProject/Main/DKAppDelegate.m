@@ -108,11 +108,12 @@
     DKCONFIG.dkc_color_main = @"#31BDF3";
     DKCONFIG.dkc_color_tab_text_select = @"#31BDF3";
     
-    // TODO: 后期改成 QMUITabBarViewController, 并且自定义 DKBaseTabBarController 否则自动旋转设置失效
-//    [DKMainTabPlusButton registerPlusButton];
-//    DKMainTabBarViewController *control = [[DKMainTabBarViewController alloc] initWithContext:@""];
-//    self.window.rootViewController = control;
-    self.window.rootViewController = [self generateWindowRootViewController];
+    // TODO: 后期改成 QMUITabBarViewController, 并且自定义 DKBaseTabBarController
+    // 使用 CYLTabBarController 自动旋转设置失效 并且当首页滑动到底部,push 界面, pop 返回后, 有个向下回弹的 bug
+    [DKMainTabPlusButton registerPlusButton];
+    DKMainTabBarViewController *control = [[DKMainTabBarViewController alloc] initWithContext:@""];
+    self.window.rootViewController = control;
+//    self.window.rootViewController = [self generateWindowRootViewController];
     [self.window makeKeyAndVisible];
     [self startLaunchingAnimation];
 }

@@ -15,8 +15,8 @@
 - (void)applyConfigurationTemplate {
     [super applyConfigurationTemplate];
     
-    QMUICMI.navBarBackgroundImage = [DKUIHelper navigationBarBackgroundImageWithThemeColor:UIColor.dk_tintColor];
-//    QMUICMI.tabBarBackgroundImage = dk_Image(@"icon_tabBar_backgroundImage_white");
+//    QMUICMI.navBarBackgroundImage = [DKUIHelper navigationBarBackgroundImageWithThemeColor:UIColor.dk_tintColor];
+    QMUICMI.tabBarBackgroundImage = dk_Image(@"icon_tabBar_backgroundImage_white");
 }
 
 // QMUI 2.3.0 版本里，配置表新增这个方法，返回 YES 表示在 App 启动时要自动应用这份配置表。仅当你的 App 里存在多份配置表时，才需要把除默认配置表之外的其他配置表的返回值改为 NO。

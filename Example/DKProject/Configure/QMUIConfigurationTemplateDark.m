@@ -20,8 +20,8 @@
     QMUICMI.navBarBackgroundImage = nil;
     QMUICMI.navBarStyle = UIBarStyleBlack;
     
-    QMUICMI.tabBarBackgroundImage = nil;
-//    QMUICMI.tabBarBackgroundImage = dk_Image(@"icon_tabBar_backgroundImage_black");
+//    QMUICMI.tabBarBackgroundImage = nil;
+    QMUICMI.tabBarBackgroundImage = dk_Image(@"icon_tabBar_backgroundImage_black");
     QMUICMI.tabBarStyle = UIBarStyleBlack;
     
     QMUICMI.toolBarStyle = UIBarStyleBlack;
