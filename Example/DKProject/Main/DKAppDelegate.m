@@ -94,6 +94,7 @@
     #endif
             // 界面
             self.window = [[UIWindow alloc] init];
+            self.window.backgroundColor = UIColorWhite;
             [self didInitWindow];
     #ifdef UIWindowScene_Enabled
         }

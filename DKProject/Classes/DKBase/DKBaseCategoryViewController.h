@@ -7,29 +7,11 @@
 //
 
 #import "DKBaseViewController.h"
-
-@protocol JXCategoryViewDelegate;
-@protocol JXCategoryListContainerViewDelegate;
-@class JXCategoryBaseView;
-@class JXCategoryListContainerView;
+#import "DKBaseCategoryDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol DKBaseCategoryViewControllerDelegate <NSObject>
-
-@optional
-/// 默认 JXCategoryBaseView
-- (JXCategoryBaseView *)preferredCategoryView;
-/// 高度 默认 50
-- (CGFloat)preferredCategoryViewHeight;
-/// y 值 默认 0
-- (CGFloat)preferredCategoryViewTop;
-///默认是 NO
-- (BOOL)dk_isKindOfClass;
-
-@end
-
-@interface DKBaseCategoryViewController : DKBaseViewController<DKBaseCategoryViewControllerDelegate, JXCategoryViewDelegate, JXCategoryListContainerViewDelegate>
+@interface DKBaseCategoryViewController : DKBaseViewController<DKBaseCategoryDelegate, JXCategoryViewDelegate, JXCategoryListContainerViewDelegate>
 
 @property (nonatomic, strong) NSArray *titles;
 

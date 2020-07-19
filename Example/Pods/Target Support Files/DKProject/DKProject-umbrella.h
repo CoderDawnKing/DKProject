@@ -11,6 +11,7 @@
 #endif
 
 #import "DKBaseAlertController.h"
+#import "DKBaseCategoryDelegate.h"
 #import "DKBaseCategoryListViewController.h"
 #import "DKBaseCategoryViewController.h"
 #import "DKBaseCollectionView.h"

@@ -43,25 +43,29 @@
                      QMUIConfigurationTemplateGrass.class,
                      QMUIConfigurationTemplatePinkRose.class,
                      QMUIConfigurationTemplateDark.class];
-    NSArray *classesName = @[
-        DKThemeIdentifierDefault,
-        DKThemeIdentifierGrapefruit,
-        DKThemeIdentifierGrass,
-        DKThemeIdentifierPinkRose,
-        DKThemeIdentifierDark,
-    ];
+//    NSArray *classesName = @[
+//        DKThemeIdentifierDefault,
+//        DKThemeIdentifierGrapefruit,
+//        DKThemeIdentifierGrass,
+//        DKThemeIdentifierPinkRose,
+//        DKThemeIdentifierDark,
+//    ];
     [self.classes enumerateObjectsUsingBlock:^(Class  _Nonnull class, NSUInteger idx, BOOL * _Nonnull stop) {
         BOOL hasInstance = NO;
         for (NSObject<DKThemeProtocol> *theme in QMUIThemeManagerCenter.defaultThemeManager.themes) {
-            // !!!: 官方 Demo 这里判断有个 bug. 因为文件顺序不一致,导致 QMUIConfiguration 类 执行 applyInitialTemplate 方法的时候搜索出来 QMUIConfigurationTemplateDark 和 QMUIConfigurationTemplate 对比结果是相同 Class 导致 QMUIConfigurationTemplate 未加载进去  这里我修改成用字符串来判断
+            // !!!: 官方 Demo 这里判断有个 bug. 因为文件顺序不一致,导致 QMUIConfiguration 类 执行 applyInitialTemplate 方法的时候搜索出来 QMUIConfigurationTemplateDark 和 QMUIConfigurationTemplate 子类和父类对比结果是相同 Class 导致 QMUIConfigurationTemplate 未加载进去  这里我修改成用 isMemberOfClass 方法或者字符串 isEqualToString 方法来判断
 //            if ([theme isKindOfClass:class]) {
 //                hasInstance = YES;
 //                break;
 //            }
-            if ([theme.themeName isEqualToString:classesName[idx]]) {
+            if ([theme isMemberOfClass:class]) {
                 hasInstance = YES;
                 break;
             }
+//            if ([theme.themeName isEqualToString:classesName[idx]]) {
+//                hasInstance = YES;
+//                break;
+//            }
         }
         if (!hasInstance) {
             NSObject<DKThemeProtocol> *theme = [class new];
@@ -164,14 +168,14 @@
 
 - (void)handleThemeButtonEvent:(QDThemeButton *)themeButton {
     QMUIThemeManagerCenter.defaultThemeManager.currentThemeIdentifier = themeButton.currentTitle;
-    // TODO: 更换主题之后,tabbar 的高斯模糊又重新加上了.QMUIKit 不支持配置透明 需要手动重新设置 后期修改,查看原因
-//    if (@available(iOS 13.0, *)) {
-//        [self.tabBarController.tabBar.standardAppearance configureWithTransparentBackground];
-//        self.tabBarController.tabBar.standardAppearance.backgroundImage = QMUICMI.tabBarBackgroundImage;
-//    } else {
-//        [UITabBar appearance].translucent = YES;
-//        [[UITabBar appearance] setBackgroundImage:QMUICMI.tabBarBackgroundImage];
-//    }
+    // TODO: 如果 tabbar 去除了高斯模糊背景, 在更换主题之后,tabbar 的高斯模糊又重新加上了.QMUIKit 不支持默认配置透明 需要手动重新设置 后期修改,查看原因
+    if (@available(iOS 13.0, *)) {
+        [self.tabBarController.tabBar.standardAppearance configureWithTransparentBackground];
+        self.tabBarController.tabBar.standardAppearance.backgroundImage = QMUICMI.tabBarBackgroundImage;
+    } else {
+        [UITabBar appearance].translucent = YES;
+        [[UITabBar appearance] setBackgroundImage:QMUICMI.tabBarBackgroundImage];
+    }
 }
 
 - (void)qmui_themeDidChangeByManager:(QMUIThemeManager *)manager identifier:(NSString *)identifier theme:(__kindof NSObject *)theme {

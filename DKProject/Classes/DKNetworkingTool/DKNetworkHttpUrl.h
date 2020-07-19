@@ -8,13 +8,13 @@
 
 #import <DKProject/DKConfigure.h>
 
-#if DEBUG
+#ifdef DEBUG
 #define DK_BaseUrl [[NSUserDefaults standardUserDefaults] valueForKey:DK_UrlStringUserDefault]?:DK_DevelopmentUrlString
 #else
 #define DK_BaseUrl DK_DistributionUrlString
 #endif
 
-#if DEBUG
+#ifdef DEBUG
 #define DK_BaseH5Url [[NSUserDefaults standardUserDefaults] valueForKey:DK_H5UrlStringUserDefault]?:DK_H5DevelopmentUrlString
 #else
 #define DK_BaseH5Url DK_H5DistributionUrlString

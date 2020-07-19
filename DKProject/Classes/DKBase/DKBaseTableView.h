@@ -6,7 +6,7 @@
 //  Copyright © 2019 wisezone. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <QMUIKit/QMUIKit.h>
 
 @protocol DKBaseViewModelProtocol;
 
@@ -26,9 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface DKBaseTableView : UITableView<DKBaseTableViewProtocol>
-
-@property (nonatomic, copy) void (^tableViewTouchsBeginBlock) (NSSet<UITouch *> *touches, UIEvent *event);
+@interface DKBaseTableView : QMUITableView<DKBaseTableViewProtocol>
 
 @end
 

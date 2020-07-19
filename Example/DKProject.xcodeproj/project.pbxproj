@@ -51,7 +51,9 @@
 		2100E87B24C1F863005C52C8 /* QDCellSizeKeyCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2100E84924C1F862005C52C8 /* QDCellSizeKeyCacheViewController.m */; };
 		2100E87C24C1F863005C52C8 /* QDThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2100E84E24C1F863005C52C8 /* QDThemeViewController.m */; };
 		2100E87D24C1F863005C52C8 /* QDCollectionViewDemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2100E84F24C1F863005C52C8 /* QDCollectionViewDemoCell.m */; };
+		2100EB3E24C2CB11005C52C8 /* DKMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2100EB3D24C2CB11005C52C8 /* DKMineViewController.m */; };
 		211E40E824C1AA2000663438 /* DKChangeNavBarAlphaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E40E724C1AA2000663438 /* DKChangeNavBarAlphaViewController.m */; };
+		215B8EC224C343B2008A5DA0 /* DKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215B8EC124C343B2008A5DA0 /* DKMainViewController.m */; };
 		217270EB24B426CB00072F86 /* README_EN.md in Resources */ = {isa = PBXBuildFile; fileRef = 217270EA24B426CA00072F86 /* README_EN.md */; };
 		2172710624B47EAE00072F86 /* DKMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2172710524B47EAE00072F86 /* DKMainTabBarViewController.m */; };
 		2172710A24B480EA00072F86 /* DKMainTabPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2172710924B480EA00072F86 /* DKMainTabPlusButton.m */; };
@@ -238,8 +240,12 @@
 		2100E85024C1F863005C52C8 /* QDCellHeightCacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCellHeightCacheViewController.h; sourceTree = "<group>"; };
 		2100E85124C1F863005C52C8 /* QDScrollAnimatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDScrollAnimatorViewController.h; sourceTree = "<group>"; };
 		2100E85224C1F863005C52C8 /* QDKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDKeyboardViewController.h; sourceTree = "<group>"; };
+		2100EB3C24C2CB11005C52C8 /* DKMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKMineViewController.h; sourceTree = "<group>"; };
+		2100EB3D24C2CB11005C52C8 /* DKMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMineViewController.m; sourceTree = "<group>"; };
 		211E40E624C1AA2000663438 /* DKChangeNavBarAlphaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKChangeNavBarAlphaViewController.h; sourceTree = "<group>"; };
 		211E40E724C1AA2000663438 /* DKChangeNavBarAlphaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKChangeNavBarAlphaViewController.m; sourceTree = "<group>"; };
+		215B8EC024C343B2008A5DA0 /* DKMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKMainViewController.h; sourceTree = "<group>"; };
+		215B8EC124C343B2008A5DA0 /* DKMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMainViewController.m; sourceTree = "<group>"; };
 		217270EA24B426CA00072F86 /* README_EN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README_EN.md; path = ../README_EN.md; sourceTree = "<group>"; };
 		2172710424B47EAE00072F86 /* DKMainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKMainTabBarViewController.h; sourceTree = "<group>"; };
 		2172710524B47EAE00072F86 /* DKMainTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMainTabBarViewController.m; sourceTree = "<group>"; };
@@ -433,6 +439,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2100EB3524C2C900005C52C8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21A052CA24C0C6C100A91939 /* QDAAViewController.h */,
+				21A052CB24C0C6C100A91939 /* QDAAViewController.m */,
+				21A052CC24C0C6C100A91939 /* QDAboutViewController.h */,
+				21A052C924C0C6C100A91939 /* QDAboutViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2100EB3624C2CAB0005C52C8 /* DKMine */ = {
+			isa = PBXGroup;
+			children = (
+				2100EB3C24C2CB11005C52C8 /* DKMineViewController.h */,
+				2100EB3D24C2CB11005C52C8 /* DKMineViewController.m */,
+				215B8EC024C343B2008A5DA0 /* DKMainViewController.h */,
+				215B8EC124C343B2008A5DA0 /* DKMainViewController.m */,
+				2100EB4324C2D2E7005C52C8 /* DKBaseCategoryViewController */,
+			);
+			path = DKMine;
+			sourceTree = "<group>";
+		};
+		2100EB4324C2D2E7005C52C8 /* DKBaseCategoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2172710B24B484CA00072F86 /* DKMainCategoryViewController.h */,
+				2172710C24B484CA00072F86 /* DKMainCategoryViewController.m */,
+				21AABE7924BE252800A3021A /* DKMainListViewController.h */,
+				21AABE7A24BE252800A3021A /* DKMainListViewController.m */,
+			);
+			path = DKBaseCategoryViewController;
+			sourceTree = "<group>";
+		};
 		211E40E424C1A92800663438 /* Configure */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +509,60 @@
 				211E40E724C1AA2000663438 /* DKChangeNavBarAlphaViewController.m */,
 			);
 			path = QMUINavigationController;
+			sourceTree = "<group>";
+		};
+		215B8EBC24C304F6008A5DA0 /* QMUITableView */ = {
+			isa = PBXGroup;
+			children = (
+				21A0526024C0C66800A91939 /* QDTableViewController.h */,
+				21A0529124C0C66A00A91939 /* QDTableViewController.m */,
+				21A0528024C0C66900A91939 /* QDTableViewCellViewController.h */,
+				21A0528A24C0C66A00A91939 /* QDTableViewCellViewController.m */,
+				21A0525624C0C66700A91939 /* QDTableViewHeaderFooterViewController.h */,
+				21A0529924C0C66B00A91939 /* QDTableViewHeaderFooterViewController.m */,
+				21A0529624C0C66A00A91939 /* QDTableViewCellAccessoryTypeViewController.h */,
+				21A0527224C0C66900A91939 /* QDTableViewCellAccessoryTypeViewController.m */,
+				21A0525D24C0C66800A91939 /* QDTableViewCellInsetsViewController.h */,
+				21A0527A24C0C66900A91939 /* QDTableViewCellInsetsViewController.m */,
+			);
+			path = QMUITableView;
+			sourceTree = "<group>";
+		};
+		215B8EBD24C3063E008A5DA0 /* QMUIStaticTableView */ = {
+			isa = PBXGroup;
+			children = (
+				2100E80524C1F85E005C52C8 /* QDStaticTableViewController.h */,
+				2100E83724C1F861005C52C8 /* QDStaticTableViewController.m */,
+			);
+			path = QMUIStaticTableView;
+			sourceTree = "<group>";
+		};
+		215B8EBE24C30728008A5DA0 /* QMUICellKeyCache */ = {
+			isa = PBXGroup;
+			children = (
+				2100E85024C1F863005C52C8 /* QDCellHeightCacheViewController.h */,
+				2100E83324C1F861005C52C8 /* QDCellHeightCacheViewController.m */,
+				2100E82524C1F860005C52C8 /* QDCellHeightKeyCacheViewController.h */,
+				2100E80A24C1F85E005C52C8 /* QDCellHeightKeyCacheViewController.m */,
+				2100E81824C1F85F005C52C8 /* QDCellKeyCacheViewController.h */,
+				2100E84624C1F862005C52C8 /* QDCellKeyCacheViewController.m */,
+				2100E83624C1F861005C52C8 /* QDCellSizeKeyCacheViewController.h */,
+				2100E84924C1F862005C52C8 /* QDCellSizeKeyCacheViewController.m */,
+			);
+			path = QMUICellKeyCache;
+			sourceTree = "<group>";
+		};
+		215B8EBF24C30748008A5DA0 /* QMUIScrollAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				2100E83B24C1F861005C52C8 /* QDNavigationBarScrollingAnimatorViewController.h */,
+				2100E83224C1F861005C52C8 /* QDNavigationBarScrollingAnimatorViewController.m */,
+				2100E83524C1F861005C52C8 /* QDNavigationBarScrollingSnapAnimatorViewController.h */,
+				2100E82A24C1F860005C52C8 /* QDNavigationBarScrollingSnapAnimatorViewController.m */,
+				2100E85124C1F863005C52C8 /* QDScrollAnimatorViewController.h */,
+				2100E82C24C1F860005C52C8 /* QDScrollAnimatorViewController.m */,
+			);
+			path = QMUIScrollAnimator;
 			sourceTree = "<group>";
 		};
 		21A0521A24C0C15000A91939 /* Resources */ = {
@@ -511,11 +605,11 @@
 		21A0524124C0C59C00A91939 /* DKKit */ = {
 			isa = PBXGroup;
 			children = (
+				21A0525324C0C66700A91939 /* QDUIKitViewController.h */,
+				21A0525924C0C66700A91939 /* QDUIKitViewController.m */,
+				215B8EBC24C304F6008A5DA0 /* QMUITableView */,
 				211E40E524C1A97C00663438 /* QMUINavigationController */,
 				21A0524B24C0C61C00A91939 /* Controller */,
-				21A0524924C0C61C00A91939 /* Model */,
-				21A0524A24C0C61C00A91939 /* View */,
-				21A0524824C0C61C00A91939 /* ViewModel */,
 			);
 			path = DKKit;
 			sourceTree = "<group>";
@@ -523,10 +617,12 @@
 		21A0524224C0C5A300A91939 /* DKComponents */ = {
 			isa = PBXGroup;
 			children = (
+				2100E84224C1F862005C52C8 /* QDComponentsViewController.h */,
+				2100E82124C1F860005C52C8 /* QDComponentsViewController.m */,
+				215B8EBD24C3063E008A5DA0 /* QMUIStaticTableView */,
+				215B8EBE24C30728008A5DA0 /* QMUICellKeyCache */,
+				215B8EBF24C30748008A5DA0 /* QMUIScrollAnimator */,
 				21A052EC24C0C6DD00A91939 /* Controller */,
-				21A0524524C0C61300A91939 /* Model */,
-				21A0524724C0C61300A91939 /* View */,
-				21A0524424C0C61300A91939 /* ViewModel */,
 			);
 			path = DKComponents;
 			sourceTree = "<group>";
@@ -536,53 +632,8 @@
 			children = (
 				21A052D624C0C6D200A91939 /* Animation */,
 				21A052CF24C0C6D200A91939 /* Controller */,
-				21A0524E24C0C62500A91939 /* Model */,
-				21A0524C24C0C62500A91939 /* View */,
-				21A0524F24C0C62500A91939 /* ViewModel */,
 			);
 			path = DKLab;
-			sourceTree = "<group>";
-		};
-		21A0524424C0C61300A91939 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		21A0524524C0C61300A91939 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		21A0524724C0C61300A91939 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		21A0524824C0C61C00A91939 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		21A0524924C0C61C00A91939 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		21A0524A24C0C61C00A91939 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		21A0524B24C0C61C00A91939 /* Controller */ = {
@@ -630,24 +681,12 @@
 				21A0525224C0C66700A91939 /* QDSliderViewController.m */,
 				21A0525C24C0C66800A91939 /* QDTabBarItemViewController.h */,
 				21A0529324C0C66A00A91939 /* QDTabBarItemViewController.m */,
-				21A0529624C0C66A00A91939 /* QDTableViewCellAccessoryTypeViewController.h */,
-				21A0527224C0C66900A91939 /* QDTableViewCellAccessoryTypeViewController.m */,
-				21A0525D24C0C66800A91939 /* QDTableViewCellInsetsViewController.h */,
-				21A0527A24C0C66900A91939 /* QDTableViewCellInsetsViewController.m */,
-				21A0528024C0C66900A91939 /* QDTableViewCellViewController.h */,
-				21A0528A24C0C66A00A91939 /* QDTableViewCellViewController.m */,
-				21A0526024C0C66800A91939 /* QDTableViewController.h */,
-				21A0529124C0C66A00A91939 /* QDTableViewController.m */,
-				21A0525624C0C66700A91939 /* QDTableViewHeaderFooterViewController.h */,
-				21A0529924C0C66B00A91939 /* QDTableViewHeaderFooterViewController.m */,
 				21A0528724C0C66A00A91939 /* QDTextFieldViewController.h */,
 				21A0528424C0C66A00A91939 /* QDTextFieldViewController.m */,
 				21A0529F24C0C66B00A91939 /* QDTextViewController.h */,
 				21A0526324C0C66800A91939 /* QDTextViewController.m */,
 				21A0527B24C0C66900A91939 /* QDToolBarButtonViewController.h */,
 				21A0529424C0C66A00A91939 /* QDToolBarButtonViewController.m */,
-				21A0525324C0C66700A91939 /* QDUIKitViewController.h */,
-				21A0525924C0C66700A91939 /* QDUIKitViewController.m */,
 				21A0529524C0C66A00A91939 /* QDUIViewBorderViewController.h */,
 				21A0527524C0C66900A91939 /* QDUIViewBorderViewController.m */,
 				21A0529B24C0C66B00A91939 /* QDUIViewDebugViewController.h */,
@@ -660,34 +699,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		21A0524C24C0C62500A91939 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		21A0524E24C0C62500A91939 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		21A0524F24C0C62500A91939 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		21A052C824C0C6C100A91939 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				21A052C924C0C6C100A91939 /* QDAboutViewController.m */,
-				21A052CA24C0C6C100A91939 /* QDAAViewController.h */,
-				21A052CB24C0C6C100A91939 /* QDAAViewController.m */,
-				21A052CC24C0C6C100A91939 /* QDAboutViewController.h */,
+				2100EB3524C2C900005C52C8 /* Controller */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -731,14 +746,6 @@
 				2100E81924C1F85F005C52C8 /* QDAssetsManagerViewController.m */,
 				2100E80B24C1F85F005C52C8 /* QDBadgeViewController.h */,
 				2100E80324C1F85E005C52C8 /* QDBadgeViewController.m */,
-				2100E85024C1F863005C52C8 /* QDCellHeightCacheViewController.h */,
-				2100E83324C1F861005C52C8 /* QDCellHeightCacheViewController.m */,
-				2100E82524C1F860005C52C8 /* QDCellHeightKeyCacheViewController.h */,
-				2100E80A24C1F85E005C52C8 /* QDCellHeightKeyCacheViewController.m */,
-				2100E81824C1F85F005C52C8 /* QDCellKeyCacheViewController.h */,
-				2100E84624C1F862005C52C8 /* QDCellKeyCacheViewController.m */,
-				2100E83624C1F861005C52C8 /* QDCellSizeKeyCacheViewController.h */,
-				2100E84924C1F862005C52C8 /* QDCellSizeKeyCacheViewController.m */,
 				2100E84A24C1F863005C52C8 /* QDCollectionDemoViewController.h */,
 				2100E81E24C1F860005C52C8 /* QDCollectionDemoViewController.m */,
 				2100E81124C1F85F005C52C8 /* QDCollectionListViewController.h */,
@@ -747,8 +754,6 @@
 				2100E81024C1F85F005C52C8 /* QDCollectionStackDemoViewController.m */,
 				2100E84D24C1F863005C52C8 /* QDCollectionViewDemoCell.h */,
 				2100E84F24C1F863005C52C8 /* QDCollectionViewDemoCell.m */,
-				2100E84224C1F862005C52C8 /* QDComponentsViewController.h */,
-				2100E82124C1F860005C52C8 /* QDComponentsViewController.m */,
 				2100E82924C1F860005C52C8 /* QDConsoleViewController.h */,
 				2100E84524C1F862005C52C8 /* QDConsoleViewController.m */,
 				2100E83E24C1F862005C52C8 /* QDCustomToastAnimator.h */,
@@ -787,10 +792,6 @@
 				2100E80F24C1F85F005C52C8 /* QDMultipleDelegatesViewController.m */,
 				2100E82424C1F860005C52C8 /* QDMultipleImagePickerPreviewViewController.h */,
 				2100E81224C1F85F005C52C8 /* QDMultipleImagePickerPreviewViewController.m */,
-				2100E83B24C1F861005C52C8 /* QDNavigationBarScrollingAnimatorViewController.h */,
-				2100E83224C1F861005C52C8 /* QDNavigationBarScrollingAnimatorViewController.m */,
-				2100E83524C1F861005C52C8 /* QDNavigationBarScrollingSnapAnimatorViewController.h */,
-				2100E82A24C1F860005C52C8 /* QDNavigationBarScrollingSnapAnimatorViewController.m */,
 				2100E83A24C1F861005C52C8 /* QDNavigationTitleViewController.h */,
 				2100E82324C1F860005C52C8 /* QDNavigationTitleViewController.m */,
 				2100E80424C1F85E005C52C8 /* QDPieProgressViewController.h */,
@@ -801,12 +802,8 @@
 				2100E82624C1F860005C52C8 /* QDSaveImageToSpecifiedAlbumViewController.m */,
 				2100E81524C1F85F005C52C8 /* QDSaveVideoToSpecifiedAlbumViewController.h */,
 				2100E82B24C1F860005C52C8 /* QDSaveVideoToSpecifiedAlbumViewController.m */,
-				2100E85124C1F863005C52C8 /* QDScrollAnimatorViewController.h */,
-				2100E82C24C1F860005C52C8 /* QDScrollAnimatorViewController.m */,
 				2100E82D24C1F860005C52C8 /* QDSingleImagePickerPreviewViewController.h */,
 				2100E84824C1F862005C52C8 /* QDSingleImagePickerPreviewViewController.m */,
-				2100E80524C1F85E005C52C8 /* QDStaticTableViewController.h */,
-				2100E83724C1F861005C52C8 /* QDStaticTableViewController.m */,
 				2100E81B24C1F860005C52C8 /* QDThemeExampleView.h */,
 				2100E81C24C1F860005C52C8 /* QDThemeExampleView.m */,
 				2100E84C24C1F863005C52C8 /* QDThemeViewController.h */,
@@ -865,6 +862,7 @@
 		6003F593195388D20070C39A /* Example for DKProject */ = {
 			isa = PBXGroup;
 			children = (
+				2100EB3624C2CAB0005C52C8 /* DKMine */,
 				211E40E424C1A92800663438 /* Configure */,
 				21A052C824C0C6C100A91939 /* About */,
 				21A0524324C0C5BB00A91939 /* DKLab */,
@@ -872,10 +870,6 @@
 				21A0524124C0C59C00A91939 /* DKKit */,
 				21A0522C24C0C1C100A91939 /* Main */,
 				21A0521A24C0C15000A91939 /* Resources */,
-				2172710B24B484CA00072F86 /* DKMainCategoryViewController.h */,
-				2172710C24B484CA00072F86 /* DKMainCategoryViewController.m */,
-				21AABE7924BE252800A3021A /* DKMainListViewController.h */,
-				21AABE7A24BE252800A3021A /* DKMainListViewController.m */,
 				21A0523824C0C2D900A91939 /* Localizable.strings */,
 				21A0522D24C0C23500A91939 /* LaunchScreen.xib */,
 				21A0522F24C0C23500A91939 /* Main.storyboard */,
@@ -977,7 +971,7 @@
 			attributes = {
 				CLASSPREFIX = DK;
 				LastUpgradeCheck = 1150;
-				ORGANIZATIONNAME = wangshaoyu;
+				ORGANIZATIONNAME = "Dawn King";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = P265E6PKRB;
@@ -1180,6 +1174,7 @@
 				21A052E924C0C6D200A91939 /* QDCAShapeLoadingViewController.m in Sources */,
 				2172710D24B484CA00072F86 /* DKMainCategoryViewController.m in Sources */,
 				21A052C724C0C66B00A91939 /* QDTableViewHeaderFooterViewController.m in Sources */,
+				215B8EC224C343B2008A5DA0 /* DKMainViewController.m in Sources */,
 				2100E86024C1F863005C52C8 /* QDMultipleImagePickerPreviewViewController.m in Sources */,
 				2100E87524C1F863005C52C8 /* QDImagePreviewViewController1.m in Sources */,
 				21A052AE24C0C66B00A91939 /* QDFontViewController.m in Sources */,
@@ -1198,6 +1193,7 @@
 				2100E86D24C1F863005C52C8 /* QDSaveVideoToSpecifiedAlbumViewController.m in Sources */,
 				2100E87D24C1F863005C52C8 /* QDCollectionViewDemoCell.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				2100EB3E24C2CB11005C52C8 /* DKMineViewController.m in Sources */,
 				2100E86F24C1F863005C52C8 /* QDMarqueeLabelViewController.m in Sources */,
 				21A052C524C0C66B00A91939 /* QDToolBarButtonViewController.m in Sources */,
 				21A052B424C0C66B00A91939 /* QDUIViewBorderViewController.m in Sources */,

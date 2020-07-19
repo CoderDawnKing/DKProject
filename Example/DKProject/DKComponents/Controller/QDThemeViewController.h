@@ -6,8 +6,8 @@
 //  Copyright © 2017年 QMUI Team. All rights reserved.
 //
 
-#import "QMUICommonViewController.h"
+#import "DKBaseViewController.h"
 
-@interface QDThemeViewController : QMUICommonViewController
+@interface QDThemeViewController : DKBaseViewController
 
 @end

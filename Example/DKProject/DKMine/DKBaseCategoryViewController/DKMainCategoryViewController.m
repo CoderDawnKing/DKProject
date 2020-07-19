@@ -9,29 +9,35 @@
 #import "DKMainCategoryViewController.h"
 #import "DKMainListViewController.h"
 
-@interface DKMainCategoryViewController ()<DKMainListViewControllerDelegate>
+@interface DKMainCategoryViewController ()<DKMainListViewControllerDelegate, DKBaseCategoryListDelegate>
 @property (nonatomic, strong) JXCategoryTitleView *myCategoryView;
 @end
 
 @implementation DKMainCategoryViewController
 
+- (void)didInitialize {
+    [super didInitialize];
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+//    self.dk_barStyle = DKNavigationBarStyleDark;
+//    self.scrollingAnimator = YES;
+    self.scrollingSnapAnimator = YES;
+    
+    self.dk_navigationBarBackgroundImage = [UIImage imageWithColor:UIColorRed];
+    @weakify(self);
+    self.dk_navigationScrollingSnapAnimator.animationBlock = ^(QMUINavigationBarScrollingSnapAnimator * _Nonnull animator, BOOL offsetYReached) {
+        @strongify(self);
+        [UIView animateWithDuration:.2 animations:^{
+            self.categoryView.y = offsetYReached ? dk_StatusBarHeight : dk_NavBarAndStatusBarHeight;
+        }];
+        [self.navigationController setNavigationBarHidden:offsetYReached animated:YES];
+    };
+}
+
 - (void)viewDidLoad {
     self.titles = @[@"螃蟹", @"麻辣小龙虾", @"苹果", @"营养胡萝卜", @"葡萄", @"美味西瓜", @"香蕉", @"香甜菠萝", @"鸡肉", @"鱼", @"海星"];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"第二页";
-    self.view.backgroundColor = dk_HexColor(DK_COLOR_BLUE);
     self.myCategoryView.titles = self.titles;
-    self.dk_navigationBarBackgroundColor = dk_HexColor(DK_COLOR_RED);
-}
-
-- (void)handleBackButtonEvent:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-//    self.dk_Navi.navigationBarHidden = YES;
 }
 
 - (JXCategoryBaseView *)preferredCategoryView {
@@ -39,7 +45,7 @@
 }
 
 - (CGFloat)preferredCategoryViewHeight {
-    return 35;
+    return 40;
 }
 
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
@@ -47,9 +53,10 @@
 }
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    DKMainListViewController *list = [[DKMainListViewController alloc] init];
+    DKMainListViewController *list = [[DKMainListViewController alloc] initWithDelegate:self]; /// 子类中不用实现该代理方法
     list.view.backgroundColor = dk_RGBColor(arc4random()%255/255.0, arc4random()%255/255.0, arc4random()%255/255.0);
-    list.delegate = self;
+    self.dk_navigationScrollingSnapAnimator.scrollView = list.tableView;
+    self.dk_navigationScrollingSnapAnimator.offsetYToStartAnimation = 44;
     return list;
 }
 
@@ -68,27 +75,13 @@
     if (!_myCategoryView) {
         _myCategoryView = (JXCategoryTitleView *)self.categoryView;
         _myCategoryView.titleColorGradientEnabled = YES;
+        _myCategoryView.titleSelectedColor = dk_HexColor(DK_COLOR_APPMAIN);
         JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
         lineView.indicatorColor = dk_HexColor(DK_COLOR_APPMAIN);
         lineView.indicatorHeight = 2;
         _myCategoryView.indicators = @[lineView];
     }
     return _myCategoryView;
-}
-
-- (BOOL)dk_popViewController {
-    // 这里不要做一些费时的操作，否则可能会卡顿。
-    QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否返回？" message:@"返回后输入框的数据将不会自动保存" preferredStyle:QMUIAlertControllerStyleAlert];
-    QMUIAlertAction *backActioin = [QMUIAlertAction actionWithTitle:@"返回" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertController *aAlertController, QMUIAlertAction *action) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
-    QMUIAlertAction *continueAction = [QMUIAlertAction actionWithTitle:@"继续编辑" style:QMUIAlertActionStyleDefault handler:^(QMUIAlertController *aAlertController, QMUIAlertAction *action) {
-        
-    }];
-    [alertController addAction:backActioin];
-    [alertController addAction:continueAction];
-    [alertController showWithAnimated:YES];
-    return NO;
 }
 
 @end

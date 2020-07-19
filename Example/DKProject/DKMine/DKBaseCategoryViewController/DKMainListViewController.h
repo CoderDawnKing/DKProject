@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DKMainListViewController : DKBaseCategoryListViewController
 
-@property (nonatomic, weak) id<DKMainListViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<DKMainListViewControllerDelegate> scrollDelegate;
 
 @end
 

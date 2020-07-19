@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, DKNavigationBarStyle) {
     DKNavigationBarStyleOrigin,
     DKNavigationBarStyleLight,
-    DKNavigationBarStyleDark
+    DKNavigationBarStyleDark,
+    DKNavigationBarStyleCustom
 };
 
 @protocol DKBaseNavigationControllerDelegate <NSObject>

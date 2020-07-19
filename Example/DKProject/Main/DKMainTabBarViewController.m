@@ -10,7 +10,7 @@
 #import "QDUIKitViewController.h"
 #import "QDComponentsViewController.h"
 #import "QDLabViewController.h"
-#import "DKMainCategoryViewController.h"
+#import "DKMineViewController.h"
 
 static CGFloat const CYLTabBarControllerHeight = 40.f;
 
@@ -19,7 +19,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
     QDUIKitViewController *_first;
     QDComponentsViewController *_secode;
     QDLabViewController *_third;
-    DKMainCategoryViewController *_fourth;
+    DKMineViewController *_fourth;
 }
 
 @property (nonatomic,strong)UIImageView *redImageView;
@@ -68,9 +68,8 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
                                                    initWithRootViewController:thirdViewController];
     [thirdViewController cyl_setHideNavigationBarSeparator:YES];
     
-    DKMainCategoryViewController *fourthViewController = [[DKMainCategoryViewController alloc] init];
+    DKMineViewController *fourthViewController = [[DKMineViewController alloc] init];
     fourthViewController.hidesBottomBarWhenPushed = NO;
-    fourthViewController.defaultSelectedIndex = 1;
     UIViewController *fourthNavigationController = [[DKBaseNavigationController alloc]
                                                    initWithRootViewController:fourthViewController];
     [fourthViewController cyl_setHideNavigationBarSeparator:YES];
@@ -103,7 +102,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
                                                   };
     
     NSDictionary *fourthTabBarItemsAttributes = @{
-                                                 CYLTabBarItemTitle : @"Mine",
+                                                 CYLTabBarItemTitle : @"DKMine",
                                                  CYLTabBarItemImage : dk_Image(@"icon_tabbar_mine"),
                                                  CYLTabBarItemSelectedImage : @"icon_tabbar_mine_selected",
                                                  };

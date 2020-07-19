@@ -7,7 +7,7 @@
 //
 
 #pragma mark - 打印到控制台
-#if DEBUG
+#ifdef DEBUG
 #define DKLog(FORMAT, ...) fprintf(stderr,"\%s [第%d行] %s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else
 #define DKLog(FORMAT, ...)
@@ -39,7 +39,7 @@
 /*状态栏和导航栏总高度*/
 #define dk_NavBarAndStatusBarHeight (CGFloat)(dk_IS_IPHONE_X?(88.0):(64.0))
 /*TabBar高度*/
-#define dk_TabBarHeight (CGFloat)(dk_IS_IPHONE_X?(49.0 + 34.0):(49.0))
+#define dk_TabBarHeight (CGFloat)(49.0 + dk_BottomSafeHeight)
 /*顶部安全区域远离高度*/
 #define dk_TopBarSafeHeight (CGFloat)(dk_IS_IPHONE_X?(44.0):(0))
 /*底部安全区域远离高度*/
@@ -47,7 +47,7 @@
 /*iPhoneX的状态栏高度差值*/
 #define dk_TopBarDifHeight (CGFloat)(dk_IS_IPHONE_X?(24.0):(0))
 /*导航条和Tabbar总高度*/
-#define dk_NavAndTabHeight (kNavBarAndStatusBarHeight + kTabBarHeight)
+#define dk_NavAndTabHeight (dk_NavBarAndStatusBarHeight + dk_TabBarHeight)
 
 #define dk_Image(image) [UIImage dkImageNamed:image]
 #define dk_BundleImage(image) [UIImage dkBundleImageNamed:image inBundle:[NSBundle bundleWithURL:[[NSBundle bundleForClass:NSClassFromString(@"DKBaseModel")] URLForResource:@"DKProject" withExtension:@"bundle"]] compatibleWithTraitCollection:nil]

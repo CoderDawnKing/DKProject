@@ -9,19 +9,25 @@
 #import "DKBaseCategoryViewController.h"
 #import <DKProject/DKProject.h>
 
-@interface DKBaseCategoryViewController ()
+@interface DKBaseCategoryViewController ()<DKBaseCategoryListDelegate>
 
 @end
 
 @implementation DKBaseCategoryViewController
 
+- (void)didInitialize {
+    [super didInitialize];
+    /// 设置 view 不铺满 这样 categoryView 默认从导航栏下面开始布局  但是导航栏如果是默认的高斯模糊 并且控制器的上级界面导航栏有颜色 在 push 和 pop 的时候就会看到底部的颜色
+    // TODO: 后面看看有没有办法解决
+    // !!!: 如果需要 view 从界面铺满, 可以再自控制器的 didInitialize 方法设置成 UIRectEdgeAll 或者用全局默认配置为 All
+    self.edgesForExtendedLayout = DKCONFIG.dk_categoryView_edgesForExtendedLayout;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor whiteColor];
-
     [self.view addSubview:self.listContainerView];
-
     self.categoryView.listContainer = self.listContainerView;
     self.categoryView.delegate = self;
     [self.view addSubview:self.categoryView];
@@ -63,7 +69,12 @@
 }
 
 - (CGFloat)preferredCategoryViewTop {
-    return 0;
+    return self.edgesForExtendedLayout == UIRectEdgeNone? 0 : dk_NavBarAndStatusBarHeight;
+}
+
+/// 子类中不用实现该方法
+- (UIEdgeInsets)preferredCategoryViewContentInset {
+    return UIEdgeInsetsMake(0, 0, [self preferredCategoryViewHeight] + [self preferredCategoryViewTop] + dk_BottomSafeHeight, 0);
 }
 
 - (JXCategoryBaseView *)categoryView {
@@ -106,7 +117,7 @@
 #pragma mark - JXCategoryListContainerViewDelegate
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    DKBaseCategoryListViewController *list = [[DKBaseCategoryListViewController alloc] init];
+    DKBaseCategoryListViewController *list = [[DKBaseCategoryListViewController alloc] initWithDelegate:self];
     return list;
 }
 

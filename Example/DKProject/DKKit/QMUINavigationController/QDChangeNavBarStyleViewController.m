@@ -10,16 +10,19 @@
 
 @interface QDChangeNavBarStyleViewController ()
 
-@property(nonatomic, assign) QDNavigationBarStyle barStyle;
 @property(nonatomic, strong) QDChangeNavBarStyleViewController *viewController;
 
 @end
 
 @implementation QDChangeNavBarStyleViewController
 
-- (instancetype)initWithBarStyle:(QDNavigationBarStyle)barStyle {
+- (void)didInitialize {
+    [super didInitialize];
+}
+
+- (instancetype)initWithBarStyle:(DKNavigationBarStyle)barStyle {
     if (self = [super init]) {
-        self.barStyle = barStyle;
+        self.dk_barStyle = barStyle;
     }
     return self;
 }
@@ -33,16 +36,16 @@
 
 - (void)didSelectCellWithTitle:(NSString *)title {
     if ([title isEqualToString:@"默认navBar样式"]) {
-        self.viewController = [[QDChangeNavBarStyleViewController alloc] initWithBarStyle:QDNavigationBarStyleOrigin];
+        self.viewController = [[QDChangeNavBarStyleViewController alloc] initWithBarStyle:DKNavigationBarStyleOrigin];
     }
     else if ([title isEqualToString:@"暗色navBar样式"]) {
-        self.viewController = [[QDChangeNavBarStyleViewController alloc] initWithBarStyle:QDNavigationBarStyleDark];
+        self.viewController = [[QDChangeNavBarStyleViewController alloc] initWithBarStyle:DKNavigationBarStyleDark];
     }
     else if ([title isEqualToString:@"浅色navBar样式"]) {
-        self.viewController = [[QDChangeNavBarStyleViewController alloc] initWithBarStyle:QDNavigationBarStyleLight];
+        self.viewController = [[QDChangeNavBarStyleViewController alloc] initWithBarStyle:DKNavigationBarStyleLight];
     }
     if (self.customNavBarTransition) {
-        self.viewController.previousBarStyle = self.barStyle;
+        self.viewController.previousBarStyle = self.dk_barStyle;
         self.viewController.customNavBarTransition = YES;
     }
     self.viewController.title = title;
@@ -50,73 +53,11 @@
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    if (self.barStyle == QDNavigationBarStyleOrigin || self.barStyle == QDNavigationBarStyleDark) {
+    if (self.dk_barStyle == DKNavigationBarStyleOrigin || self.dk_barStyle == DKNavigationBarStyleDark) {
         return UIStatusBarStyleLightContent;
     } else {
         return UIStatusBarStyleDefault;
     }
-}
-
-#pragma mark - QMUINavigationControllerDelegate
-
-- (UIImage *)navigationBarBackgroundImage {
-    if (self.barStyle == QDNavigationBarStyleOrigin) {
-        return NavBarBackgroundImage;
-    } else if (self.barStyle == QDNavigationBarStyleLight) {
-        return nil; // nil则用系统默认颜色（带磨砂）
-    } else if (self.barStyle == QDNavigationBarStyleDark) {
-        return [UIImage qmui_imageWithColor:UIColorMake(66, 66, 66)];
-    } else {
-        return NavBarBackgroundImage;
-    }
-}
-
-- (UIImage *)navigationBarShadowImage {
-    if (self.barStyle == QDNavigationBarStyleOrigin) {
-        return NavBarShadowImage;
-    } else if (self.barStyle == QDNavigationBarStyleLight) {
-        return nil; // nil则用系统默认颜色
-    } else if (self.barStyle == QDNavigationBarStyleDark) {
-        return [UIImage qmui_imageWithColor:UIColorMake(99, 99, 99) size:CGSizeMake(10, PixelOne) cornerRadius:0];
-    } else {
-        return NavBarShadowImage;
-    }
-}
-
-- (UIColor *)navigationBarTintColor {
-    if (self.barStyle == QDNavigationBarStyleOrigin) {
-        return NavBarTintColor;
-    } else if (self.barStyle == QDNavigationBarStyleLight) {
-        return UIColorBlue;
-    } else if (self.barStyle == QDNavigationBarStyleDark) {
-        return NavBarTintColor;
-    } else {
-        return NavBarTintColor;
-    }
-}
-
-- (UIColor *)titleViewTintColor {
-    if (self.barStyle == QDNavigationBarStyleOrigin) {
-        return NavBarTitleColor;
-    } else if (self.barStyle == QDNavigationBarStyleLight) {
-        return UIColorBlack;
-    } else if (self.barStyle == QDNavigationBarStyleDark) {
-        return UIColorWhite;
-    } else {
-        return NavBarTitleColor;
-    }
-}
-
-#pragma mark - <QMUICustomNavigationBarTransitionDelegate>
-
-- (NSString *)customNavigationBarTransitionKey {
-    // 不同的 barStyle 返回不同的 key，这样在不同 barStyle 的界面之间切换时就能使用自定义的 navigationBar 样式，会带来更好的视觉体验
-    // 返回 nil 则表示当前界面没有修改过导航栏样式
-    // 注意，如果你使用配置表，建议打开 AutomaticCustomNavigationBarTransitionStyle，由 QMUI 自动帮你判断是否需要使用自定义样式，这样就无需再实现 customNavigationBarTransitionKey 方法。QMUI Demo 里为了展示接口的使用，没有打开这个开关。
-    if (self.customNavBarTransition) {
-        return self.barStyle == QDNavigationBarStyleOrigin ? nil : [NSString qmui_stringWithNSInteger:self.barStyle];
-    }
-    return nil;
 }
 
 @end

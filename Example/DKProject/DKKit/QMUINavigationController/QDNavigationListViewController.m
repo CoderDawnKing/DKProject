@@ -33,6 +33,7 @@
 
 - (void)initDataSource {
     [super initDataSource];
+    
     if ([UINavigationBar instancesRespondToSelector:@selector(prefersLargeTitles)]) {
         self.dataSourceWithDetailText = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
                                          @"拦截系统navBar返回按钮事件", @"例如询问已输入的内容要不要保存",
@@ -65,6 +66,7 @@
     }
     else if ([title isEqualToString:@"方便控制界面导航栏样式"]) {
         viewController = [[QDChangeNavBarStyleViewController alloc] init];
+        ((QDChangeNavBarStyleViewController *)viewController).customNavBarTransition = NO;
     }
     else if ([title isEqualToString:@"优化导航栏在转场时的样式"]) {
         viewController = [[QDChangeNavBarStyleViewController alloc] init];

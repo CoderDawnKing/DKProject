@@ -54,6 +54,8 @@
     self.dkc_color_tab_text_select = @"#FC575A";
     self.dkc_color_tab_text_unselect = @"#838383";
     
+    self.dk_categoryView_edgesForExtendedLayout = UIRectEdgeNone;
+    
     self.dkc_rightArrowImageMargin = 38.f;
     self.dkc_constMargin = 10.0f;
     self.dkc_lineHeight = 1.f;

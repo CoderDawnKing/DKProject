@@ -43,6 +43,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *dkc_color_tab_text_select;
 @property (nonatomic, copy) NSString *dkc_color_tab_text_unselect;
 
+// MARK: Category
+@property (nonatomic, assign) UIRectEdge dk_categoryView_edgesForExtendedLayout;
+
 /// 箭头间距 38
 @property (nonatomic, assign) CGFloat dkc_rightArrowImageMargin;
 /// 常用间距 10

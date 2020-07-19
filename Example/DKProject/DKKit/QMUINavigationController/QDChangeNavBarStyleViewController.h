@@ -8,16 +8,9 @@
 
 #import "DKBaseListViewController.h"
 
-typedef NS_ENUM(NSInteger, QDNavigationBarStyle) {
-    QDNavigationBarStyleOrigin,
-    QDNavigationBarStyleLight,
-    QDNavigationBarStyleDark
-};
-
 @interface QDChangeNavBarStyleViewController : DKBaseListViewController
 
-@property(nonatomic, assign) QDNavigationBarStyle previousBarStyle;
-@property(nonatomic, assign) BOOL customNavBarTransition;
-- (instancetype)initWithBarStyle:(QDNavigationBarStyle)barStyle;
+@property(nonatomic, assign) DKNavigationBarStyle previousBarStyle;
+- (instancetype)initWithBarStyle:(DKNavigationBarStyle)barStyle;
 
 @end

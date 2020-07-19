@@ -26,7 +26,7 @@
     // 若使用第二种，则第一种会失效。
     // 若希望同时使用两种，则请在 animationBlock 里手动获取各个属性对应的 block 的返回值并设置到 navigationBar 上。
     self.navigationAnimator.backgroundImageBlock = ^UIImage * _Nonnull(QMUINavigationBarScrollingAnimator * _Nonnull animator, float progress) {
-        return [NavBarBackgroundImage qmui_imageWithAlpha:progress];
+        return [[UIImage imageWithColor:UIColorBlue] qmui_imageWithAlpha:progress];
     };
     self.navigationAnimator.shadowImageBlock = ^UIImage * _Nonnull(QMUINavigationBarScrollingAnimator * _Nonnull animator, float progress) {
         return [NavBarShadowImage qmui_imageWithAlpha:progress];
