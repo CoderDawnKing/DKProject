@@ -18,6 +18,8 @@
 @implementation DKBaseViewController
 
 @synthesize dk_navigationBarBackgroundImage = _dk_navigationBarBackgroundImage;
+@synthesize dk_navigationBarTintColor = _dk_navigationBarTintColor;
+@synthesize dk_titleViewTintColor = _dk_titleViewTintColor;
 
 - (void)didInitialize {
     [super didInitialize];
@@ -26,6 +28,7 @@
     self.scrollingAnimator = NO;
     self.scrollingSnapAnimator = NO;
     self.dk_scrollingProgress = 1;
+    self.dk_animatorReverse = NO;
 }
 
 - (void)setTitle:(NSString *)title {
@@ -49,7 +52,7 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    if (self.isScrollingSnapAnimator) {
+    if (self.isScrollingSnapAnimator && [self isLayoutTableViewContentInset]) {
         self.dk_navigationScrollingSnapAnimator.scrollView.contentInset = UIEdgeInsetsMake(self.qmui_navigationBarMaxYInViewCoordinator, 0, self.view.qmui_safeAreaInsets.bottom, 0);
         self.dk_navigationScrollingSnapAnimator.scrollView.scrollIndicatorInsets = self.dk_navigationScrollingSnapAnimator.scrollView.contentInset;
         [self.dk_navigationScrollingSnapAnimator.scrollView qmui_scrollToTopUponContentInsetTopChange];
@@ -77,6 +80,10 @@
 
 /** 更新约束 */
 - (void)__updateConstraints{}
+
+- (BOOL)isLayoutTableViewContentInset {
+    return YES;
+}
 
 #pragma - mark method
 - (DKBaseNavigationController *)dk_Navi {
@@ -133,9 +140,19 @@
     }
 }
 
+- (void)setDk_navigationBarTintColor:(UIColor *)dk_navigationBarTintColor {
+    self.dk_navigationBarOriginalTintColor = self.dk_navigationBarTintColor;
+    _dk_navigationBarTintColor = dk_navigationBarTintColor;
+}
+
+- (void)setDk_titleViewTintColor:(UIColor *)dk_titleViewTintColor {
+    self.dk_titleViewOriginalTintColor = self.dk_titleViewTintColor;
+    _dk_titleViewTintColor = dk_titleViewTintColor;
+}
+
 - (void)setScrollingSnapAnimator:(BOOL)scrollingSnapAnimator {
     _scrollingSnapAnimator = scrollingSnapAnimator;
-    if (_scrollingSnapAnimator) {
+    if (_scrollingSnapAnimator && [self isLayoutTableViewContentInset]) {
         // 为了避免更改 navigationBar 显隐影响 scrollView 的滚动，这里屏蔽掉自动适应 contentInset
         if (@available(iOS 11, *)) {
             self.dk_navigationScrollingSnapAnimator.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -169,7 +186,7 @@
 
 - (UIColor *)dk_navigationBarOriginalTintColor {
     if (!_dk_navigationBarOriginalTintColor) {
-        _dk_navigationBarOriginalTintColor = self.dk_navigationBarTintColor;
+        _dk_navigationBarOriginalTintColor = NavBarTintColor;
     }
     return _dk_navigationBarOriginalTintColor;
 }
@@ -183,7 +200,7 @@
 
 - (UIColor *)dk_titleViewOriginalTintColor {
     if (!_dk_titleViewOriginalTintColor) {
-        _dk_titleViewOriginalTintColor = self.dk_titleViewTintColor;
+        _dk_titleViewOriginalTintColor = NavBarTitleColor;
     }
     return _dk_titleViewOriginalTintColor;
 }
@@ -191,20 +208,26 @@
 - (QMUINavigationBarScrollingAnimator *)dk_navigationScrollingAnimator {
     if (!_dk_navigationScrollingAnimator) {
         _dk_navigationScrollingAnimator = [[QMUINavigationBarScrollingAnimator alloc] init];
+//        _dk_navigationScrollingAnimator.scrollView = self.tableView;// 指定要关联的 scrollView
+//        _dk_navigationScrollingAnimator.offsetYToStartAnimation = 0;// 设置滚动的起点，值即表示在默认停靠的位置往下滚动多少距离后即触发动画，默认是 0
+//        _dk_navigationScrollingAnimator.distanceToStopAnimation = 44;// 设置从起点开始滚动多长的距离达到终点，默认为 44
+        // 有两种方式更改 navigationBar 的样式，一种是利用 animator 为每个属性提供的单独 block，直接返回这个属性在特定 progress 下的样式即可，另一种是直接用 animationBlock，Demo 这里使用第一种。
+        // 若使用第二种，则第一种会失效。
+        // 若希望同时使用两种，则请在 animationBlock 里手动获取各个属性对应的 block 的返回值并设置到 navigationBar 上。
         _dk_navigationScrollingAnimator.backgroundImageBlock = ^UIImage * _Nonnull(QMUINavigationBarScrollingAnimator * _Nonnull animator, float progress) {
-            return self.isScrollingAnimator?[self.dk_navigationBarBackgroundImage qmui_imageWithAlpha:progress]:self.dk_navigationBarBackgroundImage;
+            return self.isScrollingAnimator?[self.dk_navigationBarBackgroundImage qmui_imageWithAlpha:(self.isDK_AnimatorReverse?(1-progress):progress)]:self.dk_navigationBarBackgroundImage;
         };
         _dk_navigationScrollingAnimator.shadowImageBlock = ^UIImage * _Nonnull(QMUINavigationBarScrollingAnimator * _Nonnull animator, float progress) {
-            return self.isScrollingAnimator?[self.dk_navigationBarShadowImage qmui_imageWithAlpha:progress]:self.dk_navigationBarShadowImage;
+            return self.isScrollingAnimator?[self.dk_navigationBarShadowImage qmui_imageWithAlpha:(self.isDK_AnimatorReverse?(1-progress):progress)]:self.dk_navigationBarShadowImage;
         };
         _dk_navigationScrollingAnimator.tintColorBlock = ^UIColor * _Nonnull(QMUINavigationBarScrollingAnimator * _Nonnull animator, float progress) {
-            return self.isScrollingAnimator?[UIColor qmui_colorFromColor:self.dk_navigationBarOriginalTintColor toColor:self.dk_navigationBarTintColor progress:progress]:self.dk_navigationBarTintColor;
+            return self.isScrollingAnimator?[UIColor qmui_colorFromColor:self.dk_navigationBarOriginalTintColor toColor:self.dk_navigationBarTintColor progress:(self.isDK_AnimatorReverse?(1-progress):progress)]:self.dk_navigationBarTintColor;
         };
         _dk_navigationScrollingAnimator.titleViewTintColorBlock = ^UIColor * _Nonnull(QMUINavigationBarScrollingAnimator * _Nonnull animator, float progress) {
-            return self.isScrollingAnimator?[UIColor qmui_colorFromColor:self.dk_titleViewOriginalTintColor toColor:self.dk_titleViewTintColor progress:progress]:self.dk_titleViewTintColor;
+            return self.isScrollingAnimator?[UIColor qmui_colorFromColor:self.dk_titleViewOriginalTintColor toColor:self.dk_titleViewTintColor progress:(self.isDK_AnimatorReverse?(1-progress):progress)]:self.dk_titleViewTintColor;
         };
         _dk_navigationScrollingAnimator.statusbarStyleBlock = ^UIStatusBarStyle(QMUINavigationBarScrollingAnimator * _Nonnull animator, float progress) {
-            return self.isScrollingAnimator?(progress<=self.dk_scrollingProgress?UIStatusBarStyleDefault:UIStatusBarStyleLightContent):UIStatusBarStyleDefault;
+            return self.isScrollingAnimator?((self.isDK_AnimatorReverse?progress>=self.dk_scrollingProgress:progress<=self.dk_scrollingProgress)?UIStatusBarStyleDefault:UIStatusBarStyleLightContent):UIStatusBarStyleDefault;
         };
     }
     return _dk_navigationScrollingAnimator;
@@ -213,13 +236,14 @@
 - (QMUINavigationBarScrollingSnapAnimator *)dk_navigationScrollingSnapAnimator {
     if (!_dk_navigationScrollingSnapAnimator) {
         _dk_navigationScrollingSnapAnimator = [[QMUINavigationBarScrollingSnapAnimator alloc] init];
-        _dk_navigationScrollingSnapAnimator.scrollView = self.tableView;
+//        _dk_navigationScrollingSnapAnimator.scrollView = self.tableView;
+//        _dk_navigationScrollingSnapAnimator.offsetYToStartAnimation = 44;// 设置滚动的起点，默认是 0，也即 scrollView 在默认位置稍微往下滚则开始做动画，44 则表示在默认位置再往下滚动44之后才触发动画
         _dk_navigationScrollingSnapAnimator.animationBlock = ^(QMUINavigationBarScrollingSnapAnimator * _Nonnull animator, BOOL offsetYReached) {
             if (self.dk_scrollingSnapAnimationBlock) {
                 self.dk_scrollingSnapAnimationBlock(animator, offsetYReached);
             }
             if (self.isScrollingSnapAnimator) {
-                [self.navigationController setNavigationBarHidden:offsetYReached animated:YES];
+                [self.navigationController setNavigationBarHidden:self.isDK_AnimatorReverse?!offsetYReached:offsetYReached animated:YES];
             }
         };
     }
@@ -250,6 +274,7 @@
     return self.recognizerEnable;
 }
 
+// 建议配合 QMUINavigationControllerAppearanceDelegate 控制不同界面切换时的 navigationBar 样式，否则需自己在 viewWillAppear:、viewWillDisappear: 里控制
 #pragma mark - QMUINavigationControllerDelegate
 - (UIImage *)navigationBarBackgroundImage {
     if (self.dk_navigationBarBackgroundImage) {

@@ -27,12 +27,27 @@
 - (void)initTableView {
     [super initTableView];
     /// 修改 tableView 的 inset 因为不是从导航栏下放开始算的  所以顶部不用留距离 但是底部需要重新算上距离
-    self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    if (@available(iOS 11, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     if ([self.dk_delegate respondsToSelector:@selector(preferredCategoryViewContentInset)]) {
         self.tableView.contentInset = [self.dk_delegate preferredCategoryViewContentInset];
     } else {
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, dk_NavBarAndStatusBarHeight + dk_BottomSafeHeight, 0);
     }
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    [self.tableView qmui_scrollToTopUponContentInsetTopChange];
+}
+
+/// 不要在 viewDidLayoutSubviews 中修改 tableView 的 ContentInset
+- (BOOL)isLayoutTableViewContentInset {
+    return NO;
 }
 
 #pragma mark - JXCategoryListContentViewDelegate

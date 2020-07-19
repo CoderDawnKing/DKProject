@@ -60,6 +60,11 @@
     return NO;
 }
 
+/// 不要在 viewDidLayoutSubviews 中修改 tableView 的 ContentInset
+- (BOOL)isLayoutTableViewContentInset {
+    return NO;
+}
+
 - (JXCategoryBaseView *)preferredCategoryView {
     return [[JXCategoryBaseView alloc] init];
 }
@@ -73,8 +78,9 @@
 }
 
 /// 子类中不用实现该方法
+/// 如果实现了自动隐藏导航栏,则底部需要再减去导航栏高度
 - (UIEdgeInsets)preferredCategoryViewContentInset {
-    return UIEdgeInsetsMake(0, 0, [self preferredCategoryViewHeight] + [self preferredCategoryViewTop] + dk_BottomSafeHeight, 0);
+    return UIEdgeInsetsMake(0, 0, [self preferredCategoryViewHeight] + [self preferredCategoryViewTop] + dk_BottomSafeHeight - (self.isScrollingSnapAnimator?dk_NavBarHeight:0), 0);
 }
 
 - (JXCategoryBaseView *)categoryView {

@@ -18,6 +18,7 @@
 - (void)didInitialize {
     [super didInitialize];
     self.scrollingSnapAnimator = YES;
+//    self.dk_animatorReverse = YES;
 }
 
 - (void)viewDidLoad {

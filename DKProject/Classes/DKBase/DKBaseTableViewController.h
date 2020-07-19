@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol DKBaseTableViewControllerDelegate <NSObject>
 
+/// 是否实现 TableView 的 ContentInset 适配
+- (BOOL)isLayoutTableViewContentInset;
 /// 拦截返回方法 包括手势返回和按钮返回
 - (BOOL)dk_popViewController;
 
@@ -41,9 +43,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 默认导航栏
 @property (nonatomic, strong, nullable) DKBaseNavigationController *dk_Navi;
-/// 动画修改导航栏外观类
+/// 实现通过界面上的 UIScrollView 滚动来控制顶部导航栏外观的类，导航栏外观会跟随滚动距离的变化而变化。
 @property(nonatomic, strong, nonnull) QMUINavigationBarScrollingAnimator *dk_navigationScrollingAnimator;
-/// 动画修改导航栏外观类
+/// 实现通过界面上的 UIScrollView 滚动来控制顶部导航栏外观的类，当滚动到某个位置时，即触发导航栏外观的变化。
 @property(nonatomic, strong, nonnull) QMUINavigationBarScrollingSnapAnimator *dk_navigationScrollingSnapAnimator;
 /// 返回手势
 @property (nonatomic, assign, getter=isRecognizerEnable) BOOL recognizerEnable;
@@ -71,12 +73,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, getter=isHiddenNavigationBar) BOOL hiddenNavigationBar;
 /// 是否优化导航栏在转场时样式 默认该参数无效 需要使用该参数,请在 Build Setting 添加 DK_CustomNavBarTransition 预编译指令
 @property (nonatomic, assign, getter=isCustomNavBarTransition) BOOL customNavBarTransition;
-/// 是否通过界面上的 UIScrollView 滚动来控制顶部导航栏外观 默认 NO
+/// 是否通过界面上的 UIScrollView 滚动来控制顶部导航栏外观 默认 NO 如果子类定义了animationBlock 或者定义了其他 block 则失效
 @property (nonatomic, assign, getter=isScrollingAnimator) BOOL scrollingAnimator;
-/// 是否通过界面上的 UIScrollView 滚动来控制顶部导航栏隐藏 默认 NO
+/// 是否通过界面上的 UIScrollView 滚动来控制顶部导航栏隐藏 默认 NO 如果子类定义了animationBlock 则失效
 @property (nonatomic, assign, getter=isScrollingSnapAnimator) BOOL scrollingSnapAnimator;
 /// 滚动到多少改变状态栏
 @property (nonatomic, assign) CGFloat dk_scrollingProgress;
+/// 导航栏动画效果 默认 NO . 设置 YES  则动画效果相反
+@property (nonatomic, assign, getter=isDK_AnimatorReverse) BOOL dk_animatorReverse;
 /**
 dk_navigationScrollingSnapAnimator 当滚动到触发位置时，可在 block 里执行其他动画 不包含导航的的隐藏动画
 也可以直接实现 dk_navigationScrollingSnapAnimator.animationBlock 重写动画

@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat blue;
 @property (nonatomic, assign) CGFloat alpha;
 
+- (BOOL)isEqualToColor:(UIColor *)color;
+
 @end
 
 NS_ASSUME_NONNULL_END

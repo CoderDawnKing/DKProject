@@ -268,41 +268,49 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectControl:(UIControl *)control {
-    switch (tabBarController.selectedIndex) {
-        case 0:
-        {
-            
-        }
-            break;
-        case 1:
-        {
-            
-        }
-            break;
-        case 3:
-        {
-            
-        }
-            break;
-        default:
-            break;
-    }
+    
 }
 
+
+#pragma mark - StatusBar
+
+- (UIViewController *)childViewControllerForStatusBarHidden {
+    return self.selectedViewController;
+}
+
+- (UIViewController *)childViewControllerForStatusBarStyle {
+    return self.selectedViewController;
+}
+
+#pragma mark - 屏幕旋转
+// 将 QMUITabBarViewController 的旋转代码拷贝到自定义的 TabBarController 实现自动旋转设置
 - (BOOL)shouldAutorotate {
-    return self.selectedViewController.shouldAutorotate;
+    return self.presentedViewController ? [self.presentedViewController shouldAutorotate] : ([self.selectedViewController qmui_hasOverrideUIKitMethod:_cmd] ? [self.selectedViewController shouldAutorotate] : YES);
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAll;
+    
+    // fix UIAlertController:supportedInterfaceOrientations was invoked recursively!
+    // crash in iOS 9 and show log in iOS 10 and later
+    // https://github.com/Tencent/QMUI_iOS/issues/502
+    // https://github.com/Tencent/QMUI_iOS/issues/632
+    UIViewController *visibleViewController = self.presentedViewController;
+    if (!visibleViewController || visibleViewController.isBeingDismissed || [visibleViewController isKindOfClass:UIAlertController.class]) {
+        visibleViewController = self.selectedViewController;
+    }
+    
+    if ([visibleViewController isKindOfClass:NSClassFromString(@"AVFullScreenViewController")]) {
+        return visibleViewController.supportedInterfaceOrientations;
+    }
+    
+    return [visibleViewController qmui_hasOverrideUIKitMethod:_cmd] ? [visibleViewController supportedInterfaceOrientations] : SupportedOrientationMask;
 }
 
--(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
-    return UIInterfaceOrientationPortrait;
+#pragma mark - HomeIndicator
+
+- (UIViewController *)childViewControllerForHomeIndicatorAutoHidden {
+    return self.selectedViewController;
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return NO;
-}
 
 @end

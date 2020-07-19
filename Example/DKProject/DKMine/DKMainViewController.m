@@ -17,8 +17,9 @@
 - (void)didInitialize {
     [super didInitialize];
     // init 时做的事情请写在这里
-//    self.dk_navigationBarBackgroundColor = arc4random()%2?UIColorGray:UIColorRed;
-    self.dk_navigationBarShadowImage = nil;
+    NSArray *array = @[UIColorGray, UIColorRed, UIColorBlue];
+    NSInteger num = arc4random()%3;
+    self.dk_navigationBarBackgroundColor = array[num];
 }
 
 - (void)initSubviews {

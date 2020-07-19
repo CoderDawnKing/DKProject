@@ -27,51 +27,58 @@
 }
 
 - (CGFloat)red {
-    return [self getUIColorToRed:self];
+    CGFloat r = 0;
+    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+        [self getRed:&r green:0 blue:0 alpha:0];
+    } else {
+        const CGFloat *components = CGColorGetComponents(self.CGColor);
+        r = components[0];
+    }
+    //返回保存RGB值的数组
+    return r;
 }
 
 - (CGFloat)green {
-    return [self getUIColorToGreen:self];
+    CGFloat g = 0;
+    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+        [self getRed:0 green:&g blue:0 alpha:0];
+    } else {
+        const CGFloat *components = CGColorGetComponents(self.CGColor);
+        g = components[1];
+    }
+    //返回保存RGB值的数组
+    return g;
 }
 
 - (CGFloat)blue {
-    return [self getUIColorToBlue:self];
+    CGFloat b = 0;
+    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+        [self getRed:0 green:0 blue:&b alpha:0];
+    } else {
+        const CGFloat *components = CGColorGetComponents(self.CGColor);
+        b = components[2];
+    }
+    //返回保存RGB值的数组
+    return b;
 }
 
 - (CGFloat)alpha {
-    return [self getUIColorToAlpha:self];
+    CGFloat a = 0;
+    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+        [self getRed:0 green:0 blue:0 alpha:&a];
+    } else {
+        const CGFloat *components = CGColorGetComponents(self.CGColor);
+        a = components[3];
+    }
+    //返回保存RGB值的数组
+    return a;
 }
 
-- (CGFloat)getUIColorToRed:(UIColor *)color {
-    return [[[self getUIColorToRGB:color] valueForKey:@"red"] floatValue];
-}
-- (CGFloat)getUIColorToGreen:(UIColor *)color {
-    return [[[self getUIColorToRGB:color] valueForKey:@"green"] floatValue];
-}
-- (CGFloat)getUIColorToBlue:(UIColor *)color {
-    return [[[self getUIColorToRGB:color] valueForKey:@"blue"] floatValue];
-}
-- (CGFloat)getUIColorToAlpha:(UIColor *)color {
-    return [[[self getUIColorToRGB:color] valueForKey:@"alpha"] floatValue];
-}
-//将UIColor转换为RGB值
-- (NSDictionary *)getUIColorToRGB:(UIColor *)color
-{
-    CGFloat red = 0.0;
-    CGFloat green = 0.0;
-    CGFloat blue = 0.0;
-    CGFloat alpha = 0.0;
-    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
-        [color getRed:&red green:&green blue:&blue alpha:&alpha];
-    } else {
-        const CGFloat *components = CGColorGetComponents(color.CGColor);
-        red = components[0];
-        green = components[1];
-        blue = components[2];
-        alpha = components[3];
+- (BOOL)isEqualToColor:(UIColor *)color {
+    if (self.red == color.red && self.green == color.green && self.blue == color.blue && self.alpha == color.alpha) {
+        return YES;
     }
-    [color getRed:&red green:&green blue:&blue alpha:&alpha];
-    //返回保存RGB值的数组
-    return @{@"red":@(red), @"green":@(green), @"blue":@(blue), @"alpha":@(alpha)};
+    return NO;
 }
+
 @end

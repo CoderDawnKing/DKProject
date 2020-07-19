@@ -111,6 +111,7 @@
     
     // TODO: 后期改成 QMUITabBarViewController, 并且自定义 DKBaseTabBarController
     // 使用 CYLTabBarController 自动旋转设置失效 并且当首页滑动到底部,push 界面, pop 返回后, 有个向下回弹的 bug
+    // 将 QMUITabBarViewController 的旋转代码拷贝到自定义的 TabBarController 实现自动旋转设置
     [DKMainTabPlusButton registerPlusButton];
     DKMainTabBarViewController *control = [[DKMainTabBarViewController alloc] initWithContext:@""];
     self.window.rootViewController = control;
