@@ -19,6 +19,9 @@
 @property(nonatomic, strong) CALayer *separatorLayer;
 @property(nonatomic, strong) CAShapeLayer *imageButtonSeparatorLayer;
 @property(nonatomic, strong) CAShapeLayer *imageButtonSeparatorLayer2;
+@property(nonatomic, strong) DKCustomButton *loadingButton;
+@property(nonatomic, strong) CAShapeLayer *imageButtonSeparatorLayer3;
+@property(nonatomic, strong) DKCustomButton *verificationCodeButton;
 
 @end
 
@@ -86,6 +89,28 @@
     [self.view.layer addSublayer:self.imageButtonSeparatorLayer];
     self.imageButtonSeparatorLayer2 = [CAShapeLayer qmui_separatorDashLayerWithLineLength:3 lineSpacing:2 lineWidth:PixelOne lineColor:UIColorSeparator.CGColor isHorizontal:NO];
     [self.view.layer addSublayer:self.imageButtonSeparatorLayer2];
+    
+    self.loadingButton = [[DKCustomButton alloc] qmui_initWithSize:CGSizeMake(200, 40)];
+    self.loadingButton.adjustsButtonWhenHighlighted = YES;
+    self.loadingButton.titleLabel.font = UIFontBoldMake(14);
+    [self.loadingButton setTitleColor:UIColorWhite forState:UIControlStateNormal];
+    self.loadingButton.backgroundColor = UIColor.dk_tintColor;
+    self.loadingButton.highlightedBackgroundColor = [UIColor.dk_tintColor qmui_transitionToColor:UIColorBlack progress:.15];// 高亮时的背景色
+    self.loadingButton.layer.cornerRadius = 4;
+    self.loadingButton.backgroundColor = UIColor.dk_tintColor;
+    [self.loadingButton setTitle:NSLocalizedString(@"QMUIButton_Normal_Button_Title", @"按钮，支持高亮背景色") forState:UIControlStateNormal];
+    self.loadingButton.loadingText = @"loading";
+    @weakify(self);
+    [self.loadingButton addEventType:DKCustomButtonEventTypeLoading clickBlock:^(DKCustomButton * _Nonnull sender) {
+        @strongify(self);
+        [self.loadingButton startLoadingAnimation];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.loadingButton endAnimation];
+        });
+    }];
+    [self.view addSubview:self.loadingButton];
+    self.imageButtonSeparatorLayer3 = [CAShapeLayer qmui_separatorDashLayerWithLineLength:3 lineSpacing:2 lineWidth:PixelOne lineColor:UIColorSeparator.CGColor isHorizontal:NO];
+    [self.view.layer addSublayer:self.imageButtonSeparatorLayer3];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -108,6 +133,10 @@
     
     self.imageButtonSeparatorLayer.frame = CGRectFlatMake(CGRectGetMaxX(self.imagePositionButton1.frame), CGRectGetMinY(self.imagePositionButton1.frame), PixelOne, buttonSpacingHeight);
     self.imageButtonSeparatorLayer2.frame = CGRectFlatMake(CGRectGetMaxX(self.imagePositionButton3.frame), CGRectGetMinY(self.imagePositionButton3.frame), PixelOne, buttonSpacingHeight);
+    
+    self.loadingButton.frame = CGRectFlatMake(dk_leftMargin, contentMinY + buttonSpacingHeight * 4 + CGFloatGetCenter(buttonSpacingHeight, CGRectGetHeight(self.loadingButton.frame)), CGRectGetWidth(self.view.bounds) - dk_leftMargin - dk_rightMargin, 40);
+    
+    self.imageButtonSeparatorLayer2.frame = CGRectFlatMake(CGRectGetMaxX(self.loadingButton.frame), CGRectGetMinY(self.loadingButton.frame), PixelOne, buttonSpacingHeight);
 }
 
 @end

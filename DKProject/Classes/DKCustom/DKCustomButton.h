@@ -6,14 +6,15 @@
 //  Copyright © 2019 wisezone. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <QMUIKit/QMUIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
-    DKCustomButtonTypeDefault,
-    DKCustomButtonTypeRightImage,
-    DKCustomButtonTypeTopImage,
+    DKCustomButtonTypeImageLeft,
+    DKCustomButtonTypeImageRight,
+    DKCustomButtonTypeImageTop,
+    DKCustomButtonTypeImageBottom,
 } DKCustomButtonType;
 
 typedef enum : NSUInteger {
@@ -24,7 +25,7 @@ typedef enum : NSUInteger {
     DKCustomButtonEventTypeLoading,
 } DKCustomButtonEventType;
 
-@interface DKCustomButton : UIButton
+@interface DKCustomButton : QMUIButton
 
 typedef void(^DKCustomButtonClickBlock)(DKCustomButton *sender);
 

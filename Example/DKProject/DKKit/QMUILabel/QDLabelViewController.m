@@ -13,6 +13,7 @@
 @property(nonatomic, strong) QMUILabel *label1;
 @property(nonatomic, strong) QMUILabel *label2;
 @property(nonatomic, strong) QMUILabel *label3;
+@property(nonatomic, strong) DKCustonLabel *label4;
 
 @property(nonatomic, strong) CALayer *separatorLayer1;
 @property(nonatomic, strong) CALayer *separatorLayer2;
@@ -55,6 +56,15 @@
     [self.label3 sizeToFit];
     [self.view addSubview:self.label3];
     
+    // TODO: dk_verticalAlignment和左右内边距适配还有显示不全的问题,无法同时使用 后面修改
+    _label4 = [[DKCustonLabel alloc] init];
+    self.label4.text = @"复制上面第三个label的样式复制上面第三个label的样式";
+    self.label4.dk_verticalAlignment = DKCustonLabelVerticalAlignmentBottom;
+    [self.label4 qmui_setTheSameAppearanceAsLabel:self.label3];
+//    self.label4.contentEdgeInsets = UIEdgeInsetsMake(8, 0, 8, 0);
+    [self.label4 sizeToFit];
+    [self.view addSubview:self.label4];
+    
     self.separatorLayer1 = [DKCommonUI generateSeparatorLayer];
     [self.view.layer addSublayer:self.separatorLayer1];
     
@@ -82,6 +92,8 @@
     self.label3.frame = CGRectSetXY(self.label3.frame, CGFloatGetCenter(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.label3.bounds)), CGRectGetMaxY(self.separatorLayer2.frame) + CGFloatGetCenter(buttonSpacingHeight, CGRectGetHeight(self.label3.bounds)));
     
     self.separatorLayer3.frame = CGRectMake(0, contentMinY + buttonSpacingHeight * 3, CGRectGetWidth(self.view.bounds), PixelOne);
+    
+    self.label4.frame = CGRectSetXY(self.label4.frame, CGFloatGetCenter(CGRectGetWidth(self.view.bounds), CGRectGetWidth(self.label4.bounds)), CGRectGetMaxY(self.separatorLayer3.frame) + CGFloatGetCenter(buttonSpacingHeight, CGRectGetHeight(self.label4.bounds)));
 }
 
 @end

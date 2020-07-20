@@ -6,7 +6,7 @@
 //  Copyright © 2019 wisezone. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <QMUIKit/QMUIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,11 +16,9 @@ typedef enum : NSUInteger {
     DKCustonLabelVerticalAlignmentBottom,
 } DKCustonLabelVerticalAlignmentType;
 
-@interface DKCustonLabel : UILabel
+@interface DKCustonLabel : QMUILabel
 
 @property (nonatomic, assign) DKCustonLabelVerticalAlignmentType dk_verticalAlignment;
-@property (nonatomic, assign, getter=isCanCopy) BOOL canCopy;
-
 
 @end
 

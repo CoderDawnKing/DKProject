@@ -41,26 +41,31 @@ static const CGFloat loadingLineWidth = 2;
 }
 
 - (instancetype)initWithType:(DKCustomButtonType)type title:(nullable NSString *)title image:(nullable UIImage *)image color:(nullable UIColor *)color font:(nullable UIFont *)font margin:(CGFloat)margin {
-    _margin = margin;
+    self.spacingBetweenImageAndTitle = margin;
     _type = type;
+    switch (_type) {
+        case DKCustomButtonTypeImageLeft:
+            self.imagePosition = QMUIButtonImagePositionLeft;
+            break;
+        case DKCustomButtonTypeImageRight:
+            self.imagePosition = QMUIButtonImagePositionRight;
+            break;
+        case DKCustomButtonTypeImageTop:
+            self.imagePosition = QMUIButtonImagePositionTop;
+            break;
+        case DKCustomButtonTypeImageBottom:
+            self.imagePosition = QMUIButtonImagePositionBottom;
+            break;
+            
+            
+        default:
+            break;
+    }
     return [self initWithTitle:title image:image color:color font:font];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    if (_type == DKCustomButtonTypeRightImage) {
-        self.titleLabel.x = 0;
-        self.imageView.x = self.width - self.imageView.width + self.margin;
-    }
-    if (_type == DKCustomButtonTypeTopImage) {
-        self.imageView.y = self.imageTop;
-        self.imageView.centerX = self.width/2;
-        self.titleLabel.y = self.imageView.height + self.imageView.y;
-        self.titleLabel.width = self.width;
-        self.titleLabel.centerX = self.width/2;
-        self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    }
     self.baseLayer.position = CGPointMake(self.titleLabel.x - 25, self.titleLabel.center.y);
 }
 
@@ -78,7 +83,6 @@ static const CGFloat loadingLineWidth = 2;
         
     }
     if (_eventType == DKCustomButtonEventTypeLoading) {
-        self.normalText = [self titleForState:UIControlStateNormal];
     }
 }
 
@@ -109,6 +113,7 @@ static const CGFloat loadingLineWidth = 2;
 - (void)startLoadingAnimation {
     self.userInteractionEnabled = NO;
     if (self.loadingText) {
+        self.normalText = [self titleForState:UIControlStateNormal];
         [self setTitle:self.loadingText forState:UIControlStateNormal];
     }
     

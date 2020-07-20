@@ -368,9 +368,9 @@
    contentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment
                    isAutoSize:(BOOL)isAutoSize
                  isRightImage:(BOOL)isRightImage {
-    DKCustomButtonType type = DKCustomButtonTypeDefault;
+    DKCustomButtonType type = DKCustomButtonTypeImageLeft;
     if (isRightImage) {
-        type = DKCustomButtonTypeRightImage;
+        type = DKCustomButtonTypeImageRight;
     }
     DKCustomButton *button = [[DKCustomButton alloc] initWithType:type];
 //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];

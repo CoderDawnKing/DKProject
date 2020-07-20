@@ -52,46 +52,5 @@
     [super drawTextInRect:actualRect];
 }
 
-- (void)setCanCopy:(BOOL)canCopy {
-    _canCopy = canCopy;
-    if (_canCopy) {
-        self.userInteractionEnabled = YES;
-        [self addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressCellHandle:)]];
-    }
-}
-
--(void)longPressCellHandle:(UILongPressGestureRecognizer *)gesture {
-    if (gesture.state == UIGestureRecognizerStateBegan){
-        [self becomeFirstResponder];
-        UIMenuItem *copyItem = [[UIMenuItem alloc]initWithTitle:@"复制" action:@selector(menuCopyBtnPressed:)];
-        UIMenuController *menuController = [UIMenuController sharedMenuController];
-        [menuController setMenuItems:[NSArray arrayWithObjects:copyItem, nil]];
-        [menuController setTargetRect:self.frame inView:self.superview];
-        [menuController setMenuVisible:YES animated:YES];
-    }
-}
-
-
--(void)menuCopyBtnPressed:(UIMenuItem *)menuItem {
-    [UIPasteboard generalPasteboard].string = self.text;
-}
-
-
--(BOOL)canBecomeFirstResponder {
-    UIWindow *window = [[UIApplication sharedApplication].delegate window];
-    if ([window isKeyWindow] == NO) {
-        [window becomeKeyWindow];
-        [window makeKeyAndVisible];
-    }
-    return YES;
-}
-
-
--(BOOL)canPerformAction:(SEL)action withSender:(id)sender {
-    if (action == @selector(menuCopyBtnPressed:)) {
-        return YES;
-    }
-    return NO;
-}
 
 @end
