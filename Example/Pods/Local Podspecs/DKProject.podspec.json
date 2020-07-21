@@ -38,9 +38,6 @@
     "OTHER_LDFLAGS": "-lObjC"
   },
   "dependencies": {
-    "HexColors": [
-      "~>4.0.0"
-    ],
     "MJRefresh": [
       "~>3.4.3"
     ],

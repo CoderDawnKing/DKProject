@@ -24,14 +24,13 @@
     self.scrollingSnapAnimator = YES;
     self.dk_navigationScrollingAnimator.offsetYToStartAnimation = 30;// 设置滚动的起点，值即表示在默认停靠的位置往下滚动多少距离后即触发动画，默认是 0
     self.dk_navigationScrollingAnimator.distanceToStopAnimation = 64;// 设置从起点开始滚动多长的距离达到终点
-    self.dk_navigationBarBackgroundImage = [UIImage imageWithColor:UIColorBlue];
+    self.dk_navigationBarBackgroundImage = [UIImage imageWithColor:[UIColorRed qmui_colorWithAlphaAddedToWhite:0.5]];
     self.dk_navigationBarShadowImage = NavBarShadowImage;
     self.dk_navigationBarOriginalTintColor = UIColorBlack;
     self.dk_titleViewOriginalTintColor = UIColorBlack;
     self.dk_scrollingProgress = 0.25;
     self.dk_navigationScrollingSnapAnimator.offsetYToStartAnimation = 100;
     
-    self.dk_navigationBarBackgroundImage = [UIImage imageWithColor:UIColorRed];
     @weakify(self);
     self.dk_scrollingSnapAnimationBlock = ^(QMUINavigationBarScrollingSnapAnimator * _Nonnull animator, BOOL offsetYReached) {
         @strongify(self);

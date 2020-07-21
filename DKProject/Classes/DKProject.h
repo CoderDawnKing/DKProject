@@ -86,7 +86,6 @@
 
 // Library
 #import <AFNetworking/AFNetworking.h>
-#import <HexColors/HexColors.h>
 #import <Masonry/Masonry.h>
 #import <MJExtension/MJExtension.h>
 #import <MJRefresh/MJRefresh.h>

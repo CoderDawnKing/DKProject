@@ -17,7 +17,7 @@
 - (void)didInitialize {
     [super didInitialize];
     // init 时做的事情请写在这里
-    NSArray *array = @[UIColorGray, UIColorRed, UIColorBlue];
+    NSArray *array = @[UIColorGray, [dk_HexColor(DK_COLOR_RED) colorWithAlphaComponent:0.5], UIColorBlue];
     NSInteger num = arc4random()%3;
     self.dk_navigationBarBackgroundColor = array[num];
 }
@@ -30,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 对 self.view 的操作写在这里
+    self.view.backgroundColor = UIColorWhite;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

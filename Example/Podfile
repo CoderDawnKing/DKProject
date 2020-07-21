@@ -16,3 +16,16 @@ target 'DKProject_Example' do
     
   end
 end
+
+# 通过 hook 机制给 DKProject 插入全局宏
+post_install do |installer_representation|
+    installer_representation.pods_project.targets.each do |target|
+        puts "===================>target name #{target.name}"
+        if target.name == 'DKProject'
+            target.build_configurations.each do |config|
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DK_CustomNavBarTransition=1']
+                puts "===================>target build configure #{config.build_settings}"
+            end
+        end
+    end
+end

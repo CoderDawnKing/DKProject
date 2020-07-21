@@ -6,15 +6,14 @@
 //  Copyright © 2019 wisezone. All rights reserved.
 //
 
-#import <HexColors/HexColors.h>
+#import <QMUIKit/QMUIKit.h>
 #import "DKConfigure.h"
 
 #define dk_RGBColor(R,G,B) [UIColor colorWithRed:R green:G blue:B alpha:1]
 #define dk_RGBColorWithAlpha(R,G,B,A) [UIColor colorWithRed:R green:G blue:B alpha:A]
 #define dk_ClearColor [UIColor clearColor]
-#define dk_HexColor(hexValue) [UIColor hx_colorWithHexRGBAString:hexValue]
-#define dk_HexColorWithAlpha(hexValue, alphaValue) [UIColor hx_colorWithHexRGBAString:hexValue alpha:alphaValue]
-
+#define dk_HexColor(hexValue) [UIColor qmui_colorWithHexString:hexValue]
+#define dk_HexColorWithAlpha(hexValue, alphaValue) [dk_HexColor(hexValue) colorWithAlphaComponent:alphaValue]
 ///App 主色
 #define DK_COLOR_APPMAIN DKCONFIG.dkc_color_main
 ///线条颜色

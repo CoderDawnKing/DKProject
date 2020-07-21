@@ -595,6 +595,24 @@
 			path = QMUILabel;
 			sourceTree = "<group>";
 		};
+		215B8EE724C73598008A5DA0 /* QMUIToastView */ = {
+			isa = PBXGroup;
+			children = (
+				2100E7FE24C1F85E005C52C8 /* QDToastListViewController.h */,
+				2100E81D24C1F860005C52C8 /* QDToastListViewController.m */,
+			);
+			path = QMUIToastView;
+			sourceTree = "<group>";
+		};
+		215B8EE824C736FB008A5DA0 /* QMUIEmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				2100E83D24C1F862005C52C8 /* QDEmptyViewController.h */,
+				2100E80224C1F85E005C52C8 /* QDEmptyViewController.m */,
+			);
+			path = QMUIEmptyView;
+			sourceTree = "<group>";
+		};
 		21A0521A24C0C15000A91939 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,6 +669,8 @@
 			children = (
 				2100E84224C1F862005C52C8 /* QDComponentsViewController.h */,
 				2100E82124C1F860005C52C8 /* QDComponentsViewController.m */,
+				215B8EE824C736FB008A5DA0 /* QMUIEmptyView */,
+				215B8EE724C73598008A5DA0 /* QMUIToastView */,
 				215B8EBD24C3063E008A5DA0 /* QMUIStaticTableView */,
 				215B8EBE24C30728008A5DA0 /* QMUICellKeyCache */,
 				215B8EBF24C30748008A5DA0 /* QMUIScrollAnimator */,
@@ -782,8 +802,6 @@
 				2100E81624C1F85F005C52C8 /* QDDynamicHeightTableViewCell.m */,
 				2100E84124C1F862005C52C8 /* QDEmotionsViewController.h */,
 				2100E84424C1F862005C52C8 /* QDEmotionsViewController.m */,
-				2100E83D24C1F862005C52C8 /* QDEmptyViewController.h */,
-				2100E80224C1F85E005C52C8 /* QDEmptyViewController.m */,
 				2100E81724C1F85F005C52C8 /* QDFloatLayoutViewController.h */,
 				2100E80C24C1F85F005C52C8 /* QDFloatLayoutViewController.m */,
 				2100E82F24C1F861005C52C8 /* QDGridViewController.h */,
@@ -822,10 +840,8 @@
 				2100E84824C1F862005C52C8 /* QDSingleImagePickerPreviewViewController.m */,
 				2100E81B24C1F860005C52C8 /* QDThemeExampleView.h */,
 				2100E81C24C1F860005C52C8 /* QDThemeExampleView.m */,
-				2100E84C24C1F863005C52C8 /* QDThemeViewController.h */,
 				2100E84E24C1F863005C52C8 /* QDThemeViewController.m */,
-				2100E7FE24C1F85E005C52C8 /* QDToastListViewController.h */,
-				2100E81D24C1F860005C52C8 /* QDToastListViewController.m */,
+				2100E84C24C1F863005C52C8 /* QDThemeViewController.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1061,7 +1077,6 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/CYLTabBarController/CYLTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/DKProject/DKProject.framework",
-				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/JXCategoryView/JXCategoryView.framework",
 				"${PODS_ROOT}/LookinServer/LookinServer.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
@@ -1076,7 +1091,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CYLTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKProject.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXCategoryView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LookinServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
