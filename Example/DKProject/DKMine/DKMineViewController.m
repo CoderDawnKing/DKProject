@@ -10,6 +10,7 @@
 #import "QDAboutViewController.h"
 #import "DKMainCategoryViewController.h"
 #import "DKMainViewController.h"
+#import "DKMainTableViewController.h"
 
 @interface DKMineViewController ()
 
@@ -21,6 +22,7 @@
     self.dataSource = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
                        @"DKBaseCategoryViewController", UIImageMake(@"icon_mine_category"),
                        @"DKBaseViewController", UIImageMake(@"icon_mine_category"),
+                       @"DKBaseTableViewController", UIImageMake(@"icon_mine_category"),
                        nil];
 }
 
@@ -38,6 +40,8 @@
         ((DKMainCategoryViewController *)viewController).defaultSelectedIndex = 0;
     } else if ([title isEqualToString:@"DKBaseViewController"]) {
         viewController = [[DKMainViewController alloc] init];
+    } else if ([title isEqualToString:@"DKBaseTableViewController"]) {
+           viewController = [[DKMainTableViewController alloc] init];
     }
     viewController.title = title;
     [self.navigationController pushViewController:viewController animated:YES];

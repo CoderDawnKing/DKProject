@@ -41,6 +41,7 @@ static const CGFloat loadingLineWidth = 2;
 }
 
 - (instancetype)initWithType:(DKCustomButtonType)type title:(nullable NSString *)title image:(nullable UIImage *)image color:(nullable UIColor *)color font:(nullable UIFont *)font margin:(CGFloat)margin {
+    self = [self initWithTitle:title image:image color:color font:font];
     self.spacingBetweenImageAndTitle = margin;
     _type = type;
     switch (_type) {
@@ -61,7 +62,7 @@ static const CGFloat loadingLineWidth = 2;
         default:
             break;
     }
-    return [self initWithTitle:title image:image color:color font:font];
+    return self;
 }
 
 - (void)layoutSubviews {

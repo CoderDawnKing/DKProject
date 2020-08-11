@@ -1,6 +1,6 @@
 {
   "name": "DKProject",
-  "version": "0.3.0-beta.2",
+  "version": "0.3.0",
   "summary": "一个小框架",
   "description": "一个小框架,包含基类、分类、自定义控件、工具类以及一些第三方库的集成使用等等。",
   "homepage": "https://github.com/CoderDawnKing/DKProject",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/CoderDawnKing/DKProject.git",
-    "tag": "0.3.0-beta.2"
+    "tag": "0.3.0"
   },
   "platforms": {
     "ios": "9.0"
@@ -54,7 +54,7 @@
       "~>2.2.5"
     ],
     "JXCategoryView": [
-      "~>1.5.5"
+      "~>1.5.6"
     ],
     "QMUIKit": [
       "~>4.1.3"

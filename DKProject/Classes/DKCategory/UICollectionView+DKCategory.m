@@ -7,7 +7,6 @@
 //
 
 #import "UICollectionView+DKCategory.h"
-#import <DKProject/DKBaseEmptyView.h>
 #import <objc/runtime.h>
 #import <MJRefresh/MJRefresh.h>
 #import "UIScrollView+DKCategory.h"
@@ -103,15 +102,6 @@ static const char *autoShowEmptyKey = "autoShowEmpty";
     return [objc_getAssociatedObject(self, autoShowEmptyKey) boolValue];
 }
 
-static const char *emptyDatasKey = "emptyDatas";
-- (void)setEmptyDatas:(BOOL)emptyDatas {
-    objc_setAssociatedObject(self, emptyDatasKey, @(emptyDatas), OBJC_ASSOCIATION_ASSIGN);
-}
-
-- (BOOL)isEmptyDatas{
-    return [objc_getAssociatedObject(self, emptyDatasKey) boolValue];
-}
-
 static const char *endHeaderRefreshingKey = "endHeaderRefreshing";
 - (void)setEndHeaderRefreshing:(BOOL)endHeaderRefreshing {
     objc_setAssociatedObject(self, endHeaderRefreshingKey, @(endHeaderRefreshing), OBJC_ASSOCIATION_ASSIGN);
@@ -120,18 +110,6 @@ static const char *endHeaderRefreshingKey = "endHeaderRefreshing";
 - (BOOL)isEndHeaderRefreshing {
     return [objc_getAssociatedObject(self, endHeaderRefreshingKey) boolValue];
 }
-
-static NSString *dk_EmptyView = @"emptyView";
-#pragma mark - Getter & Setter
-- (DKBaseEmptyView *)dk_emptyView {
-    return objc_getAssociatedObject(self, &dk_EmptyView);
-}
-
-- (void)setDk_emptyView:(DKBaseEmptyView *)dk_emptyView {
-    dk_emptyView.tag = 1999;
-    objc_setAssociatedObject(self, &dk_EmptyView, dk_emptyView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
 /**
  数据不满一页的话就自动隐藏下面的“上拉加载更多”或是"没有更多数据" 。
  */
@@ -156,18 +134,11 @@ static NSString *dk_EmptyView = @"emptyView";
 }
 
 - (void)setShowEmptyView {
-    if (!self.dk_emptyView) return;
     if (!self.isEndHeaderRefreshing && self.isAutoShowEmpty) return;
-    UIView *view = [self viewWithTag:999];
-    [view removeFromSuperview];
-    
-    if ((self.isAutoShowEmpty && [self emptyData_itemCount] == 0) || (!self.isAutoShowEmpty && self.isEmptyDatas)) {
-        self.dk_emptyView.hidden = NO;
-        [self insertSubview:self.dk_emptyView atIndex:0];
-        self.dk_emptyView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
-    }else {
-        self.dk_emptyView.hidden = YES;
-        [self.dk_emptyView removeFromSuperview];
+    if (self.isAutoShowEmpty && [self emptyData_itemCount] == 0) {
+        // 显示空视图
+    } else {
+        // 隐藏空视图
     }
 }
 

@@ -67,7 +67,7 @@
     
     self.imagePositionButton3 = [[QMUIButton alloc] init];
     self.imagePositionButton3.tintColorAdjustsTitleAndImage = UIColor.dk_tintColor;
-    self.imagePositionButton3.imagePosition = QMUIButtonImagePositionLeft;// 将图片位置改为在文字上方
+    self.imagePositionButton3.imagePosition = QMUIButtonImagePositionLeft;// 将图片位置改为在文字左方
     self.imagePositionButton3.spacingBetweenImageAndTitle = 8;
     [self.imagePositionButton3 setImage:UIImageMake(@"icon_emotion") forState:UIControlStateNormal];
     [self.imagePositionButton3 setTitle:NSLocalizedString(@"QMUIButton_Image_Position_Button_Title_3", @"Text left image") forState:UIControlStateNormal];
@@ -77,7 +77,7 @@
     
     self.imagePositionButton4 = [[QMUIButton alloc] init];
     self.imagePositionButton4.tintColorAdjustsTitleAndImage = UIColor.dk_tintColor;
-    self.imagePositionButton4.imagePosition = QMUIButtonImagePositionRight;// 将图片位置改为在文字下方
+    self.imagePositionButton4.imagePosition = QMUIButtonImagePositionRight;// 将图片位置改为在文字右方
     self.imagePositionButton4.spacingBetweenImageAndTitle = 8;
     [self.imagePositionButton4 setImage:UIImageMake(@"icon_emotion") forState:UIControlStateNormal];
     [self.imagePositionButton4 setTitle:NSLocalizedString(@"QMUIButton_Image_Position_Button_Title_4", @"Text right image") forState:UIControlStateNormal];

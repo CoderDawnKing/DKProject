@@ -6,12 +6,12 @@
 //  Copyright © 2019 wisezone. All rights reserved.
 //
 
-#import "DKBaseListViewController.h"
+#import "DKBaseTableViewController.h"
 #import "DKBaseCategoryDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DKBaseCategoryListViewController : DKBaseListViewController<JXCategoryListContentViewDelegate>
+@interface DKBaseCategoryListViewController : DKBaseTableViewController<JXCategoryListContentViewDelegate>
 
 /// 推荐使用该初始化方式 不然无法通过代理方法适配 tableView 的 inset
 - (instancetype)initWithDelegate:(id<DKBaseCategoryListDelegate>)delegate;

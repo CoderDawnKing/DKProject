@@ -126,6 +126,7 @@
 		21A0537B24C0D21300A91939 /* QMUIConfigurationTemplatePinkRose.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A0537624C0D21300A91939 /* QMUIConfigurationTemplatePinkRose.m */; };
 		21A0537C24C0D21300A91939 /* QMUIConfigurationTemplateGrass.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A0537724C0D21300A91939 /* QMUIConfigurationTemplateGrass.m */; };
 		21AABE7B24BE252800A3021A /* DKMainListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AABE7A24BE252800A3021A /* DKMainListViewController.m */; };
+		21DBC0F724C9DE57006E6386 /* DKMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DBC0F624C9DE57006E6386 /* DKMainTableViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -385,6 +386,8 @@
 		21A0537724C0D21300A91939 /* QMUIConfigurationTemplateGrass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplateGrass.m; sourceTree = "<group>"; };
 		21AABE7924BE252800A3021A /* DKMainListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKMainListViewController.h; sourceTree = "<group>"; };
 		21AABE7A24BE252800A3021A /* DKMainListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMainListViewController.m; sourceTree = "<group>"; };
+		21DBC0F524C9DE57006E6386 /* DKMainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKMainTableViewController.h; sourceTree = "<group>"; };
+		21DBC0F624C9DE57006E6386 /* DKMainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKMainTableViewController.m; sourceTree = "<group>"; };
 		39DB328F623946BDFC945A2D /* Pods-DKProject_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKProject_Example.debug.xcconfig"; path = "Target Support Files/Pods-DKProject_Example/Pods-DKProject_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4A32643D7D3A8180F68E4DF7 /* Pods-DKProject_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKProject_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DKProject_Tests/Pods-DKProject_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* DKProject_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DKProject_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -457,6 +460,7 @@
 				2100EB3D24C2CB11005C52C8 /* DKMineViewController.m */,
 				215B8EC024C343B2008A5DA0 /* DKMainViewController.h */,
 				215B8EC124C343B2008A5DA0 /* DKMainViewController.m */,
+				21DBC0F424C9DDDD006E6386 /* DKBaseTableViewController */,
 				2100EB4324C2D2E7005C52C8 /* DKBaseCategoryViewController */,
 			);
 			path = DKMine;
@@ -540,14 +544,16 @@
 		215B8EBE24C30728008A5DA0 /* QMUICellKeyCache */ = {
 			isa = PBXGroup;
 			children = (
+				2100E81824C1F85F005C52C8 /* QDCellKeyCacheViewController.h */,
+				2100E84624C1F862005C52C8 /* QDCellKeyCacheViewController.m */,
 				2100E85024C1F863005C52C8 /* QDCellHeightCacheViewController.h */,
 				2100E83324C1F861005C52C8 /* QDCellHeightCacheViewController.m */,
 				2100E82524C1F860005C52C8 /* QDCellHeightKeyCacheViewController.h */,
 				2100E80A24C1F85E005C52C8 /* QDCellHeightKeyCacheViewController.m */,
-				2100E81824C1F85F005C52C8 /* QDCellKeyCacheViewController.h */,
-				2100E84624C1F862005C52C8 /* QDCellKeyCacheViewController.m */,
 				2100E83624C1F861005C52C8 /* QDCellSizeKeyCacheViewController.h */,
 				2100E84924C1F862005C52C8 /* QDCellSizeKeyCacheViewController.m */,
+				2100E82024C1F860005C52C8 /* QDDynamicHeightTableViewCell.h */,
+				2100E81624C1F85F005C52C8 /* QDDynamicHeightTableViewCell.m */,
 			);
 			path = QMUICellKeyCache;
 			sourceTree = "<group>";
@@ -798,8 +804,6 @@
 				2100E80924C1F85E005C52C8 /* QDCustomToastContentView.m */,
 				2100E83024C1F861005C52C8 /* QDDialogViewController.h */,
 				2100E83124C1F861005C52C8 /* QDDialogViewController.m */,
-				2100E82024C1F860005C52C8 /* QDDynamicHeightTableViewCell.h */,
-				2100E81624C1F85F005C52C8 /* QDDynamicHeightTableViewCell.m */,
 				2100E84124C1F862005C52C8 /* QDEmotionsViewController.h */,
 				2100E84424C1F862005C52C8 /* QDEmotionsViewController.m */,
 				2100E81724C1F85F005C52C8 /* QDFloatLayoutViewController.h */,
@@ -844,6 +848,15 @@
 				2100E84C24C1F863005C52C8 /* QDThemeViewController.h */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		21DBC0F424C9DDDD006E6386 /* DKBaseTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				21DBC0F524C9DE57006E6386 /* DKMainTableViewController.h */,
+				21DBC0F624C9DE57006E6386 /* DKMainTableViewController.m */,
+			);
+			path = DKBaseTableViewController;
 			sourceTree = "<group>";
 		};
 		2C8EA950914B99B10C4BB15A /* Pods */ = {
@@ -1264,6 +1277,7 @@
 				21A052A824C0C66B00A91939 /* QDLargeTitlesViewController.m in Sources */,
 				21A052C224C0C66B00A91939 /* QDNavigationBarMaxYViewController.m in Sources */,
 				21A052B824C0C66B00A91939 /* QDLabelViewController.m in Sources */,
+				21DBC0F724C9DE57006E6386 /* DKMainTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

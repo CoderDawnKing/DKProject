@@ -85,7 +85,7 @@
 }
 
 - (NSArray *)addScriptNameArray {
-    return @[];
+    return @[@"logger"];
 }
 
 #pragma - mark setter
@@ -133,7 +133,8 @@
         _webView.allowsBackForwardNavigationGestures = YES;
         //可返回的页面列表, 存储已打开过的网页
 //        WKBackForwardList * backForwardList = [_webView backForwardList];
-        _webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        _webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        
     }
     return _webView;
 }
@@ -144,6 +145,10 @@
         _config = [[WKWebViewConfiguration alloc] init];
         //这个类主要用来做native与JavaScript的交互管理
         WKUserContentController *wkUContent = [[WKUserContentController alloc] init];
+        // 注入 script 将 console.log 转换成 logger 方法
+        WKUserScript *script = [[WKUserScript alloc] initWithSource:@"var console = {};console.log = function(message){window.webkit.messageHandlers['logger'].postMessage(message)};" injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
+        [wkUContent addUserScript:script];
+        [wkUContent addScriptMessageHandler:self.weakScriptMessageDelegate name:@"logger"];
         for (NSString *name in [self addScriptNameArray]) {
             [wkUContent addScriptMessageHandler:self.weakScriptMessageDelegate name:name];
         }
@@ -169,7 +174,9 @@
 }
 
 - (void)userContentController:(nonnull WKUserContentController *)userContentController didReceiveScriptMessage:(nonnull WKScriptMessage *)message {
-    
+    if ([message.name isEqualToString:@"logger"]) {// 输出 console.log
+        DKLog(@"console.log = %@", message.body);
+    }
 }
     
 #pragma - mark KVO
@@ -189,7 +196,7 @@
     }else if([keyPath isEqualToString:@"title"]
              && object == self.webView){
         if (!self.isNotLoadTitle) {
-            self.navigationItem.title = self.webView.title;
+            self.title = self.webView.title;
         }
     }else{
         [super observeValueForKeyPath:keyPath
@@ -380,14 +387,13 @@
 // 输入框
 //JavaScript调用prompt方法后回调的方法 prompt是js中的输入框 需要在block中把用户输入的信息传入
 - (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * _Nullable))completionHandler{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:prompt message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+    DKBaseAlertController *alert = [DKBaseAlertController dk_AlertControllerWithTitle:prompt handlerDefault:^(UIAlertAction * _Nonnull action) {
+        completionHandler(alert.textFields[0].text?:@"");
+    }];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         textField.text = defaultText;
     }];
-    [alertController addAction:([UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        completionHandler(alertController.textFields[0].text?:@"");
-    }])];
-    [self presentViewController:alertController animated:YES completion:nil];
+    [alert show];
 }
 
 // 页面是弹出窗口 _blank 处理

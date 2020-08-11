@@ -48,6 +48,9 @@
     [self __makeConstraints];
     [self __addViewModel];
     self.dk_Navi.dk_delegate = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noNetwork) name:DK_Noti_NoNetwork_NameKey object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkError) name:DK_Noti_NetworkError_NameKey object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkSuccess) name:DK_Noti_NetworkSuccess_NameKey object:nil];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -372,6 +375,19 @@
 #else
 
 #endif
+
+#pragma - mark noti
+- (void)noNetwork {
+    
+}
+
+- (void)networkError {
+    
+}
+
+- (void)networkSuccess {
+    
+}
 
 
 @end

@@ -31,6 +31,7 @@
     [super viewDidLoad];
     // 对 self.view 的操作写在这里
     self.view.backgroundColor = UIColorWhite;
+    [self showEmptyViewWithText:@"请求失败" detailText:@"请检查网络连接" buttonTitle:@"重试" buttonAction:@selector(hideEmptyView)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

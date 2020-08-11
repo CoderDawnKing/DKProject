@@ -19,7 +19,6 @@
 #import "DKBaseCollectionViewFlowLayout.h"
 #import "DKBaseEditTextFieldViewController.h"
 #import "DKBaseEditTextViewViewController.h"
-#import "DKBaseEmptyView.h"
 #import "DKBaseGridViewController.h"
 #import "DKBaseGroupListViewController.h"
 #import "DKBaseListViewController.h"

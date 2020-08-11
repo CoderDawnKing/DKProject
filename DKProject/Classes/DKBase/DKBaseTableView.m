@@ -14,9 +14,12 @@
 @implementation DKBaseTableView
 
 - (void)didInitialize {
+    self.autoHideMjFooter = YES;
+    self.autoShowEmpty = YES;
     [self __addSubViews];
     [self __makeConstraints];
     [self __addViewModel];
+    self.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.backgroundColor = dk_HexColor(DK_COLOR_TABLEVIEW_BACKGROUND);
 }
 

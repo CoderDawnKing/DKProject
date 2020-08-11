@@ -27,7 +27,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(nonnull UICollectionViewLayout *)layout {
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
-        self.dk_emptyView = [[DKBaseEmptyView alloc] init];
         self.autoHideMjFooter = YES;
         self.autoShowEmpty = YES;
         [self __addSubViews];

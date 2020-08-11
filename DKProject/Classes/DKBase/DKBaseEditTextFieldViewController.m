@@ -9,7 +9,7 @@
 #import "DKBaseEditTextFieldViewController.h"
 #import <DKProject/DKProject.h>
 
-@interface DKBaseEditTextFieldViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface DKBaseEditTextFieldViewController ()<QMUITableViewDelegate, QMUITableViewDataSource>
 @property (nonatomic, strong) UITextField *tf;
 @end
 

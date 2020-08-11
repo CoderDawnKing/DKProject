@@ -6,7 +6,7 @@
 //  Copyright © 2019 wisezone. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <QMUIKit/QMUIKit.h>
 
 @class DKBaseView;
 @class DKCustonLabel;
@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface DKBaseTableViewCell : UITableViewCell<DKBaseCellProtocol>
+@interface DKBaseTableViewCell : QMUITableViewCell<DKBaseCellProtocol>
 /** 输入框 */
 @property (nonatomic, strong) UITextField *textField;
 /** 顶部长线 */

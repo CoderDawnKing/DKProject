@@ -82,10 +82,10 @@
             }];
             
             [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.imageV.mas_bottom).offset(10);
-                make.left.mas_equalTo(0);
-                make.right.mas_equalTo(0);
-                make.bottom.mas_equalTo(-15);
+                make.top.equalTo(self.imageV.mas_bottom).offset(10).priorityLow();
+                make.left.mas_equalTo(0).priorityLow();
+                make.right.mas_equalTo(0).priorityLow();
+                make.bottom.mas_equalTo(-15).priorityLow();
                 make.height.mas_equalTo(17);
             }];
         }
@@ -111,10 +111,10 @@
         case DKBaseCollectionViewCellTypeBottomTitleTopImage:
             {
                 [self.title mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.top.equalTo(self.imageV.mas_bottom).offset(10+labelInsets.top);
-                    make.left.mas_equalTo(0+labelInsets.left);
-                    make.right.mas_equalTo(0-labelInsets.right);
-                    make.bottom.mas_equalTo(-15-labelInsets.bottom);
+                    make.top.equalTo(self.imageV.mas_bottom).offset(10+labelInsets.top).priorityHigh();
+                    make.left.mas_equalTo(0+labelInsets.left).priorityHigh();
+                    make.right.mas_equalTo(0-labelInsets.right).priorityHigh();
+                    make.bottom.mas_equalTo(-15-labelInsets.bottom).priorityHigh();
                 }];
             }
             break;

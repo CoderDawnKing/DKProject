@@ -385,4 +385,17 @@
     [self.tableView reloadData];
 }
 
+#pragma - mark noti
+- (void)noNetwork {
+    
+}
+
+- (void)networkError {
+    
+}
+
+- (void)networkSuccess {
+    
+}
+
 @end
