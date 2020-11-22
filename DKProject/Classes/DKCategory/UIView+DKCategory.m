@@ -10,13 +10,6 @@
 #import <objc/runtime.h>
 #import <DKProject/DKColorConfigure.h>
 
-static const NSString *dk_borderColorKey = @"dk_borderColor";
-static const NSString *dk_borderWidthKey = @"dk_borderWidth";
-static const NSString *dk_borderTypeKey = @"dk_borderType";
-static const NSString *dk_tapBlockKey = @"dk_tapBlockKey";
-static const NSString *dk_panBlockKey = @"dk_panBlockKey";
-static const NSString *dk_longPressBlockKey = @"dk_longPressBlockKey";
-
 @interface UIView ()
 @property (nonatomic, copy) DK_TapGestureRecognizerBlock dk_tapGestureRecognizerBlock;
 @property (nonatomic, copy) DK_PanGestureRecognizerBlock dk_panGestureRecognizerBlock;
@@ -296,11 +289,11 @@ static const NSString *dk_longPressBlockKey = @"dk_longPressBlockKey";
             layer.backgroundColor = dk_borderColor.CGColor;
         }
     }
-    objc_setAssociatedObject(self, &dk_borderColorKey, dk_borderColor, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, @selector(dk_borderColor), dk_borderColor, OBJC_ASSOCIATION_COPY);
 }
 
 - (UIColor *)dk_borderColor {
-    UIColor *color = objc_getAssociatedObject(self, &dk_borderColorKey);
+    UIColor *color = objc_getAssociatedObject(self, _cmd);
     if (color) {
         return color;
     }
@@ -308,7 +301,7 @@ static const NSString *dk_longPressBlockKey = @"dk_longPressBlockKey";
 }
 
 - (void)setDk_borderType:(DKViewBorderType)dk_borderType {
-    objc_setAssociatedObject(self, &dk_borderTypeKey, @(dk_borderType), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(dk_borderType), @(dk_borderType), OBJC_ASSOCIATION_ASSIGN);
     NSArray<CALayer *> *subLayers = self.layer.sublayers;
     NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         return [evaluatedObject isKindOfClass:[CAShapeLayer class]];
@@ -345,16 +338,16 @@ static const NSString *dk_longPressBlockKey = @"dk_longPressBlockKey";
 }
 
 - (DKViewBorderType)dk_borderType {
-    DKViewBorderType type = [objc_getAssociatedObject(self, &dk_borderTypeKey) unsignedIntegerValue];
+    DKViewBorderType type = [objc_getAssociatedObject(self, _cmd) unsignedIntegerValue];
     return type?type:DKViewBorderTypeNone;
 }
 
 - (void)setDk_borderWidth:(CGFloat)dk_borderWidth {
-    objc_setAssociatedObject(self, &dk_borderWidthKey, @(dk_borderWidth), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(dk_borderWidth), @(dk_borderWidth), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (CGFloat)dk_borderWidth {
-    return [objc_getAssociatedObject(self, &dk_borderWidthKey) floatValue];
+    return [objc_getAssociatedObject(self, _cmd) floatValue];
 }
 
 - (void)dk_addBorderLayerWithType:(DKViewBorderType)type {
@@ -476,10 +469,10 @@ static const NSString *dk_longPressBlockKey = @"dk_longPressBlockKey";
 
 #pragma - mark 添加点击手势
 - (void)setDk_tapGestureRecognizerBlock:(DK_TapGestureRecognizerBlock)dk_tapGestureRecognizerBlock {
-    objc_setAssociatedObject(self, &dk_tapBlockKey, dk_tapGestureRecognizerBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(dk_tapGestureRecognizerBlock), dk_tapGestureRecognizerBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 - (DK_TapGestureRecognizerBlock)dk_tapGestureRecognizerBlock {
-    return objc_getAssociatedObject(self, &dk_tapBlockKey);
+    return objc_getAssociatedObject(self, _cmd);
 }
 - (void)dk_addTapGestureRecognizer:(DK_TapGestureRecognizerBlock)tapGestureRecognizerBlock{
     self.dk_tapGestureRecognizerBlock = tapGestureRecognizerBlock;
@@ -495,10 +488,10 @@ static const NSString *dk_longPressBlockKey = @"dk_longPressBlockKey";
 
 #pragma - mark 添加拖动手势
 - (void)setDk_panGestureRecognizerBlock:(DK_PanGestureRecognizerBlock)dk_panGestureRecognizerBlock {
-    objc_setAssociatedObject(self, &dk_panBlockKey, dk_panGestureRecognizerBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(dk_panGestureRecognizerBlock), dk_panGestureRecognizerBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 - (DK_PanGestureRecognizerBlock)dk_panGestureRecognizerBlock {
-    return objc_getAssociatedObject(self, &dk_panBlockKey);
+    return objc_getAssociatedObject(self, _cmd);
 }
 - (void)dk_addPanGestureRecognizer:(DK_PanGestureRecognizerBlock)panGestureRecognizerBlock {
     self.dk_panGestureRecognizerBlock = panGestureRecognizerBlock;
@@ -514,10 +507,10 @@ static const NSString *dk_longPressBlockKey = @"dk_longPressBlockKey";
 
 #pragma - mark 添加长按手势
 - (void)setDk_longPressGestureRecognizerBlock:(DK_LongPressGestureRecognizerBlock)dk_longPressGestureRecognizerBlock {
-    objc_setAssociatedObject(self, &dk_longPressBlockKey, dk_longPressGestureRecognizerBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(dk_longPressGestureRecognizerBlock), dk_longPressGestureRecognizerBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 - (DK_LongPressGestureRecognizerBlock)dk_longPressGestureRecognizerBlock {
-    return objc_getAssociatedObject(self, &dk_longPressBlockKey);
+    return objc_getAssociatedObject(self, _cmd);
 }
 - (void)dk_addLongPressGestureRecognizer:(DK_LongPressGestureRecognizerBlock)longPressGestureRecognizerBlock {
     self.dk_longPressGestureRecognizerBlock = longPressGestureRecognizerBlock;

@@ -9,14 +9,6 @@
 #import "UITextView+DKCategory.h"
 #import <objc/runtime.h>
 
-static const void *DKMaxAutoHeight = &DKMaxAutoHeight;
-static const void *DKMinAutoHeight = &DKMinAutoHeight;
-static const void *DKIsAutoBool  = &DKIsAutoBool;
-static const void *DKplaceholder_font  = &DKplaceholder_font;
-static const void *DKplaceholder_color  = &DKplaceholder_color;
-static const void *DKplaceholder_text  = &DKplaceholder_text;
-static const void *DKplaceholder_attributed  = &DKplaceholder_attributed;
-
 @interface UITextView (){
 }
 
@@ -135,21 +127,21 @@ static const void *DKplaceholder_attributed  = &DKplaceholder_attributed;
 #pragma mark `placeholder`
 
 - (NSString *)placeholder_text {
-    return (NSString *)objc_getAssociatedObject(self, DKplaceholder_text);
+    return (NSString *)objc_getAssociatedObject(self, _cmd);
 }
 
 - (void)setPlaceholder_text:(NSString *)placeholder_text {
-    objc_setAssociatedObject(self,DKplaceholder_text,placeholder_text,OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(placeholder_text), placeholder_text, OBJC_ASSOCIATION_COPY_NONATOMIC);
     self.placeholderLabel.text = placeholder_text;
     [self updatePlaceholderLabel];
 }
 
 - (NSAttributedString *)placeholder_attributed {
-    return (NSAttributedString *)objc_getAssociatedObject(self, DKplaceholder_attributed);
+    return (NSAttributedString *)objc_getAssociatedObject(self, _cmd);
 }
 
 - (void)setPlaceholder_attributed:(NSAttributedString *)placeholder_attributed {
-    objc_setAssociatedObject(self,DKplaceholder_attributed,placeholder_attributed,OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(placeholder_attributed), placeholder_attributed, OBJC_ASSOCIATION_COPY_NONATOMIC);
     self.placeholderLabel.attributedText = placeholder_attributed;
     [self updatePlaceholderLabel];
 }
@@ -157,23 +149,23 @@ static const void *DKplaceholder_attributed  = &DKplaceholder_attributed;
 #pragma mark `placeholderColor`
 
 - (UIColor *)placeholder_color {
-    return (UIColor *)objc_getAssociatedObject(self, DKplaceholder_color);
+    return (UIColor *)objc_getAssociatedObject(self, _cmd);
 }
 
 - (void)setPlaceholder_color:(UIColor *)placeholder_color {
-    objc_setAssociatedObject(self,DKplaceholder_color,placeholder_color,OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(placeholder_color), placeholder_color, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.placeholderLabel.textColor = placeholder_color;
 }
 
 #pragma mark `placeholderFont`
 - (void)setPlaceholder_font:(UIFont *)placeholder_font {
-    objc_setAssociatedObject(self,DKplaceholder_font,placeholder_font,OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(placeholder_font), placeholder_font, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.placeholderLabel.font = placeholder_font;
     [self.placeholderLabel sizeToFit];
 }
 
 - (UIFont *)placeholder_font {
-    return (UIFont *)objc_getAssociatedObject(self, DKplaceholder_font) ;
+    return (UIFont *)objc_getAssociatedObject(self, _cmd) ;
 }
 
 - (NSUInteger)dk_maxNumberOfLines {
@@ -204,32 +196,32 @@ static const void *DKplaceholder_attributed  = &DKplaceholder_attributed;
 #pragma - mark 自动高度
 - (BOOL)isAutoHeight
 {
-    return [objc_getAssociatedObject(self, DKIsAutoBool) boolValue];
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
 - (void)setIsAutoHeight:(BOOL)isAutoHeight {
     [self setNeedsLayout];
-    objc_setAssociatedObject(self,DKIsAutoBool,@(isAutoHeight),OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(isAutoHeight), @(isAutoHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma - mark 最大高度
 - (CGFloat)maxAutoHeight
 {
-    return [objc_getAssociatedObject(self, DKMaxAutoHeight) floatValue];
+    return [objc_getAssociatedObject(self, _cmd) floatValue];
 }
 
 - (void)setMaxAutoHeight:(CGFloat)maxAutoHeight {
-    objc_setAssociatedObject(self,DKMaxAutoHeight,@(maxAutoHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(maxAutoHeight), @(maxAutoHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma - mark 最小高度
 - (CGFloat)minAutoHeight
 {
-    return [objc_getAssociatedObject(self, DKMinAutoHeight) floatValue];
+    return [objc_getAssociatedObject(self, _cmd) floatValue];
 }
 
 - (void)setMinAutoHeight:(CGFloat)minAutoHeight {
-    objc_setAssociatedObject(self,DKMinAutoHeight,@(minAutoHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(minAutoHeight), @(minAutoHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - KVO

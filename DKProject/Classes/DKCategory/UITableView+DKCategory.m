@@ -94,31 +94,28 @@ void dk_tableView_swizzleMethod(Class class, SEL originalSelector, SEL swizzledS
 }
 
 #pragma mark - 添加属性
-static const char *dk_autoHideMjFooterKey = "dk_autoHideMjFooterKey";
 - (void)setAutoHideMjFooter:(BOOL)autoHideMjFooter {
-    objc_setAssociatedObject(self, dk_autoHideMjFooterKey, @(autoHideMjFooter), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(isAutoHideMjFooter), @(autoHideMjFooter), OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (BOOL)isAutoHideMjFooter{
-    return [objc_getAssociatedObject(self, dk_autoHideMjFooterKey) boolValue];
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
-static const char *autoShowEmptyKey = "autoShowEmpty";
 - (void)setAutoShowEmpty:(BOOL)autoShowEmpty {
-    objc_setAssociatedObject(self, autoShowEmptyKey, @(autoShowEmpty), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(isAutoShowEmpty), @(autoShowEmpty), OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (BOOL)isAutoShowEmpty{
-    return [objc_getAssociatedObject(self, autoShowEmptyKey) boolValue];
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
-static const char *dk_endHeaderRefreshingKey = "dk_endHeaderRefreshing";
 - (void)setEndHeaderRefreshing:(BOOL)endHeaderRefreshing {
-    objc_setAssociatedObject(self, dk_endHeaderRefreshingKey, @(endHeaderRefreshing), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(isEndHeaderRefreshing), @(endHeaderRefreshing), OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (BOOL)isEndHeaderRefreshing {
-    return [objc_getAssociatedObject(self, dk_endHeaderRefreshingKey) boolValue];
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
 /**
